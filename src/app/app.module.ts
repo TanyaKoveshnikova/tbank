@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AunthetiatedComponent } from './authenticated/aunthetiated.component';
+import { HomeComponent } from './home/home.component';
+import { HomeAunthetiatedComponent } from './home-aunthetiated/home-aunthetiated.component';
+import {SpaModule} from "../spa/spa.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AunthetiatedComponent,
+    HomeComponent,
+    HomeAunthetiatedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SpaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
