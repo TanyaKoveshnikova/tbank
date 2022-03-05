@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spa-body.component.scss']
 })
 export class SpaBodyComponent implements OnInit {
+  title = 'Preparation for the tbank';
+  year = new Date().getFullYear();
 
   constructor() { }
 

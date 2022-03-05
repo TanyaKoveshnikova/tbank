@@ -1,3 +1,14 @@
+html,
+body{
+  height: 100%;
+}
+
+.wrapper{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 :host{
   display: flex;
   position: absolute;
@@ -6,4 +17,35 @@
   right: 0;
   left: 0;
   bottom: 0;
+  background-color: #de97bd;
+  height: 100vh;
 }
+
+.content{
+  flex: 1 1 auto;
+}
+
+.title-bar{
+  flex-grow: 1;
+  display: flex;
+  min-height: 120px;
+  padding: 10px 0;
+
+  img{
+    height: 120px;
+  }
+
+  .menu-area{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-right: 20px;
+  }
+}
+
+.footer{
+  min-height: 30px;
+  background-color: #d16fa3;
+}
+
+
