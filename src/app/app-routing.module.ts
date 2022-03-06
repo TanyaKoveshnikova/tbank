@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AunthetiatedComponent} from "./authenticated/aunthetiated.component";
-import {HomeComponent} from "./home/home.component";
-import {HomeAunthetiatedComponent} from "./home-aunthetiated/home-aunthetiated.component";
+import {SpaBodyComponent} from "../spa/spa-body/spa-body.component";
+import {RegisterReactiveFormComponent} from "../spa/register-reactive-form/register-reactive-form.component";
 
 const routes: Routes = [
-  {path: 'authenticated',component: AunthetiatedComponent,
-  children:[
-    {path: 'home',component: HomeAunthetiatedComponent}
-  ]},
+  {path: 'register', component: RegisterReactiveFormComponent},
   {path: '',   redirectTo: '', pathMatch: 'full' },
-  {path: '**', component: HomeComponent}
+  {path: '**', component: SpaBodyComponent}
 ];
 
 @NgModule({

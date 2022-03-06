@@ -1,15 +1,15 @@
 html,
-body{
+body {
   height: 100%;
 }
 
-.wrapper{
+.wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-:host{
+:host {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -21,29 +21,36 @@ body{
   height: 100vh;
 }
 
-.content{
+
+.header {
+  min-height: 120px;
+  background-color: #d16fa3;
+  padding: 10px 0;
+
+  .title-bar {
+    flex-grow: 1;
+    display: flex;
+
+    img {
+     height: 120px;
+     transform: rotate(90deg) scale(2.2);
+    }
+
+    .menu-area {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-right: 20px;
+
+    }
+  }
+}
+
+.content {
   flex: 1 1 auto;
 }
 
-.title-bar{
-  flex-grow: 1;
-  display: flex;
-  min-height: 120px;
-  padding: 10px 0;
-
-  img{
-    height: 120px;
-  }
-
-  .menu-area{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding-right: 20px;
-  }
-}
-
-.footer{
+.footer {
   min-height: 30px;
   background-color: #d16fa3;
 }
