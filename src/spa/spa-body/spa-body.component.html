@@ -3,19 +3,18 @@
     <div class="title-bar">
       <img src="../../assets/images/logo_blue.png" alt="logo-flowers">
       <div class="menu-area">
-        <button class="button_pink" routerLink="/register">Register</button>
+        <button class="button_pink" routerLink="/register">sign in</button>
       </div>
     </div>
   </div>
 
   <div class="content">
-<!--    <register-reactive-form></register-reactive-form>-->
+    <router-outlet></router-outlet>
   </div>
 
   <div class="footer">
-     {{year}} {{title}}
+    {{data}} {{title}}
   </div>
-  <router-outlet></router-outlet>
 </div>
 
 

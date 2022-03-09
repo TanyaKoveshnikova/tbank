@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spa-body.component.scss']
 })
 export class SpaBodyComponent implements OnInit {
-  title = 'Preparation for the tbank';
-  year = new Date().getFullYear();
+  public title = 'Preparation for the tbank';
+  public data?:String;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    let day = new Date().getDay();
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+    this.data = `${day}.${month}.${year}`
   }
 
 }

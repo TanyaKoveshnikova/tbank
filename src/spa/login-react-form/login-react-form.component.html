@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <form [formGroup]="login"
+        (ngSubmit)="onSubmit()">
+    <div class="value">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="mail"/>
+      <span
+        class="helper-text red-text"
+        *ngIf = "login!.get('mail').invalid && login.get('mail').touched"
+      >
+        Error
+      </span>
+    </div>
+    <div class="value">
+      <label for="password">password</label>
+      <input id="password" type="password" formControlName="password"/>
+    </div>
+    <nav>
+      <button
+        type="submit"
+        class="sign"
+        routerLink="/personal"
+        [disabled]="login.invalid"
+      >sign
+      </button>
+      <ul>
+        <li routerLink="/register">Register new account</li>
+        <li>Forgotten account?</li> <!-- - Заглушка-->
+      </ul>
+    </nav>
+  </form>
+</div>
+

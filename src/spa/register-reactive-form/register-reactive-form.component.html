@@ -1,24 +1,41 @@
-<form [formGroup]="registerForm">
-  <div class="fieldRegistration">
-    <div class="value">
-      <label>Email</label>
-      <input type="email" formControlName="mail"/>
+<div class="wrapper">
+  <form [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()">
+    <div class="fieldRegistration">
+      <div class="value">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="mail"/>
+      </div>
+      <div class="value">
+        <label for="password">password</label>
+        <input id="password" type="password" formControlName="password"/>
+      </div>
+      <div class="value">
+        <label for="confirmPassword">confirmPassword</label>
+        <input id="confirmPassword" type="email" formControlName="confirmPassword"/>
+      </div>
+      <div class="value">
+        <label for="name">name</label>
+        <input id="name" type="text" formControlName="name"/>
+      </div>
+      <div class="value">
+        <label for="surname">surname</label>
+        <input id="surname" type="text" formControlName="surname"/>
+      </div>
     </div>
-    <div class="value">
-      <label>password</label>
-      <input type="password" formControlName="password"/>
-    </div>
-    <div class="value">
-      <label>confirmPassword</label>
-      <input type="email" formControlName="confirmPassword"/>
-    </div>
-    <div class="value">
-      <label>name</label>
-      <input type="text" formControlName="name"/>
-    </div>
-    <div class="value">
-      <label>surname</label>
-      <input type="text" formControlName="surname"/>
-    </div>
-  </div>
-</form>
+    <nav>
+      <button
+        type="submit"
+        class="sign"
+        routerLink="/personal"
+        [disabled]="registerForm.invalid"
+      >sign</button>
+      <ul>
+        <li routerLink="/authorization">Already have account?</li>
+      </ul>
+    </nav>
+  </form>
+</div>
+
+
+

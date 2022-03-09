@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, FormControlName} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, FormControlName, Validators} from "@angular/forms";
 
 @Component({
   selector: 'register-reactive-form',
@@ -7,31 +7,28 @@ import {FormControl, FormGroup, FormControlName} from "@angular/forms";
   styleUrls: ['./register-reactive-form.component.scss']
 })
 export class RegisterReactiveFormComponent implements OnInit {
-  registerForm: FormGroup;
+  public registerForm: FormGroup = new FormGroup({});
 
   constructor() {
-    this.registerForm = new FormGroup({
-      mail: new FormControl('gfgf'),
-      password: new FormControl('null'),
-      confirmPassword: new FormControl('null'),
-      name: new FormControl('null'),
-      surname: new FormControl('null'),
-      //mobile: new FormControl(null), - опциональное поле
-    })
+    this._createForm()
   }
 
   ngOnInit() {
   }
 
-  private _createForm(){
+  private _createForm() {
     this.registerForm = new FormGroup({
-      mail: new FormControl('gfgf'),
-      password: new FormControl('null'),
-      confirmPassword: new FormControl('null'),
-      name: new FormControl('null'),
-      surname: new FormControl('null'),
+      mail: new FormControl('gfgf', [Validators.required, Validators.email]),
+      password: new FormControl('null', [Validators.required, Validators.minLength(6)]),
+      confirmPassword: new FormControl('null', [Validators.required, Validators.minLength(6)]),
+      name: new FormControl('null', [Validators.required, Validators.minLength(2)]),
+      surname: new FormControl('null', [Validators.required]),
       //mobile: new FormControl(null), - опциональное поле
     })
+  }
+
+  public onSubmit() {
+
   }
 
 }
