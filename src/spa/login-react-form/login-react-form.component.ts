@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-authorization-react-form',
@@ -9,23 +11,35 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class LoginReactFormComponent implements OnInit {
   public login: FormGroup = new FormGroup({});
 
-  constructor() {
-   this._createForm();
+  constructor(private http: HttpClient, private router: Router) {
+    this._createForm();
   }
 
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  private _createForm(){
+  private _createForm() {
     this.login = new FormGroup({
-      mail: new FormControl('gfgf', [Validators.required, Validators.email]),
-      password: new FormControl('null', [Validators.required, Validators.minLength(6)]),
+      mail: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     })
   }
 
   public onSubmit() {
-
+    this.http.get<any>('http://localhost:3000/signupUsers')
+      .subscribe(res => {
+        const user = res.find((a: any) => {
+          return a.mail === this.login.value.mail && a.password === this.login.value.password
+        });
+        if(user){
+          alert('Login Success');
+          this.login.reset();
+          this.router.navigate(['/personal/' + user.id])
+        } else{
+          alert('user not found');
+        }
+      }, err =>{
+        alert('Something went wrong')
+      })
   }
-
 }

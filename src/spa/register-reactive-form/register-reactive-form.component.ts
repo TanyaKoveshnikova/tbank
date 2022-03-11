@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormControlName, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators, Validator, FormBuilder} from "@angular/forms";
+import {ConfirmedValidator} from "../providers/CustomValidators";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'register-reactive-form',
@@ -9,7 +12,7 @@ import {FormControl, FormGroup, FormControlName, Validators} from "@angular/form
 export class RegisterReactiveFormComponent implements OnInit {
   public registerForm: FormGroup = new FormGroup({});
 
-  constructor() {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router ) {
     this._createForm()
   }
 
@@ -17,18 +20,30 @@ export class RegisterReactiveFormComponent implements OnInit {
   }
 
   private _createForm() {
-    this.registerForm = new FormGroup({
-      mail: new FormControl('gfgf', [Validators.required, Validators.email]),
-      password: new FormControl('null', [Validators.required, Validators.minLength(6)]),
-      confirmPassword: new FormControl('null', [Validators.required, Validators.minLength(6)]),
-      name: new FormControl('null', [Validators.required, Validators.minLength(2)]),
-      surname: new FormControl('null', [Validators.required]),
-      //mobile: new FormControl(null), - опциональное поле
-    })
+    this.registerForm = this.fb.group({
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+        name: ['', [Validators.required]],
+        surname: ['', [Validators.required]],
+        mail: ['', [Validators.required, Validators.email]],
+      },
+      {
+        validator: ConfirmedValidator('password', 'confirmPassword')
+      })
+  }
+
+  get f() {
+    return this.registerForm.controls;
   }
 
   public onSubmit() {
-
+    this.http.post<any>('http://localhost:3000/signupUsers', this.registerForm.value)
+      .subscribe(res =>{
+        alert('Signup Successful');
+        this.registerForm.reset();
+        this.router.navigate(['/login']);
+      },err => {
+        alert('Signup Unsuccessful. Something went wrong');
+      })
   }
-
 }

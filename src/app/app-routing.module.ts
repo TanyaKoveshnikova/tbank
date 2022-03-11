@@ -8,7 +8,7 @@ import {LoginReactFormComponent} from "../spa/login-react-form/login-react-form.
 const routes: Routes = [
   {path: 'register', component: RegisterReactiveFormComponent},
   {path: 'personal', component: PersonalAreaComponent},
-  {path: 'authorization', component: LoginReactFormComponent},
+  {path: 'login', component: LoginReactFormComponent},
   {path: '',   redirectTo: '', pathMatch: 'full' },
   {path: '**', component: SpaBodyComponent}
 ];

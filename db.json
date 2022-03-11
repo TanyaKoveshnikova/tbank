@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "password": "123456",
+      "name": "Гарри",
+      "surname": "Поттер",
+      "mail": "imbettermagician@hog.ru"
+    },
+    {
+      "id": 2,
+      "password": "987654",
+      "name": "Рон",
+      "surname": "Уизли",
+      "mail": "dogcat@hog.ru"
+    },
+    {
+      "id": 3,
+      "password": "124578",
+      "name": "Гермиона",
+      "surname": "Грейнджер",
+      "mail": "betterhalfbreed@hog.ru"
+    }
+  ],
+  "signupUsers": [
+    {
+      "password": "123456",
+      "confirmPassword": "123456",
+      "name": "Татьяна ",
+      "surname": "Ковешникова ",
+      "mail": "taniakovesh@mail.ru",
+      "id": 1
+    }
+  ]
+}

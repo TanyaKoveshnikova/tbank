@@ -4,34 +4,91 @@
     <div class="fieldRegistration">
       <div class="value">
         <label for="email">Email</label>
-        <input id="email" type="email" formControlName="mail"/>
-      </div>
-      <div class="value">
-        <label for="password">password</label>
-        <input id="password" type="password" formControlName="password"/>
-      </div>
-      <div class="value">
-        <label for="confirmPassword">confirmPassword</label>
-        <input id="confirmPassword" type="email" formControlName="confirmPassword"/>
+        <input id="email"
+               type="email"
+               formControlName="mail"
+               [ngClass]="{'invalid': registerForm.get('mail').invalid && registerForm.get('mail').touched}"
+        />
+        <div
+          class="helper-text red-text"
+          *ngIf="f['mail'].invalid && f['mail'].touched"
+        >
+          <span *ngIf="f['mail'].errors['required']">Email не должен быть пустым</span>
+          <span *ngIf="f['mail'].errors['email']">Введите корректный Email</span>
+        </div>
       </div>
       <div class="value">
         <label for="name">name</label>
         <input id="name" type="text" formControlName="name"/>
+        <div
+          class="helper-text red-text"
+          *ngIf="f['name'].invalid && f['name'].touched">
+          <span *ngIf="f['name'].errors['required'] && f['confirmPassword'].errors">
+            Заполните имя
+          </span>
+        </div>
       </div>
       <div class="value">
         <label for="surname">surname</label>
         <input id="surname" type="text" formControlName="surname"/>
+        <div
+          class="helper-text red-text"
+          *ngIf="f['surname'].invalid && f['surname'].touched">
+          <span *ngIf="f['surname'].errors['required'] && f['confirmPassword'].errors">
+            Заполните фамилию
+          </span>
+        </div>
+      </div>
+      <div class="value">
+        <label for="password">password</label>
+        <input id="password"
+               type="password"
+               formControlName="password"
+
+        />
+        <div
+          class="helper-text red-text"
+          *ngIf="f['password'].invalid && f['password'].touched"
+        >
+          <span *ngIf="f['password'].errors['required']">Пароль не должен быть пустым</span>
+          <span
+            *ngIf="f['password'].errors['minlength'] && f['password'].errors['minlength']['requiredLength']">
+          Пароль должен быть больше {{f['password'].errors['minlength']['requiredLength']}} символов.
+          Сейчас {{f['password'].errors['minlength']['actualLength']}}
+        </span>
+        </div>
+      </div>
+      <div class="value">
+        <label for="confirmPassword">confirmPassword</label>
+        <input id="confirmPassword"
+               type="password"
+               formControlName="confirmPassword"
+        />
+        <div
+          class="helper-text red-text"
+          *ngIf="f['confirmPassword'].invalid && f['confirmPassword'].touched">
+          <span *ngIf="f['confirmPassword'].errors['required'] && f['confirmPassword'].errors">Пароль не должен быть пустым</span>
+          <span
+            *ngIf="f['confirmPassword'].errors['minlength'] && f['confirmPassword'].errors['minlength']['requiredLength']">
+          Пароль должен быть больше {{f['confirmPassword'].errors['minlength']['requiredLength']}} символов.
+          Сейчас {{f['confirmPassword'].errors['minlength']['actualLength']}}
+        </span>
+          <span
+            *ngIf="f['confirmPassword'].errors['confirmedValidator']">
+            Password ang Confirmed Password Must be Match
+          </span>
+        </div>
       </div>
     </div>
     <nav>
       <button
         type="submit"
         class="sign"
-        routerLink="/personal"
-        [disabled]="registerForm.invalid"
-      >sign</button>
+        [disabled]="!registerForm.valid"
+      >sign
+      </button>
       <ul>
-        <li routerLink="/authorization">Already have account?</li>
+        <li routerLink="/login">Already have account?</li>
       </ul>
     </nav>
   </form>
