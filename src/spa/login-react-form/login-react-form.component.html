@@ -1,31 +1,36 @@
 <div class="wrapper">
+  <div class="signUp">
+    sign
+  </div>
   <form [formGroup]="login"
         (ngSubmit)="onSubmit()">
-    <div class="value">
-      <label for="email">Email</label>
-      <input id="email"
-             type="email"
-             formControlName="mail"
-      />
-      <div
-        class="helper-text red-text"
-        *ngIf="login.get('mail').invalid && login.get('mail').touched"
-      >
-        <span *ngIf="login.get('mail').errors['required']">Email не должен быть пустым</span>
-        <span *ngIf="login.get('mail').errors['email']">Введите корректный Email</span>
+    <div class="fieldRegistration">
+      <div class="value">
+        <label for="email">Email</label>
+        <input id="email"
+               type="email"
+               formControlName="mail"
+        />
+        <div
+          class="helper-text red-text"
+          *ngIf="login.get('mail').invalid && login.get('mail').touched"
+        >
+          <span *ngIf="login.get('mail').errors['required']">Email не должен быть пустым</span>
+          <span *ngIf="login.get('mail').errors['email']">Введите корректный Email</span>
+        </div>
       </div>
-    </div>
-    <div class="value">
-      <label for="password">password</label>
-      <input id="password"
-             type="password"
-             formControlName="password"
-      />
-      <div
-        class="helper-text red-text"
-        *ngIf="login.get('password').invalid && login.get('password').touched"
-      >
-        <span *ngIf="login.get('password').errors['required']">Пароль не должен быть пустым</span>
+      <div class="value">
+        <label for="password">password</label>
+        <input id="password"
+               type="password"
+               formControlName="password"
+        />
+        <div
+          class="helper-text red-text"
+          *ngIf="login.get('password').invalid && login.get('password').touched"
+        >
+          <span *ngIf="login.get('password').errors['required']">Пароль не должен быть пустым</span>
+        </div>
       </div>
     </div>
     <nav>

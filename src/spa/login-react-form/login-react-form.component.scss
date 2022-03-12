@@ -1,0 +1,74 @@
+.wrapper {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  margin-top: 3em;
+
+  .signUp {
+    font-size: 2em;
+  }
+
+  form {
+    border: rgb(88, 62, 185) 3px solid;
+    background-color: rgb(88, 62, 185);
+    text-align: center;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-left: auto;
+    width: 40%;
+    height: 30em;
+    border-radius: 3%;
+  }
+
+
+  .fieldRegistration {
+    margin-top: 5em;
+
+    .value {
+      margin-top: 1em;
+      font-size: 1.7em;
+      text-align: left;
+      margin-left: 30px;
+
+      label {
+        padding: 15px;
+      }
+
+      input {
+        width: 25em;
+        height: 2.6em;
+        border-radius: 10px;
+      }
+
+      .red-text {
+        color: #ffc1c1;
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  .sign {
+    padding: 5px;
+    font-size: 1.8em;
+    margin-top: 1em;
+    width: 7em;
+    border-radius: 10px;
+  }
+
+  ul {
+    display: flex;
+    width: 24em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ul li {
+    margin-top: 1em;
+    font-size: 1.1em;
+  }
+
+  li:last-child {
+    margin-left: auto;
+  }
+}

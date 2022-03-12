@@ -1,0 +1,62 @@
+.wrapper {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  margin-top: 3em;
+
+  .signUp {
+    font-size: 2em;
+  }
+
+  form {
+    border: rgb(88, 62, 185) 3px solid;
+    background-color: rgb(88, 62, 185);
+    text-align: center;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-left: auto;
+    width: 40%;
+    height: 30em;
+    border-radius: 3%;
+  }
+
+
+  .fieldRegistration {
+
+    .value {
+      margin-top: 0.5em;
+      font-size: 1.7em;
+      text-align: left;
+      margin-left: 30px;
+
+      label {
+        padding: 15px;
+      }
+
+      input {
+        width: 25em;
+        height: 2.6em;
+        border-radius: 10px;
+      }
+
+      .red-text {
+        color: #ffc1c1;
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  .sign{
+    padding: 5px;
+    font-size: 1.8em;
+    margin-top: 0.5em;
+    width: 7em;
+    border-radius: 10px;
+  }
+
+  ul li{
+    margin-top: 0.5em;
+    font-size: 1.1em;
+  }
+}

@@ -1,3 +1,5 @@
+$sizeHeader: 90px;
+$colorHeaFoot: rgba(27, 2, 105, 0.98);
 html,
 body {
   height: 100%;
@@ -17,14 +19,14 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: #de97bd;
+  background-color: $colorHeaFoot;
   height: 100vh;
 }
 
 
 .header {
-  min-height: 120px;
-  background-color: #d16fa3;
+  min-height: $sizeHeader;
+  background-color: $colorHeaFoot;
   padding: 10px 0;
 
   .title-bar {
@@ -32,8 +34,8 @@ body {
     display: flex;
 
     img {
-     height: 120px;
-     transform: rotate(90deg) scale(2.2);
+      height: $sizeHeader;
+      transform: rotate(90deg) scale(2.55);
     }
 
     .menu-area {
@@ -51,8 +53,20 @@ body {
 }
 
 .footer {
+  color: white;
   min-height: 30px;
-  background-color: #d16fa3;
+  background-color: $colorHeaFoot;
 }
 
+.sign {
+  padding: 5px;
+  font-size: 1em;
+  width: 7em;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: 0.5em;
+  margin-top: auto;
+  margin-bottom: 0.5em;
+
+}
 
