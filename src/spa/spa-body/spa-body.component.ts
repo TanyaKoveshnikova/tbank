@@ -7,15 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpaBodyComponent implements OnInit {
   public title = 'Preparation for the tbank';
-  public data?:String;
+  public date = Date.now();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(){
-    let day = new Date().getDay();
-    let month = new Date().getMonth();
-    let year = new Date().getFullYear();
-    this.data = `${day}.${month}.${year}`
   }
 
 }

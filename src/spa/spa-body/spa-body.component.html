@@ -3,7 +3,7 @@
     <div class="title-bar">
       <img src="../../assets/images/logo_blue.png" alt="logo-flowers">
       <div class="menu-area">
-        <button class="sign" routerLink="/register">sign in</button>
+        <button class="sign" routerLink="/admin/register">sign in</button>
       </div>
     </div>
   </div>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="footer">
-    {{data}} {{title}}
+    {{date | date : 'd.MM.yyyy'}}  {{title}}
   </div>
 </div>
 

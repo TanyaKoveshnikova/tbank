@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {SpaBodyComponent} from "../spa/spa-body/spa-body.component";
-import {RegisterReactiveFormComponent} from "../spa/register-reactive-form/register-reactive-form.component";
-import {PersonalAreaComponent} from "../spa/personal-area/personal-area.component";
-import {LoginReactFormComponent} from "../spa/login-react-form/login-react-form.component";
+import {RegisterReactiveFormComponent} from "./login/components/register-reactive-form/register-reactive-form.component";
+import {PersonalAreaComponent} from "../spa/components/personal-area/personal-area.component";
+import {LoginReactFormComponent} from "./login/components/login-react-form/login-react-form.component";
 
 const routes: Routes = [
-  {path: 'register', component: RegisterReactiveFormComponent},
+  {path: 'admin', loadChildren:()=> import('./login/login.module')
+      .then(mod=>mod.LoginModule)},
   // {path: 'personal', component: PersonalAreaComponent},
-  {path: 'login', component: LoginReactFormComponent},
   {path: '',   redirectTo: '', pathMatch: 'full' },
   {path: '**', component: SpaBodyComponent}
 ];

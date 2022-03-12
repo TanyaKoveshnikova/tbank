@@ -10,13 +10,14 @@
         <input id="email"
                type="email"
                formControlName="mail"
+               tabindex="1"
         />
         <div
           class="helper-text red-text"
           *ngIf="login.get('mail').invalid && login.get('mail').touched"
         >
-          <span *ngIf="login.get('mail').errors['required']">Email не должен быть пустым</span>
-          <span *ngIf="login.get('mail').errors['email']">Введите корректный Email</span>
+          <span *ngIf="login.get('mail').errors['required']">Email must not be empty</span>
+          <span *ngIf="login.get('mail').errors['email']">Please enter a valid Email</span>
         </div>
       </div>
       <div class="value">
@@ -24,12 +25,13 @@
         <input id="password"
                type="password"
                formControlName="password"
+               tabindex="2"
         />
         <div
           class="helper-text red-text"
           *ngIf="login.get('password').invalid && login.get('password').touched"
         >
-          <span *ngIf="login.get('password').errors['required']">Пароль не должен быть пустым</span>
+          <span *ngIf="login.get('password').errors['required']">Password must not be empty</span>
         </div>
       </div>
     </div>
@@ -41,7 +43,7 @@
       >sign
       </button>
       <ul>
-        <li routerLink="/register">Register new account</li>
+        <li routerLink="/admin/register">Register new account</li>
         <li>Forgotten account?</li> <!-- - Заглушка-->
       </ul>
     </nav>

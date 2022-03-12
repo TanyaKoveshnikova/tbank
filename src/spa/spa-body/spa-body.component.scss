@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
 }
 
 :host {
@@ -19,7 +20,6 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: $colorHeaFoot;
   height: 100vh;
 }
 
@@ -50,11 +50,13 @@ body {
 
 .content {
   flex: 1 1 auto;
+  background-color: rgba(27, 2, 105, 0.97);
 }
 
 .footer {
   color: white;
-  min-height: 30px;
+  max-height: 30px;
+  padding: 1em;
   background-color: $colorHeaFoot;
 }
 
@@ -62,11 +64,18 @@ body {
   padding: 5px;
   font-size: 1em;
   width: 7em;
+  color: #ecdcdc;
+  background-color: rgb(88, 62, 185);;
   border-radius: 10px;
+  border: rgb(61, 33, 173);
   margin-left: auto;
-  margin-right: 0.5em;
+  margin-right: 1em;
   margin-top: auto;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+}
 
+.sign:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
 }
 

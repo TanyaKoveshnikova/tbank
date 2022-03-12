@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, Validator, FormBuilder} from "@angular/forms";
-import {ConfirmedValidator} from "../providers/CustomValidators";
+import {ConfirmedValidator} from "../../../../spa/providers/CustomValidators";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 
