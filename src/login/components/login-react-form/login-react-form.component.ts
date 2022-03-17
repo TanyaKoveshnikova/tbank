@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {IUser} from "../../../spa/interfaces";
+import {PeopleService} from "../../people.service";
 
 @Component({
   selector: 'app-authorization-react-form',
@@ -11,7 +13,7 @@ import {Router} from "@angular/router";
 export class LoginReactFormComponent implements OnInit {
   public login: FormGroup = new FormGroup({});
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private peopleService: PeopleService) {
     this._createForm();
   }
 
@@ -26,20 +28,6 @@ export class LoginReactFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.http.get<any>('http://localhost:3000/signupUsers')
-      .subscribe(res => {
-        const user = res.find((a: any) => {
-          return a.mail === this.login.value.mail && a.password === this.login.value.password
-        });
-        if(user){
-          alert('Login Success');
-          this.login.reset();
-          this.router.navigate(['/personal/' + user.id])
-        } else{
-          alert('user not found');
-        }
-      }, err =>{
-        alert('Something went wrong')
-      })
+    this.peopleService.GetUser(this.login);
   }
 }

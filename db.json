@@ -24,12 +24,12 @@
   ],
   "signupUsers": [
     {
+      "mail": "taniakovesh@mail.ru",
       "password": "123456",
-      "confirmPassword": "123456",
       "name": "Татьяна ",
       "surname": "Ковешникова ",
-      "mail": "taniakovesh@mail.ru",
-      "id": 1
+      "RUB": 55784,
+      "id": 2
     }
   ]
 }

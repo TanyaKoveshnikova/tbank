@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators, Validator, FormBuilder} from "@angular/forms";
-import {ConfirmedValidator} from "../../../../spa/providers/CustomValidators";
+import {FormGroup, Validators, FormBuilder} from "@angular/forms";
+import {ConfirmedValidator} from "../../../spa/providers/CustomValidators";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {IUser} from "../../../spa/interfaces";
+import {PeopleService} from "../../people.service";
 
 @Component({
   selector: 'register-reactive-form',
@@ -12,7 +14,7 @@ import {Router} from "@angular/router";
 export class RegisterReactiveFormComponent implements OnInit {
   public registerForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router ) {
+  constructor(private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService, private router:Router) {
     this._createForm()
   }
 
@@ -37,13 +39,6 @@ export class RegisterReactiveFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.http.post<any>('http://localhost:3000/signupUsers', this.registerForm.value)
-      .subscribe(res =>{
-        alert('Signup Successful');
-        this.registerForm.reset();
-        this.router.navigate(['/login']);
-      },err => {
-        alert('Signup Unsuccessful. Something went wrong');
-      })
+    this.peopleService.sendOnServer(this.registerForm);
   }
 }
