@@ -4,11 +4,10 @@ export interface IUser {
   name: string,
   surname: string,
   id: number,
-  RUB: number;
+  cards: Array<cards>;
 }
 
-// export interface IAuthUser {
-//   mail: string;
-//   password: string;
-//   id: number
-// }
+export interface cards {
+  cardName: string,
+  RUB: number
+}

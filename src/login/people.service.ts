@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
 import {IUser} from "../spa/interfaces";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +22,26 @@ export class PeopleService {
       name: registerForm.value.name,
       surname: registerForm.value.surname,
       id: registerForm.value.id,
-      RUB: Math.round(Math.random() * 100000)
+      cards: [{
+        cardName: PeopleService.creatRandomName(),
+        RUB: PeopleService.randomMoney()
+      }]
     }
 
+    this.postUser(registerForm);
+  }
+
+  private static creatRandomName(): string {
+    const setWords = ['visa', 'master', 'classic', 'platinum', 'payCard', 'standard', 'maestro', 'muggle', 'wizard'];
+    return setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)];
+  }
+
+  private static randomMoney(): number {
+    return Math.round(Math.random() * 100000);
+  }
+
+
+  private postUser(registerForm: FormGroup) {
     this.http.post<IUser>(this.urlSignupUser, this.newUser)
       .subscribe(res => {
         alert('Signup Successful');
@@ -32,7 +50,6 @@ export class PeopleService {
       }, err => {
         alert('Signup Unsuccessful. Something went wrong');
       });
-
   }
 
   public GetUser(login: FormGroup) {
