@@ -2,38 +2,32 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IUser} from "../spa/interfaces";
 import {ActivatedRoute} from "@angular/router";
+import {Observable, switchMap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FondCardsService implements OnInit {
   private urlSignupUser: string = 'http://localhost:3000/signupUsers';
-  public needUser!: IUser | undefined;
-  private id: number;
+  public id?: number;
+  public userService?: IUser;
 
 
-  constructor(private http: HttpClient, private activateRoute: ActivatedRoute) {
-    this.id = activateRoute.snapshot.params['id'];
+  constructor(private http: HttpClient, public activateRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.findUserId();
+
   }
 
-  public getNeedUserParams() {
-    return this.needUser;
+  public getID() {
+    this.activateRoute.paramMap.pipe(
+      switchMap(params => params.getAll('id'))
+    )
+      .subscribe(data => this.id = +data);
   }
 
-
-  public findUserId() {
-    this.http.get<IUser[]>(this.urlSignupUser)
-      .subscribe(res => {
-        this.needUser = res.find((a: IUser) => {
-          return a.id === this.id;
-        });
-        console.log(this.needUser);
-      }, err => {
-        alert('Something went wrong')
-      })
+  public getNeedUserParams(): Observable<Array<IUser>> {
+    return this.http.get<IUser[]>(this.urlSignupUser);
   }
 }

@@ -11,3 +11,5 @@ export interface cards {
   cardName: string,
   RUB: number
 }
+
+

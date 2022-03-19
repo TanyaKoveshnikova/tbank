@@ -35,6 +35,45 @@
         }
       ],
       "id": 1
+    },
+    {
+      "mail": "imbettermagician@hog.ru",
+      "password": "123456",
+      "name": "Гарри",
+      "surname": "Поттер",
+      "cards": [
+        {
+          "cardName": "payCard master",
+          "RUB": 76295
+        }
+      ],
+      "id": 2
+    },
+    {
+      "mail": "dogcat@hog.ru",
+      "password": "987654",
+      "name": "Рон",
+      "surname": "Уизли",
+      "cards": [
+        {
+          "cardName": "payCard classic",
+          "RUB": 49271
+        }
+      ],
+      "id": 3
+    },
+    {
+      "mail": "betterhalfbreed@hog.ru",
+      "password": "124578",
+      "name": "Гермиона",
+      "surname": "Грейнджер",
+      "cards": [
+        {
+          "cardName": "maestro payCard",
+          "RUB": 71661
+        }
+      ],
+      "id": 4
     }
   ]
 }

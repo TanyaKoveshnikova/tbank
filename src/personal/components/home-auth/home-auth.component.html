@@ -1,8 +1,7 @@
 
 
-<button routerLink="/personal/home/:id">Главная</button>
-<button routerLink="/personal/home/:id/transfer">Платежи и переводы</button>
-<button routerLink="/personal/home/:id/history">История</button>
-<button routerLink="/personal/home/:id/myArea/private">ЛК</button>
+<button [routerLink]="['/personal/home/'+ id +'/page']">Главная</button>
+<button [routerLink]="['/personal/home/'+ id +'/transfer']">Платежи и переводы</button>
+<button [routerLink]="['/personal/home/' + id + '/history']">История</button>
+<button [routerLink]="['/personal/home/' + id + '/myArea/private']">ЛК</button>
 <p>home-auth works!<router-outlet></router-outlet></p>
-{{user.name}}

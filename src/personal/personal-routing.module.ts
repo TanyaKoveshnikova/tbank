@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeAuthComponent} from "./components/home-auth/home-auth.component";
 import {HistoryComponent} from "./components/history/history.component";
 import {PaymentsTransfersComponent} from "./components/payments-transfers/payments-transfers.component";
+import {HomePageComponent} from "./components/home-page/home-page.component";
 
 
 const childrenRoutes:Routes =[
   { path: 'history', component: HistoryComponent},
   { path: 'transfer', component: PaymentsTransfersComponent},
+  { path: 'page', component: HomePageComponent},
   {
     path: 'myArea', loadChildren: () => import('../personal-area/personal-area.module')
       .then(mod => mod.PersonalAreaModule)
@@ -15,6 +17,7 @@ const childrenRoutes:Routes =[
 ]
 
 const routes: Routes = [
+  {path: 'home/:id', component: HomeAuthComponent},
   {path: 'home/:id', component: HomeAuthComponent, children: childrenRoutes},
 ];
 

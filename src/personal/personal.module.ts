@@ -7,6 +7,7 @@ import {PaymentsTransfersComponent} from "./components/payments-transfers/paymen
 
 import {FondCardsService} from "./fond-cards.service";
 import {HttpClientModule} from "@angular/common/http";
+import {HomePageComponent} from "./components/home-page/home-page.component";
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
     HomeAuthComponent,
     HistoryComponent,
     PaymentsTransfersComponent,
+    HomePageComponent
   ],
   imports: [
     CommonModule,
