@@ -1,7 +1,17 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="title-bar">
+      <img src="../../../assets/images/logo_blue.png" alt="logo-flowers">
+      <div class="menu-area">
+        <button class="signIn" [routerLink]="['/personal/home/'+ id +'/page']">Главная</button>
+        <button class="signIn" [routerLink]="['/personal/home/'+ id +'/transfer']">Платежи и переводы</button>
+        <button class="signIn" [routerLink]="['/personal/home/' + id + '/history']">История</button>
+        <button class="signIn" [routerLink]="['/personal/home/' + id + '/myArea/private']">ЛК</button>
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+  <router-outlet></router-outlet>
+</p>
 
-
-<button [routerLink]="['/personal/home/'+ id +'/page']">Главная</button>
-<button [routerLink]="['/personal/home/'+ id +'/transfer']">Платежи и переводы</button>
-<button [routerLink]="['/personal/home/' + id + '/history']">История</button>
-<button [routerLink]="['/personal/home/' + id + '/myArea/private']">ЛК</button>
-<p>home-auth works!<router-outlet></router-outlet></p>

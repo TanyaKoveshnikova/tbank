@@ -13,10 +13,10 @@ export class HomePageComponent implements OnInit {
   public user?: IUser;
 
   constructor(public peopleService: FondCardsService, public activateRoute: ActivatedRoute) {
+    this.user = this.peopleService.userService;
   }
 
   ngOnInit() {
-    this.user = this.peopleService.userService;
   }
 
 }

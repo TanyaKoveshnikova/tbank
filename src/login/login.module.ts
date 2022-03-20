@@ -4,8 +4,7 @@ import {LoginRoutingModule} from './login-routing.module';
 import {LoginReactFormComponent} from "./components/login-react-form/login-react-form.component";
 import {RegisterReactiveFormComponent} from "./components/register-reactive-form/register-reactive-form.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { PeopleService} from "./people.service";
-import {SpaModule} from "../spa/spa.module";
+import {PeopleService} from "./people.service";
 
 
 @NgModule({
@@ -13,13 +12,12 @@ import {SpaModule} from "../spa/spa.module";
     LoginReactFormComponent,
     RegisterReactiveFormComponent
   ],
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        CommonModule,
-        LoginRoutingModule,
-
-    ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    LoginRoutingModule,
+  ],
   providers: [PeopleService]
 })
 export class LoginModule {

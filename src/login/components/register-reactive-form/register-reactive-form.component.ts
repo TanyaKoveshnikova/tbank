@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {IUser} from "../../../spa/interfaces";
 import {PeopleService} from "../../people.service";
+import {LoginReactFormComponent} from "../login-react-form/login-react-form.component";
 
 @Component({
   selector: 'register-reactive-form',
@@ -14,11 +15,12 @@ import {PeopleService} from "../../people.service";
 export class RegisterReactiveFormComponent implements OnInit {
   public registerForm: FormGroup = new FormGroup({});
 
-  constructor(private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService, private router:Router) {
+  constructor( private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService, private router: Router) {
     this._createForm()
   }
 
   ngOnInit() {
+    this.peopleService.showPassword();
   }
 
   private _createForm() {

@@ -5,12 +5,6 @@ body {
   height: 100%;
 }
 
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-
-}
 
 :host {
   display: flex;
@@ -24,52 +18,10 @@ body {
 }
 
 
-.header {
-  min-height: $sizeHeader;
-  background-color: $colorHeaFoot;
-  padding: 10px 0;
-
-  .title-bar {
-    flex-grow: 1;
-    display: flex;
-
-    img {
-      height: $sizeHeader;
-      transform: rotate(90deg) scale(2.55);
-    }
-
-    .menu-area {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      padding-right: 20px;
-
-    }
-  }
-}
-
 .content {
   flex: 1 1 auto;
   background-color: rgba(27, 2, 105, 0.97);
 }
 
 
-.sign {
-  padding: 5px;
-  font-size: 1em;
-  width: 7em;
-  color: #ecdcdc;
-  background-color: rgb(88, 62, 185);;
-  border-radius: 10px;
-  border: rgb(61, 33, 173);
-  margin-left: auto;
-  margin-right: 1em;
-  margin-top: auto;
-  margin-bottom: 1em;
-}
-
-.sign:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
-}
 

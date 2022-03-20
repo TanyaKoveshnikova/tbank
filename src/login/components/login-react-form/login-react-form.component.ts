@@ -18,6 +18,7 @@ export class LoginReactFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.peopleService.showPassword();
   }
 
   private _createForm() {
@@ -30,4 +31,5 @@ export class LoginReactFormComponent implements OnInit {
   public onSubmit() {
     this.peopleService.GetUser(this.login);
   }
+
 }

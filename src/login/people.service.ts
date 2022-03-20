@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {ElementRef, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
@@ -59,9 +59,8 @@ export class PeopleService {
           return a.mail === login.value.mail && a.password === login.value.password
         });
         if (user) {
-          alert('Login Success');
+          this.router.navigate(['/personal/home/' + user.id]);
           login.reset();
-          this.router.navigate(['/personal/home/' + user.id])
         } else {
           alert('user not found');
         }
@@ -69,6 +68,20 @@ export class PeopleService {
       }, err => {
         alert('Something went wrong')
       })
+  }
+
+  public showPassword() {
+    const btn: any = document.querySelector('.password__btn');
+    const input: any = document.querySelector('.password__input');
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+
+      if (input.getAttribute('type') === 'password') {
+        input.setAttribute('type', 'text');
+      } else {
+        input.setAttribute('type', 'password');
+      }
+    })
   }
 }
 

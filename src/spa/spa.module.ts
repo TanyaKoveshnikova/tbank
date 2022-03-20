@@ -9,15 +9,15 @@ import {FooterSpaComponent} from "./components/footer-spa/footer-spa.component";
 import {SpaBodyRouterComponent} from "./components/spa-body-router/spa-body-router.component";
 
 
+
 @NgModule({
   declarations: [
     SpaBodyComponent,
-    FooterSpaComponent,
-    SpaBodyRouterComponent
+    SpaBodyRouterComponent,
+    FooterSpaComponent
   ],
   exports: [
     SpaBodyComponent,
-    FooterSpaComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,5 @@
-<p>home-page works!</p>
-{{user?.name}}
-{{user?.password}}
-<div *ngFor="let el of user?.cards">
-  {{el.RUB}} {{el.cardName}}
+<div class="wrapper">
+  <div *ngFor="let el of user?.cards">
+    {{el.cardName}} {{el.RUB}}rub
+  </div>
 </div>

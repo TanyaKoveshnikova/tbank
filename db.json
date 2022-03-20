@@ -74,6 +74,19 @@
         }
       ],
       "id": 4
+    },
+    {
+      "mail": "bfbd@fb",
+      "password": "123456",
+      "name": "fhf",
+      "surname": "fghf",
+      "cards": [
+        {
+          "cardName": "classic wizard",
+          "RUB": 29860
+        }
+      ],
+      "id": 5
     }
   ]
 }

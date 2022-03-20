@@ -1,52 +1,68 @@
 <div class="wrapper">
-  <div class="signUp">
-    sign
-  </div>
-  <form [formGroup]="login"
-        (ngSubmit)="onSubmit()">
-    <div class="fieldRegistration">
-      <div class="value">
-        <label for="email">Email</label>
-        <input id="email"
-               type="email"
-               formControlName="mail"
-               tabindex="1"
-        />
-        <div
-          class="helper-text red-text"
-          *ngIf="login.get('mail').invalid && login.get('mail').touched"
-        >
-          <span *ngIf="login.get('mail').errors['required']">Email must not be empty</span>
-          <span *ngIf="login.get('mail').errors['email']">Please enter a valid Email</span>
-        </div>
-      </div>
-      <div class="value">
-        <label for="password">password</label>
-        <input id="password"
-               type="password"
-               formControlName="password"
-               tabindex="2"
-        />
-        <div
-          class="helper-text red-text"
-          *ngIf="login.get('password').invalid && login.get('password').touched"
-        >
-          <span *ngIf="login.get('password').errors['required']">Password must not be empty</span>
-        </div>
+  <div class="header">
+    <div class="title-bar">
+      <img src="../../../assets/images/logo_blue.png" alt="logo-flowers">
+      <div class="menu-area">
+        <button class="signIn" routerLink="/admin/register">sign in</button>
       </div>
     </div>
-    <nav>
-      <button
-        type="submit"
-        class="sign"
-        [disabled]="login.invalid"
-      >sign
-      </button>
-      <ul>
-        <li routerLink="/admin/register">Register new account</li>
-        <li>Forgotten account?</li> <!-- - Заглушка-->
-      </ul>
-    </nav>
-  </form>
+  </div>
+  <div class="content">
+    <div class="signUp">
+      sign
+    </div>
+    <form [formGroup]="login"
+          (ngSubmit)="onSubmit()">
+      <div class="fieldRegistration">
+        <div class="value">
+          <label for="email">Email</label>
+          <input id="email"
+                 type="email"
+                 formControlName="mail"
+                 tabindex="1"
+                 class="form__input"
+                 placeholder="Введите почту:"
+          />
+          <div
+            class="helper-text red-text"
+            *ngIf="login.get('mail').invalid && login.get('mail').touched"
+          >
+            <span *ngIf="login.get('mail').errors['required']">Email must not be empty</span>
+            <span *ngIf="login.get('mail').errors['email']">Please enter a valid Email</span>
+          </div>
+        </div>
+        <div class="value password__label">
+          <label for="password">password</label>
+          <input id="password"
+                 type="password"
+                 formControlName="password"
+                 tabindex="2"
+                 class="form__input password__input"
+                 placeholder="Введите пароль:"
+          />
+          <div class="password__btn"><img src="../../../assets/images/open.svg" alt="Открытый глазик"></div>
+          <div
+            class="helper-text red-text"
+            *ngIf="login.get('password').invalid && login.get('password').touched"
+          >
+            <span *ngIf="login.get('password').errors['required']">Password must not be empty</span>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="login.invalid"
+        >sign
+        </button>
+        <ul>
+          <li routerLink="/admin/register">Register new account</li>
+          <li>Forgotten account?</li> <!-- - Заглушка-->
+        </ul>
+      </nav>
+    </form>
+  </div>
 </div>
+
 

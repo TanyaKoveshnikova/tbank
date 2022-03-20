@@ -1,0 +1,28 @@
+@import "src/spa/scss/_header-signIn.scss";
+
+.title-bar {
+  flex-grow: 1;
+  display: flex;
+
+  .menu-area {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding-right: 20px;
+
+  }
+}
+
+.signIn {
+  padding: 5px;
+  font-size: 1em;
+  width: 7em;
+  color: #ecdcdc;
+  background-color: rgb(88, 62, 185);;
+  border-radius: 10px;
+  border: rgb(61, 33, 173);
+  margin-left: auto;
+  margin-right: 1em;
+  margin-top: auto;
+  margin-bottom: 1em;
+}
