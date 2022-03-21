@@ -1,3 +1,27 @@
-div{
-  color: white;
+$colorCards: rgb(152, 134, 229);
+
+.wrapper {
+    margin-top: 3em;
+    color: white;
+
+    .value{
+        min-height: 10em;
+        background-color: $colorCards;
+        min-width: 10em;
+        width:10em;
+    }
+
+    .container{
+        margin-top: 3em;
+    }
+}
+
+.text {
+}
+
+.img__arrow {
+
+}
+
+.up {
 }

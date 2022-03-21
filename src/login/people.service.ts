@@ -72,7 +72,7 @@ export class PeopleService {
             })
     }
 
-    public showPassword(btn: any, input: Element) {
+    public showPassword(btn: HTMLElement, input: Element) {
         btn.onclick = () => {
             btn.classList.toggle('active');
             if (input.getAttribute('type') === 'password') {

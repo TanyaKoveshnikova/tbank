@@ -1,5 +1,22 @@
 <div class="wrapper">
-  <div *ngFor="let el of user?.cards">
-    {{el.cardName}} {{el.RUB}}rub
-  </div>
+    <div class="container">
+        <div class="text">
+            CARDS
+            <img class="img__arrow up" src="../../../assets/images/arrow.svg" alt="arrow up">
+        </div>
+        <div class="value">
+            <div *ngFor="let el of user?.cards">
+                {{el.cardName}} {{el.RUB}}rub
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text">
+            DEPOSITS AND ACCOUNTS
+            <img class="img__arrow up" src="../../../assets/images/arrow.svg" alt="arrow up">
+        </div>
+        <div class="value">
+
+        </div>
+    </div>
 </div>
