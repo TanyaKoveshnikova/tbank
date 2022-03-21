@@ -39,8 +39,9 @@
                  tabindex="2"
                  class="form__input password__input"
                  placeholder="Введите пароль:"
+                 #password
           />
-          <div class="password__btn"><img src="../../../assets/images/open.svg" alt="Открытый глазик"></div>
+          <div #btn class="password__btn"><img src="../../../assets/images/open.svg" alt="Открытый глазик"></div>
           <div
             class="helper-text red-text"
             *ngIf="login.get('password').invalid && login.get('password').touched"

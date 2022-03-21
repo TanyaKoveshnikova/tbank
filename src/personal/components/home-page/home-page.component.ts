@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   public user?: IUser;
 
   constructor(public peopleService: FondCardsService, public activateRoute: ActivatedRoute) {
-    this.user = this.peopleService.userService;
+    this.peopleService.getUserSubject.subscribe(e => this.user = e);
   }
 
   ngOnInit() {
