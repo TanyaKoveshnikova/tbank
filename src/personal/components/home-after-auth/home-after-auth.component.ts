@@ -6,22 +6,21 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {map, Subject, switchMap} from "rxjs";
 
 @Component({
-    selector: 'personal-area',
-    templateUrl: './home-auth.component.html',
-    styleUrls: ['./home-auth.component.scss']
+    selector: 'home-after-auth',
+    templateUrl: './home-after-auth.component.html',
+    styleUrls: ['./home-after-auth.component.scss']
 })
-export class HomeAuthComponent implements OnInit {
+export class HomeAfterAuthComponent implements OnInit {
     public user?: IUser;
     public id!: number;
 
 
-    constructor(public peopleService: FondCardsService, public activateRoute: ActivatedRoute,
+    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute,
                 private router: Router) {
     }
 
     ngOnInit() {
         this.getID();
-        this.getUserParams();
         this.router.navigate(['/personal/home/' + this.id + '/page'])
     }
 
@@ -30,17 +29,7 @@ export class HomeAuthComponent implements OnInit {
             switchMap(params => params.getAll('id'))
         )
             .subscribe(data => this.id = +data);
-    }
-
-    private getUserParams(): void {
-        this.peopleService.getNeedUserParams()
-            .pipe(
-                map((user: IUser[]): IUser => {
-                    return user.filter(u => u.id === this.id) [0];
-                })
-            )
-            .subscribe(user => {
-                this.peopleService.getUserSubject.next(user)
-            })
+        this._fondCardsService.id = this.id;
+        this._fondCardsService.ngOnInit();
     }
 }

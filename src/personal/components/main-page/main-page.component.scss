@@ -1,0 +1,86 @@
+$colorCards: rgb(152, 134, 229);
+$colorHeaFoot: rgba(27, 2, 105, 0.98);
+
+.wrapper {
+    color: white;
+    margin: 3em;
+
+    .value {
+        background-color: $colorCards;
+        min-width: 10em;
+        width: 35%;
+        height: 7em;
+        padding: 0.5em;
+        border-bottom: $colorHeaFoot solid 2px;
+        color: rgba(9, 1, 45, 0.98);
+        font-weight: 500;
+
+        .value__image__container {
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .value__container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img__ruble {
+            width: 1.2em;
+            position: relative;
+            right: 5px;
+            top: 4px;
+        }
+    }
+
+    .summary__value {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 5px;
+    }
+
+    .container:not(:first-child) {
+        margin-top: 2em;
+    }
+}
+
+
+/* Убираем стандартный маркер Chrome */
+details summary::-webkit-details-marker {
+    display: none
+}
+
+/* Убираем стандартный маркер Firefox */
+details > summary {
+    list-style: none;
+}
+
+details summary .summary__header {
+    margin-bottom: 0.1em;
+
+    .img__arrow {
+        position: relative;
+        top: 3px;
+        width: 1.1em;
+    }
+}
+
+/* Добавляем собственный маркер для закрытого состояния */
+details summary .img__arrow {
+    margin-left: 0.5em;
+    transition: transform 0.2s;
+    will-change: transform;
+}
+
+/* Добавляем собственный маркер для открытого состояния */
+details[open] summary .img__arrow {
+    transform: rotate(180deg);
+}
+
+details[open] summary .hidden{
+    display: none;
+}

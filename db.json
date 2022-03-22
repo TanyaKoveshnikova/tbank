@@ -1,105 +1,60 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "password": "123456",
-      "name": "Гарри",
-      "surname": "Поттер",
-      "mail": "imbettermagician@hog.ru"
-    },
-    {
-      "id": 2,
-      "password": "987654",
-      "name": "Рон",
-      "surname": "Уизли",
-      "mail": "dogcat@hog.ru"
-    },
-    {
-      "id": 3,
-      "password": "124578",
-      "name": "Гермиона",
-      "surname": "Грейнджер",
-      "mail": "betterhalfbreed@hog.ru"
-    }
-  ],
-  "signupUsers": [
-    {
-      "mail": "taniakovesh@gmail.com",
-      "password": "123456",
-      "name": "Татьяна ",
-      "surname": "Ковешникова ",
-      "cards": [
+    "posts": [
         {
-          "cardName": "payCard wizard",
-          "RUB": 71235
-        }
-      ],
-      "id": 1
-    },
-    {
-      "mail": "imbettermagician@hog.ru",
-      "password": "123456",
-      "name": "Гарри",
-      "surname": "Поттер",
-      "cards": [
+            "id": 1,
+            "password": "123456",
+            "name": "Гарри",
+            "surname": "Поттер",
+            "mail": "imbettermagician@hog.ru"
+        },
         {
-          "cardName": "payCard master",
-          "RUB": 76295
-        }
-      ],
-      "id": 2
-    },
-    {
-      "mail": "dogcat@hog.ru",
-      "password": "987654",
-      "name": "Рон",
-      "surname": "Уизли",
-      "cards": [
+            "id": 2,
+            "password": "987654",
+            "name": "Рон",
+            "surname": "Уизли",
+            "mail": "dogcat@hog.ru"
+        },
         {
-          "cardName": "payCard classic",
-          "RUB": 49271
+            "id": 3,
+            "password": "124578",
+            "name": "Гермиона",
+            "surname": "Грейнджер",
+            "mail": "betterhalfbreed@hog.ru"
         }
-      ],
-      "id": 3
-    },
-    {
-      "mail": "betterhalfbreed@hog.ru",
-      "password": "124578",
-      "name": "Гермиона",
-      "surname": "Грейнджер",
-      "cards": [
+    ],
+    "signupUsers": [
         {
-          "cardName": "maestro payCard",
-          "RUB": 71661
-        }
-      ],
-      "id": 4
-    },
-    {
-      "mail": "bfbd@fb",
-      "password": "123456",
-      "name": "fhf",
-      "surname": "fghf",
-      "cards": [
+            "mail": "taniakovesh@gmail.com",
+            "password": "789456",
+            "name": "Татьяна ",
+            "surname": "Ковешникова ",
+            "cards": [
+                {
+                    "cardName": "visa master",
+                    "RUB": "4 595",
+                    "cardNumber": "1933 9091 2018 2694"
+                },
+                {
+                    "cardName": "platinum standard",
+                    "RUB": "70 864",
+                    "cardNumber": "4052 5040 2943 7574"
+                }
+            ],
+            "id": 1
+        },
         {
-          "cardName": "classic wizard",
-          "RUB": 29860
+            "mail": "imbettermagician@hog.ru",
+            "password": "123456",
+            "name": "Гарри",
+            "surname": "Поттер",
+            "cards": [
+                {
+                    "cardName": "platinum standard",
+                    "RUB": "70 864",
+                    "cardNumber": "4052 5040 2943 7574"
+                }
+            ],
+            "id": 2
         }
-      ],
-      "id": 5
-    },
-    {
-      "mail": "dvfs@fdv",
-      "password": "123456",
-      "name": "dfv",
-      "surname": "dvf",
-      "cards": [
-        {
-          "cardName": "payCard muggle",
-          "RUB": 94497
-        }
-      ],
-      "id": 6
-    }
-  ]
+    ]
 }

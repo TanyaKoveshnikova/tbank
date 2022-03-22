@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
 import {IUser} from "../spa/interfaces";
 import {Subject} from "rxjs";
+import {FondCardsService} from "../personal/fond-cards.service";
 
 
 @Injectable({
@@ -12,9 +13,10 @@ import {Subject} from "rxjs";
 export class PeopleService {
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
     private newUser!: IUser;
+    public userWithId ?: IUser;
     @ViewChild('password') passwordInput!: ElementRef;
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient, private router: Router, private fondCard: FondCardsService) {
     }
 
     public sendOnServer(registerForm: FormGroup) {
@@ -26,7 +28,8 @@ export class PeopleService {
             id: registerForm.value.id,
             cards: [{
                 cardName: PeopleService.creatRandomName(),
-                RUB: PeopleService.randomMoney()
+                RUB: PeopleService.randomMoney(),
+                cardNumber: PeopleService.cardNumber(),
             }]
         }
 
@@ -35,13 +38,17 @@ export class PeopleService {
 
     private static creatRandomName(): string {
         const setWords = ['visa', 'master', 'classic', 'platinum', 'payCard', 'standard', 'maestro', 'muggle', 'wizard'];
-        return setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)];
+        return (setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)]);
     }
 
-    private static randomMoney(): number {
-        return Math.round(Math.random() * 100000);
+    private static randomMoney(): string {
+        return new Intl.NumberFormat('ru-RU').format(Math.round(Math.random() * 100000));
     }
 
+    private static cardNumber(): string {
+        return Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000) + ' '
+            + Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000);
+    }
 
     private postUser(registerForm: FormGroup) {
         this.http.post<IUser>(this.urlSignupUser, this.newUser)
@@ -66,7 +73,6 @@ export class PeopleService {
                 } else {
                     alert('user not found');
                 }
-                console.log(res)
             }, err => {
                 alert('Something went wrong')
             })

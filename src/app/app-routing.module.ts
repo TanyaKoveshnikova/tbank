@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {SpaBodyRouterComponent} from "../spa/components/spa-body-router/spa-body-router.component";
+import {SpaBodyComponent} from "../spa/components/spa-body/spa-body.component";
 
 
 const routes: Routes = [
@@ -12,8 +12,8 @@ const routes: Routes = [
         path: 'personal', loadChildren: () => import('../personal/personal.module')
             .then(mod => mod.PersonalModule)
     },
-    {path: '', component: SpaBodyRouterComponent},
-    {path: '**', component: SpaBodyRouterComponent}
+    {path: '', component: SpaBodyComponent},
+    {path: '**', component: SpaBodyComponent}
 ];
 
 @NgModule({
