@@ -8,6 +8,8 @@ import {PaymentsTransfersComponent} from "./components/payments-transfers/paymen
 import {FondCardsService} from "./fond-cards.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MainPageComponent} from "./components/main-page/main-page.component";
+import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,8 +18,11 @@ import {MainPageComponent} from "./components/main-page/main-page.component";
         HistoryComponent,
         PaymentsTransfersComponent,
         MainPageComponent,
+        CreateSavingAccComponent
     ],
     imports: [
+        FormsModule,
+        ReactiveFormsModule,
         CommonModule,
         PersonalRoutingModule,
         HttpClientModule

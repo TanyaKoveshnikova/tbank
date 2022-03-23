@@ -5,7 +5,6 @@ export interface IUser {
     surname: string,
     id: number,
     cards: Array<cards>;
-
 }
 
 export interface cards {
@@ -14,10 +13,15 @@ export interface cards {
     cardNumber: string
 }
 
+export interface ISavAcc {
+    id: number,
+    savingsAccount: savingsAccount[];
+}
 
-export interface deposeAccounts {
+export interface savingsAccount {
     name: string;
     endDate: Date;
-    interestRate: number;
-    RUB: string;
+    goalRUB: string;
+    doneRUB: '';
+    id: number;
 }

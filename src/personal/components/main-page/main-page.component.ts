@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IUser} from "../../../spa/interfaces";
 import {FondCardsService} from "../../fond-cards.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription, switchMap} from "rxjs";
 
 @Component({
@@ -12,12 +12,15 @@ import {Subscription, switchMap} from "rxjs";
 export class MainPageComponent implements OnInit {
     public user?: IUser;
 
-    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute) {
+    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute, private router: Router) {
         this._fondCardsService.getUserSubject.subscribe(e => this.user = e);
         this.user = this._fondCardsService.userService;
     }
 
-
     ngOnInit() {
+    }
+
+    public createSavingsAcc(){
+        this.router.navigate(['/personal/home/1/main-page/child-a']);
     }
 }

@@ -2,7 +2,7 @@ import {ElementRef, Injectable, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
-import {IUser} from "../spa/interfaces";
+import {ISavAcc, IUser, savingsAccount} from "../spa/interfaces";
 import {Subject} from "rxjs";
 import {FondCardsService} from "../personal/fond-cards.service";
 
@@ -12,7 +12,9 @@ import {FondCardsService} from "../personal/fond-cards.service";
 })
 export class PeopleService {
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
+    private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     private newUser!: IUser;
+    private _newSavingAcc!: ISavAcc;
     public userWithId ?: IUser;
     @ViewChild('password') passwordInput!: ElementRef;
 
@@ -27,16 +29,20 @@ export class PeopleService {
             surname: registerForm.value.surname,
             id: registerForm.value.id,
             cards: [{
-                cardName: PeopleService.creatRandomName(),
+                cardName: PeopleService.creatRandomNameCard(),
                 RUB: PeopleService.randomMoney(),
                 cardNumber: PeopleService.cardNumber(),
             }]
+        }
+        this._newSavingAcc = {
+            id: registerForm.value.id,
+            savingsAccount: [],
         }
 
         this.postUser(registerForm);
     }
 
-    private static creatRandomName(): string {
+    private static creatRandomNameCard(): string {
         const setWords = ['visa', 'master', 'classic', 'platinum', 'payCard', 'standard', 'maestro', 'muggle', 'wizard'];
         return (setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)]);
     }
@@ -51,6 +57,10 @@ export class PeopleService {
     }
 
     private postUser(registerForm: FormGroup) {
+        this.http.post<ISavAcc>(this._urlSavingAcc, this._newSavingAcc)
+            .subscribe(res => {
+                registerForm.reset();
+            });
         this.http.post<IUser>(this.urlSignupUser, this.newUser)
             .subscribe(res => {
                 alert('Signup Successful');
@@ -59,6 +69,7 @@ export class PeopleService {
             }, err => {
                 alert('Signup Unsuccessful. Something went wrong');
             });
+
     }
 
     public GetUser(login: FormGroup) {

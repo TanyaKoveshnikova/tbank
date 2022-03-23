@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <form [formGroup]="savingsAcc"
+          (ngSubmit)="onSubmit()">
+        <div class="value">
+            <label for="name"></label>
+            <input
+                id="name"
+                formControlName="name"
+                type="text"
+                placeholder="Enter the name of the savings account"
+            />
+        </div>
+        <div class="value">
+            <label for="endDate"></label>
+            <input
+                id="endDate"
+                formControlName="endDate"
+                type="date"
+                placeholder="Enter the closing date of the savings account"
+            />
+        </div>
+        <div class="value">
+            <label for="goalRUB"></label>
+            <input
+                id="goalRUB"
+                formControlName="goalRUB"
+                type="number"
+                placeholder="Enter the closing date of the savings account"
+            />
+        </div>
+        <nav>
+            <button
+                type="submit"
+                class="btn">
+                create an account
+            </button>
+        </nav>
+    </form>
+</div>

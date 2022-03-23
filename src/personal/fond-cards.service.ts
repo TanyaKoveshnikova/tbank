@@ -18,23 +18,32 @@ export class FondCardsService implements OnInit {
     }
 
     ngOnInit() {
-        this.getUserParams();
+        this._createUsrService();
     }
 
     public getNeedUserParams(): Observable<Array<IUser>> {
         return this.http.get<IUser[]>(this.urlSignupUser);
     }
 
-    private getUserParams(): void {
-        this.getNeedUserParams()
+    private getUserParams(): Observable<any> {
+        return this.getNeedUserParams()
             .pipe(
                 map((user: IUser[]): IUser => {
-                    return user.filter(u => u.id === this.id) [0];
+                    return user.filter(u => u.id === this.id)[0];
                 })
-            )
+            );
+    }
+
+    private _createUsrService() {
+        this.getUserParams()
             .subscribe((user: IUser) => {
                 this.userService = user;
                 this.getUserSubject.next(user);
             })
+    }
+
+    private _postSavingsAcc(){
+        this.getUserParams()
+            
     }
 }
