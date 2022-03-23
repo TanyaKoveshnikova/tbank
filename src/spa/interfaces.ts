@@ -5,6 +5,7 @@ export interface IUser {
     surname: string,
     id: number,
     cards: Array<cards>;
+
 }
 
 export interface cards {
@@ -14,3 +15,9 @@ export interface cards {
 }
 
 
+export interface deposeAccounts {
+    name: string;
+    endDate: Date;
+    interestRate: number;
+    RUB: string;
+}

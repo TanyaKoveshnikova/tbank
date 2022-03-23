@@ -62,10 +62,17 @@ details > summary {
 details summary .summary__header {
     margin-bottom: 0.1em;
 
-    .img__arrow {
+    .img_active {
         position: relative;
         top: 3px;
         width: 1.1em;
+    }
+
+    .img_plus {
+        width: 1.4em;
+        position: relative;
+        top: 5px;
+        left: 5px;
     }
 }
 
@@ -76,11 +83,12 @@ details summary .img__arrow {
     will-change: transform;
 }
 
+
 /* Добавляем собственный маркер для открытого состояния */
-details[open] summary .img__arrow {
+details[open] .img__arrow {
     transform: rotate(180deg);
 }
 
-details[open] summary .hidden{
+details[open] summary .hidden {
     display: none;
 }
