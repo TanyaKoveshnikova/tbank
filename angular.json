@@ -112,6 +112,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "tbank:build:production",
+            "firebaseProject": "tbank-6831a",
+            "firebaseHostingSite": "tbank-6831a"
+          }
         }
       }
     }

@@ -12,7 +12,8 @@ import {Subscription, switchMap} from "rxjs";
 export class MainPageComponent implements OnInit {
     public user?: IUser;
 
-    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute, private router: Router) {
+    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute, private router: Router,
+                private _route: ActivatedRoute) {
         this._fondCardsService.getUserSubject.subscribe(e => this.user = e);
         this.user = this._fondCardsService.userService;
     }
@@ -20,7 +21,7 @@ export class MainPageComponent implements OnInit {
     ngOnInit() {
     }
 
-    public createSavingsAcc(){
-        this.router.navigate(['/personal/home/1/main-page/child-a']);
+    public createSavingsAcc() {
+        this.router.navigate(['../main-page/createSavingsAccount'], {relativeTo: this._route});
     }
 }

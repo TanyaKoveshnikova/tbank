@@ -36,12 +36,38 @@
         }
       ],
       "id": 1
+    },
+    {
+      "mail": "fffff@gg.tt",
+      "password": "123456",
+      "name": "Кекс",
+      "surname": "hk",
+      "cards": [
+        {
+          "cardName": "maestro standard",
+          "RUB": "26 098",
+          "cardNumber": "4220 8682 7322 4844"
+        }
+      ],
+      "id": 2
     }
   ],
   "savingsAcc": [
     {
-      "savingsAccount": [],
+      "savingsAccount": [
+        {
+          "name": "name",
+          "endDate": null,
+          "goalRUB": "22",
+          "doneRUB": "",
+          "id": 1
+        }
+      ],
       "id": 1
+    },
+    {
+      "savingsAccount": [],
+      "id": 2
     }
   ]
 }

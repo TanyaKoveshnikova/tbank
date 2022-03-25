@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tbank-6831a"
+  },
+  "targets": {
+    "tbank-6831a": {
+      "hosting": {
+        "tbank": [
+          "tbank-6831a"
+        ]
+      }
+    }
+  }
+}

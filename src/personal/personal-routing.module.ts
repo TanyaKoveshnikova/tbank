@@ -13,7 +13,7 @@ const childrenRoutes: Routes = [
     {
         path: 'main-page', component: MainPageComponent, children: [
             {
-                path: 'child-a', // child route path
+                path: 'createSavingsAccount', // child route path
                 component: CreateSavingAccComponent, // child route component that the router renders
             }
         ]

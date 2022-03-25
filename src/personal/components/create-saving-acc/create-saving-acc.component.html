@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <form [formGroup]="savingsAcc"
+    <form [formGroup]="savingsAccForm"
           (ngSubmit)="onSubmit()">
         <div class="value">
             <label for="name"></label>
@@ -25,7 +25,7 @@
                 id="goalRUB"
                 formControlName="goalRUB"
                 type="number"
-                placeholder="Enter the closing date of the savings account"
+                placeholder="Enter your goal RUB of the savings account"
             />
         </div>
         <nav>

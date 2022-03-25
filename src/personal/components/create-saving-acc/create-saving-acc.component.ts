@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {PeopleService} from "../../../login/people.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FondCardsService} from "../../fond-cards.service";
 
 @Component({
     selector: 'create-saving-acc',
@@ -10,18 +11,19 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
     styleUrls: ['./create-saving-acc.component.scss']
 })
 export class CreateSavingAccComponent implements OnInit {
-    public savingsAcc: FormGroup = new FormGroup({});
+    public savingsAccForm: FormGroup = new FormGroup({});
 
-    constructor(private _http: HttpClient, private _router: Router, private _peopleService: PeopleService,
+    constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
                 private _renderer: Renderer2) {
         this._createForm();
     }
 
     ngOnInit(): void {
+
     }
 
     private _createForm() {
-        this.savingsAcc = new FormGroup({
+        this.savingsAccForm = new FormGroup({
             name: new FormControl(''),
             endDate: new FormControl(''),
             goalRUB: new FormControl(''),
@@ -30,7 +32,7 @@ export class CreateSavingAccComponent implements OnInit {
 
     public onSubmit() {
         console.log('отправлена форма из create-saving.comp');
-
+        this._fondCardsService.sendOnServerSavingAcc('F', this.savingsAccForm.value.endDate, 4,this.savingsAccForm)
+        this._router.navigate(['/personal/home/1/main-page']);
     }
-
 }

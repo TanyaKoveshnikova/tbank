@@ -50,7 +50,13 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     }
 
     .signIn:hover {
-        transform: scale(1.1);
+        transform: scale(1.07);
         transition: 0.5s;
+    }
+
+    .signIn:active{
+        transform: scale(0.95);
+        transition: 0.5s;
+        box-shadow: 0 0 0.5em 0 rgb(66, 38, 164) inset;
     }
 }
