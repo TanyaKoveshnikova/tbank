@@ -6,6 +6,8 @@ import {Router} from "@angular/router";
 import {IUser} from "../../../spa/interfaces";
 import {PeopleService} from "../../people.service";
 import {LoginReactFormComponent} from "../login-react-form/login-react-form.component";
+import {AngularFireModule} from "@angular/fire/compat";
+import {Auth} from 'firebase/auth';
 
 @Component({
     selector: 'register-reactive-form',
@@ -27,7 +29,8 @@ export class RegisterReactiveFormComponent implements OnInit {
     @ViewChild('confirmPassword')
     confirmPassword!: ElementRef;
 
-    constructor(private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService) {
+    constructor(private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService,
+                private auth: AngularFireModule) {
         this._createForm()
     }
 
@@ -52,6 +55,7 @@ export class RegisterReactiveFormComponent implements OnInit {
     }
 
     public onSubmit() {
+        //this.auth.signInWithEmailAndPassword()
         this.peopleService.sendOnServer(this.registerForm);
     }
 

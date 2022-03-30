@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ISavAcc, IUser, savingsAccount} from "../spa/interfaces";
+import {IUser, savingsAccount} from "../spa/interfaces";
 import {ActivatedRoute} from "@angular/router";
 import {map, Observable, Subject, switchMap} from "rxjs";
 import {FormGroup} from "@angular/forms";
@@ -10,12 +10,13 @@ import {FormGroup} from "@angular/forms";
 })
 export class FondCardsService implements OnInit {
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
-    private _urlSavingAcc: string = '' +
-        '';
+    private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     public id?: number;
     public userService?: IUser;
     public getUserSubject: Subject<IUser> = new Subject<IUser>();
+    public getSavAccSubject: Subject<savingsAccount[]> = new Subject<savingsAccount[]>();
     private _newSavAcc!: savingsAccount;
+    public savAcc?: savingsAccount[];
 
 
     constructor(private http: HttpClient, public activateRoute: ActivatedRoute) {
@@ -23,15 +24,16 @@ export class FondCardsService implements OnInit {
 
     ngOnInit() {
         this._createUsrService();
+        this.getAllNecessaryAcc();
     }
 
     public sendOnServerSavingAcc(name: string, endDate: Date, amount: number, savingsAccForm: FormGroup) {
         this._newSavAcc = {
-            name: name,
-            endDate: endDate,
-            goalRUB: FondCardsService._stringGoalRUB(amount),
+            name: savingsAccForm.value.name,
+            endDate: savingsAccForm.value.endDate,
+            goalRUB: FondCardsService._stringGoalRUB(savingsAccForm.value.goalRUB),
             doneRUB: '',
-            id: savingsAccForm.value.id
+            idCreator: this.id
         }
 
         this._postSavingsAcc();
@@ -41,29 +43,32 @@ export class FondCardsService implements OnInit {
         return new Intl.NumberFormat('ru-RU').format(amount);
     }
 
-    public get_urlSavingAcc(): Observable<Array<ISavAcc>> {
-        return this.http.get<ISavAcc[]>(this._urlSavingAcc);
+    public get_urlSavingAcc(): Observable<Array<savingsAccount>> {
+        return this.http.get<savingsAccount[]>(this._urlSavingAcc);
     }
-
-
-    private _getSavingAccParams(): Observable<ISavAcc> {
-        return this.get_urlSavingAcc()
-            .pipe(
-                map((savAccs: ISavAcc[]): ISavAcc => {
-                    return savAccs.filter(acc => acc.id === this.id)[0];
-                })
-            );
-    }
-
 
     private _postSavingsAcc() {
-        let urlNeedAcc = this._getSavingAccParams()
-        this.http.patch(urlNeedAcc + '/{savingsAccount}', this._newSavAcc)
+        console.log(this.id)
+        this.http.post<savingsAccount>(this._urlSavingAcc, this._newSavAcc)
             .subscribe(
                 res => {
-                    console.log('received ok response from patch request');
+                    console.log('received ok response from post request');
                 })
     }
+
+    //Для выгрузки карточек сберегательных счетов
+    private _getSavingsAccount(): Observable<Array<savingsAccount>> {
+        return this.http.get<savingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
+    }
+
+    public getAllNecessaryAcc() {
+        this._getSavingsAccount()
+            .subscribe((acc: savingsAccount[]) => {
+                this.savAcc = acc;
+                this.getSavAccSubject.next(acc);
+            })
+    }
+
 
     //Для выгрузки найденного пользователя, после логина
     public getNeedUserParams(): Observable<Array<IUser>> {

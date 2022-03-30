@@ -2,9 +2,10 @@ import {ElementRef, Injectable, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
-import {ISavAcc, IUser, savingsAccount} from "../spa/interfaces";
-import {Subject} from "rxjs";
+import {IUser, savingsAccount} from "../spa/interfaces";
 import {FondCardsService} from "../personal/fond-cards.service";
+import {Auth, signInWithEmailAndPassword} from "@angular/fire/auth";
+import {from} from "rxjs";
 
 
 @Injectable({
@@ -14,11 +15,11 @@ export class PeopleService {
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
     private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     private newUser!: IUser;
-    private _newSavingAcc!: ISavAcc;
     public userWithId ?: IUser;
     @ViewChild('password') passwordInput!: ElementRef;
 
-    constructor(private http: HttpClient, private router: Router, private fondCard: FondCardsService) {
+    constructor(private http: HttpClient, private router: Router, private fondCard: FondCardsService,
+                private _auth: Auth) {
     }
 
     public sendOnServer(registerForm: FormGroup) {
@@ -34,11 +35,13 @@ export class PeopleService {
                 cardNumber: PeopleService.cardNumber(),
             }]
         }
-        this._newSavingAcc = {
-            id: registerForm.value.id,
-            savingsAccount: [],
-        }
-
+        // this._newSavingAcc = {
+        //     id: registerForm.value.id,
+        //     savingsAccount: [],
+        // }
+        // from(signInWithEmailAndPassword(this._auth, this.newUser.mail, this.newUser.password)).subscribe(() => {
+        //     console.log('gfdsd');
+        // })
         this.postUser(registerForm);
     }
 
@@ -57,10 +60,10 @@ export class PeopleService {
     }
 
     private postUser(registerForm: FormGroup) {
-        this.http.post<ISavAcc>(this._urlSavingAcc, this._newSavingAcc)
-            .subscribe(res => {
-                registerForm.reset();
-            });
+        // this.http.post<ISavAcc>(this._urlSavingAcc, this._newSavingAcc)
+        //     .subscribe(res => {
+        //         registerForm.reset();
+        //     });
         this.http.post<IUser>(this.urlSignupUser, this.newUser)
             .subscribe(res => {
                 alert('Signup Successful');

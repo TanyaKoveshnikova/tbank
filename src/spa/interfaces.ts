@@ -13,15 +13,15 @@ export interface cards {
     cardNumber: string
 }
 
-export interface ISavAcc {
-    id: number,
-    savingsAccount: savingsAccount[];
-}
+// export interface ISavAcc {
+//     id: number,
+//     savingsAccount: savingsAccount[];
+// }
 
 export interface savingsAccount {
     name: string;
     endDate: Date;
     goalRUB: string;
     doneRUB: '';
-    id: number;
+    idCreator?: number;
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Renderer2} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {PeopleService} from "../../../login/people.service";
@@ -12,6 +12,7 @@ import {FondCardsService} from "../../fond-cards.service";
 })
 export class CreateSavingAccComponent implements OnInit {
     public savingsAccForm: FormGroup = new FormGroup({});
+    @Output() buttonClick = new EventEmitter();
 
     constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
                 private _renderer: Renderer2) {
@@ -31,8 +32,8 @@ export class CreateSavingAccComponent implements OnInit {
     }
 
     public onSubmit() {
-        console.log('отправлена форма из create-saving.comp');
-        this._fondCardsService.sendOnServerSavingAcc('F', this.savingsAccForm.value.endDate, 4,this.savingsAccForm)
+        this.buttonClick.emit()
+        this._fondCardsService.sendOnServerSavingAcc('F', this.savingsAccForm.value.endDate, 4,this.savingsAccForm);
         this._router.navigate(['/personal/home/1/main-page']);
     }
 }

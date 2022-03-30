@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" (buttonClick)="onAdd()">
     <div class="float">
         <div class="container">
             <details>
@@ -57,7 +57,11 @@
                          src="../../../assets/images/plus_icon.svg" alt="plus">
                 </div>
             </summary>
-
+            <ul class="value__list" *ngFor="let acc of savingsAccounts">
+                <li class="value summary__value">
+                   <div>{{acc?.name}}</div>
+                </li>
+            </ul>
         </details>
     </div>
 </div>

@@ -18,7 +18,7 @@ import {PeopleService} from "./people.service";
     CommonModule,
     LoginRoutingModule,
   ],
-  providers: [PeopleService]
+  providers: []
 })
 export class LoginModule {
 }
