@@ -1,4 +1,4 @@
-<div class="wrapper" (buttonClick)="onAdd()">
+<div class="wrapper">
     <div class="float">
         <div class="container">
             <details>
@@ -54,10 +54,10 @@
                     SAVINGS ACCOUNT
                     <img class="img_active img__arrow" src="../../../assets/images/arrow.svg" alt="arrow up">
                     <img (click)="createSavingsAcc()" class="img_active img_plus"
-                         src="../../../assets/images/plus_icon.svg" alt="plus">
+                         src="../../../assets/images/plus_icon.svg" alt ="plus">
                 </div>
             </summary>
-            <ul class="value__list" *ngFor="let acc of savingsAccounts">
+            <ul class="value__list" *ngFor="let acc of savCardsObs | async">
                 <li class="value summary__value">
                    <div>{{acc?.name}}</div>
                 </li>

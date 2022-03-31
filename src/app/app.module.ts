@@ -29,7 +29,7 @@ import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/compat/auth"
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
     ],
-    providers: [PeopleService],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,21 +1,32 @@
-import {Component, EventEmitter, OnInit, Output, Renderer2} from '@angular/core';
+import {
+    ApplicationRef,
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    NgZone,
+    OnInit,
+    Output,
+    Renderer2
+} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {PeopleService} from "../../../login/people.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {FondCardsService} from "../../fond-cards.service";
+import {MainPageComponent} from "../main-page/main-page.component";
 
 @Component({
     selector: 'create-saving-acc',
     templateUrl: './create-saving-acc.component.html',
-    styleUrls: ['./create-saving-acc.component.scss']
+    styleUrls: ['./create-saving-acc.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateSavingAccComponent implements OnInit {
     public savingsAccForm: FormGroup = new FormGroup({});
+
     @Output() buttonClick = new EventEmitter();
 
     constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
-                private _renderer: Renderer2) {
+                private _renderer: Renderer2, private _compMain: MainPageComponent, private ngZone: NgZone) {
         this._createForm();
     }
 
@@ -32,8 +43,10 @@ export class CreateSavingAccComponent implements OnInit {
     }
 
     public onSubmit() {
-        this.buttonClick.emit()
-        this._fondCardsService.sendOnServerSavingAcc('F', this.savingsAccForm.value.endDate, 4,this.savingsAccForm);
+        this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
         this._router.navigate(['/personal/home/1/main-page']);
+    }
+    public onSer(){
+        this.buttonClick.emit()
     }
 }

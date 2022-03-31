@@ -1,8 +1,8 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IUser, savingsAccount} from "../spa/interfaces";
 import {ActivatedRoute} from "@angular/router";
-import {map, Observable, Subject, switchMap} from "rxjs";
+import {map, Observable, Subject, Subscription, switchMap} from "rxjs";
 import {FormGroup} from "@angular/forms";
 
 @Injectable({
@@ -24,10 +24,10 @@ export class FondCardsService implements OnInit {
 
     ngOnInit() {
         this._createUsrService();
-        this.getAllNecessaryAcc();
+        // this.getAllNecessaryAcc();
     }
 
-    public sendOnServerSavingAcc(name: string, endDate: Date, amount: number, savingsAccForm: FormGroup) {
+    public sendOnServerSavingAcc(savingsAccForm: FormGroup) {
         this._newSavAcc = {
             name: savingsAccForm.value.name,
             endDate: savingsAccForm.value.endDate,
@@ -48,26 +48,24 @@ export class FondCardsService implements OnInit {
     }
 
     private _postSavingsAcc() {
-        console.log(this.id)
         this.http.post<savingsAccount>(this._urlSavingAcc, this._newSavAcc)
             .subscribe(
                 res => {
-                    console.log('received ok response from post request');
                 })
     }
 
     //Для выгрузки карточек сберегательных счетов
-    private _getSavingsAccount(): Observable<Array<savingsAccount>> {
+    public _getSavingsAccount(): Observable<Array<savingsAccount>> {
         return this.http.get<savingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
     }
 
-    public getAllNecessaryAcc() {
-        this._getSavingsAccount()
-            .subscribe((acc: savingsAccount[]) => {
-                this.savAcc = acc;
-                this.getSavAccSubject.next(acc);
-            })
-    }
+    // public getAllNecessaryAcc() {
+    //     this._getSavingsAccount()
+    //         .subscribe((acc: savingsAccount[]) => {
+    //             this.savAcc = acc;
+    //             this.getSavAccSubject.next(acc);
+    //         })
+    // }
 
 
     //Для выгрузки найденного пользователя, после логина
