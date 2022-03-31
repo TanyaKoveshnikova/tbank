@@ -23,7 +23,7 @@ import {MainPageComponent} from "../main-page/main-page.component";
 export class CreateSavingAccComponent implements OnInit {
     public savingsAccForm: FormGroup = new FormGroup({});
 
-    @Output() buttonClick = new EventEmitter();
+    // @Output() buttonClick = new EventEmitter();
 
     constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
                 private _renderer: Renderer2, private _compMain: MainPageComponent, private ngZone: NgZone) {
@@ -46,7 +46,11 @@ export class CreateSavingAccComponent implements OnInit {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
         this._router.navigate(['/personal/home/1/main-page']);
     }
-    public onSer(){
-        this.buttonClick.emit()
+
+    public onSer() {
+        // this.buttonClick.emit();
+        setTimeout(() => {
+            this._compMain.savCardsObs = this._fondCardsService._getSavingsAccount()
+        }, 100)
     }
 }

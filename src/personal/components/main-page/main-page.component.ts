@@ -27,7 +27,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.savCardsObs = this._fondCardsService._getSavingsAccount()
+            this.savCardsObs = this._fondCardsService._getSavingsAccount();
     }
 
     ngOnDestroy() {

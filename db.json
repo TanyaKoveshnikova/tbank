@@ -41,6 +41,20 @@
         }
       ],
       "id": 1
+    },
+    {
+      "mail": "ODOLJCL@DLSJ",
+      "password": "456789",
+      "name": "FDKV,",
+      "surname": "DFGBDF",
+      "cards": [
+        {
+          "cardName": "platinum maestro",
+          "RUB": "96 550",
+          "cardNumber": "9627 1054 5470 7979"
+        }
+      ],
+      "id": 2
     }
   ],
   "savingsAcc": [
@@ -67,6 +81,62 @@
       "doneRUB": "",
       "idCreator": 1,
       "id": 3
+    },
+    {
+      "name": "НА МОЗГ",
+      "endDate": "2022-04-06",
+      "goalRUB": "50 000",
+      "doneRUB": "",
+      "idCreator": 2,
+      "id": 4
+    },
+    {
+      "name": "Татьяна ",
+      "endDate": "2022-03-17",
+      "goalRUB": "312",
+      "doneRUB": "",
+      "idCreator": 1,
+      "id": 5
+    },
+    {
+      "name": "fdv",
+      "endDate": "2022-04-07",
+      "goalRUB": "354 120",
+      "doneRUB": "",
+      "idCreator": 1,
+      "id": 6
+    },
+    {
+      "name": "sdc",
+      "endDate": "2022-03-23",
+      "goalRUB": "231",
+      "doneRUB": "",
+      "idCreator": 1,
+      "id": 7
+    },
+    {
+      "name": "на право",
+      "endDate": "2022-03-21",
+      "goalRUB": "54 312",
+      "doneRUB": "",
+      "idCreator": 1,
+      "id": 8
+    },
+    {
+      "name": "Татьяна ",
+      "endDate": "2022-03-17",
+      "goalRUB": "54 312",
+      "doneRUB": "",
+      "idCreator": 2,
+      "id": 9
+    },
+    {
+      "name": "Кекс",
+      "endDate": "2022-03-22",
+      "goalRUB": "6 541 320",
+      "doneRUB": "",
+      "idCreator": 2,
+      "id": 10
     }
   ]
 }
