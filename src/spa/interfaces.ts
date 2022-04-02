@@ -22,6 +22,6 @@ export interface savingsAccount {
     name: string;
     endDate: Date;
     goalRUB: string;
-    doneRUB: '';
+    doneRUB: string;
     idCreator?: number;
 }

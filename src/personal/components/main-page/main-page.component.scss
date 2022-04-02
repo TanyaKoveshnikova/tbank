@@ -5,6 +5,7 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     color: white;
     margin: 3em;
 
+
     .value {
         background-color: $colorCards;
         min-width: 10em;
@@ -52,6 +53,13 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
 
     .container:not(:first-child) {
         margin-top: 2em;
+    }
+
+    .fox_image{
+        width: 50px;
+    }
+    .value_endDate{
+        margin-top: 5px;
     }
 }
 

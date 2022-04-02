@@ -4,6 +4,7 @@ import {IUser, savingsAccount} from "../spa/interfaces";
 import {ActivatedRoute} from "@angular/router";
 import {map, Observable, Subject, Subscription, switchMap} from "rxjs";
 import {FormGroup} from "@angular/forms";
+import {parse} from "@typescript-eslint/parser";
 
 @Injectable({
     providedIn: 'root'
@@ -32,7 +33,7 @@ export class FondCardsService implements OnInit {
             name: savingsAccForm.value.name,
             endDate: savingsAccForm.value.endDate,
             goalRUB: FondCardsService._stringGoalRUB(savingsAccForm.value.goalRUB),
-            doneRUB: '',
+            doneRUB: '0',
             idCreator: this.id
         }
 

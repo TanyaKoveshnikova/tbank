@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FondCardsService} from "../../fond-cards.service";
 import {MainPageComponent} from "../main-page/main-page.component";
 
@@ -23,22 +23,19 @@ import {MainPageComponent} from "../main-page/main-page.component";
 export class CreateSavingAccComponent implements OnInit {
     public savingsAccForm: FormGroup = new FormGroup({});
 
-    // @Output() buttonClick = new EventEmitter();
-
     constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
                 private _renderer: Renderer2, private _compMain: MainPageComponent, private ngZone: NgZone) {
         this._createForm();
     }
 
     ngOnInit(): void {
-
     }
 
     private _createForm() {
         this.savingsAccForm = new FormGroup({
-            name: new FormControl(''),
-            endDate: new FormControl(''),
-            goalRUB: new FormControl(''),
+            name: new FormControl('', [Validators.required]),
+            endDate: new FormControl('', [Validators.required]),
+            goalRUB: new FormControl('', [Validators.required]),
         })
     }
 
@@ -48,9 +45,8 @@ export class CreateSavingAccComponent implements OnInit {
     }
 
     public onSer() {
-        // this.buttonClick.emit();
         setTimeout(() => {
             this._compMain.savCardsObs = this._fondCardsService._getSavingsAccount()
-        }, 100)
+        }, 1)
     }
 }

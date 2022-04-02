@@ -12,7 +12,6 @@ import {Observable, Subject, Subscription, takeUntil} from "rxjs";
 })
 export class MainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
-    // public savingsAccounts?: savingsAccount[];
     private subscriptions: Subscription[] = [];
     public savCardsObs?: Observable<savingsAccount[]>;
 
@@ -20,14 +19,12 @@ export class MainPageComponent implements OnInit, OnDestroy {
                 private _route: ActivatedRoute) {
         let userSubscribe = this._fondCardsService.getUserSubject.subscribe(e => this.user = e);
         this.subscriptions.push(userSubscribe);
-        // let saveAccSubscribe = this._fondCardsService.getSavAccSubject.subscribe(e => this.savingsAccounts = e);
-        // this.subscriptions.push(saveAccSubscribe);
         this.user = this._fondCardsService.userService;
-        // this.savingsAccounts = this._fondCardsService.savAcc;
+        this.savCardsObs = this._fondCardsService._getSavingsAccount();
     }
 
     ngOnInit() {
-            this.savCardsObs = this._fondCardsService._getSavingsAccount();
+        this.savCardsObs = this._fondCardsService._getSavingsAccount();
     }
 
     ngOnDestroy() {

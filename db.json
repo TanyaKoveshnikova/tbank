@@ -1,142 +1,78 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "password": "123456",
-      "name": "Гарри",
-      "surname": "Поттер",
-      "mail": "imbettermagician@hog.ru"
-    },
-    {
-      "id": 2,
-      "password": "987654",
-      "name": "Рон",
-      "surname": "Уизли",
-      "mail": "dogcat@hog.ru"
-    },
-    {
-      "id": 3,
-      "password": "124578",
-      "name": "Гермиона",
-      "surname": "Грейнджер",
-      "mail": "betterhalfbreed@hog.ru"
-    }
-  ],
-  "signupUsers": [
-    {
-      "mail": "taniakovesh@gmail.com",
-      "password": "123456",
-      "name": "Татьяна ",
-      "surname": "Ковешникова ",
-      "cards": [
+    "posts": [
         {
-          "cardName": "master wizard",
-          "RUB": "88 388",
-          "cardNumber": "4065 2175 1539 9538"
+            "id": 1,
+            "password": "123456",
+            "name": "Гарри",
+            "surname": "Поттер",
+            "mail": "imbettermagician@hog.ru"
         },
         {
-          "cardName": "master wizard",
-          "RUB": "88 388",
-          "cardNumber": "4065 2175 1539 9538"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "mail": "ODOLJCL@DLSJ",
-      "password": "456789",
-      "name": "FDKV,",
-      "surname": "DFGBDF",
-      "cards": [
+            "id": 2,
+            "password": "987654",
+            "name": "Рон",
+            "surname": "Уизли",
+            "mail": "dogcat@hog.ru"
+        },
         {
-          "cardName": "platinum maestro",
-          "RUB": "96 550",
-          "cardNumber": "9627 1054 5470 7979"
+            "id": 3,
+            "password": "124578",
+            "name": "Гермиона",
+            "surname": "Грейнджер",
+            "mail": "betterhalfbreed@hog.ru"
         }
-      ],
-      "id": 2
-    }
-  ],
-  "savingsAcc": [
-    {
-      "name": "на отпуск",
-      "endDate": "2022-10-30",
-      "goalRUB": "50 000",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 1
-    },
-    {
-      "name": "на права",
-      "endDate": "2022-10-27",
-      "goalRUB": "50 000",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 2
-    },
-    {
-      "name": "mdf.vmd.m",
-      "endDate": "2022-03-16",
-      "goalRUB": "353 120",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 3
-    },
-    {
-      "name": "НА МОЗГ",
-      "endDate": "2022-04-06",
-      "goalRUB": "50 000",
-      "doneRUB": "",
-      "idCreator": 2,
-      "id": 4
-    },
-    {
-      "name": "Татьяна ",
-      "endDate": "2022-03-17",
-      "goalRUB": "312",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 5
-    },
-    {
-      "name": "fdv",
-      "endDate": "2022-04-07",
-      "goalRUB": "354 120",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 6
-    },
-    {
-      "name": "sdc",
-      "endDate": "2022-03-23",
-      "goalRUB": "231",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 7
-    },
-    {
-      "name": "на право",
-      "endDate": "2022-03-21",
-      "goalRUB": "54 312",
-      "doneRUB": "",
-      "idCreator": 1,
-      "id": 8
-    },
-    {
-      "name": "Татьяна ",
-      "endDate": "2022-03-17",
-      "goalRUB": "54 312",
-      "doneRUB": "",
-      "idCreator": 2,
-      "id": 9
-    },
-    {
-      "name": "Кекс",
-      "endDate": "2022-03-22",
-      "goalRUB": "6 541 320",
-      "doneRUB": "",
-      "idCreator": 2,
-      "id": 10
-    }
-  ]
+    ],
+    "signupUsers": [
+        {
+            "mail": "taniakovesh@gmail.com",
+            "password": "123456",
+            "name": "Татьяна ",
+            "surname": "Ковешникова ",
+            "cards": [
+                {
+                    "cardName": "master wizard",
+                    "RUB": "88 388",
+                    "cardNumber": "4065 2175 1539 9538"
+                },
+                {
+                    "cardName": "master wizard",
+                    "RUB": "88 388",
+                    "cardNumber": "4065 2175 1539 9538"
+                }
+            ],
+            "id": 1
+        },
+        {
+            "mail": "ODOLJCL@DLSJ",
+            "password": "456789",
+            "name": "FDKV,",
+            "surname": "DFGBDF",
+            "cards": [
+                {
+                    "cardName": "platinum maestro",
+                    "RUB": "96 550",
+                    "cardNumber": "9627 1054 5470 7979"
+                }
+            ],
+            "id": 2
+        }
+    ],
+    "savingsAcc": [
+        {
+            "name": "на мозги",
+            "endDate": "2022-12-02",
+            "goalRUB": "10 000 000 000 000",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 1
+        },
+        {
+            "name": "на отпуск",
+            "endDate": "2022-04-27",
+            "goalRUB": "100 000",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 2
+        }
+    ]
 }

@@ -1,1 +1,35 @@
+.wrapper {
+    background-color: #9886e5;
+    width: 40%;
+    padding: 2em;
+    //bottom: 1em;
+    //position: absolute;
+    box-shadow: 0 0 1em 0 rgba(16, 0, 63, 0.98);
 
+    .value {
+        margin-bottom: 1em;
+        margin-right: 1em;
+
+        .input__value {
+            padding: 5px;
+            width: 100%;
+        }
+    }
+
+    .btn {
+        padding: 10px;
+        width: 80%;
+        margin-top: 5px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: 0.3s;
+        background-color: rgba(27, 2, 105, 0.98);
+        color: white;
+    }
+
+    .btn[disabled]{
+        background-color: rgba(92, 88, 103, 0.6);
+        color: black;
+    }
+}
