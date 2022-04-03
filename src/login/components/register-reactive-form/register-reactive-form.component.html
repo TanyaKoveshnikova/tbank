@@ -28,6 +28,7 @@
                     >
                         <span *ngIf="f['mail'].errors['required']">Email must not be empty</span>
                         <span *ngIf="f['mail'].errors['email']">Please enter a valid Email</span>
+                        <span *ngIf="f['mail'].errors['checkRepeatEmail']">Please enter another email</span>
                     </div>
                 </div>
                 <div class="value">

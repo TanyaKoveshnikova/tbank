@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
-import {ConfirmedValidator} from "../../../spa/providers/CustomValidators";
+import {CheckRepeatEmail, ConfirmedValidator} from "../../../spa/providers/CustomValidators";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {IUser} from "../../../spa/interfaces";
@@ -16,6 +16,7 @@ import {Auth} from 'firebase/auth';
 })
 export class RegisterReactiveFormComponent implements OnInit {
     public registerForm: FormGroup = new FormGroup({});
+    private urlSignupUser: string = 'http://localhost:3000/signupUsers';
 
     @ViewChild('btn')
     btn!: ElementRef;
@@ -46,7 +47,8 @@ export class RegisterReactiveFormComponent implements OnInit {
                 mail: ['', [Validators.required, Validators.email]],
             },
             {
-                validator: ConfirmedValidator('password', 'confirmPassword')
+                validators: [ConfirmedValidator('password', 'confirmPassword'),
+                    CheckRepeatEmail('mail', this.http, this.urlSignupUser)]
             })
     }
 

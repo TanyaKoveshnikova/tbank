@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {RegisterReactiveFormComponent} from "./components/register-reactive-form/register-reactive-form.component";
 import {LoginReactFormComponent} from "./components/login-react-form/login-react-form.component";
+import {AuthGuard} from "./providers/auth.guard";
 
 const routes: Routes = [
   {path: 'register', component: RegisterReactiveFormComponent},

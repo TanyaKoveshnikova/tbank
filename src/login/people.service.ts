@@ -12,11 +12,20 @@ import {from} from "rxjs";
     providedIn: 'root'
 })
 export class PeopleService {
+    private _loggedInStatus = false;
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
     private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     private newUser!: IUser;
     public userWithId ?: IUser;
     @ViewChild('password') passwordInput!: ElementRef;
+
+    private setLoggedIn(value: boolean) {
+        this._loggedInStatus = value;
+    }
+
+    get isLoggedIn() {
+        return this._loggedInStatus;
+    }
 
     constructor(private http: HttpClient, private router: Router, private fondCard: FondCardsService,
                 private _auth: Auth) {
@@ -82,6 +91,7 @@ export class PeopleService {
                     return a.mail === login.value.mail && a.password === login.value.password
                 });
                 if (user) {
+                    this.setLoggedIn(true);
                     this.router.navigate(['/personal/home/' + user.id]);
                     login.reset();
                 } else {
