@@ -5,6 +5,7 @@ import {LoginReactFormComponent} from "./components/login-react-form/login-react
 import {RegisterReactiveFormComponent} from "./components/register-reactive-form/register-reactive-form.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PeopleService} from "./people.service";
+import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import {PeopleService} from "./people.service";
     CommonModule,
     LoginRoutingModule,
   ],
-  providers: [PeopleService]
+  providers: [PeopleService, ExitAboutGuard]
 })
 export class LoginModule {
 }

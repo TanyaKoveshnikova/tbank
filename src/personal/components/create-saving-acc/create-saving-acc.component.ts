@@ -13,6 +13,8 @@ import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FondCardsService} from "../../fond-cards.service";
 import {MainPageComponent} from "../main-page/main-page.component";
+import {Observable} from "rxjs";
+import {ComponentCanDeactivate} from "../../../spa/providers/exit.about.guard";
 
 @Component({
     selector: 'create-saving-acc',
@@ -20,7 +22,8 @@ import {MainPageComponent} from "../main-page/main-page.component";
     styleUrls: ['./create-saving-acc.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreateSavingAccComponent implements OnInit {
+export class CreateSavingAccComponent implements OnInit, ComponentCanDeactivate {
+    private _saved: boolean = false;
     public savingsAccForm: FormGroup = new FormGroup({});
 
     constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
@@ -29,6 +32,15 @@ export class CreateSavingAccComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    canDeactivate(): boolean | Observable<boolean> {
+        if(!this._saved){
+            return confirm("Вы хотите покинуть страницу?");
+        }
+        else{
+            return true;
+        }
     }
 
     private _createForm() {
@@ -41,6 +53,7 @@ export class CreateSavingAccComponent implements OnInit {
 
     public onSubmit() {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
+        this._saved = true;
         this._router.navigate(['/personal/' + this._fondCardsService.id + '/main-page']);
     }
 

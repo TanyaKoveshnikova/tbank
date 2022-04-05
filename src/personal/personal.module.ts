@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MainPageComponent} from "./components/main-page/main-page.component";
 import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         PersonalRoutingModule,
         HttpClientModule
     ],
-    providers: [FondCardsService]
+    providers: [FondCardsService, ExitAboutGuard]
 })
 export class PersonalModule {
 }

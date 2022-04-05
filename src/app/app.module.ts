@@ -13,6 +13,7 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import {PeopleService} from "../login/people.service";
 import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AuthGuard} from "../personal/providers/auth.guard";
+import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
 
 
 @NgModule({

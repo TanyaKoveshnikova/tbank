@@ -4,13 +4,15 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {IUser} from "../../../spa/interfaces";
 import {PeopleService} from "../../people.service";
+import {ComponentCanDeactivate} from "../../../spa/providers/exit.about.guard";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-authorization-react-form',
     templateUrl: './login-react-form.component.html',
     styleUrls: ['./login-react-form.component.scss']
 })
-export class LoginReactFormComponent implements OnInit {
+export class LoginReactFormComponent implements OnInit{
     public login: FormGroup = new FormGroup({});
     @ViewChild('btn')
     btn!: ElementRef;
@@ -42,4 +44,5 @@ export class LoginReactFormComponent implements OnInit {
     public ngAfterViewInit() {
         this._peopleService.showPassword(this.btn.nativeElement, this.password.nativeElement);
     }
+
 }

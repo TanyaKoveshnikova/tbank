@@ -8,14 +8,17 @@ import {PeopleService} from "../../people.service";
 import {LoginReactFormComponent} from "../login-react-form/login-react-form.component";
 import {AngularFireModule} from "@angular/fire/compat";
 import {Auth} from 'firebase/auth';
+import {ComponentCanDeactivate} from "../../../spa/providers/exit.about.guard";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'register-reactive-form',
     templateUrl: './register-reactive-form.component.html',
     styleUrls: ['./register-reactive-form.component.scss']
 })
-export class RegisterReactiveFormComponent implements OnInit {
+export class RegisterReactiveFormComponent implements OnInit , ComponentCanDeactivate {
     public registerForm: FormGroup = new FormGroup({});
+    private _saved: boolean = false;
     private urlSignupUser: string = 'http://localhost:3000/signupUsers';
 
     @ViewChild('btn')
@@ -36,6 +39,15 @@ export class RegisterReactiveFormComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    canDeactivate(): boolean | Observable<boolean> {
+        if(!this._saved){
+            return confirm("Вы хотите покинуть страницу?");
+        }
+        else{
+            return true;
+        }
     }
 
     private _createForm() {
@@ -59,6 +71,7 @@ export class RegisterReactiveFormComponent implements OnInit {
     public onSubmit() {
         //this.auth.signInWithEmailAndPassword()
         this.peopleService.sendOnServer(this.registerForm);
+        this._saved = true;
     }
 
     public ngAfterViewInit() {

@@ -6,6 +6,7 @@ import {PaymentsTransfersComponent} from "./components/payments-transfers/paymen
 import {MainPageComponent} from "./components/main-page/main-page.component";
 import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
 import {AuthGuard} from "./providers/auth.guard";
+import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
 
 
 const childrenRoutes: Routes = [
@@ -16,6 +17,7 @@ const childrenRoutes: Routes = [
             {
                 path: 'createSavingsAccount', // child route path
                 component: CreateSavingAccComponent, // child route component that the router renders
+                canDeactivate: [ExitAboutGuard]
             }
         ]
     },
