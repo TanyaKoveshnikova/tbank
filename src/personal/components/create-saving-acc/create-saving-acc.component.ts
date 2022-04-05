@@ -41,7 +41,7 @@ export class CreateSavingAccComponent implements OnInit {
 
     public onSubmit() {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
-        this._router.navigate(['/personal/home/1/main-page']);
+        this._router.navigate(['/personal/' + this._fondCardsService.id + '/main-page']);
     }
 
     public onSer() {

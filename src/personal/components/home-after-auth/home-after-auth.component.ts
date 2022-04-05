@@ -21,7 +21,7 @@ export class HomeAfterAuthComponent implements OnInit {
 
     ngOnInit() {
         this.getID();
-        this.router.navigate(['/personal/home/' + this.id + '/main-page'])
+        this.router.navigate(['/personal/' + this.id + '/main-page'])
     }
 
     private getID() {

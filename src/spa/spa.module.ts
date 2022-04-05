@@ -7,6 +7,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {LoginModule} from "../login/login.module";
 import {FooterSpaComponent} from "./components/footer-spa/footer-spa.component";
 import {SpaBodyComponent} from "./components/spa-body/spa-body.component";
+import {SingletoneService} from "./services/singletone.service";
+import {AuthGuard} from "../personal/providers/auth.guard";
 
 
 
@@ -25,6 +27,6 @@ import {SpaBodyComponent} from "./components/spa-body/spa-body.component";
     HttpClientModule,
     LoginModule,
   ],
-  providers: []
+  providers: [SingletoneService,AuthGuard]
 })
 export class SpaModule { }

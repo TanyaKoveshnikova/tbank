@@ -12,6 +12,7 @@ import {provideDatabase, getDatabase} from '@angular/fire/database';
 import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import {PeopleService} from "../login/people.service";
 import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AuthGuard} from "../personal/providers/auth.guard";
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/compat/auth"
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
     ],
-    providers: [],
+    providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

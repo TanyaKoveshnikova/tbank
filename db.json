@@ -87,6 +87,22 @@
       "doneRUB": "0",
       "idCreator": 1,
       "id": 2
+    },
+    {
+      "name": "Татьяна ",
+      "endDate": "2022-03-31",
+      "goalRUB": "53",
+      "doneRUB": "0",
+      "idCreator": 1,
+      "id": 3
+    },
+    {
+      "name": "Кекси",
+      "endDate": "2022-04-20",
+      "goalRUB": "131",
+      "doneRUB": "0",
+      "idCreator": 2,
+      "id": 4
     }
   ]
 }

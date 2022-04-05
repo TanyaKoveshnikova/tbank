@@ -5,6 +5,7 @@ import {HistoryComponent} from "./components/history/history.component";
 import {PaymentsTransfersComponent} from "./components/payments-transfers/payments-transfers.component";
 import {MainPageComponent} from "./components/main-page/main-page.component";
 import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
+import {AuthGuard} from "./providers/auth.guard";
 
 
 const childrenRoutes: Routes = [
@@ -25,8 +26,9 @@ const childrenRoutes: Routes = [
 ]
 
 const routes: Routes = [
-    {path: 'home/:id', component: HomeAfterAuthComponent},
-    {path: 'home/:id', component: HomeAfterAuthComponent, children: childrenRoutes},
+    {path: 'personal/:id', component: HomeAfterAuthComponent},
+    {path: ':id', component: HomeAfterAuthComponent},
+    {path: ':id', component: HomeAfterAuthComponent, children: childrenRoutes},
 ];
 
 @NgModule({
