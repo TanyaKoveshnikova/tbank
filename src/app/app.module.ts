@@ -31,7 +31,7 @@ import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
     ],
-    providers: [AuthGuard],
+   // providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

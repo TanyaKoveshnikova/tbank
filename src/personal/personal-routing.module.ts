@@ -7,11 +7,13 @@ import {MainPageComponent} from "./components/main-page/main-page.component";
 import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
 import {AuthGuard} from "./providers/auth.guard";
 import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
+import {AutoPaymentsComponent} from "./components/auto-payments/auto-payments.component";
 
 
 const childrenRoutes: Routes = [
     {path: 'history', component: HistoryComponent},
     {path: 'transfer', component: PaymentsTransfersComponent},
+    {path: 'auto-payments', component: AutoPaymentsComponent,},
     {
         path: 'main-page', component: MainPageComponent, children: [
             {

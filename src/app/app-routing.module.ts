@@ -12,7 +12,7 @@ const routes: Routes = [
     },
     {
         path: 'personal', loadChildren: () => import('../personal/personal.module')
-            .then(mod => mod.PersonalModule),canActivate: [AuthGuard]
+            .then(mod => mod.PersonalModule)//,canActivate: [AuthGuard]
     },
     {path: '', component: SpaBodyComponent},
     {path: '**', component: SpaBodyComponent}

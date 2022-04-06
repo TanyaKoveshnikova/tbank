@@ -11,6 +11,7 @@ import {MainPageComponent} from "./components/main-page/main-page.component";
 import {CreateSavingAccComponent} from "./components/create-saving-acc/create-saving-acc.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
+import {AutoPaymentsComponent} from "./components/auto-payments/auto-payments.component";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ExitAboutGuard} from "../spa/providers/exit.about.guard";
         HistoryComponent,
         PaymentsTransfersComponent,
         MainPageComponent,
-        CreateSavingAccComponent
+        CreateSavingAccComponent,
+        AutoPaymentsComponent
     ],
     imports: [
         FormsModule,
