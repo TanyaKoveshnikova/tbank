@@ -5,98 +5,98 @@ $sizeHeader: 90px;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
 
 .wrapper {
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  color: white;
-  padding-bottom: 3em;
-
-  .content {
-    padding-top: 3em;
-  }
-
-  .signUp {
-    font-size: 2em;
-  }
-
-  form {
-    border: rgb(88, 62, 185) 3px solid;
-    background-color: rgb(88, 62, 185);
     text-align: center;
     margin-right: auto;
-    margin-top: 1em;
     margin-left: auto;
-    max-width: 40%;
-    min-height: 31em;
-    border-radius: 3%;
-  }
+    color: white;
+    padding-bottom: 3em;
 
-
-  .fieldRegistration {
-    float: left;
-    margin-top: 1em;
-
-    .value {
-      font-size: 1.7em;
-      margin-left: 1em;
-      margin-right: 1em;
-      clear: both;
-      text-align: right;
-
-      label {
-        padding: 15px;
-        float: left;
-      }
-
-      input {
-        margin-left: auto;
-        margin-right: auto;
-        width: 23em;
-        height: 2.6em;
-        border-radius: 10px;
-        display: inline-block;
-        vertical-align: middle;
-        padding-left: 10px;
-      }
-
-      .red-text {
-        color: #ffc1c1;
-        font-size: 0.7em;
-        margin-bottom: 0.2em;
-        margin-top: 0.2em;
-      }
+    .content {
+        padding-top: 3em;
     }
-  }
 
-  .sign {
-    padding: 5px;
-    font-size: 1.8em;
-    margin-top: 0.5em;
-    width: 7em;
-    border-radius: 10px;
-  }
+    .signUp {
+        font-size: 2em;
+    }
 
-  .sign:hover {
-    transform: scale(1.2);
-    transition: 0.5s;
-  }
+    form {
+        border: rgb(88, 62, 185) 3px solid;
+        background-color: rgb(88, 62, 185);
+        text-align: center;
+        margin-right: auto;
+        margin-top: 1em;
+        margin-left: auto;
+        max-width: 40%;
+        min-height: 31em;
+        border-radius: 3%;
+    }
 
-  ul li {
-    margin-top: 0.8em;
-    font-size: 1.1em;
-    margin-bottom: 1em;
-  }
 
-  li:hover {
-    transform: scale(1.2);
-    color: #e7be96;
-    transition: 0.5s;
-  }
+    .fieldRegistration {
+        float: left;
+        margin-top: 1em;
 
-  .password__btn {
-    right: 15px;
-    top: 6px;
-    cursor: pointer;
-  }
+        .value {
+            font-size: 1.7em;
+            margin-left: 1em;
+            margin-right: 1em;
+            clear: both;
+            text-align: right;
+
+            label {
+                padding: 15px;
+                float: left;
+            }
+
+            input {
+                margin-left: auto;
+                margin-right: auto;
+                width: 23em;
+                height: 2.6em;
+                border-radius: 10px;
+                display: inline-block;
+                vertical-align: middle;
+                padding-left: 10px;
+            }
+
+            .red-text {
+                color: #ffc1c1;
+                font-size: 0.7em;
+                margin-bottom: 0.2em;
+                margin-top: 0.2em;
+            }
+        }
+    }
+
+    .sign {
+        padding: 5px;
+        font-size: 1.8em;
+        margin-top: 0.5em;
+        width: 7em;
+        border-radius: 10px;
+    }
+
+    .sign:hover {
+        transform: scale(1.2);
+        transition: 0.5s;
+    }
+
+    ul li {
+        margin-top: 0.8em;
+        font-size: 1.1em;
+        margin-bottom: 1em;
+    }
+
+    li:hover {
+        transform: scale(1.2);
+        color: #e7be96;
+        transition: 0.5s;
+    }
+
+    .password__btn {
+        right: 15px;
+        top: 6px;
+        cursor: pointer;
+    }
 }
 

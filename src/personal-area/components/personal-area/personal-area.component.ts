@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'personal-area',
-  templateUrl: './personal-area.component.html',
-  styleUrls: ['./personal-area.component.scss']
+    selector: 'personal-area',
+    templateUrl: './personal-area.component.html',
+    styleUrls: ['./personal-area.component.scss']
 })
 export class PersonalAreaComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+        //
+    }
 
-  ngOnInit(): void {
-  }
+    public ngOnInit(): void {
+        //
+    }
 
 }

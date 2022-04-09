@@ -1,10 +1,10 @@
-$sizeHeader: 90px;
+$sizeHeader: 5rem;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
 
 .header {
     min-height: $sizeHeader;
     background-color: $colorHeaFoot;
-    padding: 10px 0;
+    padding: 1rem 0;
 
     .title-bar {
         flex-grow: 1;

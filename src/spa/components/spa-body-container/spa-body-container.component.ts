@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'spa-body-container',
@@ -8,8 +8,10 @@ import {Router} from "@angular/router";
 })
 export class SpaBodyContainerComponent implements OnInit {
     constructor() {
+        //
     }
 
-    ngOnInit() {
+    public ngOnInit() {
+        //
     }
 }

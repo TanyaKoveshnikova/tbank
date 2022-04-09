@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'personal-auto-payments',
-  templateUrl: './auto-payments.component.html',
-  styleUrls: ['./auto-payments.component.scss']
+    selector: 'personal-auto-payments',
+    templateUrl: './auto-payments.component.html',
+    styleUrls: ['./auto-payments.component.scss']
 })
 export class AutoPaymentsComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+        //c
+    }
 
-  ngOnInit(): void {
-  }
+    public ngOnInit(): void {
+        //c
+    }
 
 }

@@ -1,28 +1,96 @@
 .wrapper {
-    max-width: 1000px;
-    margin: 3em auto;
+    width: 100%;
+    min-height: calc(100vh - 5rem);
     font-size: 25px;
+    display: flex;
+    flex-direction: column;
+
 
     .auto-payment {
+        width: 60%;
+        margin: 3em auto;
         color: white;
+        position: relative;
+
 
         a {
             color: white;
             display: block;
-            position: relative;
+
+            &:hover{
+                opacity: 0.2;
+            }
 
             img {
                 position: absolute;
                 padding-right: 0.5em;
                 width: 1em;
-                top:0.1em;
+                top: 0.1em;
                 left: 5px;
             }
 
-            .text{
+            .text {
                 position: absolute;
                 left: 2em;
             }
         }
+    }
+
+    .paymentAndTransfers {
+        padding: 1em;
+        margin-top: 0.8em;
+        background-color: #9886e5;
+        min-height: 70%;
+
+        img {
+            width: 2rem;
+            padding-right: 1rem;
+        }
+
+        .value {
+            max-width: 60%;
+            margin: 0 auto;
+            padding: 2rem 1rem 5rem;
+
+            &:hover {
+                box-shadow: 5px 0 5px -5px #333,
+                -5px 0 5px -5px #333;
+            }
+
+            .text_title {
+                padding-bottom: 1rem;
+                font-weight: bold;
+            }
+
+            .elements {
+                display: flex;
+                justify-content: space-around;
+
+                .elements_wrapper {
+                    display: flex;
+                    align-content: space-around;
+                    padding-right: 1rem;
+                }
+
+                .text {
+                    font-size: 0.8em;
+
+                    &:hover{
+                        border-bottom: 0.1em solid rgba(16, 0, 63, 0.5);
+                    }
+
+                    .min_text {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+
+        .value__transfers {
+            border-bottom: 0.1em solid rgba(16, 0, 63, 0.5);
+            box-shadow: 0 5px 5px -5px #333;
+        }
+
+
     }
 }

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FondCardsService} from "../../fond-cards.service";
-import {cards, IUser} from "../../../spa/interfaces";
-import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute, Router} from "@angular/router";
-import {map, Subject, switchMap} from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { FondCardsService } from '../../fond-cards.service';
+import { cards, IUser } from '../../../spa/interfaces';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { map, Subject, switchMap } from 'rxjs';
 
 @Component({
     selector: 'home-after-auth',
@@ -16,19 +16,19 @@ export class HomeAfterAuthComponent implements OnInit {
 
 
     constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute,
-                private router: Router) {
+        private _router: Router) {
     }
 
-    ngOnInit() {
+    public ngOnInit():void {
         this.getID();
-        this.router.navigate(['/personal/' + this.id + '/main-page'])
+        this._router.navigate(['/personal/' + this.id + '/main-page']);
     }
 
-    private getID() {
+    private getID():void  {
         this.activateRoute.paramMap.pipe(
-            switchMap(params => params.getAll('id'))
+            switchMap((params: ParamMap) => params.getAll('id'))
         )
-            .subscribe(data => this.id = +data);
+            .subscribe((data: string) => this.id = +data);
         this._fondCardsService.id = this.id;
         this._fondCardsService.ngOnInit();
     }

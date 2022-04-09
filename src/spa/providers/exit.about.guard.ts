@@ -1,13 +1,14 @@
-import {CanDeactivate} from "@angular/router";
-import {Observable} from "rxjs";
+import { CanDeactivate } from '@angular/router';
+import { Observable } from 'rxjs';
 
-export interface ComponentCanDeactivate{
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export interface componentCanDeactivate {
     canDeactivate: () => boolean | Observable<boolean>;
 }
 
-export class ExitAboutGuard implements CanDeactivate<ComponentCanDeactivate>{
+export class ExitAboutGuard implements CanDeactivate<componentCanDeactivate> {
 
-    canDeactivate(component: ComponentCanDeactivate) : Observable<boolean> | boolean{
+    public canDeactivate(component: componentCanDeactivate): Observable<boolean> | boolean {
 
         return component.canDeactivate ? component.canDeactivate() : true;
     }

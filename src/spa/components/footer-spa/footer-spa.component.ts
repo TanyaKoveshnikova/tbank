@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'footer-spa',
-  templateUrl: './footer-spa.component.html',
-  styleUrls: ['./footer-spa.component.scss']
+    selector: 'footer-spa',
+    templateUrl: './footer-spa.component.html',
+    styleUrls: ['./footer-spa.component.scss']
 })
 export class FooterSpaComponent implements OnInit {
-  public title = 'Preparation for the tbank';
-  public date = Date.now();
+    public title: string | null = 'Preparation for the tbank';
+    public date: Date | number = Date.now();
 
-  constructor() { }
+    constructor() {
+        //
+    }
 
-  ngOnInit(): void {
-  }
+    public ngOnInit(): void {
+        //
+    }
 
 }
