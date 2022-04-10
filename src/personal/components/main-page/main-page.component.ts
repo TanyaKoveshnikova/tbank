@@ -35,9 +35,6 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
     public createSavingsAcc(): void {
         this._router.navigate(['../main-page/createSavingsAccount'], { relativeTo: this._route });
-    }
-
-    public onAdd(): void {
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 }
