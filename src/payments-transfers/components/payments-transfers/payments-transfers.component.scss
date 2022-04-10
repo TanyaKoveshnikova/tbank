@@ -17,7 +17,7 @@
             color: white;
             display: block;
 
-            &:hover{
+            &:hover {
                 opacity: 0.2;
             }
 
@@ -65,17 +65,25 @@
             .elements {
                 display: flex;
                 justify-content: space-around;
+                padding-top: 1rem;
 
                 .elements_wrapper {
                     display: flex;
                     align-content: space-around;
                     padding-right: 1rem;
+                    align-items: center;
+
+                    &__upArrow img {
+                        transform: rotate(90deg);
+                        padding-top: 1rem;
+                        padding-right: 0;
+                    }
                 }
 
                 .text {
                     font-size: 0.8em;
 
-                    &:hover{
+                    &:hover {
                         border-bottom: 0.1em solid rgba(16, 0, 63, 0.5);
                     }
 

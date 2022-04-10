@@ -35,74 +35,64 @@
           "cardNumber": "4065 2175 1539 9538"
         },
         {
-          "cardName": "master wizard",
-          "RUB": "88 388",
-          "cardNumber": "4065 2175 1539 9538"
+          "cardName": "maestro platinum",
+          "RUB": "29 974",
+          "cardNumber": "9416 9829 5879 5809"
         }
       ],
       "id": 1
     },
     {
-      "mail": "ODOLJCL@DLSJ",
-      "password": "456789",
-      "name": "FDKV,",
-      "surname": "DFGBDF",
+      "mail": "imbettermagician@hog.ru",
+      "password": "123456",
+      "name": "Гарри",
+      "surname": "Поттер",
       "cards": [
         {
-          "cardName": "platinum maestro",
-          "RUB": "96 550",
-          "cardNumber": "9627 1054 5470 7979"
+          "cardName": "platinum platinum",
+          "RUB": "17 074",
+          "cardNumber": "8469 1394 7403 5679"
         }
       ],
       "id": 2
     },
     {
-      "mail": "taniakovesh@gmail.com",
-      "password": "123456",
-      "name": "1321",
-      "surname": "1213",
+      "mail": "betterhalfbreed@hog.ru",
+      "password": "124578",
+      "name": "Гермиона",
+      "surname": "Грейнджер",
       "cards": [
         {
-          "cardName": "platinum platinum",
-          "RUB": "3 202",
-          "cardNumber": "6870 5609 9344 9009"
+          "cardName": "visa platinum",
+          "RUB": "350",
+          "cardNumber": "3622 9838 4421 1335"
         }
       ],
       "id": 3
+    },
+    {
+      "mail": "Рон",
+      "password": "987654",
+      "name": "Уизли",
+      "surname": "dogcat@hog.ru",
+      "cards": [
+        {
+          "cardName": "wizard payCard",
+          "RUB": "78 428",
+          "cardNumber": "7990 6156 9120 5330"
+        }
+      ],
+      "id": 4
     }
   ],
   "savingsAcc": [
     {
-      "name": "на мозги",
-      "endDate": "2022-12-02",
-      "goalRUB": "10 000 000 000 000",
+      "name": "на мозг",
+      "endDate": "2022-04-29",
+      "goalRUB": "100 000 000 000",
       "doneRUB": "0",
       "idCreator": 1,
       "id": 1
-    },
-    {
-      "name": "на отпуск",
-      "endDate": "2022-04-27",
-      "goalRUB": "100 000",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 2
-    },
-    {
-      "name": "Татьяна ",
-      "endDate": "2022-03-31",
-      "goalRUB": "53",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 3
-    },
-    {
-      "name": "Кекси",
-      "endDate": "2022-04-20",
-      "goalRUB": "131",
-      "doneRUB": "0",
-      "idCreator": 2,
-      "id": 4
     }
   ]
 }

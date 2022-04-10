@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeAfterAuthComponent } from './components/home-after-auth/home-after-auth.component';
 import { PersonalRoutingModule } from './personal-routing.module';
 import { HistoryComponent } from './components/history/history.component';
-import { PaymentsTransfersComponent } from './components/payments-transfers/payments-transfers.component';
+import { PaymentsTransfersComponent } from '../payments-transfers/components/payments-transfers/payments-transfers.component';
 
 import { FondCardsService } from './fond-cards.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +18,6 @@ import { AutoPaymentsComponent } from './components/auto-payments/auto-payments.
     declarations: [
         HomeAfterAuthComponent,
         HistoryComponent,
-        PaymentsTransfersComponent,
         MainPageComponent,
         CreateSavingAccComponent,
         AutoPaymentsComponent

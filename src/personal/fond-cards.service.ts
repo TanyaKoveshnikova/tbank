@@ -96,6 +96,4 @@ export class FondCardsService implements OnInit {
                 this.getUserSubject.next(user);
             });
     }
-
-
 }

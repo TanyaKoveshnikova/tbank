@@ -1,0 +1,77 @@
+.wrapper {
+    width: 30%;
+    height: 10rem;
+    background-color: #9886e5;
+    margin: 5rem auto;
+    text-align: center;
+
+
+    .element:not(:last-child) {
+        padding: 1rem;
+    }
+
+    .element {
+
+        &__title {
+            background-color: #583eb9;
+            padding-top: 1.5rem;
+            padding-bottom: 1.8rem;
+            font-size: 1.2em;
+            font-weight: 400;
+            color: white;
+            display: flex;
+            justify-content: center;
+
+            img {
+                transform: rotate(-90deg);
+                padding: 0;
+            }
+
+            .title {
+                padding-left: 1.5rem;
+            }
+        }
+
+        &__input {
+            padding-top: 2rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                padding-right: 0.4rem;
+                vertical-align: middle;
+            }
+
+            input {
+                font-size: 0.8em;
+                padding-right: 0.4rem;
+
+                &[type="text"] {
+                    padding: 0.2rem;
+                    text-align: center;
+                }
+            }
+
+
+            button {
+                transform: rotate(90deg);
+                padding: 0 0.2em;
+                transition: 3s;
+                visibility: visible;
+
+                &:hover {
+
+                }
+
+                &[disabled] {
+                    visibility: hidden;
+                    transition: 3s;
+                }
+            }
+        }
+    }
+
+}
