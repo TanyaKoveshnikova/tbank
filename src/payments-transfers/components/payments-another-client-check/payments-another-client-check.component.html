@@ -1,1 +1,9 @@
 <p>payments-another-client-check works!</p>
+<div class="wrapper">
+    <div class="chow_text" *ngIf="isString">
+        Client with this card not found
+    </div>
+    <div class="chow_text" *ngIf="!isString">
+        {{findClient.name}}
+    </div>
+</div>

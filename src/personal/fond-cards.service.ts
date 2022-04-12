@@ -57,10 +57,23 @@ export class FondCardsService implements OnInit {
         return this._http.get<savingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
     }
 
+    ////////////////////////////////////////////////////
+
     //Для выгрузки найденного пользователя, после логина
     public getNeedUserParams(): Observable<IUser[]> {
         return this._http.get<IUser[]>(this._urlSignupUser);
     }
+
+    private getUserParams(): Observable<IUser> {
+        return this.getNeedUserParams()
+            .pipe(
+                map((user: IUser[]): IUser => {
+                    return user.filter((u:IUser) => u.id === this.id)[0];
+                })
+            );
+    }
+
+    //////////////////////////////////////////////////////
 
     private postSavingsAcc(): void {
         this._http.post<savingsAccount>(this._urlSavingAcc, this._newSavAcc)
@@ -79,15 +92,6 @@ export class FondCardsService implements OnInit {
     //         })
     // }
 
-
-    private getUserParams(): Observable<IUser> {
-        return this.getNeedUserParams()
-            .pipe(
-                map((user: IUser[]): IUser => {
-                    return user.filter((u:IUser) => u.id === this.id)[0];
-                })
-            );
-    }
 
     private createUsrService(): void {
         this.getUserParams()

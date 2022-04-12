@@ -7,19 +7,13 @@ import { PaymentsMobileComponent } from './components/payments-mobile/payments-m
 import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
 import { CreateSavingAccComponent } from '../personal/components/create-saving-acc/create-saving-acc.component';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
+import { PaymentsAnotherClientCheckComponent } from './components/payments-another-client-check/payments-another-client-check.component';
 
 
 const childrenRoutes: Routes = [
     { path: 'between-account', component: PaymentsBetweenAccountsComponent },
-    {
-        path: 'another-client', component: PaymentsAnotherClientComponent, children: [
-            {
-                path: 'createSavingsAccount', // child route path
-                component: CreateSavingAccComponent, // child route component that the router renders
-                canDeactivate: [ExitAboutGuard]
-            }
-        ]
-    },
+    { path: 'another-client', component: PaymentsAnotherClientComponent },
+    { path: 'check', component: PaymentsAnotherClientCheckComponent },
     { path: 'mobile', component: PaymentsMobileComponent },
     { path: 'choice', component: PaymentsTransfersComponent },
 ];

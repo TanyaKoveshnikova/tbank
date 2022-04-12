@@ -8,8 +8,9 @@ import { PaymentsMobileComponent } from './components/payments-mobile/payments-m
 import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
 import { FondCardsService } from '../personal/fond-cards.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another-client-check/payments-another-client-check.component';
+import { CheckClientCardService } from './check-client-card.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { PaymentsAnotherClientCheckComponent } from './components/payments-anoth
         FormsModule,
         ReactiveFormsModule,
     ],
-    providers: []
+    providers: [CheckClientCardService]
 })
 export class PaymentsTransfersModule {
 }

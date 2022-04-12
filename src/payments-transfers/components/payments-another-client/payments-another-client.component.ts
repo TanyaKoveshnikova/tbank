@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { CheckClientCardService } from '../../check-client-card.service';
 
 @Component({
     selector: 'payments-another-client',
@@ -12,10 +13,7 @@ export class PaymentsAnotherClientComponent implements OnInit {
     // eslint-disable-next-line @typescript-eslint/typedef
     private _countNumber = 1;
 
-    // eslint-disable-next-line @typescript-eslint/typedef
-    private _lengthNumberCard = 0;
-
-    constructor() {
+    constructor(private _checkClientCardService: CheckClientCardService) {
         //
     }
 
@@ -24,15 +22,15 @@ export class PaymentsAnotherClientComponent implements OnInit {
     }
 
     public clientCardOnChanged(): void {
-        if (this._countNumber === 4) {
-            this._countNumber = 0;
-
-            if(this._lengthNumberCard <= 18) {
+        // let value = this.inputControl.value;
+        if (this.inputControl.value.length < 18) {
+            if (this._countNumber === 4) {
+                this._countNumber = 0;
                 this.clientCard += ' ';
             }
+            this._countNumber += 1;
         }
-        this._countNumber += 1;
-        this._lengthNumberCard += 1;
-    }
 
+        this._checkClientCardService.clientCardNumber = this.inputControl.value;
+    }
 }
