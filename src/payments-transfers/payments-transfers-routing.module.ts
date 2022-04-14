@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PaymentsTransfersComponent } from './components/payments-transfers/payments-transfers.component';
 import { PaymentsBetweenAccountsComponent } from './components/payments-between-accounts/payments-between-accounts.component';
-import { PaymentsAnotherClientComponent } from './components/payments-another-client/payments-another-client.component';
+import { PaymentsAnotherClientComponent } from './components/payments-another/payments-another-client/payments-another-client.component';
 import { PaymentsMobileComponent } from './components/payments-mobile/payments-mobile.component';
 import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
 import { CreateSavingAccComponent } from '../personal/components/create-saving-acc/create-saving-acc.component';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
-import { PaymentsAnotherClientCheckComponent } from './components/payments-another-client-check/payments-another-client-check.component';
+import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
 
 
 const childrenRoutes: Routes = [

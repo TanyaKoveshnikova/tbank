@@ -71,10 +71,10 @@
       "id": 3
     },
     {
-      "mail": "Рон",
+      "mail": "dogcat@hog.ru",
       "password": "987654",
       "name": "Уизли",
-      "surname": "dogcat@hog.ru",
+      "surname": "Рон",
       "cards": [
         {
           "cardName": "wizard payCard",

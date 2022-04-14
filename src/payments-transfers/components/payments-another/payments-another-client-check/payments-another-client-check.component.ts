@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from '../../../spa/interfaces';
-import { FondCardsService } from '../../../personal/fond-cards.service';
-import { CheckClientCardService } from '../../check-client-card.service';
+import { IUser } from '../../../../spa/interfaces';
+import { FondCardsService } from '../../../../personal/fond-cards.service';
+import { CheckClientCardService } from '../../../check-client-card.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class PaymentsAnotherClientCheckComponent implements OnInit {
     public findClient!: IUser;
     public isString: any = true;
+    public clientCard: string | undefined;
 
     constructor(private _checkClientCardService: CheckClientCardService) {
         //
@@ -27,6 +28,7 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
                 this.isString = true;
             } else {
                 this.findClient = user;
+                this.clientCard = this._checkClientCardService.clientCardNumber;
                 this.isString = false;
             }
         });

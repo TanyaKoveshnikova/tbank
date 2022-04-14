@@ -7,7 +7,6 @@ import { cards, IUser } from '../spa/interfaces';
     providedIn: 'root'
 })
 export class CheckClientCardService {
-
     public clientCardNumber: string | undefined;
 
     constructor(private _fondCardsService: FondCardsService) {

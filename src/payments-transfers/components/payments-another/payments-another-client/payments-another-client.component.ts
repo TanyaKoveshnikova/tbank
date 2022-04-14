@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { CheckClientCardService } from '../../check-client-card.service';
+import { CheckClientCardService } from '../../../check-client-card.service';
 
 @Component({
     selector: 'payments-another-client',
