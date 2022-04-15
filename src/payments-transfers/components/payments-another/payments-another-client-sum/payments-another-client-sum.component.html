@@ -1,0 +1,8 @@
+<p>payments-another-client-sum works!</p>
+<div *ngIf="iUser">
+    <form [formGroup]="form" >
+        <select formControlName="transferAmount" (change)="onClickCard($event)">
+            <option *ngFor="let card of iUser.cards" [value]="card.RUB">{{card.cardName}}</option>
+        </select>
+    </form>
+</div>

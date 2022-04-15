@@ -8,12 +8,14 @@ import { PaymentsTransfersWrapperComponent } from './components/payments-transfe
 import { CreateSavingAccComponent } from '../personal/components/create-saving-acc/create-saving-acc.component';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
+import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
 
 
 const childrenRoutes: Routes = [
     { path: 'between-account', component: PaymentsBetweenAccountsComponent },
     { path: 'another-client', component: PaymentsAnotherClientComponent },
     { path: 'check', component: PaymentsAnotherClientCheckComponent },
+    { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent },
     { path: 'mobile', component: PaymentsMobileComponent },
     { path: 'choice', component: PaymentsTransfersComponent },
 ];

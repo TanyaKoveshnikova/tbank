@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
 import { CheckClientCardService } from './check-client-card.service';
+import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CheckClientCardService } from './check-client-card.service';
         PaymentsAnotherClientComponent,
         PaymentsAnotherClientCheckComponent,
         PaymentsMobileComponent,
-        PaymentsTransfersWrapperComponent
+        PaymentsTransfersWrapperComponent,
+        PaymentsAnotherClientSumComponent
     ],
     imports: [
         CommonModule,

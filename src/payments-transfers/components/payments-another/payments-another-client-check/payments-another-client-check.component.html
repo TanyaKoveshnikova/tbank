@@ -28,9 +28,9 @@
             <div class="value">
                 <img src="../../../assets/images/payments-transfers_img/fox.svg" alt="fox">
                 <div class="valueContent">
-                    <div class="valueText">Name of the recipient</div>
+                    <div class="valueText">name of the recipient</div>
                     <div class="valueData">
-                        <div class="show_text_element show_text_element__data">{{findClient?.name}} {{findClient?.surname}}</div>
+                        <div class="show_text_element show_text_element__data">{{findClient?.surname}} {{findClient?.name}}</div>
                         <div class="show_text_element show_text_element__warning">
                             Please check the name. If all is well, click "Continue".
                         </div>
@@ -38,7 +38,9 @@
                 </div>
             </div>
             <div class="value value__button">
-                <button class="button">Continue</button>
+                <button class="button"
+                        routerLink="../transfer-amount"
+                >Continue</button>
             </div>
         </div>
     </div>

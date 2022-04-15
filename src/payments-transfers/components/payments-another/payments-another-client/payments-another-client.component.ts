@@ -22,14 +22,26 @@ export class PaymentsAnotherClientComponent implements OnInit {
     }
 
     public clientCardOnChanged(): void {
-        // let value = this.inputControl.value;
-        if (this.inputControl.value.length < 18) {
-            if (this._countNumber === 4) {
-                this._countNumber = 0;
+        const value: number = this.clientCard.length;
+        switch (value){
+            case 4:
                 this.clientCard += ' ';
-            }
-            this._countNumber += 1;
+                break;
+                break;
+            case 9:
+                this.clientCard += ' ';
+                break;
+            case 14:
+                this.clientCard += ' ';
+                break;
         }
+        // if (this.inputControl.value.length < 18) {
+        //     if (this._countNumber === 4) {
+        //         this._countNumber = 0;
+        //         this.clientCard += ' ';
+        //     }
+        //     this._countNumber += 1;
+        // }
 
         this._checkClientCardService.clientCardNumber = this.inputControl.value;
     }
