@@ -15,7 +15,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     public savCardsObs?: Observable<savingsAccount[]>;
     private _subscriptions: Subscription[] = [];
 
-    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute, private _router: Router,
+    constructor(private _fondCardsService: FondCardsService, private _router: Router,
         private _route: ActivatedRoute) {
         const userSubscribe: Subscription = this._fondCardsService.getUserSubject.subscribe((e: IUser) => this.user = e);
         this._subscriptions.push(userSubscribe);

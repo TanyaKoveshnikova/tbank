@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { amountValidator } from '../../../validators/amountValidator';
 import { FondCardsService } from '../../../../personal/fond-cards.service';
 import { cards, IUser } from '../../../../spa/interfaces';
+import { CheckClientCardService } from '../../../check-client-card.service';
+import { checkRepeatEmail, confirmedValidator } from '../../../../spa/providers/CustomValidators';
 
 @Component({
     selector: 'payments-another-client-sum',
@@ -12,19 +14,21 @@ import { cards, IUser } from '../../../../spa/interfaces';
 export class PaymentsAnotherClientSumComponent implements OnInit {
     public iUser!: IUser | undefined;
     public activeCardMoney!: number;
-    public form: FormGroup;
+    public form: FormGroup = new FormGroup({});
+    public clientCard: string | undefined;
+    public findClient: IUser | undefined;
 
-    constructor(private _fondCardsService: FondCardsService) {
+    constructor(private _fondCardsService: FondCardsService, private fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
         this.iUser = _fondCardsService.userService;
-        this.form = new FormGroup({
-            //нужно вложить числовое значение карты, которая выбрана сейчас
-            transferAmount: new FormControl('', [Validators.required, amountValidator(this.activeCardMoney)])
-        });
+        this.createForm();
+        this.clientCard = this._checkClientCardService.clientCardNumber;
+        this.findClient = this.findClient = this._checkClientCardService.client;
     }
 
     public ngOnInit(): void {
         //
     }
+
     //
     // public get activeCardMoney(): any {
     //     // const countryId: any = this.form.controls['transferAmount'].value;
@@ -36,9 +40,27 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     // }
 
     public onClickCard(card: any): void {
-        const strRUB: string = card.target.value.replace(' ', '');
+        const strRUB: string = card.target.value.replace(' ', '');
         console.log(strRUB);
         this.activeCardMoney = parseInt(strRUB);
         console.log(this.activeCardMoney);
+    }
+
+    public sendMoney(): void {
+        console.log('CLLICK ME!');
+    }
+
+    public get f():  {[p: string]: AbstractControl} {
+        return this.form.controls;
+    }
+
+    private createForm(): void {
+        this.form = this.fb.group({
+            //нужно вложить числовое значение карты, которая выбрана сейчас
+            transferAmount: new FormControl('', [Validators.required])
+        },
+        {
+            validators: amountValidator('transferAmount', this.activeCardMoney),
+        });
     }
 }

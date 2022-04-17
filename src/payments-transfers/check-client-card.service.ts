@@ -8,6 +8,7 @@ import { cards, IUser } from '../spa/interfaces';
 })
 export class CheckClientCardService {
     public clientCardNumber: string | undefined;
+    public client: IUser | undefined;
 
     constructor(private _fondCardsService: FondCardsService) {
         //
