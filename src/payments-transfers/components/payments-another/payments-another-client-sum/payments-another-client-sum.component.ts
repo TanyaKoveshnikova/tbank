@@ -26,7 +26,11 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        //
+        if (this.iUser) {
+            const strRUB: string = this.iUser.cards[0].RUB.replace(' ', '');
+            this.activeCardMoney = parseInt(strRUB);
+        }
+        console.log(this.activeCardMoney + '   ngOnInit');
     }
 
     //
@@ -42,6 +46,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public onClickCard(card: any): void {
         const strRUB: string = card.target.value.replace(' ', '');
         this.activeCardMoney = parseInt(strRUB);
+        console.log(strRUB + '   onClickCard');
     }
 
     public sendMoney(): void {
@@ -50,17 +55,17 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         console.log(sumTransfer);
     }
 
-    public get f():  {[p: string]: AbstractControl} {
+    public get f(): { [p: string]: AbstractControl } {
         return this.form.controls;
     }
 
     private createForm(): void {
         this.form = this.fb.group({
-            //нужно вложить числовое значение карты, которая выбрана сейчас
-            transferAmount: new FormControl('', [Validators.required])
-        },
-        {
-            validators: amountValidator('transferAmount', this.activeCardMoney),
-        });
+                //нужно вложить числовое значение карты, которая выбрана сейчас
+                transferAmount: new FormControl('', [Validators.required])
+            },
+            {
+                validators: amountValidator('transferAmount', this.activeCardMoney),
+            });
     }
 }
