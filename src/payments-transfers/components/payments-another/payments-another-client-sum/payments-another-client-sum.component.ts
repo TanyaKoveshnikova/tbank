@@ -41,13 +41,13 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
 
     public onClickCard(card: any): void {
         const strRUB: string = card.target.value.replace(' ', '');
-        console.log(strRUB);
         this.activeCardMoney = parseInt(strRUB);
-        console.log(this.activeCardMoney);
     }
 
     public sendMoney(): void {
         console.log('CLLICK ME!');
+        const sumTransfer: number = this.form.controls['transferAmount'].value;
+        console.log(sumTransfer);
     }
 
     public get f():  {[p: string]: AbstractControl} {

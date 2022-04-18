@@ -1,22 +1,18 @@
 <div class="wrapper">
     <div class="header">
-        <div class="title-bar">
-            <img src="../../../assets/images/logo_blue.png" alt="logo-flowers">
-            <div class="menu-area">
-                <button class="signIn" routerLinkActive="active-link" [routerLink]="['/personal/'+ id +'/main-page']">
-                    Main
-                </button>
-                <button class="signIn" routerLinkActive="active-link"
-                        [routerLink]="['/personal/'+ id +'/transfer']">Payments and transfers
-                </button>
-                <button class="signIn" routerLinkActive="active-link"
-                        [routerLink]="['/personal/' + id + '/history']">History
-                </button>
-                <button class="signIn" routerLinkActive="active-link"
-                        [routerLink]="['/personal/' + id + '/myArea/private']">Personal Area
-                </button>
-            </div>
-        </div>
+        <a class="link" routerLinkActive="active-link" [routerLink]="['/personal/'+ id +'/main-page']">
+            Main
+        </a>
+        <a class="link" routerLinkActive="active-link"
+           [routerLink]="['/personal/'+ id +'/transfer']">Payments and transfers
+        </a>
+        <a class="link" routerLinkActive="active-link"
+           [routerLink]="['/personal/' + id + '/history']">History
+        </a>
+        <a class="link" routerLinkActive="active-link"
+           [routerLink]="['/personal/' + id + '/myArea/private']">Personal Area
+        </a>
+
     </div>
 </div>
 <p>

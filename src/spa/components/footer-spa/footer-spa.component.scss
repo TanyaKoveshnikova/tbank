@@ -1,8 +1,10 @@
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
 
 .footer {
-  color: white;
-  max-height: 30px;
-  padding: 1em;
-  background-color: $colorHeaFoot;
+    //color: white;
+    color: black;
+    box-shadow: inset 0px 6px 2px -3px rgba(203, 203, 203, 0.87);
+    max-height: 30px;
+    padding: 1em;
+    //background-color: $colorHeaFoot;
 }

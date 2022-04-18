@@ -1,62 +1,35 @@
 $sizeHeader: 5rem;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
+@import "src/spa/scss/_header-signIn.scss";
 
 .header {
-    min-height: $sizeHeader;
-    background-color: $colorHeaFoot;
-    padding: 1rem 0;
-
-    .title-bar {
-        flex-grow: 1;
-        display: flex;
-
-        img {
-            height: $sizeHeader;
-            transform: rotate(90deg) scale(2.55);
-        }
-
-        .menu-area {
-            display: flex;
-            flex-direction: row;
-            flex-grow: 1;
-            margin-right: 30px;
-            max-width: 65%;
-            margin-left: auto;
-            justify-content: space-between;
-        }
-    }
-
-
-    .signIn {
-        padding: 5px;
-        width: 13em;
-        font-size: 1em;
-        min-width: 7em;
-        min-height: 2.5em;
-        color: #ecdcdc;
-        background-color: rgb(88, 62, 185);
-        box-shadow: 0 0 0.5em 0 rgb(66, 38, 164);
-        border-radius: 10px;
-        border: rgb(61, 33, 173);
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2em;
+    .link {
+        padding:0.2em  0.4em;
+        font-size: 1.5em;
+        font-weight: 500;
+        color: black;
         margin-top: auto;
-        margin-right: 0.5em;
+        margin-right: 1.8em;
     }
 
     .active-link {
-        background-color: rgb(152, 134, 229);
         color: rgba(21, 1, 73, 0.98);
         font-weight: 520;
         transition: 2s;
+        border-bottom: rgb(27, 2, 105) solid 2px;
     }
 
-    .signIn:hover {
+    .link:hover {
         transform: scale(1.07);
         transition: 0.5s;
     }
 
-    .signIn:active{
+    .link:active{
         transform: scale(0.95);
         transition: 0.5s;
-        box-shadow: 0 0 0.5em 0 rgb(66, 38, 164) inset;
+        border-bottom: rgb(27, 2, 105);
     }
 }

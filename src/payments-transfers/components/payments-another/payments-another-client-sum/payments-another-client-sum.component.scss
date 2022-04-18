@@ -1,13 +1,12 @@
 .wrapper {
-    margin: 3rem auto;
+    margin: 7rem auto 2rem;
     width: 30%;
-
-    background-color: #583eb9;
+    box-shadow: 0px 0px 0.3em 0.2em rgba(75, 75, 75, 0.23);
     padding-top: 0.5rem;
 
     .element {
         padding: 0.5rem;
-        color: white;
+        color: black;
         margin: 0.2rem 0;
 
         &__title {
@@ -30,27 +29,28 @@
         &__sum {
             margin-left: 3em;
 
-            .sum__text{
+            .sum__text {
                 padding-bottom: 0.2em;
             }
 
             input {
                 font-size: 1em;
-                border-bottom: 2px white solid;
+                border-bottom: 1px black solid;
                 width: 100%;
             }
 
-            input[type="number"]{
+            input[type="number"] {
                 padding: 0.1em;
             }
         }
 
         &__logic {
-            background-color: #9886e5;
+            background-color: rgba(182, 182, 182, 0.55);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 15rem;
+            height: 12rem;
+
             .value {
 
                 &__cardUser {
@@ -60,20 +60,22 @@
                     .writeAccount__text {
                         padding-left: 2em;
                         padding-bottom: 0.1em;
+                        font-size: 1.2em;
                     }
 
-                    .writeAccount{
+                    .writeAccount {
                         padding-left: 0.5em;
                         display: flex;
                         align-items: center;
-                        img{
-                            height: 2rem;
+
+                        img {
+                            height: 2.35rem;
                             margin-right: 0.3em;
                         }
 
                         select {
                             width: 100%;
-                            font-size: 1em;
+                            font-size: 1.2em;
                         }
                     }
                 }
@@ -82,19 +84,19 @@
                     padding: 0.1rem;
 
                     button {
-                        background-color: #583eb9;
+                        background-color: #696969;
                         width: 100%;
                         padding: 0.35em;
-                        border: #583eb9 1px solid;
+                        border: #4b4b4b 1px solid;
                         border-radius: 3px;
                         color: white;
                     }
 
-                    button[disabled]{
+                    button[disabled] {
                         opacity: 0.5;
                     }
 
-                    .red-text{
+                    .red-text {
                         color: #f34f4f;
                         font-size: 0.98em;
                     }

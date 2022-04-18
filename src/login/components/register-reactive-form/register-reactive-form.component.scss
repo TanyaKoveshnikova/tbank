@@ -8,7 +8,8 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    color: white;
+    //color: white;
+    color: black;
     padding-bottom: 3em;
 
     .content {
@@ -20,8 +21,10 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     }
 
     form {
-        border: rgb(88, 62, 185) 3px solid;
-        background-color: rgb(88, 62, 185);
+        //border: rgb(88, 62, 185) 3px solid;
+        //background-color: rgb(88, 62, 185);
+        border: solid 1px black;
+        box-shadow: 0px -0px 4px 2px rgba(199, 199, 199, 0.53);
         text-align: center;
         margin-right: auto;
         margin-top: 1em;
@@ -59,7 +62,8 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
             }
 
             .red-text {
-                color: #ffc1c1;
+                //color: #ffc1c1;
+                color: #fa737e;
                 font-size: 0.7em;
                 margin-bottom: 0.2em;
                 margin-top: 0.2em;
@@ -68,27 +72,32 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     }
 
     .sign {
-        padding: 5px;
-        font-size: 1.8em;
-        margin-top: 0.5em;
-        width: 7em;
-        border-radius: 10px;
+        padding: 0.1em;
+        font-size: 1.4em;
+        margin-top: 1em;
+        width: 10em;
+        border-radius: 6px;
+    }
+
+    .sign[disabled] {
+        border-color: rgba(51, 51, 51, 0.05);
+        transition: 0.5s;
     }
 
     .sign:hover {
-        transform: scale(1.2);
+        transform: scale(1.05);
         transition: 0.5s;
     }
 
     ul li {
-        margin-top: 0.8em;
+        margin-top: 1em;
         font-size: 1.1em;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
     }
 
     li:hover {
         transform: scale(1.2);
-        color: #e7be96;
+        color: #1b0269;
         transition: 0.5s;
     }
 
