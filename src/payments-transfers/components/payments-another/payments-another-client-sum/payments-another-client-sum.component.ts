@@ -17,41 +17,34 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public form: FormGroup = new FormGroup({});
     public clientCard: string | undefined;
     public findClient: IUser | undefined;
+    private _rubUser?: string;
 
-    constructor(private _fondCardsService: FondCardsService, private fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
+    constructor(private _fondCardsService: FondCardsService, private _fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
         this.iUser = _fondCardsService.userService;
-        this.createForm();
         this.clientCard = this._checkClientCardService.clientCardNumber;
-        this.findClient = this.findClient = this._checkClientCardService.client;
+        this.findClient = this._checkClientCardService.client;
     }
 
     public ngOnInit(): void {
         if (this.iUser) {
-            const strRUB: string = this.iUser.cards[0].RUB.replace(' ', '');
-            this.activeCardMoney = parseInt(strRUB);
+            this._rubUser = this.iUser.cards[0].RUB.replace(' ', '');
+            this.activeCardMoney = parseInt(this._rubUser);
         }
-        console.log(this.activeCardMoney + '   ngOnInit');
+        this.createForm();
     }
 
-    //
-    // public get activeCardMoney(): any {
-    //     // const countryId: any = this.form.controls['transferAmount'].value;
-    //     // const strRUB: number = parseInt(countryId.RUB.replace(' ', ''));
-    //     // // this.activeCardMoney = strRUB;
-    //     // console.log(this.activeCardMoney);
-    //     //
-    //     // return strRUB;
-    // }
-
     public onClickCard(card: any): void {
-        const strRUB: string = card.target.value.replace(' ', '');
-        this.activeCardMoney = parseInt(strRUB);
-        console.log(strRUB + '   onClickCard');
+        this._rubUser = card.target.value.replace(' ', '');
+        this.activeCardMoney = parseInt(<string>this._rubUser);
     }
 
     public sendMoney(): void {
-        console.log('CLLICK ME!');
         const sumTransfer: number = this.form.controls['transferAmount'].value;
+        // const moneyClient = this.findClient?.cards.find((card: cards) => {
+        //найти клиентскую карту с номером, который мы передаем, забрать от туда количество денег ж прибавить ыsumtransfer, отослать, проверить на json
+        // })
+        // this._checkClientCardService.patchPlusSumClient()
+
         console.log(sumTransfer);
     }
 
@@ -60,7 +53,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     }
 
     private createForm(): void {
-        this.form = this.fb.group({
+        this.form = this._fb.group({
                 //нужно вложить числовое значение карты, которая выбрана сейчас
                 transferAmount: new FormControl('', [Validators.required])
             },
