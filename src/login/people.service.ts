@@ -72,7 +72,7 @@ export class PeopleService {
                 if (user) {
                     this._router.navigate(['/personal/' + user.id]);
                     this._singletone.setLoggedIn(true);
-                    login.reset();
+                    //login.reset();
                 } else {
                     alert('user not found');
                 }

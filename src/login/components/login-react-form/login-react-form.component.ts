@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
     templateUrl: './login-react-form.component.html',
     styleUrls: ['./login-react-form.component.scss']
 })
-export class LoginReactFormComponent implements OnInit {
+export class LoginReactFormComponent implements OnInit, OnDestroy {
     public login: FormGroup = new FormGroup({});
     @ViewChild('btn')
     public btn!: ElementRef;
@@ -38,6 +38,10 @@ export class LoginReactFormComponent implements OnInit {
         this.createForm();
     }
 
+    public ngOnDestroy(): void {
+        this.login.reset();
+    }
+
 
     private createForm(): void {
         this.login = new FormGroup({
@@ -45,4 +49,5 @@ export class LoginReactFormComponent implements OnInit {
             password: new FormControl('', [Validators.required]),
         });
     }
+
 }

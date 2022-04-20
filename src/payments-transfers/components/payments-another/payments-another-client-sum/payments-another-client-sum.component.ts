@@ -40,12 +40,19 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
 
     public sendMoney(): void {
         const sumTransfer: number = this.form.controls['transferAmount'].value;
-        // const moneyClient = this.findClient?.cards.find((card: cards) => {
-        //найти клиентскую карту с номером, который мы передаем, забрать от туда количество денег ж прибавить ыsumtransfer, отослать, проверить на json
-        // })
-        // this._checkClientCardService.patchPlusSumClient()
+        this._checkClientCardService.transferAmount = sumTransfer;
+        const cardClient: cards | undefined = this.findClient?.cards.find((card: cards) => {
+            return card.cardNumber === this.clientCard;
+        });
+        if (cardClient && this.iUser) {
+            const moneyOnCardUser: number = parseInt(this.iUser.cards[0].RUB.replace(' ', ''));
+            const moneyOnCard: number = parseInt(cardClient.RUB.replace(' ', ''));
+            const sumTransferDone: number = moneyOnCard + sumTransfer;
+            const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
+            this._checkClientCardService.patchPlusSumClient(sumTransferDone, cardClient.cardName);
+            this._checkClientCardService.patchMinusSumUser(moneyMinusSum);
+        }
 
-        console.log(sumTransfer);
     }
 
     public get f(): { [p: string]: AbstractControl } {
@@ -54,7 +61,6 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
 
     private createForm(): void {
         this.form = this._fb.group({
-                //нужно вложить числовое значение карты, которая выбрана сейчас
                 transferAmount: new FormControl('', [Validators.required])
             },
             {

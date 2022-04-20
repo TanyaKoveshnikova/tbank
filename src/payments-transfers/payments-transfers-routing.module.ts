@@ -9,6 +9,7 @@ import { CreateSavingAccComponent } from '../personal/components/create-saving-a
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
 import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
+import { PaymentsAnnouncementComponent } from './components/payments-another/payments-announcement/payments-announcement.component';
 
 
 const childrenRoutes: Routes = [
@@ -16,6 +17,7 @@ const childrenRoutes: Routes = [
     { path: 'another-client', component: PaymentsAnotherClientComponent },
     { path: 'check', component: PaymentsAnotherClientCheckComponent },
     { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent },
+    { path: 'announcement', component: PaymentsAnnouncementComponent },
     { path: 'mobile', component: PaymentsMobileComponent },
     { path: 'choice', component: PaymentsTransfersComponent },
 ];

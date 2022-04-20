@@ -13,14 +13,19 @@ import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 export class MainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
     public savCardsObs?: Observable<savingsAccount[]>;
+    // eslint-disable-next-line @typescript-eslint/typedef
+    public loading = false;
     private _subscriptions: Subscription[] = [];
 
     constructor(private _fondCardsService: FondCardsService, private _router: Router,
         private _route: ActivatedRoute) {
-        const userSubscribe: Subscription = this._fondCardsService.getUserSubject.subscribe((e: IUser) => this.user = e);
+        const userSubscribe: Subscription = this._fondCardsService.getUserSubject.subscribe((e: IUser) => {
+            this.user = e;
+            this.loading = true
+            // setTimeout(()=> this.loading = true, 5000);
+        });
         this._subscriptions.push(userSubscribe);
         this.user = this._fondCardsService.userService;
-        this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 
     public ngOnInit(): void {

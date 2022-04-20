@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="value value__bottom">
-            <button [disabled]="form.invalid" (click)="sendMoney()">Proceed</button>
+            <button [disabled]="form.invalid" (click)="sendMoney()" routerLink="../announcement">Proceed</button>
             <div
                 class="helper-text red-text"
                 *ngIf="!f['transferAmount'].valid && f['transferAmount'].touched"

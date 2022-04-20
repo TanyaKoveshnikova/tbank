@@ -1,6 +1,17 @@
 $colorCards: rgba(182, 182, 182, 0.19);
 $colorHeaFoot: rgba(107, 102, 102, 0.08);
 
+.loading {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2em;
+    font-weight: 500;
+    color: #080023;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
 .wrapper {
     color: black;
     margin: 3em;
@@ -50,7 +61,7 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         box-shadow: 0 0 0.2em 0.2em rgba(119, 119, 119, 0.26);
 
-        .summary__header{
+        .summary__header {
             font-size: 1.1em;
             font-weight: 600;
         }
@@ -60,10 +71,11 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
         margin-top: 2em;
     }
 
-    .fox_image{
+    .fox_image {
         width: 50px;
     }
-    .value_endDate{
+
+    .value_endDate {
         margin-top: 5px;
     }
 }

@@ -12,6 +12,7 @@ import { CreateSavingAccComponent } from './components/create-saving-acc/create-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
 import { AutoPaymentsComponent } from './components/auto-payments/auto-payments.component';
+import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AutoPaymentsComponent } from './components/auto-payments/auto-payments.
         ReactiveFormsModule,
         CommonModule,
         PersonalRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        SkeletoneLoadingModule
     ],
     providers: [FondCardsService, ExitAboutGuard]
 })

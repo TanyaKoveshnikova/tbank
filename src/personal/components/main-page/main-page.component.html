@@ -1,4 +1,7 @@
-<div class="wrapper">
+<div class="wrapper_load">
+    <skeletone-loading class="loading" *ngIf="!loading"></skeletone-loading>
+</div>
+<div class="wrapper" *ngIf="loading">
     <div class="float">
         <div class="container">
             <details>

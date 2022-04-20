@@ -9,7 +9,10 @@
             Client with this card not found
         </div>
         <div class="show_text" *ngIf="!isString">
-            <div class="value">
+            <div *ngIf="!loaded " class="loading">
+                <skeletone-loading></skeletone-loading>
+            </div>
+            <div class="value" *ngIf="loaded">
                 <img src="../../../assets/images/card-image.png" alt="card-image">
                 <div class="valueContent">
                     <div class="valueText">recipient's bank card</div>
@@ -25,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="value">
+            <div class="value" *ngIf="loaded">
                 <img src="../../../assets/images/payments-transfers_img/fox.svg" alt="fox">
                 <div class="valueContent">
                     <div class="valueText">name of the recipient</div>
@@ -37,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="value value__button">
+            <div class="value value__button" *ngIf="loaded">
                 <button class="button"
                         routerLink="../transfer-amount"
                 >Continue</button>
