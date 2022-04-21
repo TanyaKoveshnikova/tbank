@@ -14,6 +14,7 @@ import { PeopleService } from '../login/people.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthGuard } from '../personal/providers/auth.guard';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
         provideAuth(() => getAuth()),
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
+        BreadcrumbModule
     ],
     // providers: [AuthGuard],
     bootstrap: [AppComponent]

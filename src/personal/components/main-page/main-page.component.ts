@@ -21,7 +21,6 @@ export class MainPageComponent implements OnInit, OnDestroy {
         private _route: ActivatedRoute) {
         const userSubscribe: Subscription = this._fondCardsService.getUserSubject.subscribe((e: IUser) => {
             this.user = e;
-            this.loading = true
             // setTimeout(()=> this.loading = true, 5000);
         });
         this._subscriptions.push(userSubscribe);
@@ -29,6 +28,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit(): void {
+        this.loading = true;
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 

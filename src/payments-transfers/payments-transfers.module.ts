@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaymentsTransfersComponent } from './components/payments-transfers/payments-transfers.component';
 import { PaymentsTransfersRoutingModule } from './payments-transfers-routing.module';
-import { PaymentsBetweenAccountsComponent } from './components/payments-between-accounts/payments-between-accounts.component';
+import { PaymentsBetweenAccountsComponent } from './components/payments-between-account/payments-between-accounts/payments-between-accounts.component';
 import { PaymentsAnotherClientComponent } from './components/payments-another/payments-another-client/payments-another-client.component';
 import { PaymentsMobileComponent } from './components/payments-mobile/payments-mobile.component';
 import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
@@ -14,6 +14,9 @@ import { CheckClientCardService } from './check-client-card.service';
 import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
 import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
 import { PaymentsAnnouncementComponent } from './components/payments-another/payments-announcement/payments-announcement.component';
+import { FillingDetailsComponent } from './components/payments-between-account/filling-details/filling-details.component';
+import { ConfirmationComponent } from './components/payments-between-account/confirmation/confirmation.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { PaymentsAnnouncementComponent } from './components/payments-another/pay
         PaymentsMobileComponent,
         PaymentsTransfersWrapperComponent,
         PaymentsAnotherClientSumComponent,
-        PaymentsAnnouncementComponent
+        PaymentsAnnouncementComponent,
+        FillingDetailsComponent,
+        ConfirmationComponent
     ],
     imports: [
         CommonModule,
@@ -33,7 +38,8 @@ import { PaymentsAnnouncementComponent } from './components/payments-another/pay
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        SkeletoneLoadingModule
+        SkeletoneLoadingModule,
+        BreadcrumbModule
     ],
     providers: [CheckClientCardService]
 })

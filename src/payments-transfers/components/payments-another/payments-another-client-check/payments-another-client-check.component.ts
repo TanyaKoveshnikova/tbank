@@ -29,6 +29,7 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
         this._checkClientCardService.findClient().subscribe((user: IUser) => {
             if (user.name === undefined) {
                 this.isString = true;
+                this.loaded = true;
             } else {
                 this._checkClientCardService.client = user;
                 this.findClient = this._checkClientCardService.client;

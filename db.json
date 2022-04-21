@@ -93,6 +93,30 @@
       "doneRUB": "0",
       "idCreator": 1,
       "id": 1
+    },
+    {
+      "name": "on a magic wand",
+      "endDate": "2022-05-27",
+      "goalRUB": "10 000",
+      "doneRUB": "0",
+      "idCreator": 3,
+      "id": 2
+    },
+    {
+      "name": "for a book on potions",
+      "endDate": "2022-06-30",
+      "goalRUB": "5 000",
+      "doneRUB": "0",
+      "idCreator": 3,
+      "id": 3
+    },
+    {
+      "name": "on an owl",
+      "endDate": "2022-04-29",
+      "goalRUB": "300",
+      "doneRUB": "0",
+      "idCreator": 3,
+      "id": 4
     }
   ]
 }

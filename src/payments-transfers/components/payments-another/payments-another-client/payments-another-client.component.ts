@@ -27,7 +27,6 @@ export class PaymentsAnotherClientComponent implements OnInit {
             case 4:
                 this.clientCard += ' ';
                 break;
-                break;
             case 9:
                 this.clientCard += ' ';
                 break;

@@ -51,7 +51,7 @@ export class CreateSavingAccComponent implements OnInit, componentCanDeactivate 
 
     public onSer(): void {
         setTimeout(() => {
-            this._compMain.savCardsObs = this._fondCardsService.getSavingsAccount();
+            this._compMain.ngOnInit();
         }, 1);
     }
 

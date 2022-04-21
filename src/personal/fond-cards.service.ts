@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IUser, savingsAccount } from '../spa/interfaces';
+import { cards, IUser, savingsAccount } from '../spa/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, Subject, Subscription, switchMap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
@@ -34,6 +34,12 @@ export class FondCardsService implements OnInit {
     public ngOnInit(): void {
         this.createUsrService();
         // this.getAllNecessaryAcc();
+    }
+
+
+    //получем первую карту юзера( для списания денег на сохранительные счета )
+    public getFirstCardUser(): cards | undefined{
+        return this.userService?.cards[0];
     }
 
     public sendOnServerSavingAcc(savingsAccForm: FormGroup): void  {
