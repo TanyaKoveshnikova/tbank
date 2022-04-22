@@ -34,4 +34,11 @@
         (click)="clickConfirmation()"
         routerLink="../confirmation"
     >next step</button>
+    <div
+        class="helper-text red-text"
+        *ngIf="!f['sum'].valid && f['sum'].touched"
+    >
+        <span *ngIf="f['sum'].errors['required']">Password must not be empty</span>
+        <span *ngIf="f['amountValidator'].errors">Insufficient funds on the card</span>
+    </div>
 </div>

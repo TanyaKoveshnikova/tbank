@@ -17,7 +17,6 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public form: FormGroup = new FormGroup({});
     public clientCard: string | undefined;
     public findClient: IUser | undefined;
-    private _rubUser?: string;
 
     constructor(private _fondCardsService: FondCardsService, private _fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
         this.iUser = _fondCardsService.userService;
@@ -27,15 +26,13 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
 
     public ngOnInit(): void {
         if (this.iUser) {
-            this._rubUser = this.iUser.cards[0].RUB.replace(' ', '');
-            this.activeCardMoney = parseInt(this._rubUser);
+            this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(this.iUser.cards[0].RUB);
         }
         this.createForm();
     }
 
     public onClickCard(card: any): void {
-        this._rubUser = card.target.value.replace(' ', '');
-        this.activeCardMoney = parseInt(<string>this._rubUser);
+        this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(card.target.value);
     }
 
     public sendMoney(): void {

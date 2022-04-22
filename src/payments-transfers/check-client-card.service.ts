@@ -23,8 +23,14 @@ export class CheckClientCardService {
         this.user = _fondCardsService.userService;
     }
 
-    public getTransferAmount():string{
+    public getTransferAmount(): string {
         return CheckClientCardService.formattingMoney(this.transferAmount);
+    }
+
+    public transformMoneyInNumber(moneyString: string): number {
+        const rubUser: string = moneyString.replace(' ', '');
+
+        return (parseInt(<string>rubUser));
     }
 
     public findClient(): Observable<IUser> {
@@ -63,6 +69,7 @@ export class CheckClientCardService {
             }]
         }).subscribe(
             () => {
+                //
             });
     }
 }
