@@ -1,0 +1,28 @@
+.wrapper {
+    width: 50%;
+    margin: 1.5rem auto;
+
+    .text{
+        font-size: 1.4em;
+        text-align: start;
+
+        i{
+            font-weight: 600;
+        }
+    }
+
+    .btn {
+        margin-top: 3em;
+        background-color: #696969;
+        width: 60%;
+        padding: 0.35em;
+        border: #4b4b4b 1px solid;
+        border-radius: 3px;
+        color: white;
+        letter-spacing: 0.05em;
+
+        &:hover{
+            transform: scale(1.04);
+        }
+    }
+}

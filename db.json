@@ -64,7 +64,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "2 489",
+          "RUB": "2 010",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -98,7 +98,7 @@
       "name": "on a magic wand",
       "endDate": "2022-05-27",
       "goalRUB": "10 000",
-      "doneRUB": "0",
+      "doneRUB": "255",
       "idCreator": 3,
       "id": 2
     },
@@ -106,7 +106,7 @@
       "name": "for a book on potions",
       "endDate": "2022-06-30",
       "goalRUB": "5 000",
-      "doneRUB": "0",
+      "doneRUB": "124",
       "idCreator": 3,
       "id": 3
     },
@@ -114,7 +114,7 @@
       "name": "on an owl",
       "endDate": "2022-04-29",
       "goalRUB": "300",
-      "doneRUB": "0",
+      "doneRUB": "100",
       "idCreator": 3,
       "id": 4
     }

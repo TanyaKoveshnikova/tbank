@@ -19,4 +19,5 @@ export interface savingsAccount {
     goalRUB: string;
     doneRUB: string;
     idCreator?: number;
+    id?: number;
 }

@@ -9,6 +9,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { amountValidator } from '../../../validators/amountValidator';
 import { CheckClientCardService } from '../../../check-client-card.service';
 
+
 @Component({
     selector: 'app-filling-details',
     templateUrl: './filling-details.component.html',
@@ -26,8 +27,7 @@ export class FillingDetailsComponent implements OnInit, OnDestroy {
     private _rubNumberUser!: number;
 
 
-    constructor(private _paymBetAccComp: PaymentsBetweenAccountsComponent,
-        private _router: Router, private _fondCardsService: FondCardsService,
+    constructor(private _paymBetAccComp: PaymentsBetweenAccountsComponent, private _router: Router, private _fondCardsService: FondCardsService,
         private _builder: FormBuilder, private _fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
         this._paymBetAccComp.toggleClass('filling');
         this.savingAccounts$ = _fondCardsService.getSavingsAccount();
@@ -46,16 +46,17 @@ export class FillingDetailsComponent implements OnInit, OnDestroy {
     }
 
     public clickConfirmation(): void {
-        console.log('clickConfirmation - done ' + this.selectedValue?.name);
         const valueMoney: number = this.f['sum'].value;
-        if (this._rubNumberUser) {
+        if (this._rubNumberUser && this.selectedValue?.doneRUB && this.selectedValue.id) {
             const endMoneyUser: number = this._rubNumberUser - valueMoney;
             this._checkClientCardService.patchMinusSumUser(endMoneyUser);
+
+            const savAccMoneyNumber: number = this._checkClientCardService.transformMoneyInNumber(this.selectedValue?.doneRUB);
+            const endMoneySavAcc: number = savAccMoneyNumber + valueMoney;
+            this._checkClientCardService.changeSumSavAccount(endMoneySavAcc, this.selectedValue.id);
+
+            this._checkClientCardService.nameSavAccount = this.selectedValue.name;
         }
-
-        //реализовать добавление денег на накоп счет!
-
-        console.log(this.f['sum'].value);
     }
 
     public get f(): { [p: string]: AbstractControl } {
@@ -63,7 +64,8 @@ export class FillingDetailsComponent implements OnInit, OnDestroy {
     }
 
     private createForm(): void {
-        this.reactiveForm = this._fb.group({
+        this.reactiveForm = this._fb.group(
+            {
                 sum: new FormControl('', [Validators.required])
             },
             {

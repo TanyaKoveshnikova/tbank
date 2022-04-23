@@ -24,11 +24,12 @@ export class MainPageComponent implements OnInit, OnDestroy {
             // setTimeout(()=> this.loading = true, 5000);
         });
         this._subscriptions.push(userSubscribe);
-        this.user = this._fondCardsService.userService;
     }
 
     public ngOnInit(): void {
         this.loading = true;
+        this._fondCardsService.ngOnInit();
+        this.user = this._fondCardsService.userService;
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 

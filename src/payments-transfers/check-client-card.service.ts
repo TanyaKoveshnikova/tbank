@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FondCardsService } from '../personal/fond-cards.service';
 import { map, Observable } from 'rxjs';
-import { cards, IUser } from '../spa/interfaces';
+import { cards, IUser} from '../spa/interfaces';
 import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
     providedIn: 'root'
@@ -12,12 +13,15 @@ export class CheckClientCardService {
         return new Intl.NumberFormat('ru-RU').format(needFormatNumber);
     }
 
+    public nameSavAccount?: string;
     public transferAmount!: number;
     public clientCardNumber: string | undefined;
     public client: IUser | undefined;
     public user?: IUser;
     // eslint-disable-next-line @typescript-eslint/typedef
     private _urlCount = 'http://localhost:3000/signupUsers';
+    // eslint-disable-next-line @typescript-eslint/typedef
+    private _urlSavAccount = 'http://localhost:3000/savingsAcc';
 
     constructor(private _fondCardsService: FondCardsService, private _http: HttpClient) {
         this.user = _fondCardsService.userService;
@@ -69,7 +73,19 @@ export class CheckClientCardService {
             }]
         }).subscribe(
             () => {
-                //
+            });
+    }
+
+    public changeSumSavAccount(newCountMoney: number, idSavCard: number): void {
+        const url: string = this._urlSavAccount + '/' + idSavCard;
+        const money: string = CheckClientCardService.formattingMoney(newCountMoney);
+        this._http.patch<never>(url,
+            {
+                'doneRUB': money,
+            }).subscribe(
+            () => {
+                console.log('changeSumSavAccount!');
             });
     }
 }
+

@@ -48,7 +48,7 @@ export class FondCardsService implements OnInit {
             endDate: savingsAccForm.value.endDate,
             goalRUB: FondCardsService.stringGoalRUB(savingsAccForm.value.goalRUB),
             doneRUB: '0',
-            idCreator: this.id
+            idCreator: this.id,
         };
 
         this.postSavingsAcc();
@@ -89,15 +89,6 @@ export class FondCardsService implements OnInit {
                     //
                 });
     }
-
-
-    // public getAllNecessaryAcc() {
-    //     this._getSavingsAccount()
-    //         .subscribe((acc: savingsAccount[]) => {
-    //             this.savAcc = acc;
-    //             this.getSavAccSubject.next(acc);
-    //         })
-    // }
 
 
     private createUsrService(): void {
