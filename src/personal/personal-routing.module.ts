@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeAfterAuthComponent } from './components/home-after-auth/home-after-auth.component';
-import { HistoryComponent } from './components/history-page/history/history.component';
+import { HistoryComponent } from './components/history/history.component';
 import { PaymentsTransfersComponent } from '../payments-transfers/components/payments-transfers/payments-transfers.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { CreateSavingAccComponent } from './components/create-saving-acc/create-saving-acc.component';

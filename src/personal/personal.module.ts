@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeAfterAuthComponent } from './components/home-after-auth/home-after-auth.component';
 import { PersonalRoutingModule } from './personal-routing.module';
-import { HistoryComponent } from './components/history-page/history/history.component';
+import { HistoryComponent } from './components/history/history.component';
 import { PaymentsTransfersComponent } from '../payments-transfers/components/payments-transfers/payments-transfers.component';
 
 import { FondCardsService } from './fond-cards.service';

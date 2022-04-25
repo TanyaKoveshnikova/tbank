@@ -4,10 +4,11 @@ import { map, Observable } from 'rxjs';
 import { IUser } from '../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { ICard } from '../spa/interfaces/ICard';
+import { FactoryCardHistory } from '../libs/factory.history/factory';
 
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class CheckClientCardService {
     private static formattingMoney(needFormatNumber: number): string {
@@ -24,7 +25,11 @@ export class CheckClientCardService {
     // eslint-disable-next-line @typescript-eslint/typedef
     private _urlSavAccount = 'http://localhost:3000/savingsAcc';
 
-    constructor(private _fondCardsService: FondCardsService, private _http: HttpClient) {
+    constructor(
+        private _fondCardsService: FondCardsService,
+        private _http: HttpClient,
+        private _factoryCardHistory: FactoryCardHistory,
+    ) {
         this.user = _fondCardsService.userService;
     }
 
@@ -74,7 +79,6 @@ export class CheckClientCardService {
             }]
         }).subscribe(
             () => {
-                //
             });
     }
 

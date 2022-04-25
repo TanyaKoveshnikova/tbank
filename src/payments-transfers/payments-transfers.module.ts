@@ -17,6 +17,8 @@ import { PaymentsAnnouncementComponent } from './components/payments-another/pay
 import { FillingDetailsComponent } from './components/payments-between-account/filling-details/filling-details.component';
 import { ConfirmationComponent } from './components/payments-between-account/confirmation/confirmation.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { FactoryCardHistory } from '../libs/factory.history/factory';
+import { SendCardHistory } from '../libs/factory.history/data/sendCardHistory';
 
 
 @NgModule({
@@ -39,9 +41,9 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
         FormsModule,
         ReactiveFormsModule,
         SkeletoneLoadingModule,
-        BreadcrumbModule
+        BreadcrumbModule,
     ],
-    providers: [CheckClientCardService]
+    providers: [CheckClientCardService, FactoryCardHistory, SendCardHistory]
 })
 export class PaymentsTransfersModule {
 }

@@ -28,7 +28,7 @@ export class FondCardsService implements OnInit {
 
 
 
-    constructor(private _http: HttpClient, public activateRoute: ActivatedRoute) {
+    constructor(private _http: HttpClient, public activateRoute: ActivatedRoute,) {
     }
 
     public ngOnInit(): void {

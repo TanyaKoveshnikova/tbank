@@ -1,27 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "password": "123456",
-      "name": "Гарри",
-      "surname": "Поттер",
-      "mail": "imbettermagician@hog.ru"
-    },
-    {
-      "id": 2,
-      "password": "987654",
-      "name": "Рон",
-      "surname": "Уизли",
-      "mail": "dogcat@hog.ru"
-    },
-    {
-      "id": 3,
-      "password": "124578",
-      "name": "Гермиона",
-      "surname": "Грейнджер",
-      "mail": "betterhalfbreed@hog.ru"
-    }
-  ],
   "signupUsers": [
     {
       "mail": "taniakovesh@gmail.com",
@@ -50,7 +27,7 @@
       "cards": [
         {
           "cardName": "platinum platinum",
-          "RUB": "17 074",
+          "RUB": "12 064",
           "cardNumber": "8469 1394 7403 5679"
         }
       ],
@@ -64,7 +41,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "2 010",
+          "RUB": "12 060",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -78,7 +55,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "461",
+          "RUB": "521",
           "cardNumber": "7990 6156 9120 5330"
         }
       ],
@@ -118,5 +95,42 @@
       "idCreator": 3,
       "id": 4
     }
-  ]
+  ],
+  "history1": [],
+  "history2": [],
+  "history3": [
+    {
+      "fromWhom": "Гарри Поттер",
+      "operationName": "Refill",
+      "transferAmount": "5 000",
+      "date": 1650879974157,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "7 060",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "To the card account"
+      },
+      "id": 1
+    }
+  ],
+  "history4": [
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Refill",
+      "transferAmount": "20",
+      "date": 1650879800953,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "501",
+          "cardNumber": "7990 6156 9120 5330"
+        },
+        "textOperation": "To the card account"
+      },
+      "id": 1
+    }
+  ],
+  "history5": []
 }

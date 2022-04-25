@@ -6,6 +6,7 @@ import { IUser } from '../../../../spa/interfaces/IUser';
 import { CheckClientCardService } from '../../../check-client-card.service';
 import { checkRepeatEmail, confirmedValidator } from '../../../../spa/providers/CustomValidators';
 import { ICard } from '../../../../spa/interfaces/ICard';
+import { FactoryCardHistory } from '../../../../libs/factory.history/factory';
 
 @Component({
     selector: 'payments-another-client-sum',
@@ -19,7 +20,12 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public clientCard: string | undefined;
     public findClient: IUser | undefined;
 
-    constructor(private _fondCardsService: FondCardsService, private _fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
+    constructor(
+        private _fondCardsService: FondCardsService,
+        private _fb: FormBuilder,
+        private _checkClientCardService: CheckClientCardService,
+        private _factoryCardHistory: FactoryCardHistory,
+    ) {
         this.iUser = _fondCardsService.userService;
         this.clientCard = this._checkClientCardService.clientCardNumber;
         this.findClient = this._checkClientCardService.client;
@@ -42,12 +48,15 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         const cardClient: ICard | undefined = this.findClient?.cards.find((card: ICard) => {
             return card.cardNumber === this.clientCard;
         });
-        if (cardClient && this.iUser) {
+        if (cardClient && this.iUser && this.findClient) {
             const moneyOnCardUser: number = parseInt(this.iUser.cards[0].RUB.replace(' ', ''));
             const moneyOnCard: number = parseInt(cardClient.RUB.replace(' ', ''));
             const sumTransferDone: number = moneyOnCard + sumTransfer;
             const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
             this._checkClientCardService.patchPlusSumClient(sumTransferDone, cardClient.cardName);
+            this._factoryCardHistory.createCard('fromSomeone', this.iUser, sumTransfer, this.findClient);
+
+            console.log('patchMinusSumUser _factoryCardHistory');
             this._checkClientCardService.patchMinusSumUser(moneyMinusSum);
         }
 
