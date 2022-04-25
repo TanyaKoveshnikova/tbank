@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeAfterAuthComponent } from './components/home-after-auth/home-after-auth.component';
 import { PersonalRoutingModule } from './personal-routing.module';
-import { HistoryComponent } from './components/history/history.component';
+import { HistoryComponent } from './components/history-page/history/history.component';
 import { PaymentsTransfersComponent } from '../payments-transfers/components/payments-transfers/payments-transfers.component';
 
 import { FondCardsService } from './fond-cards.service';
@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
 import { AutoPaymentsComponent } from './components/auto-payments/auto-payments.component';
 import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
+import { AuthGuard } from './providers/auth.guard';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.m
         HttpClientModule,
         SkeletoneLoadingModule
     ],
-    providers: [FondCardsService, ExitAboutGuard]
+    providers: [
+        FondCardsService,
+        ExitAboutGuard,
+        AuthGuard,
+    ]
 })
 export class PersonalModule {
 }

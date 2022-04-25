@@ -3,11 +3,12 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 import { Router } from '@angular/router';
 import { PaymentsBetweenAccountsComponent } from '../payments-between-accounts/payments-between-accounts.component';
 import { FondCardsService } from '../../../../personal/fond-cards.service';
-import { cards, savingsAccount } from '../../../../spa/interfaces';
 import { Observable, tap } from 'rxjs';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { amountValidator } from '../../../validators/amountValidator';
 import { CheckClientCardService } from '../../../check-client-card.service';
+import { ICard } from '../../../../spa/interfaces/ICard';
+import { ISavingsAccount } from '../../../../spa/interfaces/ISavingsAccount';
 
 
 @Component({
@@ -16,19 +17,25 @@ import { CheckClientCardService } from '../../../check-client-card.service';
     styleUrls: ['./filling-details.component.scss']
 })
 export class FillingDetailsComponent implements OnInit, OnDestroy {
-    public savingAccounts$?: Observable<savingsAccount[]>;
+    public savingAccounts$?: Observable<ISavingsAccount[]>;
     public date: Date | number = Date.now();
-    public userCard?: cards;
+    public userCard?: ICard;
     public reactiveForm: FormGroup = new FormGroup({});
 
     //выбранная карта для перевода на нее денег с основного счета
-    public selectedValue?: savingsAccount;
+    public selectedValue?: ISavingsAccount;
 
     private _rubNumberUser!: number;
 
 
-    constructor(private _paymBetAccComp: PaymentsBetweenAccountsComponent, private _router: Router, private _fondCardsService: FondCardsService,
-        private _builder: FormBuilder, private _fb: FormBuilder, private _checkClientCardService: CheckClientCardService) {
+    constructor(
+        private _paymBetAccComp: PaymentsBetweenAccountsComponent,
+        private _router: Router,
+        private _fondCardsService: FondCardsService,
+        private _builder: FormBuilder,
+        private _fb: FormBuilder,
+        private _checkClientCardService: CheckClientCardService,
+    ) {
         this._paymBetAccComp.toggleClass('filling');
         this.savingAccounts$ = _fondCardsService.getSavingsAccount();
         this.userCard = _fondCardsService.getFirstCardUser();

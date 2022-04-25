@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckClientCardService } from '../../../check-client-card.service';
-import { IUser } from '../../../../spa/interfaces';
+import { IUser } from '../../../../spa/interfaces/IUser';
 
 @Component({
     selector: 'app-payments-announcement',

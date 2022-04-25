@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from '../../../../spa/interfaces';
+import { IUser } from '../../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../../../personal/fond-cards.service';
 import { CheckClientCardService } from '../../../check-client-card.service';
 import { Observable } from 'rxjs';

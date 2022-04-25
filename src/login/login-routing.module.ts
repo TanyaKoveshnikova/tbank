@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterReactiveFormComponent } from './components/register-reactive-form/register-reactive-form.component';
-import { LoginReactFormComponent } from './components/login-react-form/login-react-form.component';
+import { RegisterReactiveFormComponent } from './components/register-form.page/register-reactive-form.component';
+import { LoginReactFormComponent } from './components/login-form.page/login-react-form.component';
 import { AuthGuard } from '../personal/providers/auth.guard';
 import { ExitAboutGuard } from '../spa/providers/exit.about.guard';
 

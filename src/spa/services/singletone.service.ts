@@ -4,7 +4,12 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class SingletoneService {
+
     private _loggedInStatus: boolean | null = false;
+
+    constructor() {
+        //
+    }
 
     public setLoggedIn(value: boolean): void {
         this._loggedInStatus = value;
@@ -14,7 +19,4 @@ export class SingletoneService {
         return this._loggedInStatus;
     }
 
-    constructor() {
-        //
-    }
 }

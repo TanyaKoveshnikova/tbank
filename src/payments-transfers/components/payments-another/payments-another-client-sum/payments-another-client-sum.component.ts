@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { amountValidator } from '../../../validators/amountValidator';
 import { FondCardsService } from '../../../../personal/fond-cards.service';
-import { cards, IUser } from '../../../../spa/interfaces';
+import { IUser } from '../../../../spa/interfaces/IUser';
 import { CheckClientCardService } from '../../../check-client-card.service';
 import { checkRepeatEmail, confirmedValidator } from '../../../../spa/providers/CustomValidators';
+import { ICard } from '../../../../spa/interfaces/ICard';
 
 @Component({
     selector: 'payments-another-client-sum',
@@ -38,7 +39,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public sendMoney(): void {
         const sumTransfer: number = this.form.controls['transferAmount'].value;
         this._checkClientCardService.transferAmount = sumTransfer;
-        const cardClient: cards | undefined = this.findClient?.cards.find((card: cards) => {
+        const cardClient: ICard | undefined = this.findClient?.cards.find((card: ICard) => {
             return card.cardNumber === this.clientCard;
         });
         if (cardClient && this.iUser) {

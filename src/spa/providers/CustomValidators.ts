@@ -1,6 +1,6 @@
 import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { IUser } from '../interfaces';
+import { IUser } from '../interfaces/IUser';
 
 export function confirmedValidator(controlName: string, matchingControlName: string): ValidationErrors | null {
     return (formGroup: FormGroup) => {

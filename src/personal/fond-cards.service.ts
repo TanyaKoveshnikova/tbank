@@ -1,10 +1,11 @@
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { cards, IUser, savingsAccount } from '../spa/interfaces';
+import { IUser } from '../spa/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, Subject, Subscription, switchMap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { parse } from '@typescript-eslint/parser';
+import { ICard } from '../spa/interfaces/ICard';
+import { ISavingsAccount } from '../spa/interfaces/ISavingsAccount';
 
 @Injectable({
     providedIn: 'root'
@@ -16,15 +17,14 @@ export class FondCardsService implements OnInit {
     public id?: number;
     //Юзер, чей банк
     public userService?: IUser;
-    public getUserSubject: Subject<IUser> = new Subject<IUser>();
-    public getSavAccSubject: Subject<savingsAccount[]> = new Subject<savingsAccount[]>();
-    public savAcc?: savingsAccount[];
+    public getUserSubject$: Subject<IUser> = new Subject<IUser>();
+    public savAcc?: ISavingsAccount[];
 
     // eslint-disable-next-line @typescript-eslint/typedef
     private _urlSignupUser  = 'http://localhost:3000/signupUsers';
     // eslint-disable-next-line @typescript-eslint/typedef
     private _urlSavingAcc= 'http://localhost:3000/savingsAcc';
-    private _newSavAcc!: savingsAccount;
+    private _newSavAcc!: ISavingsAccount;
 
 
 
@@ -33,12 +33,11 @@ export class FondCardsService implements OnInit {
 
     public ngOnInit(): void {
         this.createUsrService();
-        // this.getAllNecessaryAcc();
     }
 
 
     //получем первую карту юзера( для списания денег на сохранительные счета )
-    public getFirstCardUser(): cards | undefined{
+    public getFirstCardUser(): ICard | undefined{
         return this.userService?.cards[0];
     }
 
@@ -55,13 +54,13 @@ export class FondCardsService implements OnInit {
     }
 
 
-    public getUrlSavingAcc(): Observable<ArrayBuffer> |  Observable<savingsAccount[]>{
-        return this._http.get<savingsAccount[]>(this._urlSavingAcc);
+    public getUrlSavingAcc(): Observable<ArrayBuffer> |  Observable<ISavingsAccount[]>{
+        return this._http.get<ISavingsAccount[]>(this._urlSavingAcc);
     }
 
     //Для выгрузки карточек сберегательных счетов
-    public getSavingsAccount(): Observable<savingsAccount[]> {
-        return this._http.get<savingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
+    public getSavingsAccount(): Observable<ISavingsAccount[]> {
+        return this._http.get<ISavingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
     }
 
     ////////////////////////////////////////////////////
@@ -83,7 +82,7 @@ export class FondCardsService implements OnInit {
     //////////////////////////////////////////////////////
 
     private postSavingsAcc(): void {
-        this._http.post<savingsAccount>(this._urlSavingAcc, this._newSavAcc)
+        this._http.post<ISavingsAccount>(this._urlSavingAcc, this._newSavAcc)
             .subscribe(
                 () => {
                     //
@@ -95,7 +94,7 @@ export class FondCardsService implements OnInit {
         this.getUserParams()
             .subscribe((user: IUser) => {
                 this.userService = user;
-                this.getUserSubject.next(user);
+                this.getUserSubject$.next(user);
             });
     }
 }

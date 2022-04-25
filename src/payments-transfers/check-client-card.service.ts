@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FondCardsService } from '../personal/fond-cards.service';
 import { map, Observable } from 'rxjs';
-import { cards, IUser} from '../spa/interfaces';
+import { IUser } from '../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
+import { ICard } from '../spa/interfaces/ICard';
 
 
 @Injectable({
@@ -42,7 +43,7 @@ export class CheckClientCardService {
             .pipe(
                 map((user: IUser[]): IUser => {
                     return user.filter((u: IUser) =>
-                        u.cards.find((card: cards) => card.cardNumber === this.clientCardNumber))[0];
+                        u.cards.find((card: ICard) => card.cardNumber === this.clientCardNumber))[0];
                 })
             );
     }
@@ -73,8 +74,10 @@ export class CheckClientCardService {
             }]
         }).subscribe(
             () => {
+                //
             });
     }
+
 
     public changeSumSavAccount(newCountMoney: number, idSavCard: number): void {
         const url: string = this._urlSavAccount + '/' + idSavCard;

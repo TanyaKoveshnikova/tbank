@@ -1,5 +1,5 @@
 import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { IUser } from '../../spa/interfaces';
+import { IUser } from '../../spa/interfaces/IUser';
 
 export function amountValidator(controlName: string, cardMoney:number): ValidationErrors | null {
     return (formGroup: FormGroup) => {

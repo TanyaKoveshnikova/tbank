@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FondCardsService } from '../../fond-cards.service';
-import { cards, IUser } from '../../../spa/interfaces';
+import {  IUser } from '../../../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, Subject, switchMap } from 'rxjs';

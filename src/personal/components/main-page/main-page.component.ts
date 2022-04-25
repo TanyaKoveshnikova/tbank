@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { IUser, savingsAccount } from '../../../spa/interfaces';
+import { IUser} from '../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../fond-cards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
+import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 
 
 @Component({
@@ -12,22 +13,22 @@ import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 })
 export class MainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
-    public savCardsObs?: Observable<savingsAccount[]>;
+    public savCardsObs?: Observable<ISavingsAccount[]>;
     // eslint-disable-next-line @typescript-eslint/typedef
     public loading = false;
     private _subscriptions: Subscription[] = [];
 
     constructor(private _fondCardsService: FondCardsService, private _router: Router,
         private _route: ActivatedRoute) {
-        const userSubscribe: Subscription = this._fondCardsService.getUserSubject.subscribe((e: IUser) => {
+        const userSubscribe: Subscription = this._fondCardsService.getUserSubject$.subscribe((e: IUser) => {
             this.user = e;
-            // setTimeout(()=> this.loading = true, 5000);
+            this.loading = true;
         });
         this._subscriptions.push(userSubscribe);
     }
 
     public ngOnInit(): void {
-        this.loading = true;
+        // this.loading = true;
         this._fondCardsService.ngOnInit();
         this.user = this._fondCardsService.userService;
         this.savCardsObs = this._fondCardsService.getSavingsAccount();

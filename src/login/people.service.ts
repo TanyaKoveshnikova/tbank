@@ -2,7 +2,7 @@ import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { IUser, savingsAccount } from '../spa/interfaces';
+import { IUser} from '../spa/interfaces/IUser';
 import { FondCardsService } from '../personal/fond-cards.service';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { from } from 'rxjs';
@@ -31,8 +31,8 @@ export class PeopleService {
     @ViewChild('password')
     public passwordInput!: ElementRef;
     public userWithId ?: IUser;
-    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
-    private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
+    // eslint-disable-next-line @typescript-eslint/typedef
+    private _urlSignupUser = 'http://localhost:3000/signupUsers';
     private _newUser!: IUser;
 
 
@@ -53,13 +53,7 @@ export class PeopleService {
                 cardNumber: PeopleService.cardNumber(),
             }]
         };
-        // this._newSavingAcc = {
-        //     id: registerForm.value.id,
-        //     savingsAccount: [],
-        // }
-        // from(signInWithEmailAndPassword(this._auth, this.newUser.mail, this.newUser.password)).subscribe(() => {
-        //     console.log('gfdsd');
-        // })
+
         this.postUser(registerForm);
     }
 
@@ -95,10 +89,6 @@ export class PeopleService {
 
 
     private postUser(registerForm: FormGroup): void {
-        // this.http.post<ISavAcc>(this._urlSavingAcc, this._newSavingAcc)
-        //     .subscribe(res => {
-        //         registerForm.reset();
-        //     });
         this._http.post<IUser>(this._urlSignupUser, this._newUser)
             .subscribe(() => {
                 alert('Signup Successful');
@@ -107,6 +97,5 @@ export class PeopleService {
             }, () => {
                 alert('Signup Unsuccessful. Something went wrong');
             });
-
     }
 }

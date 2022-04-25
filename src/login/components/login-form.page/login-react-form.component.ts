@@ -2,10 +2,11 @@ import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { IUser } from '../../../spa/interfaces';
+import { IUser } from '../../../spa/interfaces/IUser';
 import { PeopleService } from '../../people.service';
 import { componentCanDeactivate } from '../../../spa/providers/exit.about.guard';
 import { Observable } from 'rxjs';
+import { SingletoneService } from '../../../spa/services/singletone.service';
 
 @Component({
     selector: 'app-authorization-react-form',
@@ -22,11 +23,12 @@ export class LoginReactFormComponent implements OnInit, OnDestroy {
 
 
     constructor(private _http: HttpClient, private _router: Router, private _peopleService: PeopleService,
-        private _renderer: Renderer2) {
+        private _renderer: Renderer2, private _singletone: SingletoneService) {
     }
 
     public onSubmit(): void {
         this._peopleService.getUser(this.login);
+        this._singletone.setLoggedIn(true);
     }
 
     public ngAfterViewInit(): void {

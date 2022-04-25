@@ -166,7 +166,7 @@ module.exports = {
                 'propertyDeclaration': true,
                 'memberVariableDeclaration': true,
                 'objectDestructuring': true,
-                'variableDeclarationIgnoreFunction': true
+                'variableDeclarationIgnoreFunction': false
             }
         ],
         '@typescript-eslint/explicit-function-return-type': 'error',
