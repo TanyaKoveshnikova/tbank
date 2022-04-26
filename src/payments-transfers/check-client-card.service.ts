@@ -91,7 +91,6 @@ export class CheckClientCardService {
                 'doneRUB': money,
             }).subscribe(
             () => {
-                console.log('changeSumSavAccount!');
             });
     }
 }

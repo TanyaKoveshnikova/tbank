@@ -9,6 +9,7 @@ import { amountValidator } from '../../../validators/amountValidator';
 import { CheckClientCardService } from '../../../check-client-card.service';
 import { ICard } from '../../../../spa/interfaces/ICard';
 import { ISavingsAccount } from '../../../../spa/interfaces/ISavingsAccount';
+import { FactoryCardHistory } from '../../../../libs/factory.history/factory';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class FillingDetailsComponent implements OnInit, OnDestroy {
         private _builder: FormBuilder,
         private _fb: FormBuilder,
         private _checkClientCardService: CheckClientCardService,
+        private _factoryCardHistory: FactoryCardHistory,
     ) {
         this._paymBetAccComp.toggleClass('filling');
         this.savingAccounts$ = _fondCardsService.getSavingsAccount();
@@ -61,8 +63,15 @@ export class FillingDetailsComponent implements OnInit, OnDestroy {
             const savAccMoneyNumber: number = this._checkClientCardService.transformMoneyInNumber(this.selectedValue?.doneRUB);
             const endMoneySavAcc: number = savAccMoneyNumber + valueMoney;
             this._checkClientCardService.changeSumSavAccount(endMoneySavAcc, this.selectedValue.id);
-
             this._checkClientCardService.nameSavAccount = this.selectedValue.name;
+            if (this._fondCardsService.userService) {
+                this._factoryCardHistory.createCard(
+                    'betweenAccounts',
+                    this._fondCardsService.userService,
+                    valueMoney,
+                    undefined,
+                    this.selectedValue.name);
+            }
         }
     }
 

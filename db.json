@@ -41,7 +41,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "12 060",
+          "RUB": "12 050",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -83,7 +83,7 @@
       "name": "for a book on potions",
       "endDate": "2022-06-30",
       "goalRUB": "5 000",
-      "doneRUB": "124",
+      "doneRUB": "134",
       "idCreator": 3,
       "id": 3
     },
@@ -113,6 +113,22 @@
         "textOperation": "To the card account"
       },
       "id": 1
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "for a book on potions",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1650948470578,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 060",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "id": 2
     }
   ],
   "history4": [
