@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SpaBodyComponent } from '../spa/components/spa-body/spa-body.component';
-import { AuthGuard } from '../personal/providers/auth.guard';
-import { HomeAfterAuthComponent } from '../personal/components/home-after-auth/home-after-auth.component';
+import { SpaBodyComponent } from './childrens/spa/components/spa-body/spa-body.component';
+import { AuthGuard } from './childrens/personal/guards/auth.guard';
+import { HomeAfterAuthComponent } from './childrens/personal/components/home-after-auth/home-after-auth.component';
 
 
 const routes: Routes = [
     {
-        path: 'admin', loadChildren: () => import('../login/login.module')
+        path: 'admin', loadChildren: () => import('./childrens/login/login.module')
             .then((mod: any) => mod.LoginModule)
     },
     {
-        path: 'personal', loadChildren: () => import('../personal/personal.module')
+        path: 'personal', loadChildren: () => import('./childrens/personal/personal.module')
             .then((mod: any)  => mod.PersonalModule)//,canActivate: [AuthGuard]
     },
     { path: '', component: SpaBodyComponent },

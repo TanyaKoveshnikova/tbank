@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="element element__title">
+        <img routerLink="../choice"
+             src="../../../../../../assets/images/arrow.svg" alt="arrow">
+        <div class="title">Recipient</div>
+    </div>
+    <div class="element element__input">
+        <label for="client_account">beneficiary's account</label>
+        <input id="client_account"
+               type="text"
+               maxlength="19"
+               [formControl]="inputControl"
+               [(ngModel)]="clientCard"
+               (input)="clientCardOnChanged()"
+        />
+        <button
+            [disabled]="inputControl.invalid"
+            routerLink="../check">
+            <img src="../../../../../../assets/images/arrow(black).svg" alt="arrow">
+        </button>
+    </div>
+</div>
+

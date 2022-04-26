@@ -1,6 +1,6 @@
 import { ICommon } from '../interfaces/ICommon';
 import { ICardView } from '../interfaces/ICardView';
-import { ICard } from '../../../spa/interfaces/ICard';
+import { ICard } from '../../../app/childrens/spa/interfaces/ICard';
 
 export class FromSomeone implements ICommon {
     public date: Date | number = Date.now();

@@ -1,4 +1,4 @@
-import { ICard } from '../../../spa/interfaces/ICard';
+import { ICard } from '../../../app/childrens/spa/interfaces/ICard';
 
 export interface ICardView {
     'card': ICard,

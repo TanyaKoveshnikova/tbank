@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <div class="element element__title">
+        <img routerLink="../another-client"
+             src="../../../../../../assets/images/arrow.svg" alt="arrow">
+        <div class="title">Recipient</div>
+    </div>
+    <div class="element element__content">
+        <div class="show_text " *ngIf="isString">
+            Client with this card not found
+        </div>
+        <div class="show_text" *ngIf="!isString">
+            <div *ngIf="!loaded " class="loading">
+                <skeletone-loading></skeletone-loading>
+            </div>
+            <div class="value" *ngIf="loaded">
+                <img src="../../../assets/images/card-image.png" alt="card-image">
+                <div class="valueContent">
+                    <div class="valueText">recipient's bank card</div>
+                    <div class="valueData">
+                        <div class="flexStroke">
+                            <div class="show_text_element">{{clientCard}}</div>
+                            <div class="show_text_element">
+                                <img routerLink="../another-client"
+                                     src="../../../assets/images/payments-transfers_img/cross.svg"
+                                     alt="cross">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="value" *ngIf="loaded">
+                <img src="../../../assets/images/payments-transfers_img/fox.svg" alt="fox">
+                <div class="valueContent">
+                    <div class="valueText">name of the recipient</div>
+                    <div class="valueData">
+                        <div class="show_text_element show_text_element__data">{{findClient?.surname}} {{findClient?.name}}</div>
+                        <div class="show_text_element show_text_element__warning">
+                            Please check the name. If all is well, click "Continue".
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="value value__button" *ngIf="loaded">
+                <button class="button"
+                        routerLink="../transfer-amount"
+                >Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

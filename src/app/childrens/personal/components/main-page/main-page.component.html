@@ -1,0 +1,90 @@
+<div class="wrapper_load">
+    <skeletone-loading class="loading" *ngIf="!loading"></skeletone-loading>
+</div>
+<div class="wrapper" *ngIf="loading">
+    <div class="float">
+        <div class="container">
+            <details>
+                <summary>
+                    <div class="summary__header">
+                        CARDS
+                        <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
+                    </div>
+                    <br>
+                    <div class="value summary__value hidden">
+                        <div class="value__image__container">
+                            <img src="../../../../../assets/images/card-image.png">
+                        </div>
+                        <div class="value__image__container">
+                            <div class="value__container">
+                                <div class="value_el bold">{{user?.cards[0].cardName | titlecase}}</div>
+                                <div class="value_el bold">{{user?.cards[0].RUB}}
+                                    <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
+                                         alt="ruble icon">
+                                </div>
+                            </div>
+                            <div class="value_el">... {{user?.cards[0].cardNumber | slice:-5}}</div>
+                        </div>
+                    </div>
+                </summary>
+                <ul class="value__list" *ngFor="let el of user?.cards">
+                    <li class="value summary__value">
+                        <div class="value__image__container">
+                            <img class="image__card" src="../../../../../assets/images/card-image.png">
+                        </div>
+                        <div class="value__image__container">
+                            <div class="value__container">
+                                <div class="value_el bold">{{el?.cardName | titlecase}}</div>
+                                <div class="value_el bold">{{el?.RUB}}
+                                    <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
+                                         alt="ruble icon">
+                                </div>
+                            </div>
+                            <div class="value_el cardNumber">... {{el?.cardNumber | slice:-5}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </details>
+        </div>
+    </div>
+    <div class="content__router">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="container">
+        <details>
+            <summary>
+                <div class="summary__header">
+                    SAVINGS ACCOUNT
+                    <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
+                    <img (click)="createSavingsAcc()" class="img_active img_plus"
+                         src="../../../../../assets/images/plus_icon.svg" alt="plus">
+                </div>
+                <br>
+            </summary>
+            <ul class="value__list" *ngFor="let acc of savCardsObs | async; let i = index">
+                <li class="value summary__value">
+                    <div class="value__image__container">
+                        <img class="image__card fox_image" src="https://randomfox.ca/images/{{i+1}}.jpg"
+                             alt="image random">
+                    </div>
+                    <div class="value__image__container">
+                        <div class="value__container">
+                            <div class="value_el bold">{{acc?.name | titlecase}}</div>
+                            <div class="value_el bold">{{acc?.goalRUB}}
+                                <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
+                                     alt="ruble icon">
+                            </div>
+                        </div>
+                        <div class="value__container">
+                            <div class="value_el value_endDate">until {{acc?.endDate}} </div>
+                            <div class="value_el">{{acc?.doneRUB}}
+                                <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
+                                     alt="ruble icon">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </details>
+    </div>
+</div>

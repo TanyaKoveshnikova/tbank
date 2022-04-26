@@ -1,0 +1,126 @@
+<div class="wrapper">
+    <div class="header">
+        <a class="signIn" routerLink="/admin/login">sign in</a>
+    </div>
+    <div class="content">
+        <div class="signUp">
+            registering a new account
+        </div>
+        <form [formGroup]="registerForm"
+              (ngSubmit)="onSubmit()">
+            <div class="fieldRegistration">
+                <div class="value">
+                    <label for="email">Email</label>
+                    <input id="email"
+                           type="email"
+                           formControlName="mail"
+                           [ngClass]="{'invalid': registerForm.get('mail').invalid && registerForm.get('mail').touched}"
+                           placeholder="Введите почту:"
+                    />
+                    <div
+                        class="helper-text red-text"
+                        *ngIf="f['mail'].invalid && f['mail'].touched"
+                    >
+                        <span *ngIf="f['mail'].errors['required']">Email must not be empty</span>
+                        <span *ngIf="f['mail'].errors['email']">Please enter a valid Email</span>
+                        <span *ngIf="f['mail'].errors['checkRepeatEmail']">Please enter another email</span>
+                    </div>
+                </div>
+                <div class="value">
+                    <label for="name">name</label>
+                    <input id="name"
+                           type="text"
+                           formControlName="name"
+                           placeholder="Введите имя:"
+                    />
+                    <div
+                        class="helper-text red-text"
+                        *ngIf="f['name'].invalid && f['name'].touched">
+          <span *ngIf="f['name'].errors['required'] && f['confirmPassword'].errors">
+            Fill in the name
+          </span>
+                    </div>
+                </div>
+                <div class="value">
+                    <label for="surname">surname</label>
+                    <input id="surname"
+                           type="text"
+                           formControlName="surname"
+                           placeholder="Введите фамилию:"
+                    />
+                    <div
+                        class="helper-text red-text"
+                        *ngIf="f['surname'].invalid && f['surname'].touched">
+          <span *ngIf="f['surname'].errors['required'] && f['confirmPassword'].errors">
+            Fill in the last name
+          </span>
+                    </div>
+                </div>
+                <div class="value password__label">
+                    <label for="password">password</label>
+                    <input id="password"
+                           type="password"
+                           formControlName="password"
+                           class="password__input"
+                           placeholder="Введите пароль:"
+                           #password
+                    />
+                    <div #btn class="password__btn"><img src="../../../../../assets/images/open.svg" alt="Открытый глазик">
+                    </div>
+                    <div
+                        class="helper-text red-text"
+                        *ngIf="f['password'].invalid && f['password'].touched"
+                    >
+                        <span *ngIf="f['password'].errors['required']">Password must not be empty</span>
+                        <span
+                            *ngIf="f['password'].errors['minlength'] && f['password'].errors['minlength']['requiredLength']">
+         Password must be greater {{f['password'].errors['minlength']['requiredLength']}} characters.
+          Now {{f['password'].errors['minlength']['actualLength']}}
+        </span>
+                    </div>
+                </div>
+                <div class="value password__label">
+                    <label for="confirmPassword">confirm password</label>
+                    <input id="confirmPassword"
+                           type="password"
+                           formControlName="confirmPassword"
+                           class="password__input"
+                           placeholder="Введите пароль ещё раз:"
+                           #confirmPassword
+                    />
+                    <div #btn2 class="password__btn"><img src="../../../../../assets/images/open.svg" alt="Открытый глазик">
+                    </div>
+                    <div
+                        class="helper-text red-text"
+                        *ngIf="f['confirmPassword'].invalid && f['confirmPassword'].touched">
+                        <span *ngIf="f['confirmPassword'].errors['required'] && f['confirmPassword'].errors">Confirm password must not be empty</span>
+                        <span
+                            *ngIf="f['confirmPassword'].errors['minlength'] && f['confirmPassword'].errors['minlength']['requiredLength']">
+          Confirm password must be greater {{f['confirmPassword'].errors['minlength']['requiredLength']}} characters.
+          Now {{f['confirmPassword'].errors['minlength']['actualLength']}}
+        </span>
+                        <span
+                            *ngIf="f['confirmPassword'].errors['confirmedValidator']">
+            Password ang Confirmed Password Must be Match
+          </span>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <button
+                    type="submit"
+                    class="sign"
+                    [disabled]="!registerForm.valid"
+                >sign
+                </button>
+                <ul>
+                    <li routerLink="/admin/login">Already have account?</li>
+                </ul>
+            </nav>
+        </form>
+    </div>
+</div>
+
+
+
+

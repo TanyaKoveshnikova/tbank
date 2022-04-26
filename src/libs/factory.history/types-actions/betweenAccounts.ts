@@ -1,6 +1,6 @@
 import { ICommon } from '../interfaces/ICommon';
 import { ICardView } from '../interfaces/ICardView';
-import { ICard } from '../../../spa/interfaces/ICard';
+import { ICard } from '../../../app/childrens/spa/interfaces/ICard';
 import { IBetweenAccount } from '../interfaces/IBetweenAccount';
 
 export class BetweenAccounts implements ICommon {

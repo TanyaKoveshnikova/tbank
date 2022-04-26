@@ -1,8 +1,8 @@
 import { ICommon } from './interfaces/ICommon';
 import { ICardView } from './interfaces/ICardView';
-import { ICard } from '../../spa/interfaces/ICard';
+import { ICard } from '../../app/childrens/spa/interfaces/ICard';
 import { SendCardHistory } from './data/sendCardHistory';
-import { IUser } from '../../spa/interfaces/IUser';
+import { IUser } from '../../app/childrens/spa/interfaces/IUser';
 import { Injectable } from '@angular/core';
 import { FromSomeone } from './types-actions/fromSomeone';
 import { BetweenAccounts } from './types-actions/betweenAccounts';

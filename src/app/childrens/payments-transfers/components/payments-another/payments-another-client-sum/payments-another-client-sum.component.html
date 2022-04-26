@@ -1,0 +1,44 @@
+<div class="wrapper" xmlns="http://www.w3.org/1999/html">
+    <div class="element element__title">
+        <img routerLink="../another-client"
+             src="../../../../../../assets/images/arrow.svg" alt="arrow">
+        <div class="valueContent">
+            <div class="client client__card">{{clientCard}}</div>
+            <div class="client client__name">
+                {{findClient?.name}} {{findClient?.surname}}
+            </div>
+        </div>
+    </div>
+    <div class="element element__sum">
+        <div class="sum sum__text">Transfer amount</div>
+        <form [formGroup]="form">
+            <input type="number"
+                   formControlName="transferAmount"
+                   placeholder="0"
+            >
+        </form>
+    </div>
+    <div class="element element__logic">
+        <div class="value value__cardUser">
+            <div class="writeAccount writeAccount__text">Write-off account</div>
+            <div *ngIf="iUser" class="writeAccount">
+                <img class="image__card" src="../../../assets/images/card-image.png">
+                <select (change)="onClickCard($event)">
+                    <option *ngFor="let card of iUser.cards" [value]="card.RUB" selected>
+                        <div class="cardName">{{card.cardName}}</div>
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="value value__bottom">
+            <button [disabled]="form.invalid" (click)="sendMoney()" routerLink="../announcement">Proceed</button>
+            <div
+                class="helper-text red-text"
+                *ngIf="!f['transferAmount'].valid && f['transferAmount'].touched"
+            >
+                <span *ngIf="f['transferAmount'].errors['required']">Password must not be empty</span>
+                <span *ngIf="f['amountValidator'].errors">Password must not be empty amountValidator</span>
+            </div>
+        </div>
+    </div>
+</div>
