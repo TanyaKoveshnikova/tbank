@@ -4,16 +4,16 @@ import { CheckClientCardService } from '../../../services/check-client-card.serv
 
 @Component({
     selector: 'app-confirmation',
-    templateUrl: './confirmation.component.html',
-    styleUrls: ['./confirmation.component.scss']
+    templateUrl: './payment-between-confirmation.component.html',
+    styleUrls: ['./payment-between-confirmation.component.scss']
 })
-export class ConfirmationComponent implements OnInit, OnDestroy {
+export class PaymentBetweenConfirmationComponent implements OnInit, OnDestroy {
 
     public nameSavAccount: string | undefined;
     public idUser: number | undefined;
 
     constructor(private _paymBetAccComp: PaymentsBetweenAccountsComponent, private _checkClientCardService: CheckClientCardService,) {
-        this._paymBetAccComp.toggleClass('confirmation');
+        this._paymBetAccComp.toggleClass('payment-between-confirmation');
         this.idUser = _checkClientCardService.user?.id;
     }
 
@@ -22,7 +22,7 @@ export class ConfirmationComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this._paymBetAccComp.toggleClass('confirmation');
+        this._paymBetAccComp.toggleClass('payment-between-confirmation');
     }
 
 }

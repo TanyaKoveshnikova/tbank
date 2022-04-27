@@ -13,10 +13,10 @@ import { Observable } from 'rxjs';
 
 @Component({
     selector: 'register-reactive-form',
-    templateUrl: './register-reactive-form.component.html',
-    styleUrls: ['./register-reactive-form.component.scss']
+    templateUrl: './login-register-form.component.html',
+    styleUrls: ['./login-register-form.component.scss']
 })
-export class RegisterReactiveFormComponent implements OnInit, componentCanDeactivate {
+export class LoginRegisterFormComponent implements OnInit, componentCanDeactivate {
     public registerForm: FormGroup = new FormGroup({});
     private _saved = false;
     private urlSignupUser = 'http://localhost:3000/signupUsers';

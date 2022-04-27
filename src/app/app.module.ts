@@ -35,3 +35,5 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 })
 export class AppModule {
 }
+
+//todo: спросить у Максима - норм или не норм имена?

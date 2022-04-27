@@ -4,10 +4,10 @@ import { IUser } from '../../../../spa/interfaces/IUser';
 
 @Component({
     selector: 'app-payments-announcement',
-    templateUrl: './payments-announcement.component.html',
-    styleUrls: ['./payments-announcement.component.scss']
+    templateUrl: './payments-another-announcement.component.html',
+    styleUrls: ['./payments-another-announcement.component.scss']
 })
-export class PaymentsAnnouncementComponent implements OnInit {
+export class PaymentsAnotherAnnouncementComponent implements OnInit {
     public sumTransfer!: string;
     public client!: IUser | undefined;
 

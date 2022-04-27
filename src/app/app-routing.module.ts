@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SpaBodyComponent } from './childrens/spa/components/spa-body/spa-body.component';
 import { AuthGuard } from './childrens/personal/guards/auth.guard';
-import { HomeAfterAuthComponent } from './childrens/personal/components/home-after-auth/home-after-auth.component';
+import { PersonalHomeAfterAuthComponent } from './childrens/personal/components/personal-home-after-auth/personal-home-after-auth.component';
 
 
 const routes: Routes = [

@@ -7,10 +7,10 @@ import { map, Subject, switchMap } from 'rxjs';
 
 @Component({
     selector: 'home-after-auth',
-    templateUrl: './home-after-auth.component.html',
-    styleUrls: ['./home-after-auth.component.scss']
+    templateUrl: './personal-home-after-auth.component.html',
+    styleUrls: ['./personal-home-after-auth.component.scss']
 })
-export class HomeAfterAuthComponent implements OnInit {
+export class PersonalHomeAfterAuthComponent implements OnInit {
     public user?: IUser;
     public id!: number;
 
@@ -21,7 +21,7 @@ export class HomeAfterAuthComponent implements OnInit {
 
     public ngOnInit():void {
         this.getID();
-        this._router.navigate(['/personal/' + this.id + '/main-page']);
+        this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
     }
 
     private getID():void  {

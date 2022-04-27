@@ -13,9 +13,9 @@ import { PaymentsAnotherClientCheckComponent } from './components/payments-anoth
 import { CheckClientCardService } from './services/check-client-card.service';
 import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
 import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
-import { PaymentsAnnouncementComponent } from './components/payments-another/payments-announcement/payments-announcement.component';
-import { FillingDetailsComponent } from './components/payments-between-account/filling-details/filling-details.component';
-import { ConfirmationComponent } from './components/payments-between-account/confirmation/confirmation.component';
+import { PaymentsAnotherAnnouncementComponent } from './components/payments-another/payments-another-announcement/payments-another-announcement.component';
+import { PaymentBetweenFillingDetailsComponent } from './components/payments-between-account/payment-between-filling-details/payment-between-filling-details.component';
+import { PaymentBetweenConfirmationComponent } from './components/payments-between-account/payment-between-confirmation/payment-between-confirmation.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { FactoryCardHistory } from '../../../libs/factory.history/factory';
 import { SendCardHistory } from '../../../libs/factory.history/data/sendCardHistory';
@@ -30,9 +30,9 @@ import { SendCardHistory } from '../../../libs/factory.history/data/sendCardHist
         PaymentsMobileComponent,
         PaymentsTransfersWrapperComponent,
         PaymentsAnotherClientSumComponent,
-        PaymentsAnnouncementComponent,
-        FillingDetailsComponent,
-        ConfirmationComponent
+        PaymentsAnotherAnnouncementComponent,
+        PaymentBetweenFillingDetailsComponent,
+        PaymentBetweenConfirmationComponent
     ],
     imports: [
         CommonModule,

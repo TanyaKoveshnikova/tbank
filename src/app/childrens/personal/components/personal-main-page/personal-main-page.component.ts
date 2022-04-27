@@ -8,10 +8,10 @@ import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 
 @Component({
     selector: 'main-page',
-    templateUrl: './main-page.component.html',
-    styleUrls: ['./main-page.component.scss']
+    templateUrl: './personal-main-page.component.html',
+    styleUrls: ['./personal-main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, OnDestroy {
+export class PersonalMainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
     public savCardsObs?: Observable<ISavingsAccount[]>;
     // eslint-disable-next-line @typescript-eslint/typedef
@@ -41,7 +41,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
 
     public createSavingsAcc(): void {
-        this._router.navigate(['../main-page/createSavingsAccount'], { relativeTo: this._route });
+        this._router.navigate(['../personal-main-page/createSavingsAccount'], { relativeTo: this._route });
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 }

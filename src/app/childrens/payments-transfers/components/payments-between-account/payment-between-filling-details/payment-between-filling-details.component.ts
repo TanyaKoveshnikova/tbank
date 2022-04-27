@@ -14,10 +14,10 @@ import { FactoryCardHistory } from '../../../../../../libs/factory.history/facto
 
 @Component({
     selector: 'app-filling-details',
-    templateUrl: './filling-details.component.html',
-    styleUrls: ['./filling-details.component.scss']
+    templateUrl: './payment-between-filling-details.component.html',
+    styleUrls: ['./payment-between-filling-details.component.scss']
 })
-export class FillingDetailsComponent implements OnInit, OnDestroy {
+export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy {
     public savingAccounts$?: Observable<ISavingsAccount[]>;
     public date: Date | number = Date.now();
     public userCard?: ICard;

@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'register', component: _spa_register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_1__.RegisterReactiveFormComponent },
+    { path: 'register', component: _spa_register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_1__.LoginRegisterFormComponent },
     { path: '', redirectTo: '', pathMatch: 'full' },
     { path: '**', component: _spa_spa_body_spa_body_component__WEBPACK_IMPORTED_MODULE_0__.SpaBodyComponent }
 ];
@@ -165,20 +165,20 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstr
 
 /***/ 1523:
 /*!****************************************************************************!*\
-  !*** ./src/spa/register-reactive-form/register-reactive-form.component.ts ***!
+  !*** ./src/spa/register-reactive-form/login-register-form.component.ts ***!
   \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RegisterReactiveFormComponent": () => (/* binding */ RegisterReactiveFormComponent)
+/* harmony export */   "LoginRegisterFormComponent": () => (/* binding */ LoginRegisterFormComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ 587);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
 
-class RegisterReactiveFormComponent {
+class LoginRegisterFormComponent {
     constructor() {
         this.registerForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormGroup({
             mail: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormControl('gfgf'),
@@ -202,8 +202,8 @@ class RegisterReactiveFormComponent {
         });
     }
 }
-RegisterReactiveFormComponent.ɵfac = function RegisterReactiveFormComponent_Factory(t) { return new (t || RegisterReactiveFormComponent)(); };
-RegisterReactiveFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: RegisterReactiveFormComponent, selectors: [["register-reactive-form"]], decls: 22, vars: 1, consts: [[3, "formGroup"], [1, "fieldRegistration"], [1, "value"], ["type", "email", "formControlName", "mail"], ["type", "password", "formControlName", "password"], ["type", "email", "formControlName", "confirmPassword"], ["type", "text", "formControlName", "name"], ["type", "text", "formControlName", "surname"]], template: function RegisterReactiveFormComponent_Template(rf, ctx) { if (rf & 1) {
+LoginRegisterFormComponent.ɵfac = function RegisterReactiveFormComponent_Factory(t) { return new (t || LoginRegisterFormComponent)(); };
+LoginRegisterFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: LoginRegisterFormComponent, selectors: [["register-reactive-form"]], decls: 22, vars: 1, consts: [[3, "formGroup"], [1, "fieldRegistration"], [1, "value"], ["type", "email", "formControlName", "mail"], ["type", "password", "formControlName", "password"], ["type", "email", "formControlName", "confirmPassword"], ["type", "text", "formControlName", "name"], ["type", "text", "formControlName", "surname"]], template: function RegisterReactiveFormComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form", 0)(1, "div", 1)(2, "div", 2)(3, "label");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Email");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -341,11 +341,11 @@ SpaModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵ
             _app_app_routing_module__WEBPACK_IMPORTED_MODULE_3__.AppRoutingModule
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](SpaModule, { declarations: [_spa_body_spa_body_component__WEBPACK_IMPORTED_MODULE_0__.SpaBodyComponent,
-        _register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_2__.RegisterReactiveFormComponent], imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule,
+        _register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_2__.LoginRegisterFormComponent], imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule,
         _angular_forms__WEBPACK_IMPORTED_MODULE_5__.ReactiveFormsModule,
         _angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
         _app_app_routing_module__WEBPACK_IMPORTED_MODULE_3__.AppRoutingModule], exports: [_spa_body_spa_body_component__WEBPACK_IMPORTED_MODULE_0__.SpaBodyComponent,
-        _register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_2__.RegisterReactiveFormComponent] }); })();
+        _register_reactive_form_register_reactive_form_component__WEBPACK_IMPORTED_MODULE_2__.LoginRegisterFormComponent] }); })();
 
 
 /***/ })
