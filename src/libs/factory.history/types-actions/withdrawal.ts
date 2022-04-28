@@ -2,7 +2,7 @@ import { ICommon } from '../interfaces/ICommon';
 import { ICardView } from '../interfaces/ICardView';
 import { ICard } from '../../../app/childrens/spa/interfaces/ICard';
 
-export class FromSomeone implements ICommon {
+export class Withdrawal implements ICommon {
     public date: Date | number = Date.now();
     public fromWhom: string;
 
@@ -13,7 +13,7 @@ export class FromSomeone implements ICommon {
     // eslint-disable-next-line @typescript-eslint/typedef
     public urlMyHistory = 'http://localhost:3000/history';
     public card!: ICard;
-    public typeTransaction: string = 'fromSomeone';
+    public typeTransaction: string = 'withdrawal';
 
     constructor(
         fromWhom: string,
@@ -25,12 +25,12 @@ export class FromSomeone implements ICommon {
         this.fromWhom = fromWhom;
         this.transferAmount = transferAmount;
         this.card = card;
-        this.operationName = 'Refill';
+        this.operationName = 'Withdrawal of money';
         this.urlMyHistory = this.urlMyHistory + myId;
         this.interactionWhichAccount =
             {
                 'card': this.card,
-                'textOperation': 'To the card account',
+                'textOperation': 'From a bank card',
             };
     }
 

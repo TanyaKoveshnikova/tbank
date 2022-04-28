@@ -23,6 +23,10 @@ export class SendCardHistory {
         this.postCommon(urlMyHistory, bodyRequest);
     }
 
+    public postWithdrawal(urlMyHistory: string, bodyRequest: ICommon){
+        this.postCommon(urlMyHistory, bodyRequest);
+    }
+
     private postCommon(url: string, bodyRequest: IBetweenAccount | ICommon): void {
         this._http.post<IBetweenAccount | ICommon>(url, bodyRequest)
             .subscribe(() => {

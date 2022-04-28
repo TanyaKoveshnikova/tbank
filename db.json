@@ -41,7 +41,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "12 050",
+          "RUB": "12 000",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -55,7 +55,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "521",
+          "RUB": "581",
           "cardNumber": "7990 6156 9120 5330"
         }
       ],
@@ -100,34 +100,35 @@
   "history2": [],
   "history3": [
     {
-      "fromWhom": "Гарри Поттер",
-      "operationName": "Refill",
-      "transferAmount": "5 000",
-      "date": 1650879974157,
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "10",
+      "date": 1651134283562,
       "interactionWhichAccount": {
         "card": {
           "cardName": "visa platinum",
-          "RUB": "7 060",
+          "RUB": "12 050",
           "cardNumber": "3622 9838 4421 1335"
         },
-        "textOperation": "To the card account"
+        "textOperation": "From a bank card"
       },
+      "typeTransaction": "withdrawal",
       "id": 1
     },
     {
-      "fromWhom": "between accounts",
-      "whatAccountName": "for a book on potions",
-      "operationName": "Translations",
-      "transferAmount": "10",
-      "date": 1650948470578,
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "50",
+      "date": 1651134374192,
       "interactionWhichAccount": {
         "card": {
           "cardName": "visa platinum",
-          "RUB": "12 060",
+          "RUB": "12 050",
           "cardNumber": "3622 9838 4421 1335"
         },
-        "textOperation": "From card account"
+        "textOperation": "From a bank card"
       },
+      "typeTransaction": "withdrawal",
       "id": 2
     }
   ],
@@ -135,17 +136,34 @@
     {
       "fromWhom": "Гермиона Грейнджер",
       "operationName": "Refill",
-      "transferAmount": "20",
-      "date": 1650879800953,
+      "transferAmount": "10",
+      "date": 1651134283560,
       "interactionWhichAccount": {
         "card": {
           "cardName": "visa platinum",
-          "RUB": "501",
+          "RUB": "521",
           "cardNumber": "7990 6156 9120 5330"
         },
         "textOperation": "To the card account"
       },
+      "typeTransaction": "fromSomeone",
       "id": 1
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Refill",
+      "transferAmount": "50",
+      "date": 1651134374191,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "531",
+          "cardNumber": "7990 6156 9120 5330"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 2
     }
   ],
   "history5": []

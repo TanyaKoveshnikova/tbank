@@ -1,6 +1,6 @@
 $sizeHeader: 5rem;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
-@import "../../../spa./spa/scss/header-signIn";
+@import "src/assets/styles/_header-signIn.scss";
 
 .header {
     display: flex;

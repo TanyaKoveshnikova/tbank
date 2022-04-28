@@ -18,6 +18,7 @@ export class BetweenAccounts implements ICommon {
     // eslint-disable-next-line @typescript-eslint/typedef
     public urlMyHistory = 'http://localhost:3000/history';
     public card!: ICard;
+    public typeTransaction: string = 'betweenAccounts';
 
     constructor(
         whatAccountName: string,
@@ -46,6 +47,7 @@ export class BetweenAccounts implements ICommon {
             'transferAmount': this.transferAmount,
             'date': this.date,
             'interactionWhichAccount': this.interactionWhichAccount,
+            'typeTransaction': this.typeTransaction
         };
     }
 }

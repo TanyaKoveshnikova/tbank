@@ -8,6 +8,6 @@ export interface ICommon {
     'interactionWhichAccount': ICardView,
     'operationName': string,
     'id'?: number,
+    'typeTransaction': string,
 }
 
-//todo: сделать  'operationName'?: string, в каждом классе автоматически прикрепляется нужная

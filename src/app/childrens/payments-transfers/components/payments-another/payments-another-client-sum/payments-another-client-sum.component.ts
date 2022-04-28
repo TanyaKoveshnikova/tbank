@@ -55,7 +55,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
             const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
             this._checkClientCardService.patchPlusSumClient(sumTransferDone, cardClient.cardName);
             this._factoryCardHistory.createCard('fromSomeone', this.iUser, sumTransfer, this.findClient);
-
+            this._factoryCardHistory.createCard('withdrawal', this.iUser, sumTransfer, this.findClient);
             console.log('patchMinusSumUser _factoryCardHistory');
             this._checkClientCardService.patchMinusSumUser(moneyMinusSum);
         }

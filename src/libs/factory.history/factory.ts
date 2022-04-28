@@ -6,6 +6,7 @@ import { IUser } from '../../app/childrens/spa/interfaces/IUser';
 import { Injectable } from '@angular/core';
 import { FromSomeone } from './types-actions/fromSomeone';
 import { BetweenAccounts } from './types-actions/betweenAccounts';
+import { Withdrawal } from './types-actions/withdrawal';
 
 
 @Injectable({
@@ -32,6 +33,13 @@ export class FactoryCardHistory {
             const createdClass: any = new BetweenAccounts(savAccName, moneyTransfer, user.cards[0], user.id);
             const bodyRequest: any = createdClass.createForm();
             this._sendCardHistory.postBetweenAccounts(createdClass.urlMyHistory, bodyRequest);
+        }
+
+        if (type === 'withdrawal' && client) {
+            const clientName: string = client?.name + ' ' + client?.surname;
+            const createdClass: any = new Withdrawal(clientName, moneyTransfer, user.cards[0], user.id);
+            const bodyRequest: any = createdClass.createForm();
+            this._sendCardHistory.postWithdrawal(createdClass.urlMyHistory, bodyRequest);
         }
     }
 }
