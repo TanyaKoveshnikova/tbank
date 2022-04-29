@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleService } from '../../../login/services/people.service';
 
 @Component({
     selector: 'history',

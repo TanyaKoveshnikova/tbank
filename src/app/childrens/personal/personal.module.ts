@@ -14,6 +14,7 @@ import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { PersonalAutoPaymentsComponent } from './components/personal-auto-payments/personal-auto-payments.component';
 import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
 import { AuthGuard } from './guards/auth.guard';
+import { PersonalHistoryService } from './services/personal-history.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AuthGuard } from './guards/auth.guard';
         FondCardsService,
         ExitAboutGuard,
         AuthGuard,
+        PersonalHistoryService
     ]
 })
 export class PersonalModule {
