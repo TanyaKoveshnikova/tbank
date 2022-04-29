@@ -5,6 +5,7 @@ import { ICommon } from '../../../../libs/factory.history/interfaces/ICommon';
 import { IBetweenAccount } from '../../../../libs/factory.history/interfaces/IBetweenAccount';
 import { Observable } from 'rxjs';
 import { ICommonHistory } from '../interfaces/ICommonHistory';
+import { FondCardsService } from './fond-cards.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,10 +14,11 @@ export class PersonalHistoryService {
     private _urlGetUserHistory: string = 'http://localhost:3000/history';
     private _idUser!: number;
 
-    constructor(private _http: HttpClient, private _peopleService: PeopleService) {
-        if (_peopleService.userWithId) {
-            this._idUser = _peopleService.userWithId?.id;
+    constructor(private _http: HttpClient, private _fondCardsService: FondCardsService) {
+        if (_fondCardsService.id) {
+            this._idUser = _fondCardsService.id;
             this._urlGetUserHistory += this._idUser;
+            console.log(this._urlGetUserHistory);
         }
     }
 
@@ -24,3 +26,4 @@ export class PersonalHistoryService {
         return this._http.get<ICommonHistory[]>(this._urlGetUserHistory);
     }
 }
+
