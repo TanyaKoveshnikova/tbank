@@ -24,7 +24,7 @@ const childrenRoutes: Routes = [
                 component: PaymentBetweenFillingDetailsComponent,
             },
             {
-                path: 'payment-between-confirmation',
+                path: 'confirmation',
                 component: PaymentBetweenConfirmationComponent,
             }
         ]

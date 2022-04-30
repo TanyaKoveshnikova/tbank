@@ -5,4 +5,3 @@ export interface ICardView {
     'textOperation': string,
 }
 
-///todo: сделать в классе автоматическое закрепление текста 'textOperation': string,

@@ -1,6 +1,90 @@
-<p>history works!</p>
-<h1>HAY</h1>
-<div *ngFor="let card of cardsHistory">
-    {{card?.operationName}}
-    <br>
+<div class="wrapper">
+    <div *ngFor="let card of cardsHistory">
+        <button class="btn" (click)="clickCard(card)">
+            <div *ngIf="card?.typeTransaction === 'withdrawal'" class="card__wrapper">
+                <div class="item item__image">
+                    <img src="../../../../../assets/images/images-history/withdrawal.svg" alt="withdrawal img">
+                </div>
+                <div class="item item__text">
+                    <div class="text__nameClient">
+                        {{card?.fromWhom}}
+                    </div>
+                    <div class="text__where smallFont">
+                        From a bank card {{card?.interactionWhichAccount?.card?.cardName}}
+                    </div>
+                </div>
+                <div class="item item__money">
+                    <div class="sum">
+                        -{{card?.transferAmount}} <img class="img__ruble"
+                                                       src="../../../../../assets/images/ruble_icon.svg"
+                                                       alt="ruble icon">
+                    </div>
+                    <div class="nameOperations smallFont">
+                        Withdrawal
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="card?.typeTransaction === 'betweenAccounts'" class="card__wrapper">
+                <div class="item item__image">
+                    <img src="../../../../../assets/images/images-history/betweenAccounts.svg"
+                         alt="betweenAccounts img">
+                </div>
+                <div class="item item__text">
+                    <div class="text__nameClient">
+                        Bank transfer between accounts
+                    </div>
+                    <div class="text__where smallFont">
+                        To a savings account {{card?.whatAccountName}}
+                    </div>
+                </div>
+                <div class="item item__money">
+                    <div class="sum sum__green">
+                        {{card?.transferAmount}}
+                        <img class="img__ruble"
+                             src="../../../../../assets/images/images-history/ruble_icon__green.svg"
+                             alt="ruble icon">
+                    </div>
+                    <div class="nameOperations smallFont">
+                        Between accounts
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="card?.typeTransaction === 'fromSomeone'" class="card__wrapper">
+                <div class="item item__image">
+                    <img src="../../../../../assets/images/images-history/fromSomeone.svg" alt="from Someone img">
+                </div>
+                <div class="item item__text">
+                    <div class="text__nameClient">
+                        {{card?.fromWhom}}
+                    </div>
+                    <div class="text__where smallFont">
+                        To a bank card account {{card?.interactionWhichAccount?.card?.cardName}}
+                    </div>
+                </div>
+                <div class="item item__money">
+                    <div class="sum sum__green">
+                        {{card?.transferAmount}}
+                        <img class="img__ruble"
+                             src="../../../../../assets/images/images-history/ruble_icon__green.svg"
+                             alt="ruble icon">
+                    </div>
+                    <div class="nameOperations smallFont">
+                        Replenishment
+                    </div>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <div class="modal-wrapper" id="modal-1">
+        <div class="model">
+            <div class="modelBody">
+                <button><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross" (click)="closeModel()"></button>
+                <div class="text">UCoins НАЧИСЛЕНЫ!</div>
+            </div>
+        </div>
+        <div class="modelBackground"></div>
+    </div>
 </div>

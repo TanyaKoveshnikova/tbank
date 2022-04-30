@@ -6,71 +6,58 @@ import { IUser } from '../../spa/interfaces/IUser';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { Auth } from '@angular/fire/auth';
 import { SingletoneService } from '../../spa/services/singletone.service';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class PeopleService {
-    private static creatRandomNameCard(): string {
-        const setWords: string[] = ['visa', 'master', 'classic', 'platinum', 'payCard', 'standard', 'maestro', 'muggle', 'wizard'];
-
-        return (setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)]);
-    }
-
-    private static randomMoney(): string {
-        return new Intl.NumberFormat('ru-RU').format(Math.round(Math.random() * 100000));
-    }
-
-    private static cardNumber(): string {
-        return Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000) + ' '
-            + Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000);
-    }
-
     @ViewChild('password')
     public passwordInput!: ElementRef;
-    public userWithId ?: IUser;
     private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
-    private _newUser!: IUser;
 
 
-    constructor(private _http: HttpClient, private _router: Router, private _fondCard: FondCardsService,
-        private _auth: Auth, private _singletone: SingletoneService) {
+    constructor(
+        private _http: HttpClient,
+        private _router: Router,
+        private _fondCard: FondCardsService,
+        private _auth: Auth,
+        private _singletone: SingletoneService,
+    ) {
     }
 
     public sendOnServer(registerForm: FormGroup): void {
-        this._newUser = {
+        const newUser: IUser = {
             mail: registerForm.value.mail,
             password: registerForm.value.password,
             name: registerForm.value.name,
             surname: registerForm.value.surname,
             id: registerForm.value.id,
             cards: [{
-                cardName: PeopleService.creatRandomNameCard(),
-                RUB: PeopleService.randomMoney(),
-                cardNumber: PeopleService.cardNumber(),
+                cardName: this.creatRandomNameCard(),
+                RUB: this.randomMoney(),
+                cardNumber: this.cardNumber(),
             }]
         };
 
-        this.postUser(registerForm);
+        this.postUser(newUser)
+            .subscribe({
+                next: () => {
+                    alert('Signup Successful');
+                    this._router.navigate(['admin', 'login']);
+                },
+                error: () => {
+                    console.log('Signup Unsuccessful. Something went wrong');
+                },
+                complete: () => {
+                    registerForm.reset();
+                }
+            });
     }
 
-    public getUser(login: FormGroup): void {
-        this._http.get<IUser[]>(this._urlSignupUser)
-            .subscribe((res: IUser[]) => {
-                const user: IUser | undefined = res.find((a: IUser) => {
-                    return a.mail === login.value.mail && a.password === login.value.password;
-                });
-                if (user) {
-                    this._router.navigate(['/personal/' + user.id]);
-                    this._singletone.setLoggedIn(true);
-                    //login.reset();
-                } else {
-                    alert('user not found');
-                }
-            }, () => {
-                alert('Something went wrong');
-            });
+    public getUser(): Observable<IUser[]> {
+        return this._http.get<IUser[]>(this._urlSignupUser);
     }
 
     public showPassword(btn: HTMLElement, input: Element): void {
@@ -86,14 +73,22 @@ export class PeopleService {
     }
 
 
-    private postUser(registerForm: FormGroup): void {
-        this._http.post<IUser>(this._urlSignupUser, this._newUser)
-            .subscribe(() => {
-                alert('Signup Successful');
-                registerForm.reset();
-                this._router.navigate(['/admin/login']);
-            }, () => {
-                alert('Signup Unsuccessful. Something went wrong');
-            });
+    private postUser(newUser: IUser): Observable<IUser> {
+        return this._http.post<IUser>(this._urlSignupUser, newUser);
+    }
+
+    private creatRandomNameCard(): string {
+        const setWords: string[] = ['visa', 'master', 'classic', 'platinum', 'payCard', 'standard', 'maestro', 'muggle', 'wizard'];
+
+        return (setWords[Math.floor(Math.random() * 9)] + ' ' + setWords[Math.floor(Math.random() * 9)]);
+    }
+
+    private randomMoney(): string {
+        return new Intl.NumberFormat('ru-RU').format(Math.round(Math.random() * 100000));
+    }
+
+    private cardNumber(): string {
+        return Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000) + ' '
+            + Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000);
     }
 }

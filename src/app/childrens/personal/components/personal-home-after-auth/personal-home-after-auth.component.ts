@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FondCardsService } from '../../services/fond-cards.service';
-import {  IUser } from '../../../spa/interfaces/IUser';
+import { IUser } from '../../../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, Subject, switchMap } from 'rxjs';
+import { SingletoneService } from '../../../spa/services/singletone.service';
 
 @Component({
     selector: 'home-after-auth',
@@ -15,16 +16,20 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
     public id!: number;
 
 
-    constructor(private _fondCardsService: FondCardsService, public activateRoute: ActivatedRoute,
-        private _router: Router) {
+    constructor(
+        private _fondCardsService: FondCardsService,
+        public activateRoute: ActivatedRoute,
+        private _router: Router,
+        private _singletoneService: SingletoneService,
+    ) {
     }
 
-    public ngOnInit():void {
+    public ngOnInit(): void {
         this.getID();
         this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
     }
 
-    private getID():void  {
+    private getID(): void {
         this.activateRoute.paramMap.pipe(
             switchMap((params: ParamMap) => params.getAll('id'))
         )

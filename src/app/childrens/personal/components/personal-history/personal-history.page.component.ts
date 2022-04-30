@@ -19,14 +19,25 @@ export class PersonalHistoryPageComponent implements OnInit {
         //
     }
 
+    public clickCard(card: any): void{
+        console.log(card);
+        document.getElementById('modal-1')!.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modalOpen');
+    }
+
+    public closeModel(): void {
+        document.getElementById('modal-1')!.style.display = 'none';
+        document.body.style.overflow = 'visible';
+        document.body.classList.remove('modalOpen');
+    }
+
     private getTransactionsHistory(): void {
         this._personalHistoryService.getUserHistory()
             .subscribe(
                 (elements: ICommonHistory[]) => {
                     this.cardsHistory = elements;
-                    console.log('i get history');
                 },
             );
     }
-
 }

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SingletoneService {
+    public loggedUser!: IUser;
 
     private _loggedInStatus: boolean | null = false;
+
 
     constructor() {
         //

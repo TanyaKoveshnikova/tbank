@@ -12,6 +12,7 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -31,9 +32,9 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
         BreadcrumbModule
     ],
     // guards: [AuthGuard],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [CookieService]
 })
 export class AppModule {
 }
 
-//todo: спросить у Максима - норм или не норм имена?

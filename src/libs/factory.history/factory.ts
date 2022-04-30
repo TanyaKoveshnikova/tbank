@@ -44,5 +44,3 @@ export class FactoryCardHistory {
     }
 }
 
-
-//todo:  сделать класс куда-то(когда отправляю(деньги списываются)

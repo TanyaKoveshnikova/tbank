@@ -37,7 +37,7 @@ import { PersonalHistoryService } from './services/personal-history.service';
         FondCardsService,
         ExitAboutGuard,
         AuthGuard,
-        PersonalHistoryService
+        PersonalHistoryService,
     ]
 })
 export class PersonalModule {

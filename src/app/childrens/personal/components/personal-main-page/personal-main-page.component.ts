@@ -14,29 +14,24 @@ import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 export class PersonalMainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
     public savCardsObs?: Observable<ISavingsAccount[]>;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public loading = false;
-    private _subscriptions: Subscription[] = [];
+    public loading: boolean = false;
 
-    constructor(private _fondCardsService: FondCardsService, private _router: Router,
-        private _route: ActivatedRoute) {
-        const userSubscribe: Subscription = this._fondCardsService.getUserSubject$.subscribe((e: IUser) => {
-            this.user = e;
-            this.loading = true;
-        });
-        this._subscriptions.push(userSubscribe);
+    constructor(
+        private _fondCardsService: FondCardsService,
+        private _router: Router,
+        private _route: ActivatedRoute
+    ) {
+        this.user = this._fondCardsService.userService;
+        this.loading = true;
     }
 
     public ngOnInit(): void {
-        // this.loading = true;
         this._fondCardsService.ngOnInit();
-        this.user = this._fondCardsService.userService;
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 
     public ngOnDestroy(): void {
-        this._subscriptions
-            .forEach((s: Subscription) => s.unsubscribe());
+        //
     }
 
 

@@ -1,0 +1,88 @@
+.wrapper {
+    margin: 4rem auto;
+    max-width: 80%;
+
+    .btn{
+        background-color: white;
+        border: none;
+        margin: 0 auto;
+        display: block;
+        min-width: 50%;
+        margin-left: 18%;
+    }
+
+    .card__wrapper {
+        display: flex;
+        padding: 3em;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        border-bottom: rgba(51, 51, 51, 0.23) solid 1px;
+        font-size: 1.3em;
+
+        .item {
+            padding-right: 3em;
+
+            &__image {
+                width: 3em;
+            }
+
+            &__money{
+                font-weight: 600;
+
+                .img__ruble {
+                    width: 1.1em;
+                    position: relative;
+                    right: 5px;
+                    top: 4px;
+                }
+
+                .sum{
+
+                    &__green{
+                        color: green;
+                    }
+                }
+            }
+
+            .smallFont{
+                color: #333333;
+                font-size: 0.7em;
+                font-weight: 400;
+                padding-top: 0.1em;
+            }
+        }
+    }
+
+    .modal-wrapper {
+        display: none;
+
+        .modelBackground {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 900;
+        }
+
+        .model {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            z-index: 1000;
+            overflow: auto;
+
+            .modelBody{
+                border: 3px solid black;
+            }
+        }
+    }
+
+}

@@ -27,7 +27,7 @@
       "cards": [
         {
           "cardName": "platinum platinum",
-          "RUB": "12 064",
+          "RUB": "11 964",
           "cardNumber": "8469 1394 7403 5679"
         }
       ],
@@ -41,7 +41,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "12 000",
+          "RUB": "12 090",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -60,6 +60,20 @@
         }
       ],
       "id": 4
+    },
+    {
+      "mail": "test@test.test",
+      "password": "123456",
+      "name": "test",
+      "surname": "test",
+      "cards": [
+        {
+          "cardName": "maestro maestro",
+          "RUB": "54 647",
+          "cardNumber": "6483 7219 6134 8984"
+        }
+      ],
+      "id": 5
     }
   ],
   "savingsAcc": [
@@ -83,7 +97,7 @@
       "name": "for a book on potions",
       "endDate": "2022-06-30",
       "goalRUB": "5 000",
-      "doneRUB": "134",
+      "doneRUB": "144",
       "idCreator": 3,
       "id": 3
     },
@@ -97,7 +111,24 @@
     }
   ],
   "history1": [],
-  "history2": [],
+  "history2": [
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "100",
+      "date": 1651337162132,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "platinum platinum",
+          "RUB": "12 064",
+          "cardNumber": "8469 1394 7403 5679"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 1
+    }
+  ],
   "history3": [
     {
       "fromWhom": "Уизли Рон",
@@ -130,6 +161,39 @@
       },
       "typeTransaction": "withdrawal",
       "id": 2
+    },
+    {
+      "fromWhom": "Гарри Поттер",
+      "operationName": "Refill",
+      "transferAmount": "100",
+      "date": 1651337162127,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 000",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 3
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "for a book on potions",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1651337192743,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 100",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 4
     }
   ],
   "history4": [

@@ -6,6 +6,7 @@ import { map, Observable, Subject, Subscription, switchMap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { ICard } from '../../spa/interfaces/ICard';
 import { ISavingsAccount } from '../../spa/interfaces/ISavingsAccount';
+import { SingletoneService } from '../../spa/services/singletone.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,34 +15,34 @@ export class FondCardsService implements OnInit {
     private static stringGoalRUB(amount: number): string {
         return new Intl.NumberFormat('ru-RU').format(amount);
     }
+
     public id?: number;
     //Юзер, чей банк
     public userService?: IUser;
-    public getUserSubject$: Subject<IUser> = new Subject<IUser>();
     public savAcc?: ISavingsAccount[];
-
-    // eslint-disable-next-line @typescript-eslint/typedef
-    private _urlSignupUser  = 'http://localhost:3000/signupUsers';
-    // eslint-disable-next-line @typescript-eslint/typedef
-    private _urlSavingAcc= 'http://localhost:3000/savingsAcc';
+    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
+    private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     private _newSavAcc!: ISavingsAccount;
 
 
-
-    constructor(private _http: HttpClient, public activateRoute: ActivatedRoute,) {
+    constructor(
+        private _http: HttpClient,
+        public activateRoute: ActivatedRoute,
+        private _singletoneService: SingletoneService,
+    ) {
     }
 
     public ngOnInit(): void {
-        this.createUsrService();
+        this.userService = this._singletoneService.loggedUser;
     }
 
 
     //получем первую карту юзера( для списания денег на сохранительные счета )
-    public getFirstCardUser(): ICard | undefined{
+    public getFirstCardUser(): ICard | undefined {
         return this.userService?.cards[0];
     }
 
-    public sendOnServerSavingAcc(savingsAccForm: FormGroup): void  {
+    public sendOnServerSavingAcc(savingsAccForm: FormGroup): void {
         this._newSavAcc = {
             name: savingsAccForm.value.name,
             endDate: savingsAccForm.value.endDate,
@@ -54,7 +55,7 @@ export class FondCardsService implements OnInit {
     }
 
 
-    public getUrlSavingAcc(): Observable<ArrayBuffer> |  Observable<ISavingsAccount[]>{
+    public getUrlSavingAcc(): Observable<ArrayBuffer> | Observable<ISavingsAccount[]> {
         return this._http.get<ISavingsAccount[]>(this._urlSavingAcc);
     }
 
@@ -63,23 +64,9 @@ export class FondCardsService implements OnInit {
         return this._http.get<ISavingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
     }
 
-    ////////////////////////////////////////////////////
-
-    //Для выгрузки найденного пользователя, после логина
     public getNeedUserParams(): Observable<IUser[]> {
         return this._http.get<IUser[]>(this._urlSignupUser);
     }
-
-    private getUserParams(): Observable<IUser> {
-        return this.getNeedUserParams()
-            .pipe(
-                map((user: IUser[]): IUser => {
-                    return user.filter((u:IUser) => u.id === this.id)[0];
-                })
-            );
-    }
-
-    //////////////////////////////////////////////////////
 
     private postSavingsAcc(): void {
         this._http.post<ISavingsAccount>(this._urlSavingAcc, this._newSavAcc)
@@ -87,14 +74,5 @@ export class FondCardsService implements OnInit {
                 () => {
                     //
                 });
-    }
-
-
-    private createUsrService(): void {
-        this.getUserParams()
-            .subscribe((user: IUser) => {
-                this.userService = user;
-                this.getUserSubject$.next(user);
-            });
     }
 }

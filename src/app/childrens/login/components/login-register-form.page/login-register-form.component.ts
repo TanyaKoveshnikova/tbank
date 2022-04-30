@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { checkRepeatEmail, confirmedValidator } from '../../../spa/utils/CustomValidators';
 import { HttpClient } from '@angular/common/http';
@@ -9,36 +9,40 @@ import { LoginReactFormComponent } from '../login-form.page/login-react-form.com
 import { AngularFireModule } from '@angular/fire/compat';
 import { Auth } from 'firebase/auth';
 import { componentCanDeactivate } from '../../../spa/guards/exit.about.guard';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
     selector: 'register-reactive-form',
     templateUrl: './login-register-form.component.html',
     styleUrls: ['./login-register-form.component.scss']
 })
-export class LoginRegisterFormComponent implements OnInit, componentCanDeactivate {
+export class LoginRegisterFormComponent implements OnInit, componentCanDeactivate, OnDestroy {
     public registerForm: FormGroup = new FormGroup({});
     private _saved = false;
     private urlSignupUser = 'http://localhost:3000/signupUsers';
 
     @ViewChild('btn')
-        btn!: ElementRef;
+    btn!: ElementRef;
 
     @ViewChild('password')
-        password!: ElementRef;
+    password!: ElementRef;
 
     @ViewChild('btn2')
-        btn2!: ElementRef;
+    btn2!: ElementRef;
 
     @ViewChild('confirmPassword')
-        confirmPassword!: ElementRef;
+    confirmPassword!: ElementRef;
 
-    constructor(private http: HttpClient, private fb: FormBuilder, public peopleService: PeopleService,
-        private auth: AngularFireModule) {
+    constructor(
+        private http: HttpClient,
+        private fb: FormBuilder,
+        public peopleService: PeopleService,
+        private auth: AngularFireModule,
+    ) {
         this._createForm();
     }
 
-    ngOnInit() {
+    public ngOnInit(): void {
     }
 
     canDeactivate(): boolean | Observable<boolean> {
@@ -49,32 +53,34 @@ export class LoginRegisterFormComponent implements OnInit, componentCanDeactivat
         }
     }
 
-    private _createForm() {
+    private _createForm(): void {
         this.registerForm = this.fb.group({
-            password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-            name: ['', [Validators.required]],
-            surname: ['', [Validators.required]],
-            mail: ['', [Validators.required, Validators.email]],
-        },
-        {
-            validators: [confirmedValidator('password', 'confirmPassword'),
-                checkRepeatEmail('mail', this.http, this.urlSignupUser)]
-        });
+                password: ['', [Validators.required, Validators.minLength(6)]],
+                confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+                name: ['', [Validators.required]],
+                surname: ['', [Validators.required]],
+                mail: ['', [Validators.required, Validators.email]],
+            },
+            {
+                validators: [confirmedValidator('password', 'confirmPassword'),
+                    checkRepeatEmail('mail', this.http, this.urlSignupUser)]
+            });
     }
 
     get f() {
         return this.registerForm.controls;
     }
 
-    public onSubmit() {
-        //this.auth.signInWithEmailAndPassword()
+    public onSubmit(): void {
         this.peopleService.sendOnServer(this.registerForm);
         this._saved = true;
     }
 
-    public ngAfterViewInit() {
+    public ngAfterViewInit(): void {
         this.peopleService.showPassword(this.btn.nativeElement, this.password.nativeElement);
         this.peopleService.showPassword(this.btn2.nativeElement, this.confirmPassword.nativeElement);
+    }
+
+    ngOnDestroy(): void {
     }
 }
