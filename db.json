@@ -41,7 +41,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "12 090",
+          "RUB": "11 740",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -55,7 +55,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "581",
+          "RUB": "721",
           "cardNumber": "7990 6156 9120 5330"
         }
       ],
@@ -89,7 +89,7 @@
       "name": "on a magic wand",
       "endDate": "2022-05-27",
       "goalRUB": "10 000",
-      "doneRUB": "255",
+      "doneRUB": "595",
       "idCreator": 3,
       "id": 2
     },
@@ -97,7 +97,7 @@
       "name": "for a book on potions",
       "endDate": "2022-06-30",
       "goalRUB": "5 000",
-      "doneRUB": "144",
+      "doneRUB": "194",
       "idCreator": 3,
       "id": 3
     },
@@ -194,6 +194,191 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 4
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1651427857360,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 090",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 5
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "80",
+      "date": 1651428092751,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 080",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 6
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1651429171210,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "12 000",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 7
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "for a book on potions",
+      "operationName": "Translations",
+      "transferAmount": "50",
+      "date": 1651429398648,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 990",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 8
+    },
+    {
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "50",
+      "date": 1651429456677,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 940",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 9
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "90",
+      "date": 1651429642510,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 890",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 10
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "90",
+      "date": 1651429642510,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 890",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 11
+    },
+    {
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "90",
+      "date": 1651430496756,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 890",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 12
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "90",
+      "date": 1651431254324,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 890",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 13
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1651431313257,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 800",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 14
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "50",
+      "date": 1651431348886,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 790",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 15
     }
   ],
   "history4": [
@@ -228,6 +413,38 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 2
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Refill",
+      "transferAmount": "50",
+      "date": 1651429456675,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "581",
+          "cardNumber": "7990 6156 9120 5330"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 3
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Refill",
+      "transferAmount": "90",
+      "date": 1651430496747,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "631",
+          "cardNumber": "7990 6156 9120 5330"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 4
     }
   ],
   "history5": []

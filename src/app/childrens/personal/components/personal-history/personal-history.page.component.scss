@@ -2,13 +2,13 @@
     margin: 4rem auto;
     max-width: 80%;
 
-    .btn{
+    .btn {
         background-color: white;
         border: none;
         margin: 0 auto;
         display: block;
         min-width: 50%;
-        margin-left: 18%;
+        margin-left: 20%;
     }
 
     .card__wrapper {
@@ -28,7 +28,7 @@
                 width: 3em;
             }
 
-            &__money{
+            &__money {
                 font-weight: 600;
 
                 .img__ruble {
@@ -38,15 +38,15 @@
                     top: 4px;
                 }
 
-                .sum{
+                .sum {
 
-                    &__green{
+                    &__green {
                         color: green;
                     }
                 }
             }
 
-            .smallFont{
+            .smallFont {
                 color: #333333;
                 font-size: 0.7em;
                 font-weight: 400;
@@ -79,10 +79,100 @@
             z-index: 1000;
             overflow: auto;
 
-            .modelBody{
-                border: 3px solid black;
+            .modelBody {
+                margin: 5rem auto;
+                max-width: 32%;
+                background-color: white;
+                padding-bottom: 1.3rem;
+
+                .btn {
+                    border: none;
+                    float: right;
+                }
+
+                .crossImg {
+                    float: right;
+                    height: 1.3em;
+                    padding: 0.7em;
+                }
+
+                .elementModel {
+                    margin: 0 auto;
+                    padding: 0.7rem;
+
+                    &__icon {
+                        width: 3em;
+                    }
+
+                    &__fromWhom {
+                        font-weight: 600;
+                        font-size: 1.4em;
+                        text-align: center;
+                    }
+
+                    &__operationName {
+                        font-size: 0.85rem;
+                        color: rgba(75, 75, 75, 0.75);
+                        text-align: center;
+                    }
+
+                    &__sum {
+                        font-size: 1.5em;
+                        text-align: center;
+
+                        &__green {
+                            color: green;
+                        }
+
+                        .img__ruble {
+                            width: 1.1em;
+                            position: relative;
+                            right: 5px;
+                            top: 4px;
+                        }
+                    }
+
+                    &__data {
+                        display: flex;
+                        justify-content: space-between;
+                        color: rgba(75, 75, 75, 0.75);
+                        font-size: 0.8em;
+                        padding: 0 1rem;
+                        padding-bottom: 0.2em;
+                        border-bottom: 1px solid rgba(75, 75, 75, 0.15);
+                    }
+
+                    &__bankCard {
+                        margin: 1rem;
+                        box-shadow: 0px 7px 10px -5px #6c6c6c;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1em 1.5em;
+
+                        .elementCard {
+                            &__text {
+                                .text {
+                                    &__explanation {
+                                        font-size: 0.85em;
+                                        color: rgba(75, 75, 75, 0.75);
+                                    }
+
+                                    &__cardName {
+                                        font-weight: 600;
+                                        font-size: 1.1em;
+                                        padding-top: 0.2em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .blackText {
+                color: black;
             }
         }
     }
-
 }

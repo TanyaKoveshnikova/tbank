@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../../../login/services/people.service';
 import { PersonalHistoryService } from '../../services/personal-history.service';
 import { ICommonHistory } from '../../interfaces/ICommonHistory';
+import { FondCardsService } from '../../services/fond-cards.service';
 
 @Component({
     selector: 'history',
@@ -10,8 +11,9 @@ import { ICommonHistory } from '../../interfaces/ICommonHistory';
 })
 export class PersonalHistoryPageComponent implements OnInit {
     public cardsHistory!: ICommonHistory[];
+    public selectedCard?: ICommonHistory;
 
-    constructor(private _personalHistoryService: PersonalHistoryService) {
+    constructor(private _personalHistoryService: PersonalHistoryService, private _fondCardsService: FondCardsService,) {
         this.getTransactionsHistory();
     }
 
@@ -19,8 +21,8 @@ export class PersonalHistoryPageComponent implements OnInit {
         //
     }
 
-    public clickCard(card: any): void{
-        console.log(card);
+    public clickCard(card: ICommonHistory): void {
+        this.selectedCard = card;
         document.getElementById('modal-1')!.style.display = 'block';
         document.body.style.overflow = 'hidden';
         document.body.classList.add('modalOpen');
@@ -30,6 +32,11 @@ export class PersonalHistoryPageComponent implements OnInit {
         document.getElementById('modal-1')!.style.display = 'none';
         document.body.style.overflow = 'visible';
         document.body.classList.remove('modalOpen');
+    }
+
+    public repeatOperation(): void {
+        this.closeModel();
+
     }
 
     private getTransactionsHistory(): void {

@@ -15,6 +15,8 @@ import { PersonalAutoPaymentsComponent } from './components/personal-auto-paymen
 import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PersonalHistoryService } from './services/personal-history.service';
+import { PeopleService } from '../login/services/people.service';
+import { SingletoneService } from '../spa/services/singletone.service';
 
 
 @NgModule({
@@ -41,4 +43,11 @@ import { PersonalHistoryService } from './services/personal-history.service';
     ]
 })
 export class PersonalModule {
+    constructor(
+        private _peopleService: PeopleService,
+        private _singletoneService: SingletoneService,
+    ) {
+        this._singletoneService.setLoggedIn(true);
+        this._peopleService.getLoginUser();
+    }
 }

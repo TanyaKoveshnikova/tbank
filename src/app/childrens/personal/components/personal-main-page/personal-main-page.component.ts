@@ -4,6 +4,8 @@ import { FondCardsService } from '../../services/fond-cards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
+import { PeopleService } from '../../../login/services/people.service';
+import { SingletoneService } from '../../../spa/services/singletone.service';
 
 
 @Component({
@@ -19,13 +21,16 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
     constructor(
         private _fondCardsService: FondCardsService,
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _peopleService: PeopleService,
+        private  _singletoneService:SingletoneService,
     ) {
         this.user = this._fondCardsService.userService;
         this.loading = true;
     }
 
     public ngOnInit(): void {
+        this._peopleService.getLoginUser();
         this._fondCardsService.ngOnInit();
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
@@ -40,3 +45,5 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
     }
 }
+
+//todo: доделать подгрузку карты при обновлении страницы

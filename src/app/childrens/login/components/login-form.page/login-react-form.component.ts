@@ -36,6 +36,7 @@ export class LoginReactFormComponent implements OnInit, OnDestroy {
     }
 
     public onSubmit(): void {
+        this._cookieService.set('mail', this.login.value.mail);
         this._subscribe = this._peopleService.getUser()
             .subscribe({
                 next: (res: IUser[]) => {

@@ -7,6 +7,7 @@ import { CheckClientCardService } from '../../../services/check-client-card.serv
 import { checkRepeatEmail, confirmedValidator } from '../../../../spa/utils/CustomValidators';
 import { ICard } from '../../../../spa/interfaces/ICard';
 import { FactoryCardHistory } from '../../../../../../libs/factory.history/factory';
+import { PeopleService } from '../../../../login/services/people.service';
 
 @Component({
     selector: 'payments-another-client-sum',
@@ -25,6 +26,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         private _fb: FormBuilder,
         private _checkClientCardService: CheckClientCardService,
         private _factoryCardHistory: FactoryCardHistory,
+        private _peopleService: PeopleService,
     ) {
         this.iUser = _fondCardsService.userService;
         this.clientCard = this._checkClientCardService.clientCardNumber;
@@ -59,7 +61,6 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
             console.log('patchMinusSumUser _factoryCardHistory');
             this._checkClientCardService.patchMinusSumUser(moneyMinusSum);
         }
-
     }
 
     public get f(): { [p: string]: AbstractControl } {

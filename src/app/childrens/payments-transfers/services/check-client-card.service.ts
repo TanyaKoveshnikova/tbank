@@ -5,6 +5,7 @@ import { IUser } from '../../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { ICard } from '../../spa/interfaces/ICard';
 import { FactoryCardHistory } from '../../../../libs/factory.history/factory';
+import { PeopleService } from '../../login/services/people.service';
 
 
 @Injectable({
@@ -29,6 +30,7 @@ export class CheckClientCardService {
         private _fondCardsService: FondCardsService,
         private _http: HttpClient,
         private _factoryCardHistory: FactoryCardHistory,
+        private _peopleService: PeopleService,
     ) {
         this.user = _fondCardsService.userService;
     }
@@ -65,7 +67,13 @@ export class CheckClientCardService {
         }).subscribe(
             () => {
                 //
-            });
+            },
+            () => {
+                //
+            },
+            () => {
+            }
+        );
     }
 
     public patchMinusSumUser(moneyMinusSum: number): void {
@@ -80,6 +88,12 @@ export class CheckClientCardService {
         }).subscribe(
             () => {
                 //
+            },
+            () => {
+                //
+            },
+            () => {
+                this._peopleService.getLoginUser();
             });
     }
 
@@ -93,6 +107,12 @@ export class CheckClientCardService {
             }).subscribe(
             () => {
                 //
+            },
+            () => {
+                //
+            },
+            () => {
+                this._peopleService.getLoginUser();
             });
     }
 }

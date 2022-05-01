@@ -1,11 +1,7 @@
 import {
-    ApplicationRef,
     ChangeDetectionStrategy,
     Component,
-    EventEmitter,
-    NgZone,
     OnInit,
-    Output,
     Renderer2
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -26,8 +22,13 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, component
     public savingsAccForm: FormGroup = new FormGroup({});
     private _saved: boolean | null = false;
 
-    constructor(private _http: HttpClient, private _router: Router, private _fondCardsService: FondCardsService,
-        private _renderer: Renderer2, private _compMain: PersonalMainPageComponent) {
+    constructor(
+        private _http: HttpClient,
+        private _router: Router,
+        private _fondCardsService: FondCardsService,
+        private _renderer: Renderer2,
+        private _compMain: PersonalMainPageComponent,
+    ) {
         this.createForm();
     }
 

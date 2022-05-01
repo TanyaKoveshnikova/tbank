@@ -10,6 +10,8 @@ import { CheckClientCardService } from '../../../services/check-client-card.serv
 import { ICard } from '../../../../spa/interfaces/ICard';
 import { ISavingsAccount } from '../../../../spa/interfaces/ISavingsAccount';
 import { FactoryCardHistory } from '../../../../../../libs/factory.history/factory';
+import { IUser } from '../../../../spa/interfaces/IUser';
+import { PeopleService } from '../../../../login/services/people.service';
 
 
 @Component({
@@ -37,6 +39,7 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
         private _fb: FormBuilder,
         private _checkClientCardService: CheckClientCardService,
         private _factoryCardHistory: FactoryCardHistory,
+        private _peopleService: PeopleService,
     ) {
         this._paymBetAccComp.toggleClass('filling');
         this.savingAccounts$ = _fondCardsService.getSavingsAccount();
@@ -73,6 +76,8 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
                     this.selectedValue.name);
             }
         }
+
+        this._peopleService.getLoginUser();
     }
 
     public get f(): { [p: string]: AbstractControl } {

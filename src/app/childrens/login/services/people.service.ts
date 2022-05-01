@@ -7,6 +7,7 @@ import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { Auth } from '@angular/fire/auth';
 import { SingletoneService } from '../../spa/services/singletone.service';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -23,7 +24,8 @@ export class PeopleService {
         private _router: Router,
         private _fondCard: FondCardsService,
         private _auth: Auth,
-        private _singletone: SingletoneService,
+        private _cookieService: CookieService,
+        private _singletoneService:SingletoneService,
     ) {
     }
 
@@ -58,6 +60,29 @@ export class PeopleService {
 
     public getUser(): Observable<IUser[]> {
         return this._http.get<IUser[]>(this._urlSignupUser);
+    }
+
+    //для получение обновленных данных юзера
+
+    public getLoginUser(): void {
+        const mail: string = this._cookieService.get('mail');
+        this.getUser()
+            .subscribe({
+                next: (res: IUser[]) => {
+                    const user: IUser | undefined = res.find((a: IUser) => {
+                        return a.mail === mail;
+                    });
+                    if (user) {
+                        this._singletoneService.loggedUser = user;
+                    } else {
+                        alert('user not found');
+                    }
+                }, error: () => {
+                    console.log('Something went wrong');
+                }, complete: () => {
+                    // this._singletoneService.loading = true;
+                }
+            });
     }
 
     public showPassword(btn: HTMLElement, input: Element): void {
