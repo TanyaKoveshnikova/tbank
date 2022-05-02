@@ -12,17 +12,23 @@ import { PaymentsTransfersModule } from '../payments-transfers/payments-transfer
 
 
 const childrenRoutes: Routes = [
-    { path: 'history', component: PersonalHistoryPageComponent },
+    { path: 'history', component: PersonalHistoryPageComponent, data: { breadcrumb: { alias: 'History' } } },
     {
-        path: 'transfer', loadChildren: () => import('../payments-transfers/payments-transfers.module')
+        path: 'transfer',
+        data: { breadcrumb: { alias: 'PaymentsAndTransfers' }, },
+        loadChildren: () => import('../payments-transfers/payments-transfers.module')
             .then((mod: any) => mod.PaymentsTransfersModule)
     },
     {
-        path: 'personal-main-page', component: PersonalMainPageComponent, children: [
+        path: 'personal-main-page',
+        component: PersonalMainPageComponent,
+        data: { breadcrumb: { alias: 'MainPage' } },
+        children: [
             {
                 path: 'createSavingsAccount', // child route path
                 component: PersonalMainPageSavingAccountComponent, // child route component that the router renders
-                canDeactivate: [ExitAboutGuard]
+                canDeactivate: [ExitAboutGuard],
+                data: { breadcrumb: { alias: 'CreateSavingsAccount' } },
             }
         ]
     },
@@ -33,8 +39,18 @@ const childrenRoutes: Routes = [
 ];
 
 const routes: Routes = [
-    { path: 'personal/:id', component: PersonalHomeAfterAuthComponent, canActivate: [AuthGuard] },
-    { path: ':id', component: PersonalHomeAfterAuthComponent, children: childrenRoutes },
+    {
+        path: 'personal/:id',
+        component: PersonalHomeAfterAuthComponent,
+        canActivate: [AuthGuard],
+        data: { breadcrumb: { skip: true } }
+    },
+    {
+        path: ':id',
+        component: PersonalHomeAfterAuthComponent,
+        children: childrenRoutes,
+        data: { breadcrumb: { skip: true } }
+    },
 ];
 
 @NgModule({

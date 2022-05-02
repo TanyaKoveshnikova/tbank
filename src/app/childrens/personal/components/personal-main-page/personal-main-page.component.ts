@@ -6,6 +6,7 @@ import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 import { PeopleService } from '../../../login/services/people.service';
 import { SingletoneService } from '../../../spa/services/singletone.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 
 @Component({
@@ -24,12 +25,14 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         private _route: ActivatedRoute,
         private _peopleService: PeopleService,
         private  _singletoneService:SingletoneService,
+        private _breadcrumbService: BreadcrumbService,
     ) {
         this.user = this._fondCardsService.userService;
         this.loading = true;
     }
 
     public ngOnInit(): void {
+        this._breadcrumbService.set('@MainPage', 'Main Page');
         this._peopleService.getLoginUser();
         this._fondCardsService.ngOnInit();
         this.savCardsObs = this._fondCardsService.getSavingsAccount();

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, Subject, switchMap } from 'rxjs';
 import { SingletoneService } from '../../../spa/services/singletone.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'home-after-auth',
@@ -21,6 +22,7 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
         public activateRoute: ActivatedRoute,
         private _router: Router,
         private _singletoneService: SingletoneService,
+        private _breadcrumbService: BreadcrumbService,
     ) {
     }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'payments-payments-transfers',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentsTransfersComponent implements OnInit {
 
-    constructor() {
+    constructor(private _breadcrumbService: BreadcrumbService,) {
         //
     }
 
     public ngOnInit(): void {
-        //
+        this._breadcrumbService.set('@PaymentsAndTransfers', 'Payments And Transfers')
     }
 
 }

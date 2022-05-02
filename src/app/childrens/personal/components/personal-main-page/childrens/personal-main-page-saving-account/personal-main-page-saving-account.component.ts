@@ -11,6 +11,7 @@ import { FondCardsService } from '../../../../services/fond-cards.service';
 import { PersonalMainPageComponent } from '../../personal-main-page.component';
 import { Observable } from 'rxjs';
 import { componentCanDeactivate } from '../../../../../spa/guards/exit.about.guard';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'create-saving-acc',
@@ -28,12 +29,13 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, component
         private _fondCardsService: FondCardsService,
         private _renderer: Renderer2,
         private _compMain: PersonalMainPageComponent,
+        private _breadcrumbService: BreadcrumbService,
     ) {
         this.createForm();
     }
 
     public ngOnInit(): void {
-        //
+        this._breadcrumbService.set('@CreateSavingsAccount', 'Create Savings Account');
     }
 
     public canDeactivate(): boolean | Observable<boolean> {

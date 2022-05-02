@@ -17,6 +17,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PersonalHistoryService } from './services/personal-history.service';
 import { PeopleService } from '../login/services/people.service';
 import { SingletoneService } from '../spa/services/singletone.service';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SingletoneService } from '../spa/services/singletone.service';
         CommonModule,
         PersonalRoutingModule,
         HttpClientModule,
-        SkeletoneLoadingModule
+        SkeletoneLoadingModule,
+        BreadcrumbModule,
     ],
     providers: [
         FondCardsService,

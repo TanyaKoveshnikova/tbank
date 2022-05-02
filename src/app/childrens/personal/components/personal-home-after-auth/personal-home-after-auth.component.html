@@ -1,4 +1,10 @@
 <div class="wrapper">
+    <div class="breadcrumb">
+        <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+        <ng-template #iconTemplate>
+            /
+        </ng-template>
+    </div>
     <div class="header">
         <a class="link" routerLinkActive="active-link" [routerLink]="['/personal/'+ id +'/personal-main-page']">
             Main

@@ -19,6 +19,7 @@ import { PaymentBetweenConfirmationComponent } from './components/payments-betwe
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { FactoryCardHistory } from '../../../libs/factory.history/factory';
 import { SendCardHistory } from '../../../libs/factory.history/data/sendCardHistory';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @NgModule({

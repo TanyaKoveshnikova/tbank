@@ -13,7 +13,7 @@ export class PaymentBetweenConfirmationComponent implements OnInit, OnDestroy {
     public idUser: number | undefined;
 
     constructor(private _paymBetAccComp: PaymentsBetweenAccountsComponent, private _checkClientCardService: CheckClientCardService,) {
-        this._paymBetAccComp.toggleClass('payment-between-confirmation');
+        this._paymBetAccComp.toggleClass('confirmation');
         this.idUser = _checkClientCardService.user?.id;
     }
 
@@ -22,7 +22,7 @@ export class PaymentBetweenConfirmationComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this._paymBetAccComp.toggleClass('payment-between-confirmation');
+        this._paymBetAccComp.toggleClass('confirmation');
     }
 
 }

@@ -1,35 +1,48 @@
 $sizeHeader: 5rem;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
 @import "src/assets/styles/_header-signIn.scss";
-
-.header {
+.wrapper {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 2em;
-    .link {
-        padding:0.2em  0.4em;
-        font-size: 1.5em;
-        font-weight: 500;
-        color: black;
+    justify-content: space-between;
+    box-shadow: inset 0px -6px 1px -3px rgba(224, 224, 224, 0.3);
+
+    .breadcrumb{
         margin-top: auto;
-        margin-right: 1.8em;
+        margin-left: 3rem;
+        padding-bottom: 1rem;
+        color: #4b4b4b;
     }
+    .header {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 2em;
+        box-shadow: none;
 
-    .active-link {
-        color: rgba(21, 1, 73, 0.98);
-        font-weight: 520;
-        transition: 2s;
-        border-bottom: rgb(27, 2, 105) solid 2px;
-    }
+        .link {
+            padding: 0.2em 0.4em;
+            font-size: 1.5em;
+            font-weight: 500;
+            color: black;
+            margin-top: auto;
+            margin-right: 1.8em;
+        }
 
-    .link:hover {
-        transform: scale(1.07);
-        transition: 0.5s;
-    }
+        .active-link {
+            color: rgba(21, 1, 73, 0.98);
+            font-weight: 520;
+            transition: 2s;
+            border-bottom: rgb(27, 2, 105) solid 2px;
+        }
 
-    .link:active{
-        transform: scale(0.95);
-        transition: 0.5s;
-        border-bottom: rgb(27, 2, 105);
+        .link:hover {
+            transform: scale(1.07);
+            transition: 0.5s;
+        }
+
+        .link:active {
+            transform: scale(0.95);
+            transition: 0.5s;
+            border-bottom: rgb(27, 2, 105);
+        }
     }
 }

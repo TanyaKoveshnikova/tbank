@@ -108,6 +108,14 @@
       "doneRUB": "100",
       "idCreator": 3,
       "id": 4
+    },
+    {
+      "name": "test",
+      "endDate": "2022-05-03",
+      "goalRUB": "10",
+      "doneRUB": "0",
+      "idCreator": 3,
+      "id": 5
     }
   ],
   "history1": [],

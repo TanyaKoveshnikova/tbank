@@ -18,23 +18,31 @@ const childrenRoutes: Routes = [
     {
         path: 'between-account',
         component: PaymentsBetweenAccountsComponent,
+        data: { breadcrumb: 'BetweenAccount' },
         children: [
             {
                 path: 'fillingDetails',
                 component: PaymentBetweenFillingDetailsComponent,
+                data: { breadcrumb: { skip: true } },
             },
             {
                 path: 'confirmation',
                 component: PaymentBetweenConfirmationComponent,
+                data: { breadcrumb: { skip: true } },
             }
         ]
     },
-    { path: 'another-client', component: PaymentsAnotherClientComponent },
-    { path: 'check', component: PaymentsAnotherClientCheckComponent },
-    { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent },
-    { path: 'announcement', component: PaymentsAnotherAnnouncementComponent },
+    { path: 'another-client', component: PaymentsAnotherClientComponent, data: { breadcrumb: 'another-client' }, },
+    { path: 'check', component: PaymentsAnotherClientCheckComponent,data: { breadcrumb: { skip: true } }, },
+    { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent,data: { breadcrumb: { skip: true } }, },
+    { path: 'announcement', component: PaymentsAnotherAnnouncementComponent,data: { breadcrumb: { skip: true } }, },
     { path: 'mobile', component: PaymentsMobileComponent },
-    { path: 'choice', component: PaymentsTransfersComponent },
+    {
+        path: 'choice',
+        component: PaymentsTransfersComponent,
+        data: { breadcrumb: { skip: true } },
+        children: []
+    }
 ];
 
 const routes: Routes = [

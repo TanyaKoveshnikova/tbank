@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { FondCardsService } from '../../../personal/services/fond-cards.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'payments-transfers-wrapper',
@@ -9,22 +10,13 @@ import { FondCardsService } from '../../../personal/services/fond-cards.service'
     styleUrls: ['./payments-transfers-wrapper.component.scss']
 })
 export class PaymentsTransfersWrapperComponent implements OnInit {
-    public id!: number | undefined;
-
-    constructor(private _router: Router, public activateRoute: ActivatedRoute, private _fondCardsService: FondCardsService) {
-        this.id = this._fondCardsService.id;
+    constructor(
+        private _router: Router,
+        private _fondCardsService: FondCardsService,
+    ) {
     }
 
     public ngOnInit(): void {
-        this._router.navigate(['/personal/' + this.id + '/transfer/choice']);
+        this._router.navigate(['/personal/' + this._fondCardsService.id + '/transfer/choice']);
     }
-
-    // private getID(): void {
-    //     this.activateRoute.paramMap.pipe(
-    //         switchMap((params: ParamMap) => params.getAll('id'))
-    //     )
-    //         .subscribe((data: string) => this.id = +data);
-    //     this._fondCardsService.id = this.id;
-    //     this._fondCardsService.ngOnInit();
-    // }
 }

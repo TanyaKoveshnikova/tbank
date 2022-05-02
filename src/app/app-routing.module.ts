@@ -11,8 +11,10 @@ const routes: Routes = [
             .then((mod: any) => mod.LoginModule)
     },
     {
-        path: 'personal', loadChildren: () => import('./childrens/personal/personal.module')
-            .then((mod: any)  => mod.PersonalModule)//,canActivate: [AuthGuard]
+        path: 'personal',
+        data: { breadcrumb: { skip: true } },
+        loadChildren: () => import('./childrens/personal/personal.module')
+            .then((mod: any) => mod.PersonalModule)//,canActivate: [AuthGuard]
     },
     { path: '', component: SpaBodyComponent },
     { path: '**', component: SpaBodyComponent }

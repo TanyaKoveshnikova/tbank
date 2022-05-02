@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'payments-another-accounts',
@@ -8,7 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PaymentsBetweenAccountsComponent implements OnInit {
 
-    constructor(private _router: Router, private _route: ActivatedRoute) {
+    constructor(
+        private _router: Router,
+        private _route: ActivatedRoute,
+        private _breadcrumbService: BreadcrumbService,
+    ) {
+        this._breadcrumbService.set('@BetweenAccount', 'Between Account');
         this._router.navigate(['fillingDetails'], { relativeTo: _route });
     }
 
