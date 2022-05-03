@@ -89,7 +89,7 @@
       "name": "on a magic wand",
       "endDate": "2022-05-27",
       "goalRUB": "10 000",
-      "doneRUB": "595",
+      "doneRUB": "605",
       "idCreator": 3,
       "id": 2
     },
@@ -387,6 +387,23 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 15
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "on a magic wand",
+      "operationName": "Translations",
+      "transferAmount": "10",
+      "date": 1651560922982,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 740",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 16
     }
   ],
   "history4": [

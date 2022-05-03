@@ -12,7 +12,11 @@ import { PaymentsTransfersModule } from '../payments-transfers/payments-transfer
 
 
 const childrenRoutes: Routes = [
-    { path: 'history', component: PersonalHistoryPageComponent, data: { breadcrumb: { alias: 'History' } } },
+    {
+        path: 'history',
+        component: PersonalHistoryPageComponent,
+        data: { breadcrumb: { alias: 'History' } }
+    },
     {
         path: 'transfer',
         data: { breadcrumb: { alias: 'PaymentsAndTransfers' }, },

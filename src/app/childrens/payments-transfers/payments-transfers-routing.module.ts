@@ -33,9 +33,9 @@ const childrenRoutes: Routes = [
         ]
     },
     { path: 'another-client', component: PaymentsAnotherClientComponent, data: { breadcrumb: 'another-client' }, },
-    { path: 'check', component: PaymentsAnotherClientCheckComponent,data: { breadcrumb: { skip: true } }, },
-    { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent,data: { breadcrumb: { skip: true } }, },
-    { path: 'announcement', component: PaymentsAnotherAnnouncementComponent,data: { breadcrumb: { skip: true } }, },
+    { path: 'check', component: PaymentsAnotherClientCheckComponent, data: { breadcrumb: { skip: true } }, },
+    { path: 'transfer-amount', component: PaymentsAnotherClientSumComponent, data: { breadcrumb: { skip: true } }, },
+    { path: 'announcement', component: PaymentsAnotherAnnouncementComponent, data: { breadcrumb: { skip: true } }, },
     { path: 'mobile', component: PaymentsMobileComponent },
     {
         path: 'choice',

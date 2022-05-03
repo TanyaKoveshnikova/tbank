@@ -13,7 +13,7 @@ export class PaymentsTransfersComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this._breadcrumbService.set('@PaymentsAndTransfers', 'Payments And Transfers')
+        this._breadcrumbService.set('@PaymentsAndTransfers', 'Payments And Transfers');
     }
 
 }

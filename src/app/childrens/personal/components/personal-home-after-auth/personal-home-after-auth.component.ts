@@ -24,11 +24,12 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
         private _singletoneService: SingletoneService,
         private _breadcrumbService: BreadcrumbService,
     ) {
+        this.getID();
+        this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
     }
 
     public ngOnInit(): void {
-        this.getID();
-        this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
+        //
     }
 
     private getID(): void {

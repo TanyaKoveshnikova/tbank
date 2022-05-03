@@ -1,5 +1,14 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { IUser} from '../../../spa/interfaces/IUser';
+import {
+    Component, ComponentFactory,
+    ComponentFactoryResolver, ComponentRef,
+    EventEmitter,
+    OnDestroy,
+    OnInit,
+    Output, Type,
+    ViewChild,
+    ViewContainerRef
+} from '@angular/core';
+import { IUser } from '../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../services/fond-cards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
@@ -7,6 +16,7 @@ import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 import { PeopleService } from '../../../login/services/people.service';
 import { SingletoneService } from '../../../spa/services/singletone.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
 
 
 @Component({
@@ -17,18 +27,25 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class PersonalMainPageComponent implements OnInit, OnDestroy {
     public user?: IUser;
     public savCardsObs?: Observable<ISavingsAccount[]>;
-    public loading: boolean = false;
+    public loading: Observable<boolean>;
+
+    @ViewChild('advertising', { read: ViewContainerRef })
+    private _viewRef?: ViewContainerRef;
+
+    private _componentRef?: ComponentRef<PersonalAdvertisingComponent>;
 
     constructor(
         private _fondCardsService: FondCardsService,
         private _router: Router,
         private _route: ActivatedRoute,
         private _peopleService: PeopleService,
-        private  _singletoneService:SingletoneService,
+        private _singletoneService: SingletoneService,
         private _breadcrumbService: BreadcrumbService,
+        private _viewContainerRef: ViewContainerRef,
+        private _componentFactoryResolver: ComponentFactoryResolver,
     ) {
-        this.user = this._fondCardsService.userService;
-        this.loading = true;
+        this.loading = this._singletoneService.flag;
+        this.user = this._singletoneService.loggedUser;
     }
 
     public ngOnInit(): void {
@@ -36,10 +53,18 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         this._peopleService.getLoginUser();
         this._fondCardsService.ngOnInit();
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
+        this.user = this._singletoneService.loggedUser;
+
+        setTimeout(() => {
+            if (this._viewRef) {
+                const componentFactory: ComponentFactory<PersonalAdvertisingComponent> = this._componentFactoryResolver.resolveComponentFactory(PersonalAdvertisingComponent);
+                this._componentRef = this._viewRef.createComponent(componentFactory);
+            }
+        }, 5000);
     }
 
     public ngOnDestroy(): void {
-        //
+        this._singletoneService.changeFlag(false);
     }
 
 

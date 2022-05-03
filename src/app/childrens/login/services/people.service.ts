@@ -25,7 +25,7 @@ export class PeopleService {
         private _fondCard: FondCardsService,
         private _auth: Auth,
         private _cookieService: CookieService,
-        private _singletoneService:SingletoneService,
+        private _singletoneService: SingletoneService,
     ) {
     }
 
@@ -80,7 +80,7 @@ export class PeopleService {
                 }, error: () => {
                     console.log('Something went wrong');
                 }, complete: () => {
-                    // this._singletoneService.loading = true;
+                    this._singletoneService.changeFlag(true);
                 }
             });
     }

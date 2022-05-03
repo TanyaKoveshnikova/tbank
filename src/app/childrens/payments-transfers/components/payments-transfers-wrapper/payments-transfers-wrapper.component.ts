@@ -14,9 +14,10 @@ export class PaymentsTransfersWrapperComponent implements OnInit {
         private _router: Router,
         private _fondCardsService: FondCardsService,
     ) {
+        this._router.navigate(['/personal/' + this._fondCardsService.id + '/transfer/choice']);
     }
 
     public ngOnInit(): void {
-        this._router.navigate(['/personal/' + this._fondCardsService.id + '/transfer/choice']);
+        console.log('wrapper');
     }
 }

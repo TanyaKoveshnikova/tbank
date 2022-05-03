@@ -18,6 +18,7 @@ import { PersonalHistoryService } from './services/personal-history.service';
 import { PeopleService } from '../login/services/people.service';
 import { SingletoneService } from '../spa/services/singletone.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { PersonalAdvertisingComponent } from './components/personal-advertising/personal-advertising.component';
 
 
 @NgModule({
@@ -26,7 +27,11 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
         PersonalHistoryPageComponent,
         PersonalMainPageComponent,
         PersonalMainPageSavingAccountComponent,
-        PersonalAutoPaymentsComponent
+        PersonalAutoPaymentsComponent,
+        PersonalAdvertisingComponent,
+    ],
+    entryComponents: [
+        PersonalAdvertisingComponent,
     ],
     imports: [
         FormsModule,
@@ -48,8 +53,10 @@ export class PersonalModule {
     constructor(
         private _peopleService: PeopleService,
         private _singletoneService: SingletoneService,
+        private _fondCardsService: FondCardsService,
     ) {
         this._singletoneService.setLoggedIn(true);
         this._peopleService.getLoginUser();
+        this._fondCardsService.ngOnInit();
     }
 }

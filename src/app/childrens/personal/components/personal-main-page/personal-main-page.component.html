@@ -1,7 +1,7 @@
 <div class="wrapper_load">
-    <skeletone-loading class="loading" *ngIf="!loading"></skeletone-loading>
+    <skeletone-loading class="loading" *ngIf="!(loading)"></skeletone-loading>
 </div>
-<div class="wrapper" *ngIf="loading">
+<div class="wrapper" *ngIf="loading | async">
     <div class="float">
         <div class="container">
             <details>
@@ -87,4 +87,6 @@
             </ul>
         </details>
     </div>
+
+    <ng-template #advertising></ng-template>
 </div>

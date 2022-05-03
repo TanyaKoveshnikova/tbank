@@ -3,6 +3,7 @@ import { PeopleService } from '../../../login/services/people.service';
 import { PersonalHistoryService } from '../../services/personal-history.service';
 import { ICommonHistory } from '../../interfaces/ICommonHistory';
 import { FondCardsService } from '../../services/fond-cards.service';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'history',
@@ -13,7 +14,12 @@ export class PersonalHistoryPageComponent implements OnInit {
     public cardsHistory!: ICommonHistory[];
     public selectedCard?: ICommonHistory;
 
-    constructor(private _personalHistoryService: PersonalHistoryService, private _fondCardsService: FondCardsService,) {
+    constructor(
+        private _personalHistoryService: PersonalHistoryService,
+        private _fondCardsService: FondCardsService,
+        private _breadcrumbService: BreadcrumbService,
+    ) {
+        this._breadcrumbService.set('@History', 'History');
         this.getTransactionsHistory();
     }
 
