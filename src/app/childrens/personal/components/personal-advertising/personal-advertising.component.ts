@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { PersonalMainPageComponent } from '../personal-main-page/personal-main-page.component';
 
 @Component({
     selector: 'app-advertising',
@@ -6,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./personal-advertising.component.scss']
 })
 export class PersonalAdvertisingComponent implements OnInit {
-
-    constructor() {
+    constructor(private _personalMainPageComponent:PersonalMainPageComponent) {
         //
     }
 
     public ngOnInit(): void {
         //
+    }
+
+    public clearAdvertising(): void{
+        this._personalMainPageComponent.onChanged();
     }
 
 }

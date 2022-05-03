@@ -6,7 +6,8 @@ import {
     OnInit,
     Output, Type,
     ViewChild,
-    ViewContainerRef
+    ViewContainerRef,
+    Input
 } from '@angular/core';
 import { IUser } from '../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../services/fond-cards.service';
@@ -17,6 +18,8 @@ import { PeopleService } from '../../../login/services/people.service';
 import { SingletoneService } from '../../../spa/services/singletone.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
+import firebase from 'firebase/compat';
+import functions = firebase.functions;
 
 
 @Component({
@@ -31,7 +34,6 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
 
     @ViewChild('advertising', { read: ViewContainerRef })
     private _viewRef?: ViewContainerRef;
-
     private _componentRef?: ComponentRef<PersonalAdvertisingComponent>;
 
     constructor(
@@ -41,8 +43,6 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         private _peopleService: PeopleService,
         private _singletoneService: SingletoneService,
         private _breadcrumbService: BreadcrumbService,
-        private _viewContainerRef: ViewContainerRef,
-        private _componentFactoryResolver: ComponentFactoryResolver,
     ) {
         this.loading = this._singletoneService.flag;
         this.user = this._singletoneService.loggedUser;
@@ -57,10 +57,9 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
 
         setTimeout(() => {
             if (this._viewRef) {
-                const componentFactory: ComponentFactory<PersonalAdvertisingComponent> = this._componentFactoryResolver.resolveComponentFactory(PersonalAdvertisingComponent);
-                this._componentRef = this._viewRef.createComponent(componentFactory);
+                this._componentRef = this._viewRef.createComponent(PersonalAdvertisingComponent);
             }
-        }, 5000);
+        }, 3000);
     }
 
     public ngOnDestroy(): void {
@@ -71,6 +70,15 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
     public createSavingsAcc(): void {
         this._router.navigate(['../personal-main-page/createSavingsAccount'], { relativeTo: this._route });
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
+    }
+
+    public onChanged(): void {
+        this._viewRef?.clear();
+        setTimeout(() => {
+            if (this._viewRef) {
+                this._componentRef = this._viewRef.createComponent(PersonalAdvertisingComponent);
+            }
+        }, 3000);
     }
 }
 
