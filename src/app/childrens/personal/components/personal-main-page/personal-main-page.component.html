@@ -5,7 +5,7 @@
     <div class="float">
         <div class="container">
             <details>
-                <summary >
+                <summary>
                     <div class="summary__header">
                         CARDS
                         <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
@@ -50,7 +50,7 @@
     <div class="content__router">
         <router-outlet></router-outlet>
     </div>
-    <div class="container" hintHover>
+    <div class="container">
         <details>
             <summary>
                 <div class="summary__header">
@@ -58,6 +58,8 @@
                     <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
                     <img (click)="createSavingsAcc()" class="img_active img_plus"
                          src="../../../../../assets/images/plus_icon.svg" alt="plus">
+                    <img class="img_active img_question"
+                         src="../../../../../assets/images/personal-page/question.svg" alt="question" hintHover>
                 </div>
                 <br>
             </summary>
@@ -87,6 +89,10 @@
             </ul>
         </details>
     </div>
+    <div *ngIf="fondCardsService.getMouseoverExplanation() | async" class="explanation">
+        <p>A savings account allows you to set a goal and accumulate funds for them - you can see the progress and
+            calculate your budget.</p>
+    </div>
 
-    <ng-template #advertising ></ng-template>
+    <ng-template #advertising></ng-template>
 </div>

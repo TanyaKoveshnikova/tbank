@@ -36,7 +36,7 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
     private _componentRef?: ComponentRef<PersonalAdvertisingComponent>;
 
     constructor(
-        private _fondCardsService: FondCardsService,
+        public fondCardsService: FondCardsService,
         private _router: Router,
         private _route: ActivatedRoute,
         private _peopleService: PeopleService,
@@ -50,8 +50,8 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
     public ngOnInit(): void {
         this._breadcrumbService.set('@MainPage', 'Main Page');
         this._peopleService.getLoginUser();
-        this._fondCardsService.ngOnInit();
-        this.savCardsObs = this._fondCardsService.getSavingsAccount();
+        this.fondCardsService.ngOnInit();
+        this.savCardsObs = this.fondCardsService.getSavingsAccount();
         this.user = this._singletoneService.loggedUser;
 
         setTimeout(() => {
@@ -68,7 +68,7 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
 
     public createSavingsAcc(): void {
         this._router.navigate(['../personal-main-page/createSavingsAccount'], { relativeTo: this._route });
-        this.savCardsObs = this._fondCardsService.getSavingsAccount();
+        this.savCardsObs = this.fondCardsService.getSavingsAccount();
     }
 
     public onChanged(): void {

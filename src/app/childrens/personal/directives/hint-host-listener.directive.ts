@@ -1,18 +1,22 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
-import { Renderer } from '@angular/compiler-cli/ngcc/src/rendering/renderer';
+import { ComponentRef, Directive, ElementRef, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
+import { FondCardsService } from '../services/fond-cards.service';
 
 @Directive({
     selector: '[hintHover]'
 })
 export class HintHostListenerDirective {
 
-    constructor() {
-        // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
+    constructor(private _fondCardsService:FondCardsService) {
+        //
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
     @HostListener('mouseover')
     onMouseOver(): void {
-        console.log('hostlist');
+        this._fondCardsService.setMouseoverExplanation(true);
+    }
+
+    @HostListener('mouseout')
+    onMouseOut(): void {
+        this._fondCardsService.setMouseoverExplanation(false);
     }
 }

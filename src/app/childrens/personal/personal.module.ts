@@ -33,7 +33,7 @@ import { AppModule } from '../../app.module';
         PersonalMainPageSavingAccountComponent,
         PersonalAutoPaymentsComponent,
         PersonalAdvertisingComponent,
-        HintHostListenerDirective
+        HintHostListenerDirective,
     ],
     entryComponents: [
         PersonalAdvertisingComponent,

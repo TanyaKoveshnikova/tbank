@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from '../../spa/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable, Subject, Subscription, switchMap } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, Subscription, switchMap } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { ICard } from '../../spa/interfaces/ICard';
 import { ISavingsAccount } from '../../spa/interfaces/ISavingsAccount';
@@ -15,7 +15,6 @@ export class FondCardsService implements OnInit {
     private static stringGoalRUB(amount: number): string {
         return new Intl.NumberFormat('ru-RU').format(amount);
     }
-
     public id?: number;
     //Юзер, чей банк
     public userService?: IUser;
@@ -23,6 +22,9 @@ export class FondCardsService implements OnInit {
     private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
     private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
     private _newSavAcc!: ISavingsAccount;
+
+    //длЯ отрисовки подсказки при наводке
+    private  _mouseoverExplanation: any = new BehaviorSubject(false);
 
 
     constructor(
@@ -35,6 +37,13 @@ export class FondCardsService implements OnInit {
     public ngOnInit(): void {
         this.userService = this._singletoneService.loggedUser;
     }
+
+    public setMouseoverExplanation(state: boolean): void{
+        this._mouseoverExplanation.next(state);
+    }
+    public getMouseoverExplanation(): Observable<boolean> {
+        return this._mouseoverExplanation;
+    };
 
 
     //получем первую карту юзера( для списания денег на сохранительные счета )
