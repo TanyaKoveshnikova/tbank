@@ -19,6 +19,10 @@ import { PeopleService } from '../login/services/people.service';
 import { SingletoneService } from '../spa/services/singletone.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from './components/personal-advertising/personal-advertising.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HintHostListenerDirective } from './directives/hint-host-listener.directive';
+import { AppModule } from '../../app.module';
+
 
 
 @NgModule({
@@ -29,6 +33,7 @@ import { PersonalAdvertisingComponent } from './components/personal-advertising/
         PersonalMainPageSavingAccountComponent,
         PersonalAutoPaymentsComponent,
         PersonalAdvertisingComponent,
+        HintHostListenerDirective
     ],
     entryComponents: [
         PersonalAdvertisingComponent,

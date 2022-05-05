@@ -7,7 +7,8 @@ import {
     Output, Type,
     ViewChild,
     ViewContainerRef,
-    Input
+    Input,
+    HostListener
 } from '@angular/core';
 import { IUser } from '../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../services/fond-cards.service';
@@ -18,8 +19,6 @@ import { PeopleService } from '../../../login/services/people.service';
 import { SingletoneService } from '../../../spa/services/singletone.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
-import firebase from 'firebase/compat';
-import functions = firebase.functions;
 
 
 @Component({
