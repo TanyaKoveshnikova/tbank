@@ -8,13 +8,8 @@
       "cards": [
         {
           "cardName": "master wizard",
-          "RUB": "88 388",
+          "RUB": "88 288",
           "cardNumber": "4065 2175 1539 9538"
-        },
-        {
-          "cardName": "maestro platinum",
-          "RUB": "29 974",
-          "cardNumber": "9416 9829 5879 5809"
         }
       ],
       "id": 1
@@ -41,7 +36,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "11 740",
+          "RUB": "11 840",
           "cardNumber": "3622 9838 4421 1335"
         }
       ],
@@ -118,7 +113,24 @@
       "id": 5
     }
   ],
-  "history1": [],
+  "history1": [
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "100",
+      "date": 1651726425456,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "master wizard",
+          "RUB": "88 388",
+          "cardNumber": "4065 2175 1539 9538"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 1
+    }
+  ],
   "history2": [
     {
       "fromWhom": "Гермиона Грейнджер",
@@ -404,6 +416,22 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 16
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "100",
+      "date": 1651726425453,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "11 740",
+          "cardNumber": "3622 9838 4421 1335"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 17
     }
   ],
   "history4": [

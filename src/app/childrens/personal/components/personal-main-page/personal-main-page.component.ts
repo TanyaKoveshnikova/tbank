@@ -45,15 +45,24 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         private _breadcrumbService: BreadcrumbService,
     ) {
         this.loading = this._singletoneService.flag;
-        this.user = this._singletoneService.loggedUser;
+        this._singletoneService.loggedUser
+            .subscribe((res: IUser) => {
+                this.user = res;
+                console.log(this.user);
+            });
     }
 
     public ngOnInit(): void {
         this._breadcrumbService.set('@MainPage', 'Main Page');
         this._peopleService.getLoginUser();
+        this._singletoneService.loggedUser
+            .subscribe((res: IUser) => {
+                this.user = res;
+                console.log(this.user);
+            });
         this._fondCardsService.ngOnInit();
         this.savCardsObs = this._fondCardsService.getSavingsAccount();
-        this.user = this._singletoneService.loggedUser;
+        console.log(this.savCardsObs)
 
         setTimeout(() => {
             if (this._viewRef) {

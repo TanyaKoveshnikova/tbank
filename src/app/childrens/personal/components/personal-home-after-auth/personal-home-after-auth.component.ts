@@ -13,7 +13,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
     styleUrls: ['./personal-home-after-auth.component.scss']
 })
 export class PersonalHomeAfterAuthComponent implements OnInit {
-    public user?: IUser;
     public id!: number;
 
 

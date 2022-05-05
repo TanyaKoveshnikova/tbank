@@ -22,7 +22,6 @@ export class LoginReactFormComponent implements OnInit, OnDestroy {
     public password!: ElementRef;
 
     public login: FormGroup = new FormGroup({});
-    private _subscribe!: Subscription;
 
 
     constructor(
@@ -31,32 +30,43 @@ export class LoginReactFormComponent implements OnInit, OnDestroy {
         private _peopleService: PeopleService,
         private _renderer: Renderer2,
         private _cookieService: CookieService,
-        private _singletoneService:SingletoneService,
+        private _singletoneService: SingletoneService,
     ) {
     }
 
     public onSubmit(): void {
         this._cookieService.set('mail', this.login.value.mail);
-        this._subscribe = this._peopleService.getUser()
-            .subscribe({
-                next: (res: IUser[]) => {
-                    const user: IUser | undefined = res.find((a: IUser) => {
-                        return a.mail === this.login.value.mail && a.password === this.login.value.password;
-                    });
-                    if (user) {
-                        this._singletoneService.loggedUser = user;
-                        this._singletoneService.setLoggedIn(true);
-                        this._router.navigate(['/personal/' + user.id]);
-                    } else {
-                        alert('user not found');
-                    }
-                }, error: () => {
-                    console.log('Something went wrong');
-                }, complete: () => {
-                    this.login.reset();
-                    // this._cookieService.set('loginUser', this._peopleService.loggedUser);
-                }
-            });
+        this._peopleService.getLoginUser().subscribe((user: IUser) => {
+            if (user) {
+                this._singletoneService.loggedUser =  this._peopleService.getLoginUser();
+                console.log( this._singletoneService.loggedUser);
+                this._singletoneService.setLoggedIn(true);
+                this._router.navigate(['/personal/' + user.id]);
+            } else {
+                alert('user not found');
+            }
+        });
+        this.login.reset();
+        // this._peopleService.getUser()
+        //     .subscribe({
+        //         next: (res: IUser[]) => {
+        //             const user: IUser | undefined = res.find((a: IUser) => {
+        //                 return a.mail === this.login.value.mail && a.password === this.login.value.password;
+        //             });
+        //             if (user) {
+        //                 this._singletoneService.loggedUser = user;
+        //                 this._singletoneService.setLoggedIn(true);
+        //                 this._router.navigate(['/personal/' + user.id]);
+        //             } else {
+        //                 alert('user not found');
+        //             }
+        //         }, error: () => {
+        //             console.log('Something went wrong');
+        //         }, complete: () => {
+        //             this.login.reset();
+        //             // this._cookieService.set('loginUser', this._peopleService.loggedUser);
+        //         }
+        //     });
 
         this._singletoneService.setLoggedIn(true);
     }
@@ -71,7 +81,6 @@ export class LoginReactFormComponent implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this._subscribe.unsubscribe();
     }
 
     private createForm(): void {

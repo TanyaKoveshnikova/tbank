@@ -33,7 +33,7 @@ export class FondCardsService implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.userService = this._singletoneService.loggedUser;
+        this._singletoneService.loggedUser.subscribe((res: IUser) => this.userService = res);
     }
 
 

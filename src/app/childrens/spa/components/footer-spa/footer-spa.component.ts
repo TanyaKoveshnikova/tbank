@@ -14,7 +14,7 @@ export class FooterSpaComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        //
+        console.log(this.date);
     }
 
 }

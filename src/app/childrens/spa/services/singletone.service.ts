@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class SingletoneService {
-    public loggedUser!: IUser;
+    public loggedUser!: Observable<IUser>;
     public loading: boolean = false;
 
     private _flagSource: any = new BehaviorSubject(false);
