@@ -93,8 +93,11 @@ export class CheckClientCardService {
                 //
             },
             () => {
-                this._peopleService.getLoginUser();
+                // this._peopleService.getLoginUser();
+                // this._fondCardsService.ngOnInit();
+                // this.user = this._fondCardsService.userService;
             });
+        this._peopleService.getLoginUser();
     }
 
 
@@ -112,8 +115,11 @@ export class CheckClientCardService {
                 //
             },
             () => {
-                this._peopleService.getLoginUser();
+                // this._peopleService.getLoginUser();
+                // this._fondCardsService.ngOnInit();
+                // this.user = this._fondCardsService.userService;
             });
+        this._peopleService.getLoginUser();
     }
 }
 

@@ -43,6 +43,7 @@ export class PersonalMainPageComponent implements OnInit {
         private _singletoneService: SingletoneService,
         private _breadcrumbService: BreadcrumbService,
     ) {
+        console.log('route2');
         // this.loading = this._singletoneService.flag;
         // this.user = this._singletoneService.loggedUser;
         this._singletoneService.loggedUser

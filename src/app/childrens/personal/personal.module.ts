@@ -71,16 +71,10 @@ export class PersonalModule {
             .subscribe(
                 (u: IUser) => {
                     us = u;
-                    this._fondCardsService.ngOnInit();
                     this._router.navigate(['/personal/' + u.id, 'personal-main-page']);
                     console.log('route');
-                },
-                () => {
-                    //
-                },
-                () => {
-                    this._router.navigate(['/personal/' + us.id, 'personal-main-page']);
                 });
+        this._fondCardsService.ngOnInit();
         console.log('route1');
     }
 }
