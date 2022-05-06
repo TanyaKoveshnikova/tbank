@@ -15,6 +15,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CookieService } from 'ngx-cookie-service';
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -33,6 +34,8 @@ import { CookieService } from 'ngx-cookie-service';
     ],
     // guards: [AuthGuard],
     bootstrap: [AppComponent],
+    exports: [
+    ],
     providers: [CookieService]
 })
 export class AppModule {

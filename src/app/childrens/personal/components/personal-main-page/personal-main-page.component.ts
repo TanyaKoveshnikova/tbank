@@ -7,7 +7,8 @@ import {
     Output, Type,
     ViewChild,
     ViewContainerRef,
-    Input
+    Input,
+    HostListener
 } from '@angular/core';
 import { IUser } from '../../../spa/interfaces/IUser';
 import { FondCardsService } from '../../services/fond-cards.service';
@@ -18,8 +19,6 @@ import { PeopleService } from '../../../login/services/people.service';
 import { SingletoneService } from '../../../spa/services/singletone.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
-import firebase from 'firebase/compat';
-import functions = firebase.functions;
 
 
 @Component({
@@ -37,7 +36,7 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
     private _componentRef?: ComponentRef<PersonalAdvertisingComponent>;
 
     constructor(
-        private _fondCardsService: FondCardsService,
+        public fondCardsService: FondCardsService,
         private _router: Router,
         private _route: ActivatedRoute,
         private _peopleService: PeopleService,
@@ -45,24 +44,15 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         private _breadcrumbService: BreadcrumbService,
     ) {
         this.loading = this._singletoneService.flag;
-        this._singletoneService.loggedUser
-            .subscribe((res: IUser) => {
-                this.user = res;
-                console.log(this.user);
-            });
+        this.user = this._singletoneService.loggedUser;
     }
 
     public ngOnInit(): void {
         this._breadcrumbService.set('@MainPage', 'Main Page');
         this._peopleService.getLoginUser();
-        this._singletoneService.loggedUser
-            .subscribe((res: IUser) => {
-                this.user = res;
-                console.log(this.user);
-            });
-        this._fondCardsService.ngOnInit();
-        this.savCardsObs = this._fondCardsService.getSavingsAccount();
-        console.log(this.savCardsObs)
+        this.fondCardsService.ngOnInit();
+        this.savCardsObs = this.fondCardsService.getSavingsAccount();
+        this.user = this._singletoneService.loggedUser;
 
         setTimeout(() => {
             if (this._viewRef) {
@@ -78,7 +68,7 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
 
     public createSavingsAcc(): void {
         this._router.navigate(['../personal-main-page/createSavingsAccount'], { relativeTo: this._route });
-        this.savCardsObs = this._fondCardsService.getSavingsAccount();
+        this.savCardsObs = this.fondCardsService.getSavingsAccount();
     }
 
     public onChanged(): void {

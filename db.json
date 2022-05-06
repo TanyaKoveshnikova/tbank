@@ -69,6 +69,20 @@
         }
       ],
       "id": 5
+    },
+    {
+      "mail": "sfvs@d",
+      "password": "789456",
+      "name": "в",
+      "surname": "в",
+      "cards": [
+        {
+          "cardName": "muggle master",
+          "RUB": "25 504",
+          "cardNumber": "1732 8169 5721 2013"
+        }
+      ],
+      "id": 6
     }
   ],
   "savingsAcc": [
