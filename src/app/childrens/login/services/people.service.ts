@@ -6,7 +6,7 @@ import { IUser } from '../../spa/interfaces/IUser';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { Auth } from '@angular/fire/auth';
 import { SingletoneService } from '../../spa/services/singletone.service';
-import { filter, find, Observable, switchMap } from 'rxjs';
+import { filter, find, Observable, switchMap, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -66,15 +66,15 @@ export class PeopleService {
 
     public getLoginUser(): Observable<IUser> {
         const mail: string = this._cookieService.get('mail');
+        const password: string = this._cookieService.get('password');
 
         return this.getUser()
             .pipe(
                 switchMap((users: IUser[]) => {
                     return users.filter((user: IUser) => {
-
-                        return user.mail === mail;
+                        return user.mail === mail && user.password === password;
                     });
-                })
+                }),
             );
 
 
@@ -95,6 +95,7 @@ export class PeopleService {
         //     }
         // });
     }
+
 
     public showPassword(btn: HTMLElement, input: Element): void {
         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

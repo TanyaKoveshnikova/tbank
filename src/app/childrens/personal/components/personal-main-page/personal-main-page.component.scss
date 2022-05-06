@@ -81,6 +81,8 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     .explanation {
         display: block;
         width: 39%;
+        letter-spacing: 0.08em;
+        line-height: 1.1em;
         background-color: $colorCards;
         margin-top: 2rem;
         padding: 0.5em 1.5em;

@@ -26,10 +26,10 @@ import { PersonalAdvertisingComponent } from '../personal-advertising/personal-a
     templateUrl: './personal-main-page.component.html',
     styleUrls: ['./personal-main-page.component.scss']
 })
-export class PersonalMainPageComponent implements OnInit, OnDestroy {
+export class PersonalMainPageComponent implements OnInit {
     public user?: IUser;
     public savCardsObs?: Observable<ISavingsAccount[]>;
-    public loading: Observable<boolean>;
+    // public loading: Observable<boolean>;
 
     @ViewChild('advertising', { read: ViewContainerRef })
     private _viewRef?: ViewContainerRef;
@@ -43,16 +43,17 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
         private _singletoneService: SingletoneService,
         private _breadcrumbService: BreadcrumbService,
     ) {
-        this.loading = this._singletoneService.flag;
-        this.user = this._singletoneService.loggedUser;
+        // this.loading = this._singletoneService.flag;
+        // this.user = this._singletoneService.loggedUser;
+        this._singletoneService.loggedUser
+            .subscribe((user: IUser) => this.user = user);
     }
 
     public ngOnInit(): void {
         this._breadcrumbService.set('@MainPage', 'Main Page');
-        this._peopleService.getLoginUser();
         this.fondCardsService.ngOnInit();
         this.savCardsObs = this.fondCardsService.getSavingsAccount();
-        this.user = this._singletoneService.loggedUser;
+        this.user = this.fondCardsService.userService;
 
         setTimeout(() => {
             if (this._viewRef) {
@@ -60,11 +61,6 @@ export class PersonalMainPageComponent implements OnInit, OnDestroy {
             }
         }, 3000);
     }
-
-    public ngOnDestroy(): void {
-        this._singletoneService.changeFlag(false);
-    }
-
 
     public createSavingsAcc(): void {
         this._router.navigate(['../personal-main-page/createSavingsAccount'], { relativeTo: this._route });

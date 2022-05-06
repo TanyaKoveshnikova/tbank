@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/IUser';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SingletoneService {
     public loggedUser!: Observable<IUser>;
-    public loading: boolean = false;
-
+    // public loading: boolean = false;
     private _flagSource: any = new BehaviorSubject(false);
-    public flag: Observable<boolean> = this._flagSource;
-
-    private _loggedInStatus: boolean | null = false;
+    /*private _loggedInStatus: boolean | null = false;*/
 
 
     constructor() {
         //
     }
 
-    public changeFlag(value: boolean): void{
+    public setFlag(value: boolean): void {
         this._flagSource
             .next(value);
     }
 
-    public setLoggedIn(value: boolean): void {
-        this._loggedInStatus = value;
+    public getFlag(): BehaviorSubject<boolean> {
+        return this._flagSource;
     }
 
-    public get isLoggedIn(): boolean | null {
-        return this._loggedInStatus;
-    }
-
+    // public setLoggedIn(value: boolean): void {
+    //     this._loggedInStatus = value;
+    // }
+    //
+    // public get isLoggedIn(): boolean | null {
+    //     return this._loggedInStatus;
+    // }
 }

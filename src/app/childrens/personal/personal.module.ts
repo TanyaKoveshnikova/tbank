@@ -22,7 +22,10 @@ import { PersonalAdvertisingComponent } from './components/personal-advertising/
 import { BrowserModule } from '@angular/platform-browser';
 import { HintHostListenerDirective } from './directives/hint-host-listener.directive';
 import { AppModule } from '../../app.module';
-
+import { IUser } from '../spa/interfaces/IUser';
+import { tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { ConsoleLogger } from '@angular/compiler-cli';
 
 
 @NgModule({
@@ -59,9 +62,25 @@ export class PersonalModule {
         private _peopleService: PeopleService,
         private _singletoneService: SingletoneService,
         private _fondCardsService: FondCardsService,
+        private _router: Router,
     ) {
-        this._singletoneService.setLoggedIn(true);
-        this._peopleService.getLoginUser();
-        this._fondCardsService.ngOnInit();
+        this._singletoneService.loggedUser = this._peopleService.getLoginUser();
+        // this._singletoneService.setLoggedIn(true);
+        let us: IUser;
+        this._singletoneService.loggedUser
+            .subscribe(
+                (u: IUser) => {
+                    us = u;
+                    this._fondCardsService.ngOnInit();
+                    this._router.navigate(['/personal/' + u.id, 'personal-main-page']);
+                    console.log('route');
+                },
+                () => {
+                    //
+                },
+                () => {
+                    this._router.navigate(['/personal/' + us.id, 'personal-main-page']);
+                });
+        console.log('route1');
     }
 }
