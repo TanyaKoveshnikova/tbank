@@ -13,6 +13,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class PersonalHistoryPageComponent implements OnInit {
     public cardsHistory!: ICommonHistory[];
     public selectedCard?: ICommonHistory;
+    public loading: boolean = true;
 
     constructor(
         private _personalHistoryService: PersonalHistoryService,
@@ -47,10 +48,12 @@ export class PersonalHistoryPageComponent implements OnInit {
 
     private getTransactionsHistory(): void {
         this._personalHistoryService.getUserHistory()
-            .subscribe(
-                (elements: ICommonHistory[]) => {
+            .subscribe({
+                next: (elements: ICommonHistory[]) =>
+                {
                     this.cardsHistory = elements;
                 },
-            );
+                complete: () => this.loading = false,
+            });
     }
 }

@@ -29,7 +29,7 @@ import { PersonalAdvertisingComponent } from '../personal-advertising/personal-a
 export class PersonalMainPageComponent implements OnInit {
     public user?: IUser;
     public savCardsObs?: Observable<ISavingsAccount[]>;
-    // public loading: Observable<boolean>;
+    public loading: boolean = true;
 
     @ViewChild('advertising', { read: ViewContainerRef })
     private _viewRef?: ViewContainerRef;
@@ -44,7 +44,10 @@ export class PersonalMainPageComponent implements OnInit {
         private _breadcrumbService: BreadcrumbService,
     ) {
         this._singletoneService.loggedUser
-            .subscribe((user: IUser) => this.user = user);
+            .subscribe({
+                next: (user: IUser) => this.user = user,
+                complete: () => this.loading = false,
+            });
     }
 
     public ngOnInit(): void {

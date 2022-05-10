@@ -1,4 +1,9 @@
-<div class="wrapper">
+<ng-template #skeleton>
+    <div class="wrapper_load">
+        <skeletone-loading class="loading"></skeletone-loading>
+    </div>
+</ng-template>
+<div class="wrapper" *ngIf="!loading; else skeleton">
     <div *ngFor="let card of cardsHistory.reverse()">
         <button class="btn" (click)="clickCard(card)">
             <div *ngIf="card?.typeTransaction === 'withdrawal'" class="card__wrapper">
