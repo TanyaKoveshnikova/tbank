@@ -21,7 +21,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class PersonalMainPageSavingAccountComponent implements OnInit, componentCanDeactivate {
     public savingsAccForm: FormGroup = new FormGroup({});
-    private _saved: boolean | null = false;
+    public idUser?: number;
 
     constructor(
         private _http: HttpClient,
@@ -32,6 +32,9 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, component
         private _breadcrumbService: BreadcrumbService,
     ) {
         this.createForm();
+        if (this._fondCardsService.userService) {
+            this.idUser = this._fondCardsService.userService.id;
+        }
     }
 
     public ngOnInit(): void {
@@ -39,7 +42,7 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, component
     }
 
     public canDeactivate(): boolean | Observable<boolean> {
-        if (!this._saved) {
+        if (this.savingsAccForm.dirty && this.savingsAccForm.invalid) {
             return confirm('Вы хотите покинуть страницу?');
         } else {
             return true;
@@ -48,8 +51,7 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, component
 
     public onSubmit(): void {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
-        this._saved = true;
-        this._router.navigate(['/personal/' + this._fondCardsService.id + '/personal-main-page']);
+        this._router.navigate(['/personal/' + this.idUser + '/personal-main-page']);
     }
 
     public onSer(): void {

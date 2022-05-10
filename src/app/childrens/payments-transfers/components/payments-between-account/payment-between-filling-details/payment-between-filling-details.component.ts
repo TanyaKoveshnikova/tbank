@@ -12,6 +12,7 @@ import { ISavingsAccount } from '../../../../spa/interfaces/ISavingsAccount';
 import { FactoryCardHistory } from '../../../../../../libs/factory.history/factory';
 import { IUser } from '../../../../spa/interfaces/IUser';
 import { PeopleService } from '../../../../login/services/people.service';
+import { SingletonService } from '../../../../spa/services/singleton.service';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
         private _checkClientCardService: CheckClientCardService,
         private _factoryCardHistory: FactoryCardHistory,
         private _peopleService: PeopleService,
+        private _singletonService: SingletonService,
     ) {
         this._paymBetAccComp.toggleClass('filling');
         this.savingAccounts$ = _fondCardsService.getSavingsAccount();
@@ -76,8 +78,6 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
                     this.selectedValue.name);
             }
         }
-
-        this._peopleService.getLoginUser();
     }
 
     public get f(): { [p: string]: AbstractControl } {

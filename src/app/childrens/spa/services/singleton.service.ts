@@ -5,11 +5,11 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class SingletoneService {
+export class SingletonService {
     public loggedUser!: Observable<IUser>;
     // public loading: boolean = false;
     private _flagSource: any = new BehaviorSubject(false);
-    /*private _loggedInStatus: boolean | null = false;*/
+    private _loggedInStatus: boolean | null = false;
 
 
     constructor() {
@@ -25,11 +25,11 @@ export class SingletoneService {
         return this._flagSource;
     }
 
-    // public setLoggedIn(value: boolean): void {
-    //     this._loggedInStatus = value;
-    // }
-    //
-    // public get isLoggedIn(): boolean | null {
-    //     return this._loggedInStatus;
-    // }
+    public setLoggedIn(value: boolean): void {
+        this._loggedInStatus = value;
+    }
+
+    public get isLoggedIn(): boolean | null {
+        return this._loggedInStatus;
+    }
 }

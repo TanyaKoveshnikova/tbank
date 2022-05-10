@@ -15,30 +15,35 @@ const childrenRoutes: Routes = [
     {
         path: 'history',
         component: PersonalHistoryPageComponent,
-        data: { breadcrumb: { alias: 'History' } }
+        data: { breadcrumb: { alias: 'History' } },
+        canActivate: [AuthGuard],
     },
     {
         path: 'transfer',
         data: { breadcrumb: { alias: 'PaymentsAndTransfers' }, },
         loadChildren: () => import('../payments-transfers/payments-transfers.module')
-            .then((mod: any) => mod.PaymentsTransfersModule)
+            .then((mod: any) => mod.PaymentsTransfersModule),
+        canActivate: [AuthGuard],
     },
     {
         path: 'personal-main-page',
         component: PersonalMainPageComponent,
         data: { breadcrumb: { alias: 'MainPage' } },
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'createSavingsAccount', // child route path
                 component: PersonalMainPageSavingAccountComponent, // child route component that the router renders
                 canDeactivate: [ExitAboutGuard],
+                canActivate: [AuthGuard],
                 data: { breadcrumb: { alias: 'CreateSavingsAccount' } },
             }
         ]
     },
     {
         path: 'myArea', loadChildren: () => import('../personal-area/personal-area.module')
-            .then((mod: any) => mod.PersonalAreaModule)
+            .then((mod: any) => mod.PersonalAreaModule),
+        canActivate: [AuthGuard],
     }
 ];
 
@@ -53,6 +58,7 @@ const routes: Routes = [
         path: ':id',
         component: PersonalHomeAfterAuthComponent,
         children: childrenRoutes,
+        canActivate: [AuthGuard],
         data: { breadcrumb: { skip: true } }
     },
 ];

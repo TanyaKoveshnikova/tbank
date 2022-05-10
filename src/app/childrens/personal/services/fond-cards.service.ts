@@ -6,7 +6,7 @@ import { BehaviorSubject, map, Observable, Subject, Subscription, switchMap } fr
 import { FormGroup } from '@angular/forms';
 import { ICard } from '../../spa/interfaces/ICard';
 import { ISavingsAccount } from '../../spa/interfaces/ISavingsAccount';
-import { SingletoneService } from '../../spa/services/singletone.service';
+import { SingletonService } from '../../spa/services/singleton.service';
 
 @Injectable({
     providedIn: 'root'
@@ -30,12 +30,11 @@ export class FondCardsService implements OnInit {
     constructor(
         private _http: HttpClient,
         public activateRoute: ActivatedRoute,
-        private _singletoneService: SingletoneService,
+        private _singletoneService: SingletonService,
     ) {
     }
 
     public ngOnInit(): void {
-        // this.userService = this._singletoneService.loggedUser;
         this._singletoneService.loggedUser.subscribe((res: IUser) => this.userService = res);
     }
 

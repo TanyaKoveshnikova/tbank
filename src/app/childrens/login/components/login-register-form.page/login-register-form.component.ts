@@ -8,17 +8,16 @@ import { PeopleService } from '../../services/people.service';
 import { LoginReactFormComponent } from '../login-form.page/login-react-form.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { Auth } from 'firebase/auth';
-import { componentCanDeactivate } from '../../../spa/guards/exit.about.guard';
 import { Observable, Subscription } from 'rxjs';
+import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
 
 @Component({
     selector: 'register-reactive-form',
     templateUrl: './login-register-form.component.html',
     styleUrls: ['./login-register-form.component.scss']
 })
-export class LoginRegisterFormComponent implements OnInit, componentCanDeactivate, OnDestroy {
+export class LoginRegisterFormComponent implements OnInit, ExitAboutGuard {
     public registerForm: FormGroup = new FormGroup({});
-    private _saved = false;
     private urlSignupUser = 'http://localhost:3000/signupUsers';
 
     @ViewChild('btn')
@@ -45,14 +44,6 @@ export class LoginRegisterFormComponent implements OnInit, componentCanDeactivat
     public ngOnInit(): void {
     }
 
-    canDeactivate(): boolean | Observable<boolean> {
-        if (!this._saved) {
-            return confirm('Вы хотите покинуть страницу?');
-        } else {
-            return true;
-        }
-    }
-
     private _createForm(): void {
         this.registerForm = this.fb.group({
                 password: ['', [Validators.required, Validators.minLength(6)]],
@@ -73,7 +64,6 @@ export class LoginRegisterFormComponent implements OnInit, componentCanDeactivat
 
     public onSubmit(): void {
         this.peopleService.sendOnServer(this.registerForm);
-        this._saved = true;
     }
 
     public ngAfterViewInit(): void {
@@ -81,6 +71,11 @@ export class LoginRegisterFormComponent implements OnInit, componentCanDeactivat
         this.peopleService.showPassword(this.btn2.nativeElement, this.confirmPassword.nativeElement);
     }
 
-    ngOnDestroy(): void {
+    public canDeactivate(): boolean | Observable<boolean> {
+        if (this.registerForm.dirty && this.registerForm.invalid) {
+            return confirm('Вы хотите покинуть страницу?');
+        } else {
+            return true;
+        }
     }
 }

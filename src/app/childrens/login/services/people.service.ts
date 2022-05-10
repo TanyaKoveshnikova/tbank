@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { IUser } from '../../spa/interfaces/IUser';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { Auth } from '@angular/fire/auth';
-import { SingletoneService } from '../../spa/services/singletone.service';
+import { SingletonService } from '../../spa/services/singleton.service';
 import { filter, find, Observable, switchMap, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -25,7 +25,7 @@ export class PeopleService {
         private _fondCard: FondCardsService,
         private _auth: Auth,
         private _cookieService: CookieService,
-        private _singletoneService: SingletoneService,
+        private _singletoneService: SingletonService,
     ) {
     }
 
@@ -76,24 +76,6 @@ export class PeopleService {
                     });
                 }),
             );
-
-
-        // .subscribe({
-        //     next: (res: IUser[]) => {
-        //         const user: IUser | undefined = res.find((a: IUser) => {
-        //             return a.mail === mail;
-        //         });
-        //         if (user) {
-        //             this._singletoneService.loggedUser = user;
-        //         } else {
-        //             alert('user not found');
-        //         }
-        //     }, error: () => {
-        //         console.log('Something went wrong');
-        //     }, complete: () => {
-        //         this._singletoneService.changeFlag(true);
-        //     }
-        // });
     }
 
 

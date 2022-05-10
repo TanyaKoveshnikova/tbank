@@ -4,7 +4,7 @@ import { IUser } from '../../../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, Subject, switchMap } from 'rxjs';
-import { SingletoneService } from '../../../spa/services/singletone.service';
+import { SingletonService } from '../../../spa/services/singleton.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -20,7 +20,7 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
         private _fondCardsService: FondCardsService,
         public activateRoute: ActivatedRoute,
         private _router: Router,
-        private _singletoneService: SingletoneService,
+        private _singletoneService: SingletonService,
         private _breadcrumbService: BreadcrumbService,
     ) {
         this.getID();

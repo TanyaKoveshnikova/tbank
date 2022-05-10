@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CookieService } from 'ngx-cookie-service';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 
 
 
@@ -36,7 +37,12 @@ import { CookieService } from 'ngx-cookie-service';
     bootstrap: [AppComponent],
     exports: [
     ],
-    providers: [CookieService]
+    providers: [
+        CookieService,
+        {
+            provide: ErrorHandler, useClass: GlobalErrorHandlerService
+        }
+    ]
 })
 export class AppModule {
 }

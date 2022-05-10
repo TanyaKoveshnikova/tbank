@@ -8,7 +8,6 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    //color: white;
     color: black;
     padding-bottom: 3em;
 
@@ -21,90 +20,93 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     }
 
     form {
-        //border: rgb(88, 62, 185) 3px solid;
-        //background-color: rgb(88, 62, 185);
+        display: flex;
+        flex-direction: column;
         border: solid 1px black;
         box-shadow: 0px -0px 4px 2px rgba(199, 199, 199, 0.53);
         text-align: center;
         margin-right: auto;
         margin-top: 1em;
         margin-left: auto;
-        max-width: 40%;
+        max-width: 20%;
         border-radius: 3%;
-    }
 
 
-    .fieldRegistration {
-        float: left;
-        margin-top: 1em;
+        .fieldRegistration {
+            float: left;
+            margin-top: 1em;
 
-        .value {
-            font-size: 1.7em;
-            margin-left: 1em;
-            margin-right: 1em;
-            clear: both;
-            text-align: right;
+            .value {
+                font-size: 1.7em;
+                margin-left: 1em;
+                margin-right: 1em;
+                clear: both;
+                text-align: right;
 
-            label {
-                padding: 0.8rem;
-                float: left;
+                label {
+                    padding: 0.8rem 0.01em 0.1em 0.01em;
+                    float: left;
+                }
+
+                input {
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 100%;
+                    height: 2.6em;
+                    border-radius: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding-left: 10px;
+                }
+
+                .password__btn {
+                    right: 0.3em;
+                    top: 1.9em;
+                    cursor: pointer;
+                }
+
+                .red-text {
+                    //color: #ffc1c1;
+                    color: #fa737e;
+                    font-size: 0.7em;
+                    margin-bottom: 0.2em;
+                    margin-top: 0.2em;
+                }
+            }
+        }
+
+        .nav {
+            .sign {
+                padding: 0.1em;
+                font-size: 1.4em;
+                margin-top: 1em;
+                width: 10em;
+                border-radius: 6px;
             }
 
-            input {
-                margin-left: auto;
-                margin-right: auto;
-                width: 23em;
-                height: 2.6em;
-                border-radius: 10px;
-                display: inline-block;
-                vertical-align: middle;
-                padding-left: 10px;
+            .sign[disabled] {
+                border-color: rgba(51, 51, 51, 0.05);
+                transition: 0.5s;
             }
 
-            .red-text {
-                //color: #ffc1c1;
-                color: #fa737e;
-                font-size: 0.7em;
-                margin-bottom: 0.2em;
-                margin-top: 0.2em;
+            .sign:hover {
+                transform: scale(1.05);
+                transition: 0.5s;
+            }
+
+            ul li {
+                margin-top: 1em;
+                font-size: 1.1em;
+                margin-bottom: 1.5em;
+            }
+
+            li:hover {
+                transform: scale(1.2);
+                color: #1b0269;
+                transition: 0.5s;
             }
         }
     }
-
-    .sign {
-        padding: 0.1em;
-        font-size: 1.4em;
-        margin-top: 1em;
-        width: 10em;
-        border-radius: 6px;
-    }
-
-    .sign[disabled] {
-        border-color: rgba(51, 51, 51, 0.05);
-        transition: 0.5s;
-    }
-
-    .sign:hover {
-        transform: scale(1.05);
-        transition: 0.5s;
-    }
-
-    ul li {
-        margin-top: 1em;
-        font-size: 1.1em;
-        margin-bottom: 1.5em;
-    }
-
-    li:hover {
-        transform: scale(1.2);
-        color: #1b0269;
-        transition: 0.5s;
-    }
-
-    .password__btn {
-        right: 15px;
-        top: 6px;
-        cursor: pointer;
-    }
 }
+
 

@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { ISavingsAccount } from '../../../spa/interfaces/ISavingsAccount';
 import { PeopleService } from '../../../login/services/people.service';
-import { SingletoneService } from '../../../spa/services/singletone.service';
+import { SingletonService } from '../../../spa/services/singleton.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
 
@@ -40,12 +40,9 @@ export class PersonalMainPageComponent implements OnInit {
         private _router: Router,
         private _route: ActivatedRoute,
         private _peopleService: PeopleService,
-        private _singletoneService: SingletoneService,
+        private _singletoneService: SingletonService,
         private _breadcrumbService: BreadcrumbService,
     ) {
-        console.log('route2');
-        // this.loading = this._singletoneService.flag;
-        // this.user = this._singletoneService.loggedUser;
         this._singletoneService.loggedUser
             .subscribe((user: IUser) => this.user = user);
     }

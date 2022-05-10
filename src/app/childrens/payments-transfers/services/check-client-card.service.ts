@@ -21,10 +21,8 @@ export class CheckClientCardService {
     public clientCardNumber: string | undefined;
     public client: IUser | undefined;
     public user?: IUser;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    private _urlCount = 'http://localhost:3000/signupUsers';
-    // eslint-disable-next-line @typescript-eslint/typedef
-    private _urlSavAccount = 'http://localhost:3000/savingsAcc';
+    private _urlCount: string = 'http://localhost:3000/signupUsers';
+    private _urlSavAccount: string = 'http://localhost:3000/savingsAcc';
 
     constructor(
         private _fondCardsService: FondCardsService,
@@ -64,16 +62,7 @@ export class CheckClientCardService {
                 'RUB': money,
                 'cardNumber': this.clientCardNumber
             }]
-        }).subscribe(
-            () => {
-                //
-            },
-            () => {
-                //
-            },
-            () => {
-            }
-        );
+        }).subscribe();
     }
 
     public patchMinusSumUser(moneyMinusSum: number): void {
@@ -85,18 +74,7 @@ export class CheckClientCardService {
                 'RUB': money,
                 'cardNumber': this.user?.cards[0].cardNumber
             }]
-        }).subscribe(
-            () => {
-                //
-            },
-            () => {
-                //
-            },
-            () => {
-                // this._peopleService.getLoginUser();
-                // this._fondCardsService.ngOnInit();
-                // this.user = this._fondCardsService.userService;
-            });
+        }).subscribe();
         this._peopleService.getLoginUser();
     }
 
@@ -107,19 +85,7 @@ export class CheckClientCardService {
         this._http.patch<never>(url,
             {
                 'doneRUB': money,
-            }).subscribe(
-            () => {
-                //
-            },
-            () => {
-                //
-            },
-            () => {
-                // this._peopleService.getLoginUser();
-                // this._fondCardsService.ngOnInit();
-                // this.user = this._fondCardsService.userService;
-            });
-        this._peopleService.getLoginUser();
+            }).subscribe();
     }
 }
 

@@ -16,7 +16,7 @@ import { SkeletoneLoadingModule } from '../skeletone-loading/skeletone-loading.m
 import { AuthGuard } from './guards/auth.guard';
 import { PersonalHistoryService } from './services/personal-history.service';
 import { PeopleService } from '../login/services/people.service';
-import { SingletoneService } from '../spa/services/singletone.service';
+import { SingletonService } from '../spa/services/singleton.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from './components/personal-advertising/personal-advertising.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -60,21 +60,17 @@ import { ConsoleLogger } from '@angular/compiler-cli';
 export class PersonalModule {
     constructor(
         private _peopleService: PeopleService,
-        private _singletoneService: SingletoneService,
+        private _singletonService: SingletonService,
         private _fondCardsService: FondCardsService,
         private _router: Router,
     ) {
-        this._singletoneService.loggedUser = this._peopleService.getLoginUser();
-        // this._singletoneService.setLoggedIn(true);
-        let us: IUser;
-        this._singletoneService.loggedUser
+        this._singletonService.setLoggedIn(true);
+        this._singletonService.loggedUser = this._peopleService.getLoginUser();
+        this._singletonService.loggedUser
             .subscribe(
                 (u: IUser) => {
-                    us = u;
                     this._router.navigate(['/personal/' + u.id, 'personal-main-page']);
-                    console.log('route');
                 });
         this._fondCardsService.ngOnInit();
-        console.log('route1');
     }
 }
