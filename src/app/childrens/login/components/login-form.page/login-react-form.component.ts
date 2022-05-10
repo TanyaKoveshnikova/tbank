@@ -7,6 +7,8 @@ import { PeopleService } from '../../services/people.service';
 import { SingletonService } from '../../../spa/services/singleton.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
+import { AlertWindowComponent } from '../../../../components/alert-windiw/alert-window.component';
+import { AlertifyServiceService } from '../../../../services/alertify-service.service';
 
 @Component({
     selector: 'app-authorization-react-form',
@@ -30,6 +32,7 @@ export class LoginReactFormComponent implements OnInit {
         private _renderer: Renderer2,
         private _cookieService: CookieService,
         private _singletonService: SingletonService,
+        private _alertifyServiceService: AlertifyServiceService,
     ) {
     }
 
@@ -42,6 +45,7 @@ export class LoginReactFormComponent implements OnInit {
             next: (u: IUser) => {
                 this._singletonService.setLoggedIn(true);
                 this._router.navigate(['/personal/' + u.id]);
+                this._alertifyServiceService.changeQQ();
             }, complete: () => {
                 this.login.reset();
             }

@@ -13,13 +13,14 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CookieService } from 'ngx-cookie-service';
-import { GlobalErrorHandlerService } from './services/global-error-handler.service';
-
+import { AlertifyServiceService } from './services/alertify-service.service';
+import { AlertWindowComponent } from './components/alert-windiw/alert-window.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        AlertWindowComponent
     ],
     imports: [
         BrowserModule,
@@ -36,12 +37,20 @@ import { GlobalErrorHandlerService } from './services/global-error-handler.servi
     // guards: [AuthGuard],
     bootstrap: [AppComponent],
     exports: [
+
     ],
     providers: [
         CookieService,
-        {
-            provide: ErrorHandler, useClass: GlobalErrorHandlerService
-        }
+        AlertifyServiceService
+        // {
+        //     provide: ErrorHandler,
+        //     useClass: GlobalErrorHandlerService
+        // },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     useClass: HttpErrorInterceptorService,
+        //     multi: true,
+        // },
     ]
 })
 export class AppModule {

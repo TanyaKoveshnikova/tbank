@@ -26,6 +26,7 @@ import { IUser } from '../spa/interfaces/IUser';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { ConsoleLogger } from '@angular/compiler-cli';
+import { AlertifyServiceService } from '../../services/alertify-service.service';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ export class PersonalModule {
         private _singletonService: SingletonService,
         private _fondCardsService: FondCardsService,
         private _router: Router,
+        private _alertifyServiceService: AlertifyServiceService,
     ) {
         this._singletonService.setLoggedIn(true);
         this._singletonService.loggedUser = this._peopleService.getLoginUser();
