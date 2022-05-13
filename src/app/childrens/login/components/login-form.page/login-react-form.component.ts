@@ -7,7 +7,7 @@ import { PeopleService } from '../../services/people.service';
 import { SingletonService } from '../../../spa/services/singleton.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
-import { AlertWindowComponent } from '../../../../components/alert-windiw/alert-window.component';
+import { AlertWindowComponent } from '../../../../components/alert-window/alert-window.component';
 import { AlertifyServiceService } from '../../../../services/alertify-service.service';
 
 @Component({
@@ -44,10 +44,17 @@ export class LoginReactFormComponent implements OnInit {
         this._singletonService.loggedUser.subscribe({
             next: (u: IUser) => {
                 this._singletonService.setLoggedIn(true);
+                this._alertifyServiceService.subject$.next({
+                    text: 'Успешный вход в аккаунт',
+                    status: 'success',
+                });
                 this._router.navigate(['/personal/' + u.id]);
-                this._alertifyServiceService.changeQQ();
-            }, complete: () => {
+            },
+            complete: () => {
                 this.login.reset();
+            },
+            error: (error: any) => {
+                throw Error('You have entered non-existent data' + error);
             }
         });
     }

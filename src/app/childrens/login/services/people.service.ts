@@ -6,7 +6,7 @@ import { IUser } from '../../spa/interfaces/IUser';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { Auth } from '@angular/fire/auth';
 import { SingletonService } from '../../spa/services/singleton.service';
-import { filter, find, Observable, switchMap, tap } from 'rxjs';
+import { filter, find, Observable, pipe, switchMap, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -71,17 +71,21 @@ export class PeopleService {
         return this.getUser()
             .pipe(
                 switchMap((users: IUser[]) => {
-                    return users.filter((user: IUser) => {
+                    const fondUser: IUser[] = users.filter((user: IUser) => {
                         return user.mail === mail && user.password === password;
                     });
+                    if (fondUser.length === 0) {
+                       throw new Error('Not founded user');
+                    } else {
+                        return fondUser;
+                    }
                 }),
             );
     }
 
 
     public showPassword(btn: HTMLElement, input: Element): void {
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-        btn.onclick = () => {
+        btn.onclick = (): void => {
             btn.classList.toggle('active');
             if (input.getAttribute('type') === 'password') {
                 input.setAttribute('type', 'text');
@@ -90,7 +94,6 @@ export class PeopleService {
             }
         };
     }
-
 
     private postUser(newUser: IUser): Observable<IUser> {
         return this._http.post<IUser>(this._urlSignupUser, newUser);

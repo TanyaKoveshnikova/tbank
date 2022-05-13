@@ -14,13 +14,18 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CookieService } from 'ngx-cookie-service';
 import { AlertifyServiceService } from './services/alertify-service.service';
-import { AlertWindowComponent } from './components/alert-windiw/alert-window.component';
+import { AlertWindowComponent } from './components/alert-window/alert-window.component';
+import { StatusDirective } from './directives/status.directive';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptorService } from './services/http-error-interceptor.service';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        AlertWindowComponent
+        AlertWindowComponent,
+        StatusDirective
     ],
     imports: [
         BrowserModule,
@@ -36,16 +41,14 @@ import { AlertWindowComponent } from './components/alert-windiw/alert-window.com
     ],
     // guards: [AuthGuard],
     bootstrap: [AppComponent],
-    exports: [
-
-    ],
+    exports: [StatusDirective],
     providers: [
         CookieService,
-        AlertifyServiceService
-        // {
-        //     provide: ErrorHandler,
-        //     useClass: GlobalErrorHandlerService
-        // },
+        AlertifyServiceService,
+        {
+            provide: ErrorHandler,
+            useClass: GlobalErrorHandlerService
+        },
         // {
         //     provide: HTTP_INTERCEPTORS,
         //     useClass: HttpErrorInterceptorService,
