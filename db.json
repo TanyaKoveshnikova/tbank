@@ -8,7 +8,7 @@
       "cards": [
         {
           "cardName": "master wizard",
-          "RUB": "87 000",
+          "RUB": "86 988",
           "cardNumber": "4065 2175 1539 9538"
         }
       ],
@@ -50,7 +50,7 @@
       "cards": [
         {
           "cardName": "visa platinum",
-          "RUB": "832",
+          "RUB": "842",
           "cardNumber": "7990 6156 9120 5330"
         }
       ],
@@ -104,7 +104,7 @@
       "name": "на мозг",
       "endDate": "2022-04-29",
       "goalRUB": "100 000 000 000",
-      "doneRUB": "913",
+      "doneRUB": "915",
       "idCreator": 1,
       "id": 1
     },
@@ -419,6 +419,55 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 16
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "на мозг",
+      "operationName": "Translations",
+      "transferAmount": "2",
+      "date": 1652550181707,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "master wizard",
+          "RUB": "87 000",
+          "cardNumber": "4065 2175 1539 9538"
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 17
+    },
+    {
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "10",
+      "date": 1652550195346,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "master wizard",
+          "RUB": "86 998",
+          "cardNumber": "4065 2175 1539 9538"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 18
+    },
+    {
+      "fromWhom": "Уизли Рон",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "10",
+      "date": 1652550195346,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "master wizard",
+          "RUB": "86 998",
+          "cardNumber": "4065 2175 1539 9538"
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 19
     }
   ],
   "history2": [
@@ -1098,6 +1147,22 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 8
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "10",
+      "date": 1652550195345,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "visa platinum",
+          "RUB": "832",
+          "cardNumber": "7990 6156 9120 5330"
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 9
     }
   ],
   "history5": [],

@@ -68,11 +68,11 @@ export class PersonalModule {
     ) {
         this._singletonService.setLoggedIn(true);
         this._singletonService.loggedUser = this._peopleService.getLoginUser();
+        this._fondCardsService.ngOnInit();
         this._singletonService.loggedUser
             .subscribe(
                 (u: IUser) => {
                     this._router.navigate(['/personal/' + u.id, 'personal-main-page']);
                 });
-        this._fondCardsService.ngOnInit();
     }
 }

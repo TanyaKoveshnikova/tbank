@@ -2,11 +2,23 @@ import { Component, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } fro
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
 import { AlertifyServiceService } from '../../services/alertify-service.service';
 import { INotificationOptions } from '../../childrens/spa/interfaces/INotificationOptions';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-alert-window',
     templateUrl: './alert-window.component.html',
-    styleUrls: ['./alert-window.component.scss']
+    styleUrls: ['./alert-window.component.scss'],
+    animations: [
+        trigger('explanatoryWindow', [
+            transition('void => *', [
+                style({ opacity: 0 }),
+                animate('1.2s', style({ opacity: 1 })),
+            ]),
+            transition('* => void', [
+                animate('1.2s', style({ opacity: 0 })),
+            ]),
+        ])
+    ]
 })
 export class AlertWindowComponent implements OnInit {
     public showNotification: boolean = false;

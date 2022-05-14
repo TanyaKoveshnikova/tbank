@@ -19,6 +19,7 @@ import { StatusDirective } from './directives/status.directive';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptorService } from './services/http-error-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HttpErrorInterceptorService } from './services/http-error-interceptor.s
         provideAuth(() => getAuth()),
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
-        BreadcrumbModule
+        BreadcrumbModule,
+        BrowserAnimationsModule
     ],
     // guards: [AuthGuard],
     bootstrap: [AppComponent],
