@@ -12,7 +12,6 @@ export class GlobalErrorHandlerService implements ErrorHandler {
 
 
     public handleError(error: Error | HttpErrorResponse): void {
-        const router = this._injector.get(Router);
 
         if( error instanceof HttpErrorResponse){
             this._alertifyServiceService.subject$.next({

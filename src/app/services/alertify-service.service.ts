@@ -8,6 +8,7 @@ import { INotificationOptions } from '../childrens/spa/interfaces/INotificationO
     providedIn: 'root'
 })
 export class AlertifyServiceService implements OnInit {
+    public statusAlert: string = 'error';
 
     public subject$: Subject<INotificationOptions> = new Subject<INotificationOptions>();
 

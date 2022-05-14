@@ -1,6 +1,3 @@
-<div class="notification-container" *ngIf="notificationOptions && showNotification">
+<div class="notification-container" *ngIf="notificationOptions && showNotification" status>
     {{ notificationOptions.text }}
-    <div status statusValue='notificationOptions.status'>
-        {{ notificationOptions.text }}
-    </div>
 </div>

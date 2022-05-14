@@ -44,8 +44,9 @@ export class LoginReactFormComponent implements OnInit {
         this._singletonService.loggedUser.subscribe({
             next: (u: IUser) => {
                 this._singletonService.setLoggedIn(true);
+                this._alertifyServiceService.statusAlert = 'success';
                 this._alertifyServiceService.subject$.next({
-                    text: 'Успешный вход в аккаунт',
+                    text: 'Successful login.',
                     status: 'success',
                 });
                 this._router.navigate(['/personal/' + u.id]);
