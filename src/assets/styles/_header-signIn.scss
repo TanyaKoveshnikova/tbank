@@ -1,9 +1,8 @@
-$sizeHeader: 70px;
-$colorHeaFoot: rgba(27, 2, 105, 0.98);
+@import "src/assets/styles/path_file.scss";
+$sizeHeader: 4rem;
 
 .header {
-    min-height: $sizeHeader;
-    //background-color: $colorHeaFoot;
+    height: $sizeHeader;
     padding: 10px 0;
     box-shadow: inset 0px -6px 1px -3px rgba(224, 224, 224, 0.3);
 
@@ -37,6 +36,10 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
         //border: rgb(61, 33, 173);
         //background-color: rgb(88, 62, 185);;
         //color: #ecdcdc;
+
+        @include _480 {
+            right: 2em;
+        }
     }
 
     .signIn:hover {

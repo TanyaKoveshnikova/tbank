@@ -1,3 +1,4 @@
+@import "src/assets/styles/path_file.scss";
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,4 +17,11 @@
     border-radius: 1rem;
     padding: 1rem 2rem;
     text-align: center;
+
+    @include _480 {
+        margin-top: 1rem;
+        right: 1rem;
+        width: 18rem;
+        padding: 0.5rem 1rem;
+    }
 }

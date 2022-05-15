@@ -1,5 +1,6 @@
 $colorCards: rgba(182, 182, 182, 0.19);
 $colorHeaFoot: rgba(107, 102, 102, 0.08);
+@import "src/assets/styles/path_file.scss";
 
 .loading {
     text-align: center;
@@ -10,6 +11,12 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     position: absolute;
     top: 40%;
     left: 45%;
+
+    @include _480 {
+        font-size: 1.2em;
+        top: 40%;
+        left: 30%;
+    }
 }
 
 .wrapper {

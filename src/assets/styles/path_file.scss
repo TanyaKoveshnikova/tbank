@@ -1,0 +1,40 @@
+@mixin _1670 {
+    @media (min-width: 1670px){
+        @content;
+    }
+}
+
+@mixin _1170 {
+    @media (max-width: 1170px){
+        @content;
+    }
+}
+@mixin _979 {
+    @media (max-width: 979px){
+        @content;
+    }
+}
+
+//планшеты и тд( делаем под тел)
+@mixin _768 {
+    @media (max-width: 768px){
+        @content;
+    }
+}
+@mixin _600 {
+    @media (max-width: 600px){
+        @content;
+    }
+}
+
+//iphone se
+@mixin _480 {
+    @media (max-width: 480px){
+        @content;
+    }
+}
+@mixin _350{
+    @media (max-width: 350px){
+        @content;
+    }
+}

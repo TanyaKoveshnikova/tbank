@@ -1,27 +1,37 @@
 <div class="wrapper">
-    <div class="breadcrumb">
-        <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
-        <ng-template #iconTemplate>
-            /
-        </ng-template>
-    </div>
-    <div class="header">
-        <a class="link" routerLinkActive="active-link" [routerLink]="['/personal/'+ id +'/personal-main-page']">
-            Main
-        </a>
-        <a class="link" routerLinkActive="active-link"
-           [routerLink]="['/personal/'+ id +'/transfer']">Payments and transfers
-        </a>
-        <a class="link" routerLinkActive="active-link"
-           [routerLink]="['/personal/' + id + '/history']">History
-        </a>
-        <a class="link" routerLinkActive="active-link"
-           [routerLink]="['/personal/' + id + '/myArea/private']">Personal Area
-        </a>
-
+    <div class="header__body">
+        <div class="breadcrumb">
+            <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+            <ng-template #iconTemplate>
+                /
+            </ng-template>
+        </div>
+        <div class="header header__burger" (click)="openMenu()" #burger>
+            <span></span>
+        </div>
+        <div class="header header__menu" #menu>
+            <ul class="header__list">
+                <li class="valueHeader__list">
+                    <a class="header__link" routerLinkActive="active-link"
+                       [routerLink]="['/personal/'+ id +'/personal-main-page']" (click)="openMenu()">Main</a>
+                </li>
+                <li class="valueHeader__list">
+                    <a class="header__link" routerLinkActive="active-link"
+                       [routerLink]="['/personal/'+ id +'/transfer']" (click)="openMenu()">Payments and transfers</a>
+                </li>
+                <li class="valueHeader__list">
+                    <a class="header__link" routerLinkActive="active-link"
+                       [routerLink]="['/personal/' + id + '/history']" (click)="openMenu()">History</a>
+                </li>
+                <li class="valueHeader__list">
+                    <a class="header__link" routerLinkActive="active-link"
+                       [routerLink]="['/personal/' + id + '/myArea/private']" (click)="openMenu()">Personal Area</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
-<p>
+<div class="content">
     <router-outlet></router-outlet>
-</p>
+</div>
 

@@ -1,13 +1,11 @@
 @import "src/assets/styles/_header-signIn.scss";
 @import "src/assets/styles/_eyesPassword.scss";
 
-$sizeHeader: 90px;
 $colorHeaFoot: rgba(27, 2, 105, 0.98);
 .wrapper {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    //color: white;
     color: black;
 
 
@@ -16,55 +14,70 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
     }
 
     .signUp {
-        font-size: 2em;
+        font-size: 2rem;
+
+        @include _480 {
+            font-size: 1.8rem;
+        }
     }
 
     form {
+        display: flex;
+        flex-direction: column;
         padding-bottom: 3em;
         border: solid 1px black;
-        box-shadow:  0px -0px 4px 2px rgba(199, 199, 199, 0.53);
-        //border: rgb(88, 62, 185) 3px solid;
-        //background-color:  #9886e5;
+        box-shadow: 0px -0px 4px 2px rgba(199, 199, 199, 0.53);
         text-align: center;
         margin-right: auto;
         margin-top: 1em;
         margin-left: auto;
-        width: 35%;
-        max-height: 30em;
+        max-width: 45%;
         border-radius: 3%;
-    }
+
+        @include _480 {
+            max-width: 85%;
+        }
+
+        @include _1670 {
+            max-width: 35%;
+        }
 
 
-    .fieldRegistration {
-        margin-top: 1em;
-        float: left;
+        .fieldRegistration {
+            margin-top: 1.5em;
+            float: left;
 
-        .value {
-            margin-top: 0.1em;
-            font-size: 1.7em;
-            margin-left: 1em;
-            clear: both;
-            text-align: right;
+            .value {
+                margin-top: 0.1em;
+                font-size: 1.7em;
+                margin-left: 0.4em;
+                margin-right: 0.8rem;
+                clear: both;
+                text-align: right;
 
-            label {
-                padding: 15px;
-                float: left;
-            }
+                label {
+                    padding: 1rem 0.5rem 0.5rem 0.5rem;
+                    float: left;
+                }
 
-            input {
-                width: 23em;
-                height: 2.6em;
-                padding-left: 10px;
-                border-radius: 10px;
-                margin-top: 0.5em;
-            }
+                input {
+                    width: 95%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 2.6em;
+                    padding-left: 0.5rem;
+                    border-radius: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
 
-            .red-text {
-                //color: #ffc1c1;
-                color: #ff6666;
-                font-size: 0.7em;
-                margin-bottom: 0.2em;
-                margin-top: 0.2em;
+                }
+
+                .red-text {
+                    color: #ff6666;
+                    font-size: 0.7em;
+                    margin-bottom: 0.2em;
+                    margin-top: 0.2em;
+                }
             }
         }
     }
@@ -77,7 +90,7 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
         border-radius: 4px;
     }
 
-    .btn[disabled]{
+    .btn[disabled] {
         border-color: rgba(51, 51, 51, 0.05);
         transition: 0.5s;
     }
@@ -89,31 +102,36 @@ $colorHeaFoot: rgba(27, 2, 105, 0.98);
 
     ul {
         display: flex;
-        width: 24em;
+        width: 60%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0.1em;
-    }
 
-    ul li {
-        margin-top: 1em;
-        font-size: 1.1em;
-    }
+        @include _480 {
+           display: block;
+            width: 100%;
+        }
 
-    li:last-child {
-        margin-left: auto;
-    }
 
-    li:hover {
-        transform: scale(1.1);
-        color: rgb(27, 2, 105);
-        transition: 0.5s;
-    }
+        li {
+            margin-top: 1em;
+            font-size: 1.1em;
+        }
 
+        li:last-child {
+            margin-left: auto;
+        }
+
+        li:hover {
+            transform: scale(1.1);
+            color: rgb(27, 2, 105);
+            transition: 0.5s;
+        }
+    }
 
     .password__btn {
-        right: 0.8em;
-        top: 0.45em;
+        right: 0.4em;
+        top: 2.2em;
         cursor: pointer;
     }
 }

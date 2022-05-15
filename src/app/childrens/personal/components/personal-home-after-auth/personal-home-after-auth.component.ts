@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FondCardsService } from '../../services/fond-cards.service';
 import { IUser } from '../../../spa/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class PersonalHomeAfterAuthComponent implements OnInit {
     public id!: number;
+    @ViewChild('burger')
+    public burger!: ElementRef;
 
+    @ViewChild('menu')
+    public menu!: ElementRef;
 
     constructor(
         private _fondCardsService: FondCardsService,
@@ -22,6 +26,7 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
         private _router: Router,
         private _singletoneService: SingletonService,
         private _breadcrumbService: BreadcrumbService,
+        private _renderer: Renderer2
     ) {
         this.getID();
         this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
@@ -29,6 +34,11 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
 
     public ngOnInit(): void {
         //
+    }
+
+    public openMenu(): void{
+        this.burger.nativeElement.classList.toggle('active');
+        this.menu.nativeElement.classList.toggle('active');
     }
 
     private getID(): void {
