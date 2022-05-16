@@ -1,15 +1,25 @@
+@import "src/assets/styles/path_file.scss";
+
 .wrapper {
-    background-color: rgba(152, 134, 229, 0.5);
+    background-color: rgb(217, 213, 245);
     width: 40%;
     margin-top: -11rem;
     padding: 2em;
     box-shadow: 0 0 1em 0 rgba(16, 0, 63, 0.64);
+    z-index: 100;
 
-    .exitBtn{
+    @include _480 {
+        width: 70vw;
+        padding: 1em;
+        margin-left: -6.5rem;
+        margin-top: 0rem;
+    }
+
+    .exitBtn {
         padding: 0 0.2em 0.2em 0.2em;
         float: right;
 
-        .imgCross{
+        .imgCross {
             width: 1.5rem;
         }
     }
@@ -36,7 +46,7 @@
         color: white;
     }
 
-    .btn[disabled]{
+    .btn[disabled] {
         background-color: rgba(92, 88, 103, 0.6);
         color: black;
     }

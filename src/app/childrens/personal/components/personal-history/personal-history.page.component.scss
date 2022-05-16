@@ -1,3 +1,5 @@
+@import "src/assets/styles/path_file.scss";
+
 .wrapper {
     margin: 4rem auto;
 
@@ -6,8 +8,13 @@
         border: none;
         margin: 0 auto;
         display: block;
-        min-width: 50%;
+        width: 50%;
         margin-left: 20%;
+
+        @include _768 {
+            margin-left: 10%;
+            width: 80%;
+        }
     }
 
     .card__wrapper {
@@ -19,6 +26,18 @@
         align-items: center;
         border-bottom: rgba(51, 51, 51, 0.23) solid 1px;
         font-size: 1.3em;
+
+        @include _768 {
+            font-size: 1em;
+            padding: 1em;
+            .item{
+                padding-right: 1em;
+
+                &__image {
+                    width: 2em;
+                }
+            }
+        }
 
         .item {
             padding-right: 3em;
@@ -83,6 +102,10 @@
                 max-width: 32%;
                 background-color: white;
                 padding-bottom: 1.3rem;
+
+                @include _768 {
+                    max-width: 85%;
+                }
 
                 .btn {
                     border: none;
@@ -183,6 +206,12 @@
     font-weight: 500;
     color: #080023;
     position: absolute;
-    top: 40%;
-    left: 45%;
+    margin: 20% auto;
+    width: 85%;
+
+    @include _768 {
+        font-size: 1.2em;
+        width: 100%;
+    }
 }
+

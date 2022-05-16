@@ -9,14 +9,14 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     font-weight: 500;
     color: #080023;
     position: absolute;
-    top: 40%;
-    left: 45%;
+    margin: 20% auto;
+    width: 85%;
 
-    @include _480 {
+    @include _768 {
         font-size: 1.2em;
-        top: 40%;
-        left: 30%;
+        width: 100%;
     }
+
 }
 
 .wrapper {
@@ -52,16 +52,33 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
             right: 5px;
             top: 4px;
         }
+
+        @include _480 {
+            padding: 0.2em 0.5em;
+            height: 2.5em;
+
+            .img__ruble {
+                width: 1.2em;
+            }
+
+            img {
+                display: none;
+            }
+        }
     }
 
     .summary__value {
         display: grid;
         grid-template-columns: 1fr 5fr;
         gap: 5px;
+
+        @include _480 {
+            display: block;
+            padding: 2em 1em;
+        }
     }
 
     .container {
-        //background-color: rgba(27, 2, 105, 0.98);
         padding: 1em;
         width: 40%;
         /* offset-x | offset-y | blur-radius | spread-radius | color */
@@ -70,6 +87,18 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
         .summary__header {
             font-size: 1.1em;
             font-weight: 600;
+        }
+
+        @include _768 {
+            width: 85%;
+
+            summary {
+                margin: auto;
+            }
+
+            .summary__header {
+                font-size: 0.8em;
+            }
         }
     }
 
@@ -96,6 +125,10 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
         border-bottom: $colorHeaFoot solid 2px;
         color: rgba(9, 1, 45, 0.98);
         font-weight: 600;
+        @include _480 {
+            width: 85%;
+            font-weight: 500;
+        }
     }
 }
 

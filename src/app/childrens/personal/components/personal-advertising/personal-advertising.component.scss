@@ -20,9 +20,11 @@
     }
 
     .text{
-        position: absolute;
-        top: 50%;
         text-align: center;
-        left: 45%;
+        vertical-align: center;
+        display: block;
+        width: 100%;
+        line-height: 10rem;
+        margin:auto;
     }
 }

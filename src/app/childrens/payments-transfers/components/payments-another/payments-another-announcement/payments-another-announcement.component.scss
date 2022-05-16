@@ -1,8 +1,14 @@
+@import "src/assets/styles/path_file.scss";
+
 .wrapper {
     margin: 7rem auto 2rem;
     width: 30%;
     box-shadow: 0px 0px 0.3em 0.2em rgba(75, 75, 75, 0.23);
     padding: 0.8rem 0.2em;
+
+    @include _768 {
+        width: 85%;
+    }
 
     .elementText {
         padding: 0.2rem 0.4em;

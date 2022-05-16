@@ -1,3 +1,5 @@
+@import "src/assets/styles/path_file.scss";
+
 .wrapper {
     width: 30%;
     height: 10rem;
@@ -5,6 +7,10 @@
     margin: 7rem auto 2rem;
     text-align: center;
     box-shadow: 0px 0px 0.3em 0.2em rgba(75, 75, 75, 0.23);
+
+    @include _768 {
+        width: 85%;
+    }
 
 
     .element:not(:last-child) {

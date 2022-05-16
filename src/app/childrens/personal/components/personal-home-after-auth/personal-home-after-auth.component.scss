@@ -203,4 +203,9 @@
     @include _768 {
         padding: 3rem 0 0 0;
     }
+
+    @include _480 {
+        width: 100%;
+        padding: 0.5rem 0 0 0;
+    }
 }

@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FondCardsService } from '../../../../services/fond-cards.service';
 import { PersonalMainPageComponent } from '../../personal-main-page.component';
 import { Observable } from 'rxjs';
-import { componentCanDeactivate } from '../../../../../spa/guards/exit.about.guard';
+import { componentCanDeactivate, ExitAboutGuard } from '../../../../../spa/guards/exit.about.guard';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -19,7 +19,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
     styleUrls: ['./personal-main-page-saving-account.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PersonalMainPageSavingAccountComponent implements OnInit, componentCanDeactivate {
+export class PersonalMainPageSavingAccountComponent implements OnInit, ExitAboutGuard {
     public savingsAccForm: FormGroup = new FormGroup({});
     public idUser?: number;
 

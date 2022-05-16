@@ -1,6 +1,12 @@
+@import "src/assets/styles/path_file.scss";
+
 .wrapper {
     width: 50%;
     margin: 1rem auto;
+
+    @include _768 {
+        width: 95%;
+    }
 
     .value {
         display: grid;
@@ -11,11 +17,19 @@
 
         .textField {
             justify-self: end;
+
+            @include _768 {
+                font-size: 0.95em;
+            }
         }
 
         .contentField {
             text-align: start;
             width: 100%;
+
+            @include _768 {
+                font-size: 0.95em;
+            }
 
             select {
                 width: 100%;
