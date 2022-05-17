@@ -5,7 +5,6 @@ import { PaymentsTransfersRoutingModule } from './payments-transfers-routing.mod
 import { PaymentsBetweenAccountsComponent } from './components/payments-between-account/payments-between-accounts/payments-between-accounts.component';
 import { PaymentsAnotherClientComponent } from './components/payments-another/payments-another-client/payments-another-client.component';
 import { PaymentsMobileComponent } from './components/payments-mobile/payments-mobile.component';
-import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
 import { FondCardsService } from '../personal/services/fond-cards.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +28,6 @@ import { ActivatedRoute, Router } from '@angular/router';
         PaymentsAnotherClientComponent,
         PaymentsAnotherClientCheckComponent,
         PaymentsMobileComponent,
-        PaymentsTransfersWrapperComponent,
         PaymentsAnotherClientSumComponent,
         PaymentsAnotherAnnouncementComponent,
         PaymentBetweenFillingDetailsComponent,

@@ -4,9 +4,7 @@ import { PaymentsTransfersComponent } from './components/payments-transfers/paym
 import { PaymentsBetweenAccountsComponent } from './components/payments-between-account/payments-between-accounts/payments-between-accounts.component';
 import { PaymentsAnotherClientComponent } from './components/payments-another/payments-another-client/payments-another-client.component';
 import { PaymentsMobileComponent } from './components/payments-mobile/payments-mobile.component';
-import { PaymentsTransfersWrapperComponent } from './components/payments-transfers-wrapper/payments-transfers-wrapper.component';
-import { PersonalMainPageSavingAccountComponent } from '../personal/components/personal-main-page/childrens/personal-main-page-saving-account/personal-main-page-saving-account.component';
-import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
+
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
 import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
 import { PaymentsAnotherAnnouncementComponent } from './components/payments-another/payments-another-announcement/payments-another-announcement.component';
@@ -14,7 +12,7 @@ import { PaymentBetweenFillingDetailsComponent } from './components/payments-bet
 import { PaymentBetweenConfirmationComponent } from './components/payments-between-account/payment-between-confirmation/payment-between-confirmation.component';
 
 
-const childrenRoutes: Routes = [
+const routes: Routes = [
     {
         path: 'between-account',
         component: PaymentsBetweenAccountsComponent,
@@ -38,15 +36,11 @@ const childrenRoutes: Routes = [
     { path: 'announcement', component: PaymentsAnotherAnnouncementComponent, data: { breadcrumb: { skip: true } }, },
     { path: 'mobile', component: PaymentsMobileComponent },
     {
-        path: 'choice',
+        path: '',
         component: PaymentsTransfersComponent,
-        data: { breadcrumb: { skip: true } },
+        data: {  breadcrumb: 'PaymentsAndTransfers' },
         children: []
-    }
-];
-
-const routes: Routes = [
-    { path: '', component: PaymentsTransfersWrapperComponent, children: childrenRoutes },
+    },
 ];
 
 @NgModule({

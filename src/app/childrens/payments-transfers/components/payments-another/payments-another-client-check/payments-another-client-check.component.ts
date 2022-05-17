@@ -12,10 +12,9 @@ import { set } from '@angular/fire/database';
 })
 export class PaymentsAnotherClientCheckComponent implements OnInit {
     public findClient!: IUser;
-    public isString: any = true;
+    public isString: boolean = true;
     public clientCard: string | undefined;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public loaded = false;
+    public loaded: boolean = false;
 
     constructor(private _checkClientCardService: CheckClientCardService) {
         //

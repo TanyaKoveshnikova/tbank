@@ -16,12 +16,11 @@ export class PaymentsAnotherClientComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-
     }
 
     public clientCardOnChanged(): void {
         const value: number = this.clientCard.length;
-        switch (value){
+        switch (value) {
             case 4:
                 this.clientCard += ' ';
                 break;
