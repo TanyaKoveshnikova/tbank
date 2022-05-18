@@ -4,7 +4,7 @@ import { PersonalAreaComponent } from './components/personal-area/personal-area.
 
 
 const routes: Routes = [
-    { path: 'private', component: PersonalAreaComponent }
+    { path: '', component: PersonalAreaComponent, data: { breadcrumb: { alias: 'myArea' } }, }
 ];
 
 @NgModule({

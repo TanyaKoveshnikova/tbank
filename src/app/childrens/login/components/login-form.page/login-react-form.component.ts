@@ -49,7 +49,7 @@ export class LoginReactFormComponent implements OnInit {
                     text: 'Successful login.',
                     status: 'success',
                 });
-                this._router.navigate(['/personal/' + u.id]);
+                this._router.navigate(['personal', u.id, 'personal-main-page']);
             },
             complete: () => {
                 this.login.reset();

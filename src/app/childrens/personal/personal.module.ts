@@ -59,20 +59,4 @@ import { AlertifyServiceService } from '../../services/alertify-service.service'
     ]
 })
 export class PersonalModule {
-    constructor(
-        private _peopleService: PeopleService,
-        private _singletonService: SingletonService,
-        private _fondCardsService: FondCardsService,
-        private _router: Router,
-        private _alertifyServiceService: AlertifyServiceService,
-    ) {
-        this._singletonService.setLoggedIn(true);
-        this._singletonService.loggedUser = this._peopleService.getLoginUser();
-        this._fondCardsService.ngOnInit();
-        this._singletonService.loggedUser
-            .subscribe(
-                (u: IUser) => {
-                    this._router.navigate(['/personal/' + u.id, 'personal-main-page']);
-                });
-    }
 }

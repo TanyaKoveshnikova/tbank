@@ -6,6 +6,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, Subject, switchMap } from 'rxjs';
 import { SingletonService } from '../../../spa/services/singleton.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { PeopleService } from '../../../login/services/people.service';
 
 @Component({
     selector: 'home-after-auth',
@@ -24,19 +25,19 @@ export class PersonalHomeAfterAuthComponent implements OnInit {
         private _fondCardsService: FondCardsService,
         public activateRoute: ActivatedRoute,
         private _router: Router,
-        private _singletoneService: SingletonService,
         private _breadcrumbService: BreadcrumbService,
-        private _renderer: Renderer2
+        private _renderer: Renderer2,
+        private _peopleService: PeopleService,
+        private _singletonService: SingletonService,
     ) {
         this.getID();
-        this._router.navigate(['/personal/' + this.id + '/personal-main-page']);
     }
 
     public ngOnInit(): void {
         //
     }
 
-    public openMenu(): void{
+    public openMenu(): void {
         this.burger.nativeElement.classList.toggle('active');
         this.menu.nativeElement.classList.toggle('active');
     }

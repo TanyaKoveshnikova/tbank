@@ -13,19 +13,19 @@
             <ul class="header__list">
                 <li class="valueHeader__list">
                     <a class="header__link" routerLinkActive="active-link"
-                       [routerLink]="['/personal/'+ id +'/personal-main-page']" (click)="openMenu()">Main</a>
+                       [routerLink]="['personal-main-page']" (click)="openMenu()">Main</a>
                 </li>
                 <li class="valueHeader__list">
                     <a class="header__link" routerLinkActive="active-link"
-                       [routerLink]="['/personal/'+ id +'/transfer']" (click)="openMenu()">Payments and transfers</a>
+                       [routerLink]="['transfer']" (click)="openMenu()">Payments and transfers</a>
                 </li>
                 <li class="valueHeader__list">
                     <a class="header__link" routerLinkActive="active-link"
-                       [routerLink]="['/personal/' + id + '/history']" (click)="openMenu()">History</a>
+                       [routerLink]="['history']" (click)="openMenu()">History</a>
                 </li>
                 <li class="valueHeader__list">
                     <a class="header__link" routerLinkActive="active-link"
-                       [routerLink]="['/personal/' + id + '/myArea/private']" (click)="openMenu()">Personal Area</a>
+                       [routerLink]="['myArea']" (click)="openMenu()">Personal Area</a>
                 </li>
             </ul>
         </div>

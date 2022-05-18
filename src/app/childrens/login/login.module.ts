@@ -8,6 +8,8 @@ import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { AuthGuard } from '../personal/guards/auth.guard';
 import { LoginRegisterFormComponent } from './components/login-register-form.page/login-register-form.component';
 import { AlertifyServiceService } from '../../services/alertify-service.service';
+import { IUser } from '../spa/interfaces/IUser';
+import { SingletonService } from '../spa/services/singleton.service';
 
 
 @NgModule({
@@ -28,5 +30,13 @@ import { AlertifyServiceService } from '../../services/alertify-service.service'
     ]
 })
 export class LoginModule {
+    constructor(
+        private _peopleService: PeopleService,
+        private _singletonService: SingletonService,
+    ) {
+        this._singletonService.loggedUser = this._peopleService.getLoginUser();
+        this._singletonService.loggedUser
+            .subscribe();
+    }
 }
 

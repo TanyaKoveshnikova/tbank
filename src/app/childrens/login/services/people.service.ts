@@ -25,7 +25,7 @@ export class PeopleService {
         private _fondCard: FondCardsService,
         private _auth: Auth,
         private _cookieService: CookieService,
-        private _singletoneService: SingletonService,
+        private _singletonService: SingletonService,
     ) {
     }
 
@@ -63,7 +63,6 @@ export class PeopleService {
     }
 
     //для получение обновленных данных юзера
-
     public getLoginUser(): Observable<IUser> {
         const mail: string = this._cookieService.get('mail');
         const password: string = this._cookieService.get('password');
@@ -75,8 +74,10 @@ export class PeopleService {
                         return user.mail === mail && user.password === password;
                     });
                     if (fondUser.length === 0) {
-                       throw new Error('Not founded user');
+                        throw new Error('Not founded user');
                     } else {
+                        this._singletonService.setLoggedIn(true);
+
                         return fondUser;
                     }
                 }),

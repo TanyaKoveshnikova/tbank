@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
     selector: 'personal-area',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalAreaComponent implements OnInit {
 
-    constructor() {
+    constructor( private _breadcrumbService: BreadcrumbService,) {
         //
     }
 
     public ngOnInit(): void {
-        //
+        this._breadcrumbService.set('@myArea', 'Personal Area');
     }
 
 }

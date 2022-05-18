@@ -73,7 +73,7 @@ export class LoginRegisterFormComponent implements OnInit, ExitAboutGuard {
 
     public canDeactivate(): boolean | Observable<boolean> {
         if (this.registerForm.dirty && this.registerForm.invalid) {
-            return confirm('Вы хотите покинуть страницу?');
+            return confirm('Do you want to leave the page?');
         } else {
             return true;
         }

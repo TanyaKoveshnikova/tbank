@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/IUser';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, Subscription } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SingletonService {
     public loggedUser!: Observable<IUser>;
-    // public loading: boolean = false;
-    private _flagSource: any = new BehaviorSubject(false);
+    private _flagSource: BehaviorSubject<any> = new BehaviorSubject(false);
     private _loggedInStatus: boolean | null = false;
 
 
