@@ -9,6 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { PersonalAutoPaymentsComponent } from './components/personal-auto-payments/personal-auto-payments.component';
 import { PaymentsTransfersModule } from '../payments-transfers/payments-transfers.module';
+import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
 
 
 const childrenRoutes: Routes = [
@@ -37,6 +38,13 @@ const childrenRoutes: Routes = [
                 canDeactivate: [ExitAboutGuard],
                 canActivate: [AuthGuard],
                 data: { breadcrumb: { alias: 'CreateSavingsAccount' } },
+            },
+            {
+                path: 'createNewCard', // child route path
+                component: PersonalMainPageNewCardComponent, // child route component that the router renders
+                canDeactivate: [ExitAboutGuard],
+                canActivate: [AuthGuard],
+                data: { breadcrumb: { alias: 'Create new card' } },
             }
         ]
     },

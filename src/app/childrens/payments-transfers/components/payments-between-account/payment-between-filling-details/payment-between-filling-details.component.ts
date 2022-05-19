@@ -3,7 +3,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 import { Router } from '@angular/router';
 import { PaymentsBetweenAccountsComponent } from '../payments-between-accounts/payments-between-accounts.component';
 import { FondCardsService } from '../../../../personal/services/fond-cards.service';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { amountValidator } from '../../../validators/amountValidator';
 import { CheckClientCardService } from '../../../services/check-client-card.service';
@@ -21,15 +21,17 @@ import { SingletonService } from '../../../../spa/services/singleton.service';
     styleUrls: ['./payment-between-filling-details.component.scss']
 })
 export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy {
-    public savingAccounts$?: Observable<ISavingsAccount[]>;
+    public savingAccounts$?: BehaviorSubject<ISavingsAccount[] | null>;
+    public cardUser$?: BehaviorSubject<ICard[] | null>;
     public date: Date | number = Date.now();
-    public userCard?: ICard;
     public reactiveForm: FormGroup = new FormGroup({});
 
     //выбранная карта для перевода на нее денег с основного счета
     public selectedValue?: ISavingsAccount;
 
-    private _rubNumberUser!: number;
+    //счет списания(с какой карты списывать)
+    public selectedCard!: ICard;
+
 
 
     constructor(
@@ -44,8 +46,12 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
         private _singletonService: SingletonService,
     ) {
         this._paymBetAccComp.toggleClass('filling');
-        this.savingAccounts$ = _fondCardsService.getSavingsAccount();
-        this.userCard = _fondCardsService.getFirstCardUser();
+        if(_fondCardsService.savAcc$){
+            this.savingAccounts$ = _fondCardsService.savAcc$;
+        }
+        if(_fondCardsService.cardUser$){
+            this.cardUser$ = _fondCardsService.cardUser$;
+        }
     }
 
     public ngOnDestroy(): void {
@@ -54,16 +60,16 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
 
     public ngOnInit(): void {
         this.createForm();
-        if (this.userCard?.RUB) {
-            this._rubNumberUser = this._checkClientCardService.transformMoneyInNumber(this.userCard?.RUB);
-        }
     }
 
     public clickConfirmation(): void {
         const valueMoney: number = this.f['sum'].value;
-        if (this._rubNumberUser && this.selectedValue?.doneRUB && this.selectedValue.id) {
-            const endMoneyUser: number = this._rubNumberUser - valueMoney;
-            this._checkClientCardService.patchMinusSumUser(endMoneyUser);
+        console.log(this.selectedValue);
+        console.log(this.selectedCard);
+        if (this.selectedValue?.doneRUB && this.selectedValue.id && this.selectedCard.id) {
+            const endMoneyUser: number = this._checkClientCardService.transformMoneyInNumber(this.selectedCard.RUB) - valueMoney;
+            console.log(this.selectedCard.id);
+            this._checkClientCardService.patchAmountMoneyOnCardUser(endMoneyUser, this.selectedCard.id);
 
             const savAccMoneyNumber: number = this._checkClientCardService.transformMoneyInNumber(this.selectedValue?.doneRUB);
             const endMoneySavAcc: number = savAccMoneyNumber + valueMoney;
@@ -74,6 +80,7 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
                     'betweenAccounts',
                     this._fondCardsService.userService,
                     valueMoney,
+                    this.selectedCard,
                     undefined,
                     this.selectedValue.name);
             }
@@ -88,9 +95,6 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
         this.reactiveForm = this._fb.group(
             {
                 sum: new FormControl('', [Validators.required])
-            },
-            {
-                validators: amountValidator('sum', this._rubNumberUser),
-            });
+            },);
     }
 }

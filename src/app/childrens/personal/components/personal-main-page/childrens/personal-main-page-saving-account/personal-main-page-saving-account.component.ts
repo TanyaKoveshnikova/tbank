@@ -12,6 +12,7 @@ import { PersonalMainPageComponent } from '../../personal-main-page.component';
 import { Observable } from 'rxjs';
 import { componentCanDeactivate, ExitAboutGuard } from '../../../../../spa/guards/exit.about.guard';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { ISavingsAccount } from '../../../../../spa/interfaces/ISavingsAccount';
 
 @Component({
     selector: 'create-saving-acc',
@@ -49,15 +50,9 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, ExitAbout
         }
     }
 
-    public onSubmit(): void {
+    public sendOnServer(): void {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
         this._router.navigate(['/personal/' + this.idUser + '/personal-main-page']);
-    }
-
-    public onSer(): void {
-        setTimeout(() => {
-            this._compMain.ngOnInit();
-        }, 1);
     }
 
     private createForm(): void {

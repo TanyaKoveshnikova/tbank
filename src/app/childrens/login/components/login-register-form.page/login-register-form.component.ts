@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { checkRepeatEmail, confirmedValidator } from '../../../spa/utils/CustomValidators';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,8 @@ import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
 @Component({
     selector: 'register-reactive-form',
     templateUrl: './login-register-form.component.html',
-    styleUrls: ['./login-register-form.component.scss']
+    styleUrls: ['./login-register-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginRegisterFormComponent implements OnInit, ExitAboutGuard {
     public registerForm: FormGroup = new FormGroup({});

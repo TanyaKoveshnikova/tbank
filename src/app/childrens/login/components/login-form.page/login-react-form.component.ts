@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CanDeactivate, Router } from '@angular/router';
@@ -13,7 +13,8 @@ import { AlertifyServiceService } from '../../../../services/alertify-service.se
 @Component({
     selector: 'app-authorization-react-form',
     templateUrl: './login-react-form.component.html',
-    styleUrls: ['./login-react-form.component.scss']
+    styleUrls: ['./login-react-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginReactFormComponent implements OnInit {
     @ViewChild('btn')

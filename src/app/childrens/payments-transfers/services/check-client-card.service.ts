@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { ICard } from '../../spa/interfaces/ICard';
 import { FactoryCardHistory } from '../../../../libs/factory.history/factory';
 import { PeopleService } from '../../login/services/people.service';
+import { convertElementSourceSpanToLoc } from '@angular-eslint/template-parser/dist/template-parser/src/convert-source-span-to-loc';
 
 
 @Injectable({
@@ -16,13 +17,15 @@ export class CheckClientCardService {
         return new Intl.NumberFormat('ru-RU').format(needFormatNumber);
     }
 
+    public findCardClientForTransitions?: ICard;
     public nameSavAccount?: string;
     public transferAmount!: number;
     public clientCardNumber: string | undefined;
     public client: IUser | undefined;
     public user?: IUser;
-    private _urlCount: string = 'http://localhost:3000/signupUsers';
+    private _urlCardForTransactions: string = 'http://localhost:3000/cardsUsers';
     private _urlSavAccount: string = 'http://localhost:3000/savingsAcc';
+    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
 
     constructor(
         private _fondCardsService: FondCardsService,
@@ -43,39 +46,33 @@ export class CheckClientCardService {
         return (parseInt(<string>rubUser));
     }
 
-    public findClient(): Observable<IUser> {
-        return this._fondCardsService.getNeedUserParams()
+
+    public findClient(): any {
+
+        return this._http.get<ICard[]>(this._urlCardForTransactions)
             .pipe(
-                map((user: IUser[]): IUser => {
-                    return user.filter((u: IUser) =>
-                        u.cards.find((card: ICard) => card.cardNumber === this.clientCardNumber))[0];
-                })
-            );
+                map(
+                    (cards: ICard[]) => {
+                        const card: ICard | undefined = cards.find((c: ICard) => c.cardNumber === this.clientCardNumber);
+                        if (card) {
+                            this.findCardClientForTransitions = card;
+
+                            return this._http.get<IUser>(this._urlSignupUser + '/' + card.idCreator);
+                        } else {
+                            return undefined;
+                        }
+                    }
+                ));
     }
 
-    public patchPlusSumClient(moneyPlusSum: number, clientCardName: string): void {
-        const url: string = this._urlCount + '/' + this.client?.id;
-        const money: string = CheckClientCardService.formattingMoney(moneyPlusSum);
-        this._http.patch<never>(url, {
-            'cards': [{
-                'cardName': clientCardName,
-                'RUB': money,
-                'cardNumber': this.clientCardNumber
-            }]
-        }).subscribe();
-    }
 
-    public patchMinusSumUser(moneyMinusSum: number): void {
-        const url: string = this._urlCount + '/' + this.user?.id;
+    public patchAmountMoneyOnCardUser(moneyMinusSum: number, idCard: number): void {
+        const url: string = this._urlCardForTransactions + '/' + idCard;
         const money: string = CheckClientCardService.formattingMoney(moneyMinusSum);
-        this._http.patch<never>(url, {
-            'cards': [{
-                'cardName': this.user?.cards[0].cardName,
+        this._http.patch<never>(url,
+            {
                 'RUB': money,
-                'cardNumber': this.user?.cards[0].cardNumber
-            }]
-        }).subscribe();
-        this._peopleService.getLoginUser();
+            }).subscribe();
     }
 
 

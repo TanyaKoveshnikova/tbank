@@ -8,6 +8,7 @@ import { checkRepeatEmail, confirmedValidator } from '../../../../spa/utils/Cust
 import { ICard } from '../../../../spa/interfaces/ICard';
 import { FactoryCardHistory } from '../../../../../../libs/factory.history/factory';
 import { PeopleService } from '../../../../login/services/people.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
     selector: 'payments-another-client-sum',
@@ -15,11 +16,15 @@ import { PeopleService } from '../../../../login/services/people.service';
     styleUrls: ['./payments-another-client-sum.component.scss']
 })
 export class PaymentsAnotherClientSumComponent implements OnInit {
-    public iUser!: IUser | undefined;
     public activeCardMoney!: number;
     public form: FormGroup = new FormGroup({});
     public clientCard: string | undefined;
     public findClient: IUser | undefined;
+    public cardsUser$!: BehaviorSubject<ICard[] | null>;
+    public iUser!: IUser | undefined;
+
+    //счет списания(с какой карты списывать)
+    public selectedCardUser!: ICard;
 
     constructor(
         private _fondCardsService: FondCardsService,
@@ -29,14 +34,14 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         private _peopleService: PeopleService,
     ) {
         this.iUser = _fondCardsService.userService;
+        if (_fondCardsService.cardUser$) {
+            this.cardsUser$ = _fondCardsService.cardUser$;
+        }
         this.clientCard = this._checkClientCardService.clientCardNumber;
         this.findClient = this._checkClientCardService.client;
     }
 
     public ngOnInit(): void {
-        if (this.iUser) {
-            this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(this.iUser.cards[0].RUB);
-        }
         this.createForm();
     }
 
@@ -47,18 +52,16 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     public sendMoney(): void {
         const sumTransfer: number = this.form.controls['transferAmount'].value;
         this._checkClientCardService.transferAmount = sumTransfer;
-        const cardClient: ICard | undefined = this.findClient?.cards.find((card: ICard) => {
-            return card.cardNumber === this.clientCard;
-        });
-        if (cardClient && this.iUser && this.findClient) {
-            const moneyOnCardUser: number = parseInt(this.iUser.cards[0].RUB.replace(' ', ''));
+        const cardClient: ICard | undefined = this._checkClientCardService.findCardClientForTransitions;
+        if (cardClient && this.findClient && cardClient.id && this.selectedCardUser.id && this.iUser) {
+            const moneyOnCardUser: number = parseInt(this.selectedCardUser.RUB.replace(' ', ''));
             const moneyOnCard: number = parseInt(cardClient.RUB.replace(' ', ''));
             const sumTransferDone: number = moneyOnCard + sumTransfer;
             const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
-            this._checkClientCardService.patchPlusSumClient(sumTransferDone, cardClient.cardName);
-            this._factoryCardHistory.createCard('fromSomeone', this.iUser, sumTransfer, this.findClient);
-            this._factoryCardHistory.createCard('withdrawal', this.iUser, sumTransfer, this.findClient);
-            this._checkClientCardService.patchMinusSumUser(moneyMinusSum);
+            this._checkClientCardService.patchAmountMoneyOnCardUser(sumTransferDone, cardClient?.id);
+            this._factoryCardHistory.createCard('fromSomeone', this.iUser, sumTransfer, this.selectedCardUser, this.findClient);
+            this._factoryCardHistory.createCard('withdrawal', this.iUser, sumTransfer, this.selectedCardUser,this.findClient);
+            this._checkClientCardService.patchAmountMoneyOnCardUser(moneyMinusSum, this.selectedCardUser.id );
         }
     }
 

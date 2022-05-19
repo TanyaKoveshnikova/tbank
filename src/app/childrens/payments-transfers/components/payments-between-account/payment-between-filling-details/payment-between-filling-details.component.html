@@ -5,8 +5,14 @@
     </div>
     <div class="value">
         <div class="textField">Withdrawal account:</div>
-        <div class="contentField">... {{userCard?.cardNumber | slice:-5}} [{{userCard?.cardName}}
-            ] {{userCard?.RUB}}</div>
+        <div class="contentField">
+            <select [(ngModel)]="selectedCard">
+                <option *ngFor="let cards of cardUser$ | async" [ngValue]="cards">
+                    ... {{cards?.cardNumber | slice:-5}} [{{cards?.cardName}}
+                    ] {{cards?.RUB}}
+                </option>
+            </select>
+        </div>
     </div>
     <div class="value">
         <div class="textField">Enrollment account:</div>
@@ -38,7 +44,7 @@
         class="helper-text red-text"
         *ngIf="!f['sum'].valid && f['sum'].touched"
     >
-        <span *ngIf="f['sum'].errors['required']">Password must not be empty</span>
-        <span *ngIf="f['amountValidator'].errors">Insufficient funds on the card</span>
+<!--        <span *ngIf="f['sum'].errors['required']">Password must not be empty</span>-->
+<!--        <span *ngIf="f['amountValidator'].errors">Insufficient funds on the card</span>-->
     </div>
 </div>

@@ -15,16 +15,18 @@ export class FondCardsService implements OnInit {
     private static stringGoalRUB(amount: number): string {
         return new Intl.NumberFormat('ru-RU').format(amount);
     }
+
     public id?: number;
     //Юзер, чей банк
     public userService?: IUser;
-    public savAcc?: ISavingsAccount[];
-    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
+    public savAcc$: BehaviorSubject<ISavingsAccount[] | null> = new BehaviorSubject<ISavingsAccount[] | null>(null);
+    public cardUser$: BehaviorSubject<ICard[] | null> = new BehaviorSubject<ICard[] | null>(null);
     private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
+    private _urlCreateCard: string = 'http://localhost:3000/cardsUsers';
     private _newSavAcc!: ISavingsAccount;
 
     //длЯ отрисовки подсказки при наводке
-    private  _mouseoverExplanation: any = new BehaviorSubject(false);
+    private _mouseoverExplanation: any = new BehaviorSubject(false);
 
 
     constructor(
@@ -38,18 +40,13 @@ export class FondCardsService implements OnInit {
         this._singletoneService.loggedUser.subscribe((res: IUser) => this.userService = res);
     }
 
-    public setMouseoverExplanation(state: boolean): void{
+    public setMouseoverExplanation(state: boolean): void {
         this._mouseoverExplanation.next(state);
     }
+
     public getMouseoverExplanation(): Observable<boolean> {
         return this._mouseoverExplanation;
     };
-
-
-    //получем первую карту юзера( для списания денег на сохранительные счета )
-    public getFirstCardUser(): ICard | undefined {
-        return this.userService?.cards[0];
-    }
 
     public sendOnServerSavingAcc(savingsAccForm: FormGroup): void {
         this._newSavAcc = {
@@ -64,24 +61,36 @@ export class FondCardsService implements OnInit {
     }
 
 
-    public getUrlSavingAcc(): Observable<ArrayBuffer> | Observable<ISavingsAccount[]> {
-        return this._http.get<ISavingsAccount[]>(this._urlSavingAcc);
+    //Для выгрузки карт юзера
+    public getCardsUser(): Observable<ICard[]> {
+        return this._http.get<ICard[]>(this._urlCreateCard + '?idCreator=' + this.id);
     }
+    //
+    // public getCardsUserAnotherClient(idClient: number): Observable<ICard[]> {
+    //     return this._http.get<ICard[]>(this._urlCreateCard + '?idCreator=' + idClient);
+    // }
 
     //Для выгрузки карточек сберегательных счетов
     public getSavingsAccount(): Observable<ISavingsAccount[]> {
         return this._http.get<ISavingsAccount[]>(this._urlSavingAcc + '?idCreator=' + this.id);
     }
 
-    public getNeedUserParams(): Observable<IUser[]> {
-        return this._http.get<IUser[]>(this._urlSignupUser);
+    //создыть новую карту
+    public createNewCard(): void {
+        //
     }
 
     private postSavingsAcc(): void {
         this._http.post<ISavingsAccount>(this._urlSavingAcc, this._newSavAcc)
-            .subscribe(
-                () => {
-                    //
-                });
+            .subscribe({
+                complete: () => {
+                    this.getSavingsAccount()
+                        .subscribe({
+                            next: (acc: ISavingsAccount[]) => {
+                                this.savAcc$.next(acc);
+                            },
+                        });
+                }
+            });
     }
 }

@@ -21,10 +21,10 @@
     <div class="element element__logic">
         <div class="value value__cardUser">
             <div class="writeAccount writeAccount__text">Write-off account</div>
-            <div *ngIf="iUser" class="writeAccount">
+            <div class="writeAccount">
                 <img class="image__card" src="../../../assets/images/card-image.png">
-                <select (change)="onClickCard($event)">
-                    <option *ngFor="let card of iUser.cards" [value]="card.RUB" selected>
+                <select (change)="onClickCard($event)" [(ngModel)]="selectedCardUser">
+                    <option *ngFor="let card of cardsUser$ | async" [value]="card.RUB" [ngValue]="card" selected>
                         <div class="cardName">{{card.cardName}}</div>
                     </option>
                 </select>

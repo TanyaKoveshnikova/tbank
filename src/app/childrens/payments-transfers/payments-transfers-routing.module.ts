@@ -16,7 +16,7 @@ const routes: Routes = [
     {
         path: 'between-account',
         component: PaymentsBetweenAccountsComponent,
-        data: { breadcrumb: 'BetweenAccount' },
+        data: { breadcrumb: 'Between account' },
         children: [
             {
                 path: 'fillingDetails',

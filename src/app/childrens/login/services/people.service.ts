@@ -8,6 +8,7 @@ import { Auth } from '@angular/fire/auth';
 import { SingletonService } from '../../spa/services/singleton.service';
 import { filter, find, Observable, pipe, switchMap, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { ICard } from '../../spa/interfaces/ICard';
 
 
 @Injectable({
@@ -17,6 +18,7 @@ export class PeopleService {
     @ViewChild('password')
     public passwordInput!: ElementRef;
     private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
+    private _urlCreateCard: string = 'http://localhost:3000/cardsUsers';
 
 
     constructor(
@@ -36,17 +38,34 @@ export class PeopleService {
             name: registerForm.value.name,
             surname: registerForm.value.surname,
             id: registerForm.value.id,
-            cards: [{
-                cardName: this.creatRandomNameCard(),
-                RUB: this.randomMoney(),
-                cardNumber: this.cardNumber(),
-            }]
         };
+
+        let id: number;
+
+        this.getUser()
+            .subscribe({
+                next: (users: IUser[]) => {
+                    id = users[users.length - 1].id + 1;
+                    console.log(id);
+                },
+                complete: () => {
+                    const firstCard: ICard = {
+                        cardName: this.creatRandomNameCard(),
+                        RUB: this.randomMoney(),
+                        cardNumber: this.cardNumber(),
+                        idCreator: id,
+                    };
+
+                    this.postCardUser(firstCard)
+                        .subscribe();
+                }
+            });
 
         this.postUser(newUser)
             .subscribe({
                 next: () => {
                     alert('Signup Successful');
+                    //todo: перекинуть создание модального окна успешной регистрации
                     this._router.navigate(['admin', 'login']);
                 },
                 error: () => {
@@ -56,6 +75,10 @@ export class PeopleService {
                     registerForm.reset();
                 }
             });
+    }
+
+    public postCardUser(card: ICard): Observable<ICard> {
+        return this._http.post<ICard>(this._urlCreateCard, card);
     }
 
     public getUser(): Observable<IUser[]> {
@@ -83,7 +106,6 @@ export class PeopleService {
                 }),
             );
     }
-
 
     public showPassword(btn: HTMLElement, input: Element): void {
         btn.onclick = (): void => {

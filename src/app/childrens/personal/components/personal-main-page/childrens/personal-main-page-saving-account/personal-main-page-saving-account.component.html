@@ -2,8 +2,7 @@
     <div class="exitBtn" routerLink="../">
         <img class="imgCross" src="../assets/images/payments-transfers_img/cross.svg" alt="exit cross">
     </div>
-    <form [formGroup]="savingsAccForm"
-          (ngSubmit)="onSubmit()">
+    <form [formGroup]="savingsAccForm">
         <div class="value">
             <label for="name"></label>
             <input
@@ -36,7 +35,7 @@
         </div>
         <nav>
             <button
-                (click)="onSer()"
+                (click)="sendOnServer()"
                 [disabled]="savingsAccForm.invalid"
                 type="submit"
                 class="btn">

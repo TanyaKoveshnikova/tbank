@@ -27,6 +27,7 @@ import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { ConsoleLogger } from '@angular/compiler-cli';
 import { AlertifyServiceService } from '../../services/alertify-service.service';
+import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AlertifyServiceService } from '../../services/alertify-service.service'
         PersonalAutoPaymentsComponent,
         PersonalAdvertisingComponent,
         HintHostListenerDirective,
+        PersonalMainPageNewCardComponent
     ],
     entryComponents: [
         PersonalAdvertisingComponent,

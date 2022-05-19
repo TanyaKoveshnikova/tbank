@@ -14,12 +14,12 @@ export class PaymentsBetweenAccountsComponent implements OnInit {
         private _route: ActivatedRoute,
         private _breadcrumbService: BreadcrumbService,
     ) {
-        this._breadcrumbService.set('@BetweenAccount', 'Between Account');
         this._router.navigate(['fillingDetails'], { relativeTo: _route });
     }
 
     public ngOnInit(): void {
-        //
+        this._breadcrumbService.set('@PaymentsAndTransfers', 'Payments And Transfers');
+        this._breadcrumbService.set('@BetweenAccount', 'Between Account');
     }
 
     public toggleClass(idElem: string): void {

@@ -6,6 +6,6 @@ export interface IUser {
     name: string,
     surname: string,
     id: number,
-    cards: ICard[];
+    //cards: ICard[];
 }
 

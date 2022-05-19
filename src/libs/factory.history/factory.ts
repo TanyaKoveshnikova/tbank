@@ -20,24 +20,24 @@ export class FactoryCardHistory {
     constructor(private _sendCardHistory: SendCardHistory) {
     }
 
-    public createCard(type: string, user: IUser, transferAmount: number, client?: IUser, savAccName?: string): void {
+    public createCard(type: string, user: IUser, transferAmount: number, card: ICard, client?: IUser, savAccName?: string): void {
         const moneyTransfer: string = FactoryCardHistory.formattingMoney(transferAmount);
         if (type === 'fromSomeone' && client) {
             const senderName: string = user.name + ' ' + user.surname;
-            const createdClass: any = new FromSomeone(senderName, moneyTransfer, client.cards[0], client.id);
+            const createdClass: any = new FromSomeone(senderName, moneyTransfer, card, client.id);
             const bodyRequest: any = createdClass.createForm();
             this._sendCardHistory.postFromSomeone(createdClass.urlMyHistory, bodyRequest);
         }
 
         if (type === 'betweenAccounts' && savAccName) {
-            const createdClass: any = new BetweenAccounts(savAccName, moneyTransfer, user.cards[0], user.id);
+            const createdClass: any = new BetweenAccounts(savAccName, moneyTransfer, card, user.id);
             const bodyRequest: any = createdClass.createForm();
             this._sendCardHistory.postBetweenAccounts(createdClass.urlMyHistory, bodyRequest);
         }
 
         if (type === 'withdrawal' && client) {
             const clientName: string = client?.name + ' ' + client?.surname;
-            const createdClass: any = new Withdrawal(clientName, moneyTransfer, user.cards[0], user.id);
+            const createdClass: any = new Withdrawal(clientName, moneyTransfer, card, user.id);
             const bodyRequest: any = createdClass.createForm();
             this._sendCardHistory.postWithdrawal(createdClass.urlMyHistory, bodyRequest);
         }

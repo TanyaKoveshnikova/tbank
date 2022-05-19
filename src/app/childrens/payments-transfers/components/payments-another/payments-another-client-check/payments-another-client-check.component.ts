@@ -25,17 +25,24 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
     }
 
     private findNeedClient(): void {
-        this._checkClientCardService.findClient().subscribe((user: IUser) => {
-            if (user.name === undefined) {
-                this.isString = true;
-                this.loaded = true;
-            } else {
-                this._checkClientCardService.client = user;
-                this.findClient = this._checkClientCardService.client;
-                this.clientCard = this._checkClientCardService.clientCardNumber;
-                this.isString = false;
-                this.loaded = true;
-            }
-        });
+        this._checkClientCardService.findClient()
+            .subscribe({
+                next: (value: any) => {
+                    if (value === undefined) {
+                        this.isString = true;
+                        this.loaded = true;
+                    } else {
+                        value
+                            .subscribe((user: IUser) => {
+                                this._checkClientCardService.client = user;
+                                this.findClient = this._checkClientCardService.client;
+                                this.clientCard = this._checkClientCardService.clientCardNumber;
+                                this.isString = false;
+                                this.loaded = true;
+
+                            });
+                    }
+                }
+            });
     }
 }
