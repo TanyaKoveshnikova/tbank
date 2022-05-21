@@ -125,6 +125,14 @@
       "doneRUB": "39",
       "idCreator": 4,
       "id": 12
+    },
+    {
+      "name": "test",
+      "endDate": "2022-05-27",
+      "goalRUB": "50 000 000",
+      "doneRUB": "0",
+      "idCreator": 4,
+      "id": 13
     }
   ],
   "cardsUsers": [

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,13 +8,28 @@ import { FormGroup } from '@angular/forms';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonalMainPageNewCardComponent implements OnInit {
-    public newCardForm: FormGroup = new FormGroup({});
-    public idUser?: number;
+    public arrayNumberImg: number[] = [];
 
-    constructor() {
+    constructor(
+        private _renderer: Renderer2,
+        private _el: ElementRef
+    ) {
+        //
     }
 
     public ngOnInit(): void {
+        let i: number = 0;
+        while (i < 4) {
+            this.arrayNumberImg.push(this.randomNumber());
+            i++;
+        }
     }
 
+    public randomNumber(): number {
+        return Math.floor(Math.random() * (123 - 1 + 1)) + 1;
+    }
+
+    public toggleClass(idCard: string): void {
+
+    }
 }
