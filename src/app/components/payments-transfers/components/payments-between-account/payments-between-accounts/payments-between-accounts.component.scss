@@ -1,0 +1,42 @@
+@import "../../../../../../assets/styles/path_file";
+
+.wrapper {
+    width: 80%;
+    margin: 3.5rem auto;
+    text-align: center;
+    color: #444444;
+    font-size: 1.2em;
+
+    @include _768 {
+        width: 85%;
+    }
+
+    .translationPath {
+        padding-bottom: 2rem;
+        @include _768 {
+           display: none;
+        }
+    }
+
+    .linkText {
+        vertical-align: center;
+        color: #444444;
+        padding-right: 0.5em;
+        opacity: 0.7;
+    }
+
+    .linkActive {
+        vertical-align: center;
+        padding-left: 0.5em;
+        opacity: 1;
+        font-size: 1.3em;
+        border-bottom: #080023 solid 0.07em;
+    }
+
+    .img__arrow {
+        padding-left: 0.6em;
+        height: 0.8em;
+        padding-top: 0.5em;
+        transform: rotate(90deg);
+    }
+}

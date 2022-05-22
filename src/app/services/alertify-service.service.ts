@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { AlertWindowComponent } from '../components/alert-window/alert-window.component';
-import { INotificationOptions } from '../childrens/spa/interfaces/INotificationOptions';
+import { INotificationOptions } from '../components/spa/interfaces/INotificationOptions.interface';
 
 
 @Injectable({

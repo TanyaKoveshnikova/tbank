@@ -1,12 +1,10 @@
-import { ICommon } from './interfaces/ICommon';
-import { ICardView } from './interfaces/ICardView';
-import { ICard } from '../../app/childrens/spa/interfaces/ICard';
 import { SendCardHistory } from './data/sendCardHistory';
-import { IUser } from '../../app/childrens/spa/interfaces/IUser';
+import { IUser } from '../../app/components/spa/interfaces/IUser.interface';
 import { Injectable } from '@angular/core';
 import { FromSomeone } from './types-actions/fromSomeone';
 import { BetweenAccounts } from './types-actions/betweenAccounts';
 import { Withdrawal } from './types-actions/withdrawal';
+import { ICard } from '../../app/components/spa/interfaces/ICard.interface';
 
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
 import { AlertifyServiceService } from '../../services/alertify-service.service';
-import { INotificationOptions } from '../../childrens/spa/interfaces/INotificationOptions';
+import { INotificationOptions } from '../spa/interfaces/INotificationOptions.interface';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({

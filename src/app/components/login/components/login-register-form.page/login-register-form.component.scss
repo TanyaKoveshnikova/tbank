@@ -1,0 +1,123 @@
+@import '../../../../../assets/styles/path_file';
+@import "../../../../../assets/styles/header-signIn";
+@import "../../../../../assets/styles/eyesPassword";
+
+$sizeHeader: 4rem;
+
+.wrapper {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
+    padding-bottom: 3em;
+
+    .content {
+        padding-top: 3em;
+    }
+
+    .signUp {
+        font-size: 2rem;
+
+        @include _480 {
+            font-size: 1.8rem;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        border: solid 1px black;
+        box-shadow: 0px -0px 4px 2px rgba(199, 199, 199, 0.53);
+        text-align: center;
+        margin-right: auto;
+        margin-top: 1em;
+        margin-left: auto;
+        max-width: 45%;
+        border-radius: 3%;
+
+        @include _480 {
+            max-width: 85%;
+        }
+
+        @include _1670 {
+            max-width: 35%;
+        }
+
+
+        .fieldRegistration {
+            float: left;
+            margin-top: 1.5em;
+
+            .value {
+                font-size: 1.7rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                clear: both;
+                text-align: right;
+
+                label {
+                    padding: 0.8rem 0.01em 0.1em 0.01em;
+                    float: left;
+                }
+
+                input {
+                    margin-left: auto;
+                    margin-right: auto;
+                    width:95%;
+                    height: 2.6em;
+                    border-radius: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding-left: 1em;
+                }
+
+                .password__btn {
+                    right: 0.3em;
+                    top: 1.9em;
+                    cursor: pointer;
+                }
+
+                .red-text {
+                    color: #fa737e;
+                    font-size: 0.7rem;
+                    margin-bottom: 0.2em;
+                    margin-top: 0.2em;
+                }
+            }
+        }
+
+        .nav {
+            .sign {
+                padding: 0.1em;
+                font-size: 1.4em;
+                margin-top: 1em;
+                width: 10em;
+                border-radius: 6px;
+            }
+
+            .sign[disabled] {
+                border-color: rgba(51, 51, 51, 0.05);
+                transition: 0.5s;
+            }
+
+            .sign:hover {
+                transform: scale(1.05);
+                transition: 0.5s;
+            }
+
+            ul li {
+                margin-top: 1em;
+                font-size: 1.1em;
+                margin-bottom: 1.5em;
+            }
+
+            li:hover {
+                transform: scale(1.2);
+                color: #1b0269;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+

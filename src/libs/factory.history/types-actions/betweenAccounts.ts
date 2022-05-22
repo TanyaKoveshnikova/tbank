@@ -1,22 +1,19 @@
-import { ICommon } from '../interfaces/ICommon';
-import { ICardView } from '../interfaces/ICardView';
-import { ICard } from '../../../app/childrens/spa/interfaces/ICard';
-import { IBetweenAccount } from '../interfaces/IBetweenAccount';
+import { ICommon } from '../interfaces/ICommon.interface';
+import { ICardView } from '../interfaces/ICardView.interface';
+import { IBetweenAccount } from '../interfaces/IBetweenAccount.interface';
+import { ICard } from '../../../app/components/spa/interfaces/ICard.interface';
 
 export class BetweenAccounts implements ICommon {
     public date: Date | number = Date.now();
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public fromWhom = 'between accounts';
+    public fromWhom: string = 'between accounts';
 
     public whatAccountName!: string;
 
     //Скакой списали
     public interactionWhichAccount: ICardView;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public operationName = 'Translations';
+    public operationName: string = 'Translations';
     public transferAmount: string;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public urlMyHistory = 'http://localhost:3000/history';
+    public urlMyHistory: string = 'http://localhost:3000/history';
     public card!: ICard;
     public typeTransaction: string = 'betweenAccounts';
 

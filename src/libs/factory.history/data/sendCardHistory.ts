@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { ICommon } from '../interfaces/ICommon';
+import { ICommon } from '../interfaces/ICommon.interface';
 import { Injectable } from '@angular/core';
 import { BetweenAccounts } from '../types-actions/betweenAccounts';
-import { IBetweenAccount } from '../interfaces/IBetweenAccount';
+import { IBetweenAccount } from '../interfaces/IBetweenAccount.interface';
 
 @Injectable({
     providedIn: 'root'
