@@ -9,7 +9,7 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     font-weight: 500;
     color: #080023;
     position: absolute;
-    margin: 20% auto;
+    margin: 10% auto;
     width: 85%;
 
     @include _768 {
@@ -103,7 +103,7 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     }
 
     .container:not(:first-child) {
-        margin-top: 2em;
+        margin-top: 1em;
     }
 
     .fox_image {
@@ -146,6 +146,7 @@ details > summary {
 details summary .summary__header {
     margin-bottom: 0.1em;
 
+
     .img_active {
         position: relative;
         top: 3px;
@@ -184,8 +185,10 @@ details[open] summary .hidden {
 }
 
 .content__router {
-    float: right;
-    width: 50%;
     padding: 1em;
-    margin: 2em;
+    margin: 0.2em;
+}
+
+.summary__header{
+    line-height: 2.2rem;
 }

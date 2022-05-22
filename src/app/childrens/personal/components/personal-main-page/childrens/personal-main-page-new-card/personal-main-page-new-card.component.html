@@ -1,50 +1,43 @@
-<div class="container ">
-    <input type="radio" name="slider" id="item-1" (click)="toggleClass('item-1')" checked>
-    <input type="radio" name="slider" id="item-2" (click)="toggleClass('item-2')">
-    <input type="radio" name="slider" id="item-3" (click)="toggleClass('item-3')">
-    <div class="cards">
-        <label class="card" for="item-1" id="song-1">
-            <img src="https://randomfox.ca/images/{{arrayNumberImg[0]}}.jpg" alt="fox image">
-        </label>
-        <label class="card" for="item-2" id="song-2">
-            <img src="https://randomfox.ca/images/{{arrayNumberImg[1]}}.jpg" alt="fox image">
-        </label>
-        <label class="card" for="item-3" id="song-3">
-            <img src="https://randomfox.ca/images/{{arrayNumberImg[2]}}.jpg" alt="fox image">
-        </label>
-    </div>
-    <div class="player">
-        <div class="upper-part">
-            <div class="play-icon">
-
-            </div>
-            <div class="info-area" id="test">
-                <label class="song-info" id="song-info-1">
-                    <div class="title">Bunker</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Balthazar</div>
-                        <div class="time">4.05</div>
+<div class="wrapper">
+    <div class="box">
+        <div id="slide1" #slide>
+            <div class="cards" *ngFor="let card of informationNewCard$ | async; let i = index">
+                <div class="wrapperCross">
+                    <img class="cross" src="../../../../../../../assets/images/payments-transfers_img/cross.svg"
+                         alt="cross" routerLink="../">
+                </div>
+                <div class="content">
+                    <div class="imageCard">
+                        <img src="https://randomfox.ca/images/{{arrayNumberImg[i]}}.jpg" alt="fox image">
                     </div>
-                </label>
-                <label class="song-info" id="song-info-2">
-                    <div class="title">Words Remain</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Moderator</div>
-                        <div class="time">4.05</div>
+                    <div class="nameService">
+                        <div class="value value__name">{{card?.nameCard | titlecase}}</div>
+                        <div class="value value__service">{{card?.service}}</div>
                     </div>
-                </label>
-                <label class="song-info" id="song-info-3">
-                    <div class="title">Falling Out</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Otzeki</div>
-                        <div class="time">4.05</div>
+                    <div class="elementBuns" *ngFor="let bun of card?.buns">
+                        <div class="valueFlex valueFlex__image">
+                            <img class="imgBun" src="../../../../../../../{{bun?.img}}" alt="bun img">
+                        </div>
+                        <div class="valueFlex valueFlex__description">
+                            <div class="title">{{bun?.title}}</div>
+                            <div class="descriptionTitle">{{bun?.descriptionTitle}}</div>
+                        </div>
                     </div>
-                </label>
+                </div>
+                <div class="btn11">
+                    <button class="btn1" (click)="createNewCard(card)">
+                        Checkout
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="progress-bar">
-            <span class="progress"></span>
-        </div>
     </div>
+    <button class="btn" type="button">
+        <img class="arrow arrow__left" src="../../../../../../../assets/images/arrow.svg" alt="arrow"
+             (click)="prevCard()">
+    </button>
+    <button class="btn" type="button">
+        <img class="arrow arrow__right" src="../../../../../../../assets/images/arrow.svg" alt="arrow"
+             (click)="nextCard()">
+    </button>
 </div>
-

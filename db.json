@@ -1,341 +1,438 @@
 {
-  "signupUsers": [
-    {
-      "mail": "betterhalfbreed@hog.ru",
-      "password": "123456",
-      "name": "Гермиона",
-      "surname": "Грейнджер",
-      "id": 1
-    },
-    {
-      "mail": "dogcat@hog.ru",
-      "password": "123456",
-      "name": "Рон",
-      "surname": "Уизли",
-      "id": 2
-    },
-    {
-      "mail": "imbettermagician@hog.ru",
-      "password": "123456",
-      "name": "Гарри",
-      "surname": "Поттер",
-      "id": 3
-    },
-    {
-      "mail": "taniakovesh@gmail.com",
-      "password": "123456",
-      "name": "Татьяна ",
-      "surname": "Ковешникова ",
-      "id": 4
-    }
-  ],
-  "savingsAcc": [
-    {
-      "name": "на мозг",
-      "endDate": "2022-04-29",
-      "goalRUB": "100 000 000 000",
-      "doneRUB": "915",
-      "idCreator": 1,
-      "id": 1
-    },
-    {
-      "name": "on a magic wand",
-      "endDate": "2022-05-27",
-      "goalRUB": "10 000",
-      "doneRUB": "1 329",
-      "idCreator": 3,
-      "id": 2
-    },
-    {
-      "name": "for a book on potions",
-      "endDate": "2022-06-30",
-      "goalRUB": "5 000",
-      "doneRUB": "224",
-      "idCreator": 3,
-      "id": 3
-    },
-    {
-      "name": "on an owl",
-      "endDate": "2022-04-29",
-      "goalRUB": "300",
-      "doneRUB": "100",
-      "idCreator": 3,
-      "id": 4
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-03",
-      "goalRUB": "10",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 5
-    },
-    {
-      "name": "test2",
-      "endDate": "2022-05-10",
-      "goalRUB": "2",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 6
-    },
-    {
-      "name": "test3",
-      "endDate": "2022-05-10",
-      "goalRUB": "3",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 7
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-12",
-      "goalRUB": "10",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 8
-    },
-    {
-      "name": "test2",
-      "endDate": "2022-05-22",
-      "goalRUB": "50",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 9
-    },
-    {
-      "name": "test3",
-      "endDate": "2022-05-21",
-      "goalRUB": "1",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 10
-    },
-    {
-      "name": "testv",
-      "endDate": "2022-05-28",
-      "goalRUB": "50",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 11
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-28",
-      "goalRUB": "100",
-      "doneRUB": "39",
-      "idCreator": 4,
-      "id": 12
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-27",
-      "goalRUB": "50 000 000",
-      "doneRUB": "0",
-      "idCreator": 4,
-      "id": 13
-    }
-  ],
-  "cardsUsers": [
-    {
-      "cardName": "maestro payCard",
-      "RUB": "36 403",
-      "cardNumber": "3743 9124 2025 3967",
-      "idCreator": 1,
-      "id": 1
-    },
-    {
-      "cardName": "payCard master",
-      "RUB": "94 266",
-      "cardNumber": "3674 4125 2091 7294",
-      "idCreator": 2,
-      "id": 2
-    },
-    {
-      "cardName": "payCard classic",
-      "RUB": "85 663",
-      "cardNumber": "6292 5140 9963 5494",
-      "idCreator": 3,
-      "id": 3
-    },
-    {
-      "cardName": "classic payCard",
-      "RUB": "28 350",
-      "cardNumber": "7218 2937 2039 4406",
-      "idCreator": 4,
-      "id": 4
-    },
-    {
-      "cardName": "standard standard",
-      "RUB": "99 200",
-      "cardNumber": "8131 3494 1141 4903",
-      "idCreator": 4,
-      "id": 5
-    }
-  ],
-  "history1": [
-    {
-      "fromWhom": "Татьяна  Ковешникова ",
-      "operationName": "Refill",
-      "transferAmount": "100",
-      "date": 1652969388838,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "classic payCard",
-          "RUB": "28 459",
-          "cardNumber": "7218 2937 2039 4406",
-          "idCreator": 4,
-          "id": 4
+    "signupUsers": [
+        {
+            "mail": "betterhalfbreed@hog.ru",
+            "password": "123456",
+            "name": "Гермиона",
+            "surname": "Грейнджер",
+            "id": 1
         },
-        "textOperation": "To the card account"
-      },
-      "typeTransaction": "fromSomeone",
-      "id": 1
-    }
-  ],
-  "history2": [
-    {
-      "fromWhom": "Татьяна  Ковешникова ",
-      "operationName": "Refill",
-      "transferAmount": "10",
-      "date": 1652970508297,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "standard standard",
-          "RUB": "99 240",
-          "cardNumber": "8131 3494 1141 4903",
-          "idCreator": 4,
-          "id": 5
+        {
+            "mail": "dogcat@hog.ru",
+            "password": "123456",
+            "name": "Рон",
+            "surname": "Уизли",
+            "id": 2
         },
-        "textOperation": "To the card account"
-      },
-      "typeTransaction": "fromSomeone",
-      "id": 1
-    }
-  ],
-  "history3": [],
-  "history4": [
-    {
-      "fromWhom": "Гермиона Грейнджер",
-      "operationName": "Withdrawal of money",
-      "transferAmount": "100",
-      "date": 1652969388842,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "classic payCard",
-          "RUB": "28 459",
-          "cardNumber": "7218 2937 2039 4406",
-          "idCreator": 4,
-          "id": 4
+        {
+            "mail": "imbettermagician@hog.ru",
+            "password": "123456",
+            "name": "Гарри",
+            "surname": "Поттер",
+            "id": 3
         },
-        "textOperation": "From a bank card"
-      },
-      "typeTransaction": "withdrawal",
-      "id": 1
-    },
-    {
-      "fromWhom": "between accounts",
-      "whatAccountName": "test",
-      "operationName": "Translations",
-      "transferAmount": "2",
-      "date": 1652970144149,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "classic payCard",
-          "RUB": "28 359",
-          "cardNumber": "7218 2937 2039 4406",
-          "idCreator": 4,
-          "id": 4
+        {
+            "mail": "taniakovesh@gmail.com",
+            "password": "123456",
+            "name": "Татьяна ",
+            "surname": "Ковешникова ",
+            "id": 4
+        }
+    ],
+    "savingsAcc": [
+        {
+            "name": "на мозг",
+            "endDate": "2022-04-29",
+            "goalRUB": "100 000 000 000",
+            "doneRUB": "915",
+            "idCreator": 1,
+            "id": 1
         },
-        "textOperation": "From card account"
-      },
-      "typeTransaction": "betweenAccounts",
-      "id": 2
-    },
-    {
-      "fromWhom": "between accounts",
-      "whatAccountName": "test",
-      "operationName": "Translations",
-      "transferAmount": "5",
-      "date": 1652970210390,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "classic payCard",
-          "RUB": "28 357",
-          "cardNumber": "7218 2937 2039 4406",
-          "idCreator": 4,
-          "id": 4
+        {
+            "name": "on a magic wand",
+            "endDate": "2022-05-27",
+            "goalRUB": "10 000",
+            "doneRUB": "1 329",
+            "idCreator": 3,
+            "id": 2
         },
-        "textOperation": "From card account"
-      },
-      "typeTransaction": "betweenAccounts",
-      "id": 3
-    },
-    {
-      "fromWhom": "between accounts",
-      "whatAccountName": "test",
-      "operationName": "Translations",
-      "transferAmount": "2",
-      "date": 1652970222780,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "classic payCard",
-          "RUB": "28 352",
-          "cardNumber": "7218 2937 2039 4406",
-          "idCreator": 4,
-          "id": 4
+        {
+            "name": "for a book on potions",
+            "endDate": "2022-06-30",
+            "goalRUB": "5 000",
+            "doneRUB": "224",
+            "idCreator": 3,
+            "id": 3
         },
-        "textOperation": "From card account"
-      },
-      "typeTransaction": "betweenAccounts",
-      "id": 4
-    },
-    {
-      "fromWhom": "Рон Уизли",
-      "operationName": "Withdrawal of money",
-      "transferAmount": "10",
-      "date": 1652970508299,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "standard standard",
-          "RUB": "99 240",
-          "cardNumber": "8131 3494 1141 4903",
-          "idCreator": 4,
-          "id": 5
+        {
+            "name": "on an owl",
+            "endDate": "2022-04-29",
+            "goalRUB": "300",
+            "doneRUB": "100",
+            "idCreator": 3,
+            "id": 4
         },
-        "textOperation": "From a bank card"
-      },
-      "typeTransaction": "withdrawal",
-      "id": 5
-    },
-    {
-      "fromWhom": "between accounts",
-      "whatAccountName": "test",
-      "operationName": "Translations",
-      "transferAmount": "30",
-      "date": 1652970529809,
-      "interactionWhichAccount": {
-        "card": {
-          "cardName": "standard standard",
-          "RUB": "99 230",
-          "cardNumber": "8131 3494 1141 4903",
-          "idCreator": 4,
-          "id": 5
+        {
+            "name": "test",
+            "endDate": "2022-05-03",
+            "goalRUB": "10",
+            "doneRUB": "0",
+            "idCreator": 3,
+            "id": 5
         },
-        "textOperation": "From card account"
-      },
-      "typeTransaction": "betweenAccounts",
-      "id": 6
-    }
-  ],
-  "history5": [],
-  "history6": [],
-  "history7": [],
-  "history8": [],
-  "history9": [],
-  "history10": [],
-  "history11": [],
-  "history12": [],
-  "history13": [],
-  "history14": [],
-  "history15": []
+        {
+            "name": "test2",
+            "endDate": "2022-05-10",
+            "goalRUB": "2",
+            "doneRUB": "0",
+            "idCreator": 3,
+            "id": 6
+        },
+        {
+            "name": "test3",
+            "endDate": "2022-05-10",
+            "goalRUB": "3",
+            "doneRUB": "0",
+            "idCreator": 3,
+            "id": 7
+        },
+        {
+            "name": "test",
+            "endDate": "2022-05-12",
+            "goalRUB": "10",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 8
+        },
+        {
+            "name": "test2",
+            "endDate": "2022-05-22",
+            "goalRUB": "50",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 9
+        },
+        {
+            "name": "test3",
+            "endDate": "2022-05-21",
+            "goalRUB": "1",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 10
+        },
+        {
+            "name": "testv",
+            "endDate": "2022-05-28",
+            "goalRUB": "50",
+            "doneRUB": "0",
+            "idCreator": 1,
+            "id": 11
+        },
+        {
+            "name": "test",
+            "endDate": "2022-05-28",
+            "goalRUB": "100",
+            "doneRUB": "39",
+            "idCreator": 4,
+            "id": 12
+        },
+        {
+            "name": "test",
+            "endDate": "2022-05-27",
+            "goalRUB": "50 000 000",
+            "doneRUB": "200",
+            "idCreator": 4,
+            "id": 13
+        },
+        {
+            "name": "test",
+            "endDate": "2022-05-27",
+            "goalRUB": "543",
+            "doneRUB": "0",
+            "idCreator": 4,
+            "id": 14
+        }
+    ],
+    "cardsUsers": [
+        {
+            "cardName": "maestro payCard",
+            "RUB": "36 403",
+            "cardNumber": "3743 9124 2025 3967",
+            "idCreator": 1,
+            "id": 1
+        },
+        {
+            "cardName": "payCard master",
+            "RUB": "94 266",
+            "cardNumber": "3674 4125 2091 7294",
+            "idCreator": 2,
+            "id": 2
+        },
+        {
+            "cardName": "payCard classic",
+            "RUB": "85 663",
+            "cardNumber": "6292 5140 9963 5494",
+            "idCreator": 3,
+            "id": 3
+        },
+        {
+            "cardName": "classic payCard",
+            "RUB": "28 350",
+            "cardNumber": "7218 2937 2039 4406",
+            "idCreator": 4,
+            "id": 4
+        },
+        {
+            "cardName": "standard standard",
+            "RUB": "99 000",
+            "cardNumber": "8131 3494 1141 4903",
+            "idCreator": 4,
+            "id": 5
+        }
+    ],
+    "contentNewCard": [
+        {
+            "nameCard": "hogwarts travel",
+            "service": "200 rubles per month",
+            "buns": [
+                {
+                    "img": "assets/images/image-cards/mili.svg",
+                    "title": "~ 5 000 HogMill",
+                    "descriptionTitle": "You can save up to 40,000 per month"
+                },
+                {
+                    "img": "assets/images/image-cards/package.svg",
+                    "title": "Accrue up to 2% HogMill",
+                    "descriptionTitle": "For any card purchases"
+                },
+                {
+                    "img": "assets/images/card-image.png",
+                    "title": "HogCard travel banking map",
+                    "descriptionTitle": "In rubles"
+                }
+            ]
+        },
+        {
+            "nameCard": "hogCard",
+            "service": "Free with purchases over 5 000 per month",
+            "buns": [
+                {
+                    "img": "assets/images/image-cards/cash.svg",
+                    "title": "Increased cashback with bonuses",
+                    "descriptionTitle": "In a category to choose from"
+                },
+                {
+                    "img": "assets/images/image-cards/star.png",
+                    "title": "Free maintenance",
+                    "descriptionTitle": "When receiving a salary, scholarship, social benefits or purchases from 5 000 per month"
+                },
+                {
+                    "img": "assets/images/image-cards/gift.png",
+                    "title": "If this is the first HogCard",
+                    "descriptionTitle": "This and next month service is free and 5% bonuses in cafes"
+                }
+            ]
+        },
+        {
+            "nameCard": "Digital hogCard world",
+            "service": "Free with purchases over 5 000 per month",
+            "buns": [
+                {
+                    "img": "assets/images/image-cards/star.png",
+                    "title": "Free maintenance",
+                    "descriptionTitle": "When receiving a salary, scholarship, social benefits or purchases from 5 000 per month"
+                },
+                {
+                    "img": "assets/images/image-cards/lightning.svg",
+                    "title": "For online shopping",
+                    "descriptionTitle": "Pay and withdraw cash by phone in Russia and a number of countries"
+                },
+                {
+                    "img": "assets/images/image-cards/gift.png",
+                    "title": "If this is the first HogCard",
+                    "descriptionTitle": "This and next month service is free and 5% bonuses in cafes"
+                },
+                {
+                    "img": "assets/images/payments-transfers_img/fox.svg",
+                    "title": "3.5% per annum on the balance",
+                    "descriptionTitle": "When receiving a pension HogCard"
+                }
+            ]
+        }
+    ],
+    "history1": [
+        {
+            "fromWhom": "Татьяна  Ковешникова ",
+            "operationName": "Refill",
+            "transferAmount": "100",
+            "date": 1652969388838,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "classic payCard",
+                    "RUB": "28 459",
+                    "cardNumber": "7218 2937 2039 4406",
+                    "idCreator": 4,
+                    "id": 4
+                },
+                "textOperation": "To the card account"
+            },
+            "typeTransaction": "fromSomeone",
+            "id": 1
+        }
+    ],
+    "history2": [
+        {
+            "fromWhom": "Татьяна  Ковешникова ",
+            "operationName": "Refill",
+            "transferAmount": "10",
+            "date": 1652970508297,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "standard standard",
+                    "RUB": "99 240",
+                    "cardNumber": "8131 3494 1141 4903",
+                    "idCreator": 4,
+                    "id": 5
+                },
+                "textOperation": "To the card account"
+            },
+            "typeTransaction": "fromSomeone",
+            "id": 1
+        }
+    ],
+    "history3": [],
+    "history4": [
+        {
+            "fromWhom": "Гермиона Грейнджер",
+            "operationName": "Withdrawal of money",
+            "transferAmount": "100",
+            "date": 1652969388842,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "classic payCard",
+                    "RUB": "28 459",
+                    "cardNumber": "7218 2937 2039 4406",
+                    "idCreator": 4,
+                    "id": 4
+                },
+                "textOperation": "From a bank card"
+            },
+            "typeTransaction": "withdrawal",
+            "id": 1
+        },
+        {
+            "fromWhom": "between accounts",
+            "whatAccountName": "test",
+            "operationName": "Translations",
+            "transferAmount": "2",
+            "date": 1652970144149,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "classic payCard",
+                    "RUB": "28 359",
+                    "cardNumber": "7218 2937 2039 4406",
+                    "idCreator": 4,
+                    "id": 4
+                },
+                "textOperation": "From card account"
+            },
+            "typeTransaction": "betweenAccounts",
+            "id": 2
+        },
+        {
+            "fromWhom": "between accounts",
+            "whatAccountName": "test",
+            "operationName": "Translations",
+            "transferAmount": "5",
+            "date": 1652970210390,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "classic payCard",
+                    "RUB": "28 357",
+                    "cardNumber": "7218 2937 2039 4406",
+                    "idCreator": 4,
+                    "id": 4
+                },
+                "textOperation": "From card account"
+            },
+            "typeTransaction": "betweenAccounts",
+            "id": 3
+        },
+        {
+            "fromWhom": "between accounts",
+            "whatAccountName": "test",
+            "operationName": "Translations",
+            "transferAmount": "2",
+            "date": 1652970222780,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "classic payCard",
+                    "RUB": "28 352",
+                    "cardNumber": "7218 2937 2039 4406",
+                    "idCreator": 4,
+                    "id": 4
+                },
+                "textOperation": "From card account"
+            },
+            "typeTransaction": "betweenAccounts",
+            "id": 4
+        },
+        {
+            "fromWhom": "Рон Уизли",
+            "operationName": "Withdrawal of money",
+            "transferAmount": "10",
+            "date": 1652970508299,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "standard standard",
+                    "RUB": "99 240",
+                    "cardNumber": "8131 3494 1141 4903",
+                    "idCreator": 4,
+                    "id": 5
+                },
+                "textOperation": "From a bank card"
+            },
+            "typeTransaction": "withdrawal",
+            "id": 5
+        },
+        {
+            "fromWhom": "between accounts",
+            "whatAccountName": "test",
+            "operationName": "Translations",
+            "transferAmount": "30",
+            "date": 1652970529809,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "standard standard",
+                    "RUB": "99 230",
+                    "cardNumber": "8131 3494 1141 4903",
+                    "idCreator": 4,
+                    "id": 5
+                },
+                "textOperation": "From card account"
+            },
+            "typeTransaction": "betweenAccounts",
+            "id": 6
+        },
+        {
+            "fromWhom": "between accounts",
+            "whatAccountName": "test",
+            "operationName": "Translations",
+            "transferAmount": "200",
+            "date": 1653214037609,
+            "interactionWhichAccount": {
+                "card": {
+                    "cardName": "standard standard",
+                    "RUB": "99 200",
+                    "cardNumber": "8131 3494 1141 4903",
+                    "idCreator": 4,
+                    "id": 5
+                },
+                "textOperation": "From card account"
+            },
+            "typeTransaction": "betweenAccounts",
+            "id": 7
+        }
+    ],
+    "history5": [],
+    "history6": [],
+    "history7": [],
+    "history8": [],
+    "history9": [],
+    "history10": [],
+    "history11": [],
+    "history12": [],
+    "history13": [],
+    "history14": [],
+    "history15": []
 }

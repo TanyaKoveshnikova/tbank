@@ -15,6 +15,11 @@ import { ICard } from '../../spa/interfaces/ICard';
     providedIn: 'root'
 })
 export class PeopleService {
+    public static cardNumber(): string {
+        return Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000) + ' '
+            + Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000);
+    }
+
     @ViewChild('password')
     public passwordInput!: ElementRef;
     private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
@@ -31,6 +36,7 @@ export class PeopleService {
     ) {
     }
 
+
     public sendOnServer(registerForm: FormGroup): void {
         const newUser: IUser = {
             mail: registerForm.value.mail,
@@ -46,13 +52,12 @@ export class PeopleService {
             .subscribe({
                 next: (users: IUser[]) => {
                     id = users[users.length - 1].id + 1;
-                    console.log(id);
                 },
                 complete: () => {
                     const firstCard: ICard = {
                         cardName: this.creatRandomNameCard(),
                         RUB: this.randomMoney(),
-                        cardNumber: this.cardNumber(),
+                        cardNumber: PeopleService.cardNumber(),
                         idCreator: id,
                     };
 
@@ -130,10 +135,5 @@ export class PeopleService {
 
     private randomMoney(): string {
         return new Intl.NumberFormat('ru-RU').format(Math.round(Math.random() * 100000));
-    }
-
-    private cardNumber(): string {
-        return Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000) + ' '
-            + Math.round(Math.random() * (10000 - 1000) + 1000) + ' ' + Math.round(Math.random() * (10000 - 1000) + 1000);
     }
 }

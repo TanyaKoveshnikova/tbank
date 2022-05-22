@@ -18,7 +18,7 @@ export class FondCardsService implements OnInit {
 
     public id?: number;
     //Юзер, чей банк
-    public userService?: IUser;
+    public userService!: IUser;
     public savAcc$: BehaviorSubject<ISavingsAccount[] | null> = new BehaviorSubject<ISavingsAccount[] | null>(null);
     public cardUser$: BehaviorSubject<ICard[] | null> = new BehaviorSubject<ICard[] | null>(null);
     private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';

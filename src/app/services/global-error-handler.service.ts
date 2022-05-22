@@ -24,7 +24,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
             this._alertifyServiceService.subject$.next({
                 text: error.message,
                 status: 'error',
-            })
+            });
 
             console.error('Error from global error handler', error, 'fr');
         }

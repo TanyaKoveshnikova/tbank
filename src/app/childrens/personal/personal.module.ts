@@ -28,6 +28,7 @@ import { Router } from '@angular/router';
 import { ConsoleLogger } from '@angular/compiler-cli';
 import { AlertifyServiceService } from '../../services/alertify-service.service';
 import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
+import { GetDataService } from './services/get-data.service';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { PersonalMainPageNewCardComponent } from './components/personal-main-pag
     ],
     providers: [
         FondCardsService,
+        GetDataService,
         ExitAboutGuard,
         AuthGuard,
         PersonalHistoryService,

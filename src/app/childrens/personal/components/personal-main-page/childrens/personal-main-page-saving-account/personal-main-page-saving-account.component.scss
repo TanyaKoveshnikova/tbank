@@ -1,15 +1,18 @@
 @import "src/assets/styles/path_file.scss";
 
 .wrapper {
+    position: fixed;
     background-color: rgb(217, 213, 245);
-    width: 40%;
-    margin-top: -11rem;
+    width: 25%;
+    top:18%;
+    left: 49%;
     padding: 2em;
     box-shadow: 0 0 1em 0 rgba(16, 0, 63, 0.64);
-    z-index: 100;
+    z-index: 200;
 
-    @include _480 {
+    @include _768 {
         width: 70vw;
+        left: 38%;
         padding: 1em;
         margin-left: -6.5rem;
         margin-top: 0rem;

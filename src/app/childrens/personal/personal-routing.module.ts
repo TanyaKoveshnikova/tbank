@@ -47,11 +47,6 @@ const childrenRoutes: Routes = [
                 data: { breadcrumb: { alias: 'Create new card' } },
             }
         ]
-    },
-    {
-        path: 'myArea', loadChildren: () => import('../personal-area/personal-area.module')
-            .then((mod: any) => mod.PersonalAreaModule),
-        canActivate: [AuthGuard],
     }
 ];
 
