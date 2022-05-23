@@ -39,7 +39,6 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
                                 this.clientCard = this._checkClientCardService.clientCardNumber;
                                 this.isString = false;
                                 this.loaded = true;
-
                             });
                     }
                 }

@@ -27,6 +27,13 @@
       "name": "Татьяна ",
       "surname": "Ковешникова ",
       "id": 4
+    },
+    {
+      "mail": "jjjj@ggg.ggg",
+      "password": "hhhhhh",
+      "name": "hh",
+      "surname": "hhh",
+      "id": 5
     }
   ],
   "savingsAcc": [
@@ -146,15 +153,23 @@
       "name": "ggg",
       "endDate": "2022-06-04",
       "goalRUB": "323",
-      "doneRUB": "0",
+      "doneRUB": "5",
       "idCreator": 4,
       "id": 15
+    },
+    {
+      "name": "hhh",
+      "endDate": "2022-05-28",
+      "goalRUB": "555",
+      "doneRUB": "0",
+      "idCreator": 4,
+      "id": 16
     }
   ],
   "cardsUsers": [
     {
       "cardName": "maestro payCard",
-      "RUB": "36 403",
+      "RUB": "36 903",
       "cardNumber": "3743 9124 2025 3967",
       "idCreator": 1,
       "id": 1
@@ -182,7 +197,7 @@
     },
     {
       "cardName": "standard standard",
-      "RUB": "99 000",
+      "RUB": "98 995",
       "cardNumber": "8131 3494 1141 4903",
       "idCreator": 4,
       "id": 5
@@ -196,10 +211,31 @@
     },
     {
       "cardName": "Digital hogCard world",
-      "RUB": "0",
+      "RUB": "-500",
       "cardNumber": "4574 2682 6120 4326",
       "idCreator": 4,
       "id": 7
+    },
+    {
+      "cardName": "standard muggle",
+      "RUB": "84 028",
+      "cardNumber": "4546 3752 8239 2354",
+      "idCreator": 5,
+      "id": 8
+    },
+    {
+      "cardName": "hogwarts travel",
+      "RUB": "0",
+      "cardNumber": "1391 6165 7124 7846",
+      "idCreator": 4,
+      "id": 9
+    },
+    {
+      "cardName": "hogwarts travel",
+      "RUB": "0",
+      "cardNumber": "1745 9160 8562 9746",
+      "idCreator": 1,
+      "id": 10
     }
   ],
   "contentNewCard": [
@@ -290,6 +326,24 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 1
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "500",
+      "date": 1653317605280,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "Digital hogCard world",
+          "RUB": "0",
+          "cardNumber": "4574 2682 6120 4326",
+          "idCreator": 4,
+          "id": 7
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 2
     }
   ],
   "history2": [
@@ -444,6 +498,43 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 7
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "500",
+      "date": 1653317605281,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "Digital hogCard world",
+          "RUB": "0",
+          "cardNumber": "4574 2682 6120 4326",
+          "idCreator": 4,
+          "id": 7
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 8
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "ggg",
+      "operationName": "Translations",
+      "transferAmount": "5",
+      "date": 1653317614307,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "99 000",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 9
     }
   ],
   "history5": [],

@@ -25,7 +25,8 @@
                 <img class="image__card" src="../../../assets/images/card-image.png">
                 <select (change)="onClickCard($event)" [(ngModel)]="selectedCardUser">
                     <option *ngFor="let card of cardsUser$ | async" [value]="card.RUB" [ngValue]="card" selected>
-                        <div class="cardName">{{card.cardName}}</div>
+                        <div class="cardName"> ... {{card?.cardNumber | slice:-5}} [{{card?.cardName}}
+                            ] {{card?.RUB}}</div>
                     </option>
                 </select>
             </div>

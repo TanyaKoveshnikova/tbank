@@ -5,14 +5,15 @@
         <div class="title">Recipient</div>
     </div>
     <div class="element element__content">
-        <div class="show_text " *ngIf="isString">
-            Client with this card not found
+        <div *ngIf="!loaded " class="loading">
+            <skeletone-loading></skeletone-loading>
         </div>
-        <div class="show_text" *ngIf="!isString">
-            <div *ngIf="!loaded " class="loading">
-                <skeletone-loading></skeletone-loading>
-            </div>
-            <div class="value" *ngIf="loaded">
+        <div class="show_text " *ngIf="isString && loaded">
+            Client with this card not found.
+            Perhaps this is your card, if so, use transfers between cards (temporarily unavailable).
+        </div>
+        <div class="show_text" *ngIf="!isString && loaded">
+            <div class="value">
                 <img src="../../../assets/images/card-image.png" alt="card-image">
                 <div class="valueContent">
                     <div class="valueText">recipient's bank card</div>
