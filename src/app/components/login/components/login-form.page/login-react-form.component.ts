@@ -37,7 +37,7 @@ export class LoginReactFormComponent implements OnInit {
     ) {
     }
 
-    public onSubmit(): any {
+    public onSubmit(): void {
         this._cookieService.set('mail', this.login.value.mail);
         this._cookieService.set('password', this.login.value.password);
         this._singletonService.loggedUser = this._peopleService.getLoginUser();

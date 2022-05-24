@@ -77,7 +77,7 @@ export class PersonalMainPageNewCardComponent implements OnInit {
         }
     }
 
-    public createNewCard(card: any): void {
+    public createNewCard(card: IInformationNewCard): void {
         this._router.navigate(['personal',this._idUser, 'personal-main-page']);
         this._getDataService.sendOnServerNewCard(card.nameCard, this._fondCardsService.userService.id);
         this._alertifyServiceService.statusAlert = 'success';

@@ -9,13 +9,14 @@ import { CheckClientCardService } from '../../../services/check-client-card.serv
 })
 export class PaymentsAnotherClientComponent implements OnInit {
     public inputControl: FormControl = new FormControl('', [Validators.required, Validators.minLength(19)]);
-    public clientCard?: any;
+    public clientCard!: string;
 
     constructor(private _checkClientCardService: CheckClientCardService) {
         //
     }
 
     public ngOnInit(): void {
+        //
     }
 
     public clientCardOnChanged(): void {

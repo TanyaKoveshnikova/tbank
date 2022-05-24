@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 import { AlertifyServiceService } from '../services/alertify-service.service';
 
 @Directive({

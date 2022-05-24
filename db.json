@@ -169,7 +169,7 @@
   "cardsUsers": [
     {
       "cardName": "maestro payCard",
-      "RUB": "36 903",
+      "RUB": "136 903",
       "cardNumber": "3743 9124 2025 3967",
       "idCreator": 1,
       "id": 1
@@ -190,7 +190,7 @@
     },
     {
       "cardName": "classic payCard",
-      "RUB": "28 350",
+      "RUB": "71 650",
       "cardNumber": "7218 2937 2039 4406",
       "idCreator": 4,
       "id": 4
@@ -344,6 +344,24 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 2
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "100 000",
+      "date": 1653417161292,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "28 350",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 3
     }
   ],
   "history2": [
@@ -535,6 +553,24 @@
       },
       "typeTransaction": "betweenAccounts",
       "id": 9
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "100 000",
+      "date": 1653417161294,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "28 350",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 10
     }
   ],
   "history5": [],

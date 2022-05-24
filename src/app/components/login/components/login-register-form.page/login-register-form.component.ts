@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { checkRepeatEmail, confirmedValidator } from '../../../spa/utils/CustomValidators';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -19,47 +19,33 @@ import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
 })
 export class LoginRegisterFormComponent implements OnInit, ExitAboutGuard {
     public registerForm: FormGroup = new FormGroup({});
-    private urlSignupUser = 'http://localhost:3000/signupUsers';
+    private _urlSignupUser = 'http://localhost:3000/signupUsers';
 
     @ViewChild('btn')
-    btn!: ElementRef;
+    public btn!: ElementRef;
 
     @ViewChild('password')
-    password!: ElementRef;
+    public password!: ElementRef;
 
     @ViewChild('btn2')
-    btn2!: ElementRef;
+    public btn2!: ElementRef;
 
     @ViewChild('confirmPassword')
-    confirmPassword!: ElementRef;
+    public confirmPassword!: ElementRef;
 
     constructor(
-        private http: HttpClient,
-        private fb: FormBuilder,
+        private _http: HttpClient,
+        private _fb: FormBuilder,
         public peopleService: PeopleService,
-        private auth: AngularFireModule,
     ) {
-        this._createForm();
+        this.createForm();
     }
 
     public ngOnInit(): void {
+        //
     }
 
-    private _createForm(): void {
-        this.registerForm = this.fb.group({
-                password: ['', [Validators.required, Validators.minLength(6)]],
-                confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-                name: ['', [Validators.required]],
-                surname: ['', [Validators.required]],
-                mail: ['', [Validators.required, Validators.email]],
-            },
-            {
-                validators: [confirmedValidator('password', 'confirmPassword'),
-                    checkRepeatEmail('mail', this.http, this.urlSignupUser)]
-            });
-    }
-
-    get f() {
+    public get f(): { [key: string]: AbstractControl; } {
         return this.registerForm.controls;
     }
 
@@ -78,5 +64,20 @@ export class LoginRegisterFormComponent implements OnInit, ExitAboutGuard {
         } else {
             return true;
         }
+    }
+
+    private createForm(): void {
+        this.registerForm = this._fb.group(
+            {
+                password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g')]],
+                confirmPassword: ['', [Validators.required, Validators.minLength(6), Validators.pattern('/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g')]],
+                name: ['', [Validators.required]],
+                surname: ['', [Validators.required]],
+                mail: ['', [Validators.required, Validators.email]],
+            },
+            {
+                validators: [confirmedValidator('password', 'confirmPassword'),
+                    checkRepeatEmail('mail', this._http, this._urlSignupUser)]
+            });
     }
 }

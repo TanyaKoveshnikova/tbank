@@ -22,9 +22,9 @@ export class CheckClientCardService {
     public clientCardNumber: string | undefined;
     public client: IUser | undefined;
     public user!: IUser;
-    private _urlCardForTransactions: string = 'http://localhost:3000/cardsUsers';
-    private _urlSavAccount: string = 'http://localhost:3000/savingsAcc';
-    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
+    private _urlCardForTransactions: string = <string>'http://localhost:3000/cardsUsers';
+    private _urlSavAccount: string = <string>'http://localhost:3000/savingsAcc';
+    private _urlSignupUser: string = <string>'http://localhost:3000/signupUsers';
 
     constructor(
         private _fondCardsService: FondCardsService,
@@ -46,10 +46,8 @@ export class CheckClientCardService {
     }
 
 
-    public findClient(): any {
-
+    public findClient(): Observable<Observable<IUser> | undefined> {
         this.user = this._fondCardsService.userService;
-        console.log(this.user);
 
         return this._http.get<ICard[]>(this._urlCardForTransactions)
             .pipe(
@@ -57,7 +55,6 @@ export class CheckClientCardService {
                     (cards: ICard[]) => {
                         const card: ICard | undefined = cards.find((c: ICard) => c.cardNumber === this.clientCardNumber);
                         if (card && card.idCreator !== this.user.id) {
-                            console.log(card.idCreator + this.user.id + 'fffffffffffff');
                             this.findCardClientForTransitions = card;
 
                             return this._http.get<IUser>(this._urlSignupUser + '/' + card.idCreator);

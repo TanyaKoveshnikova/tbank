@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/IUser.interface';
-import { BehaviorSubject, Observable, Observer, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GeneralService {
     public loggedUser!: Observable<IUser>;
-    private _flagSource: BehaviorSubject<any> = new BehaviorSubject(false);
+    private _flagSource: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private _loggedInStatus: boolean | null = false;
 
 

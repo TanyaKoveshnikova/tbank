@@ -10,12 +10,12 @@
               (ngSubmit)="onSubmit()">
             <div class="fieldRegistration">
                 <div class="value">
-                    <label for="email">Email</label>
+                    <label for="email">email</label>
                     <input id="email"
                            type="email"
                            formControlName="mail"
                            [ngClass]="{'invalid': registerForm.get('mail').invalid && registerForm.get('mail').touched}"
-                           placeholder="Введите почту:"
+                           placeholder="Enter email:"
                     />
                     <div
                         class="helper-text red-text"
@@ -31,7 +31,7 @@
                     <input id="name"
                            type="text"
                            formControlName="name"
-                           placeholder="Введите имя:"
+                           placeholder="Enter your name:"
                     />
                     <div
                         class="helper-text red-text"
@@ -46,7 +46,7 @@
                     <input id="surname"
                            type="text"
                            formControlName="surname"
-                           placeholder="Введите фамилию:"
+                           placeholder="Enter last name:"
                     />
                     <div
                         class="helper-text red-text"
@@ -62,7 +62,7 @@
                            type="password"
                            formControlName="password"
                            class="password__input"
-                           placeholder="Введите пароль:"
+                           placeholder="Enter password:"
                            #password
                     />
                     <div #btn class="password__btn"><img src="../../../../../assets/images/open.svg"
@@ -72,12 +72,17 @@
                         class="helper-text red-text"
                         *ngIf="f['password'].invalid && f['password'].touched"
                     >
-                        <span *ngIf="f['password'].errors['required']">Password must not be empty</span>
+                        <span *ngIf="f['password'].errors['required']">
+                            Password must not be empty
+                        </span>
                         <span
                             *ngIf="f['password'].errors['minlength'] && f['password'].errors['minlength']['requiredLength']">
          Password must be greater {{f['password'].errors['minlength']['requiredLength']}} characters.
           Now {{f['password'].errors['minlength']['actualLength']}}
-        </span>
+                        </span>
+                        <span *ngIf="f['password'].errors['pattern']">
+                           The password must contain at least 1 special character, 1 one number, 1 one Latin letter in lower case, 1 one Latin letter in upper case.
+                        </span>
                     </div>
                 </div>
                 <div class="value password__label">
@@ -86,7 +91,7 @@
                            type="password"
                            formControlName="confirmPassword"
                            class="password__input"
-                           placeholder="Введите пароль ещё раз:"
+                           placeholder="Enter the password again:"
                            #confirmPassword
                     />
                     <div #btn2 class="password__btn"><img src="../../../../../assets/images/open.svg"

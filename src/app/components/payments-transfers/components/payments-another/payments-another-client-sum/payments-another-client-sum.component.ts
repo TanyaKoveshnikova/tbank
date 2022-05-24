@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { amountValidator } from '../../../validators/amountValidator';
 import { FondCardsService } from '../../../../personal/services/fond-cards.service';
@@ -15,7 +15,7 @@ import { ICard } from '../../../../spa/interfaces/ICard.interface';
     styleUrls: ['./payments-another-client-sum.component.scss']
 })
 export class PaymentsAnotherClientSumComponent implements OnInit {
-    public activeCardMoney!: number;
+    public activeCardMoney: number = <number>0;
     public form: FormGroup = new FormGroup({});
     public clientCard: string | undefined;
     public findClient: IUser | undefined;
@@ -45,7 +45,8 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     }
 
     public onClickCard(card: any): void {
-        this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(card.target.value);
+        this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(this.selectedCardUser.RUB);
+        console.log(this.selectedCardUser.RUB + ' card.target.value');
     }
 
     public sendMoney(): void {
@@ -59,8 +60,8 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
             const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
             this._checkClientCardService.patchAmountMoneyOnCardUser(sumTransferDone, cardClient?.id);
             this._factoryCardHistory.createCard('fromSomeone', this.iUser, sumTransfer, this.selectedCardUser, this.findClient);
-            this._factoryCardHistory.createCard('withdrawal', this.iUser, sumTransfer, this.selectedCardUser,this.findClient);
-            this._checkClientCardService.patchAmountMoneyOnCardUser(moneyMinusSum, this.selectedCardUser.id );
+            this._factoryCardHistory.createCard('withdrawal', this.iUser, sumTransfer, this.selectedCardUser, this.findClient);
+            this._checkClientCardService.patchAmountMoneyOnCardUser(moneyMinusSum, this.selectedCardUser.id);
         }
     }
 
@@ -71,10 +72,8 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     private createForm(): void {
         this.form = this._fb.group(
             {
-                transferAmount: new FormControl('', [Validators.required])
-            },
-            {
-                validators: amountValidator('transferAmount', this.activeCardMoney),
+                transferAmount: new FormControl('', [Validators.required, amountValidator(this.activeCardMoney)])
             });
     }
 }
+

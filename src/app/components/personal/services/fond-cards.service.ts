@@ -21,12 +21,12 @@ export class FondCardsService implements OnInit {
     public userService!: IUser;
     public savAcc$: BehaviorSubject<ISavingsAccount[] | null> = new BehaviorSubject<ISavingsAccount[] | null>(null);
     public cardUser$: BehaviorSubject<ICard[] | null> = new BehaviorSubject<ICard[] | null>(null);
-    private _urlSavingAcc: string = 'http://localhost:3000/savingsAcc';
-    private _urlCreateCard: string = 'http://localhost:3000/cardsUsers';
+    private _urlSavingAcc: string = <string>'http://localhost:3000/savingsAcc';
+    private _urlCreateCard: string = <string>'http://localhost:3000/cardsUsers';
     private _newSavAcc!: ISavingsAccount;
 
     //длЯ отрисовки подсказки при наводке
-    private _mouseoverExplanation: any = new BehaviorSubject(false);
+    private _mouseoverExplanation: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
     constructor(

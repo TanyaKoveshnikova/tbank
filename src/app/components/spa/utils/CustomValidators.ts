@@ -19,10 +19,10 @@ export function confirmedValidator(controlName: string, matchingControlName: str
 
 export function checkRepeatEmail(mail: string, http: HttpClient, urlSignupUser: string): ValidationErrors | null {
     return (formGroup: FormGroup) => {
-        http.get<any>(urlSignupUser)
-            .subscribe((res: any) => {
+        http.get<IUser[]>(urlSignupUser)
+            .subscribe((res: IUser[]) => {
                 const control:  AbstractControl = formGroup.controls[mail];
-                const user: any = res.find((a: IUser) => {
+                const user: IUser | undefined = res.find((a: IUser) => {
                     return a.mail === control.value;
                 });
                 if (!user) {
@@ -33,17 +33,5 @@ export function checkRepeatEmail(mail: string, http: HttpClient, urlSignupUser: 
             }, () => {
                 alert('Something went wrong');
             });
-
-        //     const control = formGroup.controls[controlName];
-        //     const matchingControl = formGroup.controls[matchingControlName];
-        //     if (matchingControl.errors && !matchingControl.errors['confirmedValidator']) {
-        //         return;
-        //     }
-        //     if (control.value !== matchingControl.value) {
-        //         matchingControl.setErrors({confirmedValidator: true});
-        //     } else {
-        //         matchingControl.setErrors(null);
-        //     }
-        // }
     };
 }

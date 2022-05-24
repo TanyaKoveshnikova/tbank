@@ -1,16 +1,15 @@
 import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { IUser } from '../../spa/interfaces/IUser.interface';
 
-export function amountValidator(controlName: string, cardMoney:number): ValidationErrors | null {
-    return (formGroup: FormGroup) => {
-        const control:  AbstractControl= formGroup.controls[controlName];
-        if (control.errors && !control.errors['amountValidator']) {
-            return;
+export function amountValidator(amountMoney: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+
+        console.log(control.value);
+        console.log(amountMoney);
+        if ((control.value > amountMoney || control.value === 0)) {
+            return { 'amountValidator': true };
         }
-        if(Number(control.value) > cardMoney || control.value === 0){
-            control.setErrors({ amountValidator: true });
-        } else {
-            control.setErrors(null);
-        }
+
+        return null;
     };
 }
