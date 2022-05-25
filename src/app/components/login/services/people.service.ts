@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { IUser } from '../../spa/interfaces/IUser.interface';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
@@ -105,12 +105,36 @@ export class PeopleService {
                         throw new Error('Not founded user');
                     } else {
                         this._singletonService.setLoggedIn(true);
+                        this._cookieService.delete('mail');
+                        this._cookieService.delete('password');
 
                         return fondUser;
                     }
                 }),
             );
     }
+
+
+    public getLoginUserUpdate(): Observable<IUser> {
+        const id: string = this._cookieService.get('id');
+
+        return this.getUser()
+            .pipe(
+                switchMap((users: IUser[]) => {
+                    const fondUser: IUser[] = users.filter((user: IUser) => {
+                        return user.id.toString() === id;
+                    });
+                    if (fondUser.length === 0) {
+                        throw new Error('Not founded user');
+                    } else {
+                        this._singletonService.setLoggedIn(true);
+
+                        return fondUser;
+                    }
+                }),
+            );
+    }
+
 
     public showPassword(btn: HTMLElement, input: Element): void {
         btn.onclick = (): void => {

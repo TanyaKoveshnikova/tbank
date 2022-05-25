@@ -38,12 +38,14 @@ export class LoginReactFormComponent implements OnInit {
     }
 
     public onSubmit(): void {
+        this._cookieService.delete('id');
         this._cookieService.set('mail', this.login.value.mail);
         this._cookieService.set('password', this.login.value.password);
         this._singletonService.loggedUser = this._peopleService.getLoginUser();
 
         this._singletonService.loggedUser.subscribe({
             next: (u: IUser) => {
+                this._cookieService.set('id', u.id.toString());
                 this._singletonService.setLoggedIn(true);
                 this._alertifyServiceService.statusAlert = 'success';
                 this._alertifyServiceService.subject$.next({

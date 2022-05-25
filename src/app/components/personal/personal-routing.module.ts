@@ -52,12 +52,6 @@ const childrenRoutes: Routes = [
 
 const routes: Routes = [
     {
-        path: 'personal/:id',
-        component: PersonalHomeAfterAuthComponent,
-        canActivate: [AuthGuard],
-        data: { breadcrumb: { skip: true } }
-    },
-    {
         path: ':id',
         component: PersonalHomeAfterAuthComponent,
         children: childrenRoutes,

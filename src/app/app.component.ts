@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
         private _peopleService: PeopleService,
         private _singletonService: GeneralService,
     ) {
-        this._singletonService.loggedUser = this._peopleService.getLoginUser();
+        this._singletonService.loggedUser = this._peopleService.getLoginUserUpdate();
         this._singletonService.loggedUser
             .subscribe();
     }

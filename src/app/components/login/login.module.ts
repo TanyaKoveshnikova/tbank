@@ -7,9 +7,7 @@ import { PeopleService } from './services/people.service';
 import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { AuthGuard } from '../personal/guards/auth.guard';
 import { LoginRegisterFormComponent } from './components/login-register-form.page/login-register-form.component';
-import { AlertifyServiceService } from '../../services/alertify-service.service';
-import { IUser } from '../spa/interfaces/IUser.interface';
-import { GeneralService } from '../spa/services/general.service';
+
 
 
 @NgModule({
@@ -30,9 +28,5 @@ import { GeneralService } from '../spa/services/general.service';
     ]
 })
 export class LoginModule {
-    constructor(
-
-    ) {
-    }
 }
 
