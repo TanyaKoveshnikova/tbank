@@ -1,5 +1,4 @@
-import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { IUser } from '../../spa/interfaces/IUser.interface';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export function amountValidator(amountMoney: number): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {

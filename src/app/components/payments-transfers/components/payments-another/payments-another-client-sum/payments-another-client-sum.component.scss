@@ -89,19 +89,6 @@
                 &__bottom {
                     padding: 0.1rem;
 
-                    button {
-                        background-color: #696969;
-                        width: 100%;
-                        padding: 0.35em;
-                        border: #4b4b4b 1px solid;
-                        border-radius: 3px;
-                        color: white;
-                    }
-
-                    button[disabled] {
-                        opacity: 0.5;
-                    }
-
                     .red-text {
                         color: #f34f4f;
                         font-size: 0.98em;

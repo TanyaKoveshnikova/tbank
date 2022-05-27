@@ -51,6 +51,11 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, ExitAbout
         }
     }
 
+    public handleClick(event: any): void {
+        event.stopPropagation();
+    }
+
+
     public sendOnServer(): void {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
         this._router.navigate(['/personal/' + this.idUser + '/personal-main-page']);

@@ -1,7 +1,5 @@
 <ng-template #skeleton>
-    <div class="wrapper_load">
         <skeletone-loading class="loading"></skeletone-loading>
-    </div>
 </ng-template>
 <div class="wrapper" *ngIf="!loading; else skeleton">
     <div *ngFor="let card of cardsHistory.reverse()">
@@ -81,10 +79,10 @@
                 </div>
             </div>
         </button>
-        <div class="modal-wrapper" id="modal-1">
+        <div class="modal-wrapper" id="modal-1" (click)="closeModelBackground()">
             <div class="model">
                 <div class="modelBody">
-                    <div *ngIf="selectedCard?.typeTransaction === 'fromSomeone'">
+                    <div *ngIf="selectedCard?.typeTransaction === 'fromSomeone'" (click)="handleClick($event)">
                         <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">
@@ -115,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="selectedCard?.typeTransaction === 'withdrawal'">
+                    <div *ngIf="selectedCard?.typeTransaction === 'withdrawal'" (click)="handleClick($event)">
                         <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">
@@ -146,7 +144,7 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="selectedCard?.typeTransaction === 'betweenAccounts'">
+                    <div *ngIf="selectedCard?.typeTransaction === 'betweenAccounts'" (click)="handleClick($event)">
                         <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">

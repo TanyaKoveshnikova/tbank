@@ -72,7 +72,7 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
     private createForm(): void {
         this.form = this._fb.group(
             {
-                transferAmount: new FormControl('', [Validators.required, amountValidator(this.activeCardMoney)])
+                transferAmount: new FormControl('', [Validators.required])
             });
     }
 }

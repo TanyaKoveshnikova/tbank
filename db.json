@@ -137,7 +137,7 @@
       "name": "test",
       "endDate": "2022-05-27",
       "goalRUB": "50 000 000",
-      "doneRUB": "200",
+      "doneRUB": "201",
       "idCreator": 4,
       "id": 13
     },
@@ -145,7 +145,7 @@
       "name": "test",
       "endDate": "2022-05-27",
       "goalRUB": "543",
-      "doneRUB": "0",
+      "doneRUB": "1",
       "idCreator": 4,
       "id": 14
     },
@@ -169,7 +169,7 @@
   "cardsUsers": [
     {
       "cardName": "maestro payCard",
-      "RUB": "136 903",
+      "RUB": "136 914",
       "cardNumber": "3743 9124 2025 3967",
       "idCreator": 1,
       "id": 1
@@ -190,14 +190,14 @@
     },
     {
       "cardName": "classic payCard",
-      "RUB": "71 650",
+      "RUB": "71 647",
       "cardNumber": "7218 2937 2039 4406",
       "idCreator": 4,
       "id": 4
     },
     {
       "cardName": "standard standard",
-      "RUB": "98 995",
+      "RUB": "98 985",
       "cardNumber": "8131 3494 1141 4903",
       "idCreator": 4,
       "id": 5
@@ -362,6 +362,42 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 3
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "10",
+      "date": 1653666282629,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "98 995",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 4
+    },
+    {
+      "fromWhom": "Татьяна  Ковешникова ",
+      "operationName": "Refill",
+      "transferAmount": "1",
+      "date": 1653670809347,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 648",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "To the card account"
+      },
+      "typeTransaction": "fromSomeone",
+      "id": 5
     }
   ],
   "history2": [
@@ -571,6 +607,80 @@
       },
       "typeTransaction": "withdrawal",
       "id": 10
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "10",
+      "date": 1653666282631,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "98 995",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 11
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test",
+      "operationName": "Translations",
+      "transferAmount": "1",
+      "date": 1653666303722,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 650",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 12
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test",
+      "operationName": "Translations",
+      "transferAmount": "1",
+      "date": 1653670113846,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 649",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 13
+    },
+    {
+      "fromWhom": "Гермиона Грейнджер",
+      "operationName": "Withdrawal of money",
+      "transferAmount": "1",
+      "date": 1653670809349,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 648",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From a bank card"
+      },
+      "typeTransaction": "withdrawal",
+      "id": 14
     }
   ],
   "history5": [],

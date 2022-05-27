@@ -53,6 +53,11 @@ export class PersonalMainPageNewCardComponent implements OnInit {
             });
     }
 
+    public handleClick(event: any): void {
+        event.stopPropagation();
+    }
+
+
     public randomNumber(): number {
         return Math.floor(Math.random() * (123 - 1 + 1)) + 1;
     }
@@ -78,7 +83,7 @@ export class PersonalMainPageNewCardComponent implements OnInit {
     }
 
     public createNewCard(card: IInformationNewCard): void {
-        this._router.navigate(['personal',this._idUser, 'personal-main-page']);
+        this._router.navigate(['personal', this._idUser, 'personal-main-page']);
         this._getDataService.sendOnServerNewCard(card.nameCard, this._fondCardsService.userService.id);
         this._alertifyServiceService.statusAlert = 'success';
         this._alertifyServiceService.subject$.next({

@@ -40,14 +40,16 @@ export class PersonalMainPageComponent implements OnInit {
         private _singletoneService: GeneralService,
         private _breadcrumbService: BreadcrumbService,
     ) {
-        this._singletoneService.loggedUser
-            .subscribe({
-                next: (user: IUser) => this.user = user,
-                complete: () => this.loading = false,
-            });
     }
 
     public ngOnInit(): void {
+        this._singletoneService.loggedUser
+            .subscribe({
+                next: (user: IUser) => this.user = user,
+                complete: () => setTimeout( () => {
+                    this.loading = false;
+                }, 100)
+            });
         this._breadcrumbService.set('@MainPage', 'Main Page');
         this.fondCardsService.getSavingsAccount()
             .subscribe({
@@ -75,11 +77,17 @@ export class PersonalMainPageComponent implements OnInit {
         }, 3000);
     }
 
-    public createSavingsAcc(): void {
+    public closeModelBackground(): void {
+        this._router.navigate(['../personal-main-page'], { relativeTo: this._route });
+    }
+
+    public createSavingsAcc(event: any): void {
+        event.stopPropagation();
         this._router.navigate(['./createSavingsAccount'], { relativeTo: this._route });
     }
 
-    public createCard(): void {
+    public createCard(event: any): void {
+        event.stopPropagation();
         this._router.navigate(['./createNewCard'], { relativeTo: this._route });
     }
 

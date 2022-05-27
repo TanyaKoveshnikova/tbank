@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PeopleService } from '../../../login/services/people.service';
 import { PersonalHistoryService } from '../../services/personal-history.service';
 import { ICommonHistory } from '../../interfaces/ICommonHistory.interface';
@@ -14,6 +14,7 @@ export class PersonalHistoryPageComponent implements OnInit {
     public cardsHistory!: ICommonHistory[];
     public selectedCard?: ICommonHistory;
     public loading: boolean = true;
+
 
     constructor(
         private _personalHistoryService: PersonalHistoryService,
@@ -41,16 +42,19 @@ export class PersonalHistoryPageComponent implements OnInit {
         document.body.classList.remove('modalOpen');
     }
 
-    public repeatOperation(): void {
+    public closeModelBackground(): void {
         this.closeModel();
-
     }
+
+    public handleClick(event: any): void {
+        event.stopPropagation();
+    }
+
 
     private getTransactionsHistory(): void {
         this._personalHistoryService.getUserHistory()
             .subscribe({
-                next: (elements: ICommonHistory[]) =>
-                {
+                next: (elements: ICommonHistory[]) => {
                     this.cardsHistory = elements;
                 },
                 complete: () => this.loading = false,

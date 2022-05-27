@@ -2,12 +2,12 @@
 
 .wrapper {
     position: fixed;
-    background-color: rgb(217, 213, 245);
+    background-color: #c0c0c0;
     width: 25%;
     top:18%;
     left: 49%;
     padding: 2em;
-    box-shadow: 0 0 1em 0 rgba(16, 0, 63, 0.64);
+    box-shadow: 0 0 0.5em 0 rgba(70, 70, 70, 0.64);
     z-index: 200;
 
     @include _768 {
@@ -37,20 +37,4 @@
         }
     }
 
-    .btn {
-        padding: 10px;
-        width: 80%;
-        margin-top: 5px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%, 0);
-        transition: 0.3s;
-        background-color: rgba(27, 2, 105, 0.98);
-        color: white;
-    }
-
-    .btn[disabled] {
-        background-color: rgba(92, 88, 103, 0.6);
-        color: black;
-    }
 }

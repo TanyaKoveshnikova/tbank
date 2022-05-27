@@ -19,6 +19,7 @@ import { PersonalAdvertisingComponent } from './components/personal-advertising/
 import { HintHostListenerDirective } from './directives/hint-host-listener.directive';
 import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
 import { GetDataService } from './services/get-data.service';
+import { GeneralComponentsModule } from '../../general-components/general-components.module';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { GetDataService } from './services/get-data.service';
         HttpClientModule,
         SkeletoneLoadingModule,
         BreadcrumbModule,
+        GeneralComponentsModule,
     ],
     providers: [
         FondCardsService,

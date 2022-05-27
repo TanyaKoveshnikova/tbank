@@ -1,9 +1,7 @@
 <ng-template #skeleton>
-    <div class="wrapper_load">
-        <skeletone-loading class="loading"></skeletone-loading>
-    </div>
+    <skeletone-loading class="loading"></skeletone-loading>
 </ng-template>
-<div class="wrapper" *ngIf="!loading; else skeleton">
+<div class="wrapper" *ngIf="!loading; else skeleton" (click)="closeModelBackground()">
     <div class="float">
         <div class="container">
             <details>
@@ -11,7 +9,7 @@
                     <div class="summary__header">
                         CARDS
                         <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
-                        <img (click)="createCard()" class="img_active img_plus"
+                        <img (click)="createCard($event)" class="img_active img_plus"
                              src="../../../../../assets/images/plus_icon.svg" alt="plus">
                     </div>
                     <br>
@@ -21,17 +19,17 @@
                         </div>
                         <div class="value__image__container">
                             <div class="value__container">
-                                <div class="value_el bold">{{ (cardsUser$  | async )[0].cardName | titlecase}}</div>
-                                <div class="value_el bold">{{(cardsUser$  | async )[0].RUB}}
+                                <div class="value_el bold">{{ (cardsUser$  | async)[0].cardName | titlecase}}</div>
+                                <div class="value_el bold">{{(cardsUser$  | async)[0].RUB}}
                                     <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
                                          alt="ruble icon">
                                 </div>
                             </div>
-                            <div class="value_el">... {{(cardsUser$  | async )[0].cardNumber | slice:-5}}</div>
+                            <div class="value_el">... {{(cardsUser$  | async)[0].cardNumber | slice:-5}}</div>
                         </div>
                     </div>
                 </summary>
-                <ul class="value__list" *ngFor="let el of cardsUser$ | async">
+                <ul class="value__list" *ngFor="let el of cardsUser$ | async; else skeleton">
                     <li class="value summary__value">
                         <div class="value__image__container">
                             <img class="image__card" src="../../../../../assets/images/card-image.png">
@@ -60,7 +58,7 @@
                 <div class="summary__header summary__header__account">
                     SAVINGS ACCOUNT
                     <img class="img_active img__arrow" src="../../../../../assets/images/arrow.svg" alt="arrow up">
-                    <img (click)="createSavingsAcc()" class="img_active img_plus"
+                    <img (click)="createSavingsAcc($event)" class="img_active img_plus"
                          src="../../../../../assets/images/plus_icon.svg" alt="plus">
                     <img class="img_active img_question"
                          src="../../../../../assets/images/personal-page/question.svg" alt="question" hintHover>

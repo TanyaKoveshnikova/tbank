@@ -4,6 +4,12 @@
         your
         goal on the main page.
     </div>
+    <spa-middle-button text="Return to the homepage."
+                       (btnClick)="voidFunctions()"
+                       [isDisabled]="false"
+                       setWidthStyle="60%"
+                       [routerLink]="['/personal/', idUser, 'personal-main-page']"
+    ></spa-middle-button>
     <button class="btn" [routerLink]="['/personal/', idUser, 'personal-main-page']">
         Return to the homepage.
     </button>

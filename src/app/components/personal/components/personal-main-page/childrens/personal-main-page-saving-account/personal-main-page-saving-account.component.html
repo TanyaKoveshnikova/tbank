@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" (click)="handleClick($event)">
     <div class="exitBtn" routerLink="../">
         <img class="imgCross" src="../assets/images/payments-transfers_img/cross.svg" alt="exit cross">
     </div>
@@ -34,13 +34,11 @@
             />
         </div>
         <nav>
-            <button
-                (click)="sendOnServer()"
-                [disabled]="savingsAccForm.invalid"
-                type="submit"
-                class="btn">
-                create an account
-            </button>
+            <spa-middle-button text="Create an account."
+                               (btnClick)="sendOnServer()"
+                               [isDisabled]="savingsAccForm.invalid"
+                               setWidthStyle="80%"
+            ></spa-middle-button>
         </nav>
     </form>
 </div>

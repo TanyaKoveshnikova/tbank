@@ -19,6 +19,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { FactoryCardHistory } from '../../../libs/factory.history/factory';
 import { SendCardHistory } from '../../../libs/factory.history/data/sendCardHistory';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GeneralComponentsModule } from '../../general-components/general-components.module';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ActivatedRoute, Router } from '@angular/router';
         ReactiveFormsModule,
         SkeletoneLoadingModule,
         BreadcrumbModule,
+        GeneralComponentsModule,
     ],
     providers: [CheckClientCardService, FactoryCardHistory, SendCardHistory]
 })

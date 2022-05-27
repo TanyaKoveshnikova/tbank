@@ -25,4 +25,7 @@ export class PaymentBetweenConfirmationComponent implements OnInit, OnDestroy {
         this._paymBetAccComp.toggleClass('confirmation');
     }
 
+    public voidFunctions(): void{
+        //
+    }
 }

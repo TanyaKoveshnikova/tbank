@@ -32,7 +32,12 @@
             </div>
         </div>
         <div class="value value__bottom">
-            <button [disabled]="form.invalid" (click)="sendMoney()" routerLink="../announcement">Proceed</button>
+            <spa-middle-button text="Proceed"
+                               (btnClick)="sendMoney()"
+                               [isDisabled]="form.invalid"
+                               setWidthStyle="100%"
+                               routerLink="../announcement"
+            ></spa-middle-button>
             <div
                 class="helper-text red-text"
                 *ngIf="!f['transferAmount'].valid && f['transferAmount'].touched"

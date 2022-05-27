@@ -42,9 +42,12 @@
                 </div>
             </div>
             <div class="value value__button" *ngIf="loaded">
-                <button class="button"
-                        routerLink="../transfer-amount"
-                >Continue</button>
+                <spa-middle-button text="Continue"
+                                   (btnClick)="voidFunctions()"
+                                   [isDisabled]="false"
+                                   setWidthStyle="70%"
+                                   routerLink="../transfer-amount"
+                ></spa-middle-button>
             </div>
         </div>
     </div>

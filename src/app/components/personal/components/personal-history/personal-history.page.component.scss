@@ -3,16 +3,18 @@
 .wrapper {
     margin: 4rem auto;
 
+    .modal-wrapper{
+
+    }
+
     .btn {
         background-color: white;
         border: none;
         margin: 0 auto;
         display: block;
-        width: 50%;
-        margin-left: 20%;
+        width: 60%;
 
-        @include _768 {
-            margin-left: 10%;
+        @include _1170{
             width: 80%;
         }
     }
@@ -198,20 +200,3 @@
         }
     }
 }
-
-.loading {
-    text-align: center;
-    vertical-align: middle;
-    font-size: 2em;
-    font-weight: 500;
-    color: #080023;
-    position: absolute;
-    margin: 20% auto;
-    width: 85%;
-
-    @include _768 {
-        font-size: 1.2em;
-        width: 100%;
-    }
-}
-

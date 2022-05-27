@@ -24,6 +24,10 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
         this.findNeedClient();
     }
 
+    public voidFunctions(): void {
+        //
+    }
+
     private findNeedClient(): void {
         this._checkClientCardService.findClient()
             .subscribe({

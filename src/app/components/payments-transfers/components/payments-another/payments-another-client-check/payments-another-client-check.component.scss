@@ -11,10 +11,6 @@
         width: 85%;
     }
 
-    .loading {
-        margin: 1rem 2rem;
-    }
-
     .element {
         padding: 1rem;
 
@@ -94,20 +90,10 @@
                         }
                     }
 
-                    .button {
-                        width: 70%;
+                    &__button{
+                        width: 100%;
+                        display: block;
                         margin: 0 auto;
-                        padding: 0.5em;
-                        background-color: rgba(152, 152, 152, 0.42);
-                        color: white;
-                        border: rgba(100, 100, 100, 0.33) 0.05em solid;
-                        border-radius: 0.4em;
-
-                        &:hover {
-                            background-color: #5e5e5e;
-                            border-color: #808080;
-                            transition: 1s;
-                        }
                     }
                 }
             }

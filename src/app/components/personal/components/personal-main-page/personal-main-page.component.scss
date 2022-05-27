@@ -2,22 +2,6 @@ $colorCards: rgba(182, 182, 182, 0.19);
 $colorHeaFoot: rgba(107, 102, 102, 0.08);
 @import "../../../../../assets/styles/path_file";
 
-.loading {
-    text-align: center;
-    vertical-align: middle;
-    font-size: 2em;
-    font-weight: 500;
-    color: #080023;
-    position: absolute;
-    margin: 10% auto;
-    width: 85%;
-
-    @include _768 {
-        font-size: 1.2em;
-        width: 100%;
-    }
-
-}
 
 .wrapper {
     color: black;

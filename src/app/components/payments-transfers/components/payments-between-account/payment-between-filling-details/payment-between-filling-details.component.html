@@ -34,12 +34,12 @@
             </form>
         </div>
     </div>
-    <button
-        [disabled]="reactiveForm.invalid"
-        class="btn"
-        (click)="clickConfirmation()"
-        routerLink="../confirmation"
-    >next step</button>
+    <spa-middle-button text="Next step."
+                       (btnClick)="clickConfirmation()"
+                       [isDisabled]="reactiveForm.invalid"
+                       setWidthStyle="60%"
+                       routerLink="../confirmation"
+    ></spa-middle-button>
     <div
         class="helper-text red-text"
         *ngIf="!f['sum'].valid && f['sum'].touched"
