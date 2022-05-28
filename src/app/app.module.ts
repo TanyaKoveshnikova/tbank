@@ -14,11 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { CookieService } from 'ngx-cookie-service';
 import { AlertifyServiceService } from './services/alertify-service.service';
-import { AlertWindowComponent } from './components/alert-window/alert-window.component';
-import { StatusDirective } from './directives/status.directive';
+import { AlertWindowComponent } from './general-components/components/alert-window/alert-window.component';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpErrorInterceptorService } from './services/http-error-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -26,10 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     declarations: [
         AppComponent,
         AlertWindowComponent,
-        StatusDirective
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         SpaModule,
         AngularFireModule.initializeApp(environment.firebase),
@@ -39,11 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         provideDatabase(() => getDatabase()),
         provideFirestore(() => getFirestore()),
         BreadcrumbModule,
-        BrowserAnimationsModule
     ],
-    // guards: [AuthGuard],
     bootstrap: [AppComponent],
-    exports: [StatusDirective],
     providers: [
         CookieService,
         AlertifyServiceService,

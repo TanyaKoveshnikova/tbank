@@ -59,8 +59,7 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, ExitAbout
     public sendOnServer(): void {
         this._fondCardsService.sendOnServerSavingAcc(this.savingsAccForm);
         this._router.navigate(['/personal/' + this.idUser + '/personal-main-page']);
-        this._alertifyServiceService.statusAlert = 'success';
-        this._alertifyServiceService.subject$.next({
+        this._alertifyServiceService.makeNewAlert().next({
             text: 'You have created a new savings account.',
             status: 'success',
         });

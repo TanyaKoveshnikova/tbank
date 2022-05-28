@@ -10,10 +10,9 @@ export class FromSomeone implements ICommon {
     public interactionWhichAccount: ICardView;
     public operationName: string;
     public transferAmount: string;
-    // eslint-disable-next-line @typescript-eslint/typedef
-    public urlMyHistory = 'http://localhost:3000/history';
+    public urlMyHistory: string = <string>'http://localhost:3000/history';
     public card!: ICard;
-    public typeTransaction: string = 'fromSomeone';
+    public typeTransaction: string = <string>'fromSomeone';
 
     constructor(
         fromWhom: string,

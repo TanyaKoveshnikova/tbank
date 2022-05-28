@@ -11,7 +11,6 @@ import { PersonalMainPageSavingAccountComponent } from './components/personal-ma
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { PersonalAutoPaymentsComponent } from './components/personal-auto-payments/personal-auto-payments.component';
-import { SkeletoneLoadingModule } from '../loading/skeletone-loading.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PersonalHistoryService } from './services/personal-history.service';
 import { BreadcrumbModule } from 'xng-breadcrumb';
@@ -42,7 +41,6 @@ import { GeneralComponentsModule } from '../../general-components/general-compon
         CommonModule,
         PersonalRoutingModule,
         HttpClientModule,
-        SkeletoneLoadingModule,
         BreadcrumbModule,
         GeneralComponentsModule,
     ],

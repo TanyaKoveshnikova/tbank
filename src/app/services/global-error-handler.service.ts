@@ -14,14 +14,14 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     public handleError(error: Error | HttpErrorResponse): void {
 
         if( error instanceof HttpErrorResponse){
-            this._alertifyServiceService.subject$.next({
+            this._alertifyServiceService.makeNewAlert().next({
                 text: 'Sorry, we have technical chocolates. Please check back later',
                 status: 'error',
             });
 
             console.error('Error from global error handler', error, 'backend');
         } else{
-            this._alertifyServiceService.subject$.next({
+            this._alertifyServiceService.makeNewAlert().next({
                 text: error.message,
                 status: 'error',
             });

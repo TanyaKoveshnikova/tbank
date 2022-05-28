@@ -1,92 +1,118 @@
-<ng-template #skeleton>
-        <skeletone-loading class="loading"></skeletone-loading>
-</ng-template>
-<div class="wrapper" *ngIf="!loading; else skeleton">
+<div class="wrapper">
     <div *ngFor="let card of cardsHistory.reverse()">
-        <button class="btn" (click)="clickCard(card)">
-            <div *ngIf="card?.typeTransaction === 'withdrawal'" class="card__wrapper">
-                <div class="item item__image">
-                    <img src="../../../../../assets/images/images-history/withdrawal.svg" alt="withdrawal img">
+        <ng-template #skeleton>
+            <button class="btn">
+                <div class="card__wrapper">
+                    <div class="item item__image">
+                        <skeletone-loading width="3rem" height="3rem" [circle]="true"></skeletone-loading>
+                    </div>
+                    <div class="item item__text">
+                        <div class="text__nameClient">
+                            <skeletone-loading width="20vw" height="1.2rem"></skeletone-loading>
+                        </div>
+                        <div class="text__where smallFont">
+                            <skeletone-loading width="20vw" height="1rem"></skeletone-loading>
+                        </div>
+                    </div>
+                    <div class="item item__money">
+                        <div class="sum">
+                            <skeletone-loading width="2rem" height="2rem"></skeletone-loading>
+                        </div>
+                        <div class="nameOperations smallFont">
+                            <skeletone-loading width="2rem" height="1rem"></skeletone-loading>
+                        </div>
+                    </div>
                 </div>
-                <div class="item item__text">
-                    <div class="text__nameClient">
-                        {{card?.fromWhom}}
+            </button>
+        </ng-template>
+        <div *ngIf="loaded; else skeleton">
+            <button class="btn" (click)="clickCard(card)">
+                <div *ngIf="card?.typeTransaction === 'withdrawal'" class="card__wrapper">
+                    <div class="item item__image">
+                        <img src="../../../../../assets/images/images-history/withdrawal.svg" alt="withdrawal img">
                     </div>
-                    <div class="text__where smallFont">
-                        From a bank card {{card?.interactionWhichAccount?.card?.cardName}}
+                    <div class="item item__text">
+                        <div class="text__nameClient ">
+                            {{card?.fromWhom}}
+                        </div>
+                        <div class="text__where smallFont">
+                            From a bank card {{card?.interactionWhichAccount?.card?.cardName}}
+                        </div>
+                    </div>
+                    <div class="item item__money">
+                        <div class="sum">
+                            -{{card?.transferAmount}} <img class="img__ruble"
+                                                           src="../../../../../assets/images/ruble_icon.svg"
+                                                           alt="ruble icon">
+                        </div>
+                        <div class="nameOperations smallFont">
+                            Withdrawal
+                        </div>
                     </div>
                 </div>
-                <div class="item item__money">
-                    <div class="sum">
-                        -{{card?.transferAmount}} <img class="img__ruble"
-                                                       src="../../../../../assets/images/ruble_icon.svg"
-                                                       alt="ruble icon">
-                    </div>
-                    <div class="nameOperations smallFont">
-                        Withdrawal
-                    </div>
-                </div>
-            </div>
 
-            <div *ngIf="card?.typeTransaction === 'betweenAccounts'" class="card__wrapper">
-                <div class="item item__image">
-                    <img src="../../../../../assets/images/images-history/betweenAccounts.svg"
-                         alt="betweenAccounts img">
+                <div *ngIf="card?.typeTransaction === 'betweenAccounts'" class="card__wrapper">
+                    <div class="item item__image">
+                        <img src="../../../../../assets/images/images-history/betweenAccounts.svg"
+                             alt="betweenAccounts img">
+                    </div>
+                    <div class="item item__text">
+                        <div class="text__nameClient">
+                            Bank transfer between accounts
+                        </div>
+                        <div class="text__where smallFont">
+                            To a savings account {{card?.whatAccountName}}
+                        </div>
+                    </div>
+                    <div class="item item__money">
+                        <div class="sum sum__green">
+                            {{card?.transferAmount}}
+                            <img class="img__ruble"
+                                 src="../../../../../assets/images/images-history/ruble_icon__green.svg"
+                                 alt="ruble icon">
+                        </div>
+                        <div class="nameOperations smallFont">
+                            Between accounts
+                        </div>
+                    </div>
                 </div>
-                <div class="item item__text">
-                    <div class="text__nameClient">
-                        Bank transfer between accounts
-                    </div>
-                    <div class="text__where smallFont">
-                        To a savings account {{card?.whatAccountName}}
-                    </div>
-                </div>
-                <div class="item item__money">
-                    <div class="sum sum__green">
-                        {{card?.transferAmount}}
-                        <img class="img__ruble"
-                             src="../../../../../assets/images/images-history/ruble_icon__green.svg"
-                             alt="ruble icon">
-                    </div>
-                    <div class="nameOperations smallFont">
-                        Between accounts
-                    </div>
-                </div>
-            </div>
 
-            <div *ngIf="card?.typeTransaction === 'fromSomeone'" class="card__wrapper">
-                <div class="item item__image">
-                    <img src="../../../../../assets/images/images-history/fromSomeone.svg" alt="from Someone img">
+                <div *ngIf="card?.typeTransaction === 'fromSomeone'" class="card__wrapper">
+                    <div class="item item__image">
+                        <img src="../../../../../assets/images/images-history/fromSomeone.svg" alt="from Someone img">
+                    </div>
+                    <div class="item item__text">
+                        <div class="text__nameClient">
+                            {{card?.fromWhom}}
+                        </div>
+                        <div class="text__where smallFont">
+                            To a bank card account {{card?.interactionWhichAccount?.card?.cardName}}
+                        </div>
+                    </div>
+                    <div class="item item__money">
+                        <div class="sum sum__green">
+                            {{card?.transferAmount}}
+                            <img class="img__ruble"
+                                 src="../../../../../assets/images/images-history/ruble_icon__green.svg"
+                                 alt="ruble icon">
+                        </div>
+                        <div class="nameOperations smallFont">
+                            Replenishment
+                        </div>
+                    </div>
                 </div>
-                <div class="item item__text">
-                    <div class="text__nameClient">
-                        {{card?.fromWhom}}
-                    </div>
-                    <div class="text__where smallFont">
-                        To a bank card account {{card?.interactionWhichAccount?.card?.cardName}}
-                    </div>
-                </div>
-                <div class="item item__money">
-                    <div class="sum sum__green">
-                        {{card?.transferAmount}}
-                        <img class="img__ruble"
-                             src="../../../../../assets/images/images-history/ruble_icon__green.svg"
-                             alt="ruble icon">
-                    </div>
-                    <div class="nameOperations smallFont">
-                        Replenishment
-                    </div>
-                </div>
-            </div>
-        </button>
+            </button>
+        </div>
         <div class="modal-wrapper" id="modal-1" (click)="closeModelBackground()">
             <div class="model">
                 <div class="modelBody">
                     <div *ngIf="selectedCard?.typeTransaction === 'fromSomeone'" (click)="handleClick($event)">
-                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
+                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg"
+                                                 alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">
-                            <img src="../../../../../assets/images/images-history/fromSomeone.svg" alt="from Someone">
+                            <img src="../../../../../assets/images/images-history/fromSomeone.svg"
+                                 alt="from Someone">
                         </div>
                         <div class="elementModel elementModel__fromWhom">{{selectedCard?.fromWhom}}</div>
                         <div class="elementModel elementModel__operationName">Replenishment</div>
@@ -105,7 +131,8 @@
                         <div class="elementModel elementModel__bankCard">
                             <div class="elementCard elementCard__text">
                                 <div class="text text__explanation">To the card account</div>
-                                <div class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
+                                <div
+                                    class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
                             </div>
                             <div class="elementCard elementCard__icon">
                                 <img class="img__ruble" src="../../../../../assets/images/card-image.png"
@@ -114,7 +141,8 @@
                         </div>
                     </div>
                     <div *ngIf="selectedCard?.typeTransaction === 'withdrawal'" (click)="handleClick($event)">
-                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
+                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg"
+                                                 alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">
                             <img src="../../../../../assets/images/images-history/withdrawal.svg" alt="withdrawal">
@@ -136,7 +164,8 @@
                         <div class="elementModel elementModel__bankCard">
                             <div class="elementCard elementCard__text">
                                 <div class="text text__explanation">From a bank card</div>
-                                <div class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
+                                <div
+                                    class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
                             </div>
                             <div class="elementCard elementCard__icon">
                                 <img class="img__ruble" src="../../../../../assets/images/card-image.png"
@@ -145,10 +174,12 @@
                         </div>
                     </div>
                     <div *ngIf="selectedCard?.typeTransaction === 'betweenAccounts'" (click)="handleClick($event)">
-                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross"
+                        <button class="btn"><img src="../../../../../assets/images/payments-transfers_img/cross.svg"
+                                                 alt="cross"
                                                  (click)="closeModel()" class="crossImg"></button>
                         <div class="elementModel elementModel__icon">
-                            <img src="../../../../../assets/images/images-history/betweenAccounts.svg" alt="withdrawal">
+                            <img src="../../../../../assets/images/images-history/betweenAccounts.svg"
+                                 alt="withdrawal">
                         </div>
                         <div class="elementModel elementModel__fromWhom">between accounts</div>
                         <div class="elementModel elementModel__operationName">
@@ -170,7 +201,8 @@
                         <div class="elementModel elementModel__bankCard">
                             <div class="elementCard elementCard__text">
                                 <div class="text text__explanation">From a bank card</div>
-                                <div class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
+                                <div
+                                    class="text text__cardName">{{selectedCard?.interactionWhichAccount?.card?.cardName}}</div>
                             </div>
                             <div class="elementCard elementCard__icon">
                                 <img class="img__ruble" src="../../../../../assets/images/card-image.png"

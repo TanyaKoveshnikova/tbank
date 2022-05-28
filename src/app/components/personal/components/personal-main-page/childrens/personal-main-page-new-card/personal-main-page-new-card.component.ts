@@ -85,8 +85,7 @@ export class PersonalMainPageNewCardComponent implements OnInit {
     public createNewCard(card: IInformationNewCard): void {
         this._router.navigate(['personal', this._idUser, 'personal-main-page']);
         this._getDataService.sendOnServerNewCard(card.nameCard, this._fondCardsService.userService.id);
-        this._alertifyServiceService.statusAlert = 'success';
-        this._alertifyServiceService.subject$.next({
+        this._alertifyServiceService.makeNewAlert().next({
             text: 'You have created a new map.',
             status: 'success',
         });

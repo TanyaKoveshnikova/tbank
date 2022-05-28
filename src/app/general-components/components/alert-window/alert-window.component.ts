@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
-import { AlertifyServiceService } from '../../services/alertify-service.service';
-import { INotificationOptions } from '../spa/interfaces/INotificationOptions.interface';
+import { AlertifyServiceService } from '../../../services/alertify-service.service';
+import { INotificationOptions } from '../../../components/spa/interfaces/INotificationOptions.interface';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -21,7 +21,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ]
 })
 export class AlertWindowComponent implements OnInit {
-    public showNotification: boolean = false;
+    public showNotification: boolean = <boolean>false;
     public notificationOptions!: INotificationOptions | null;
     private _onDestroyEvent$: Subject<void> = new Subject<void>();
 
@@ -29,7 +29,7 @@ export class AlertWindowComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this._alertifyServiceService.subject$
+        this._alertifyServiceService.makeNewAlert()
             .pipe(
                 takeUntil(this._onDestroyEvent$)
             )

@@ -7,7 +7,7 @@ import { PeopleService } from '../../services/people.service';
 import { GeneralService } from '../../../spa/services/general.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
-import { AlertWindowComponent } from '../../../alert-window/alert-window.component';
+import { AlertWindowComponent } from '../../../../general-components/components/alert-window/alert-window.component';
 import { AlertifyServiceService } from '../../../../services/alertify-service.service';
 
 @Component({
@@ -47,8 +47,7 @@ export class LoginReactFormComponent implements OnInit {
             next: (u: IUser) => {
                 this._cookieService.set('id', u.id.toString());
                 this._singletonService.setLoggedIn(true);
-                this._alertifyServiceService.statusAlert = 'success';
-                this._alertifyServiceService.subject$.next({
+                this._alertifyServiceService.makeNewAlert().next({
                     text: 'Successful login.',
                     status: 'success',
                 });

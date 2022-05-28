@@ -26,7 +26,7 @@ export class PersonalMainPageComponent implements OnInit {
     public user?: IUser;
     public savCardsObs$?: BehaviorSubject<ISavingsAccount[] | null>;
     public cardsUser$?: BehaviorSubject<ICard[] | null>;
-    public loading: boolean = true;
+    public loaded: boolean = <boolean> false;
 
     @ViewChild('advertising', { read: ViewContainerRef })
     private _viewRef?: ViewContainerRef;
@@ -46,9 +46,7 @@ export class PersonalMainPageComponent implements OnInit {
         this._singletoneService.loggedUser
             .subscribe({
                 next: (user: IUser) => this.user = user,
-                complete: () => setTimeout( () => {
-                    this.loading = false;
-                }, 100)
+                complete: () => this.loaded = true,
             });
         this._breadcrumbService.set('@MainPage', 'Main Page');
         this.fondCardsService.getSavingsAccount()

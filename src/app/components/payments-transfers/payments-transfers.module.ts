@@ -11,7 +11,6 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/fo
 import { PaymentsAnotherClientCheckComponent } from './components/payments-another/payments-another-client-check/payments-another-client-check.component';
 import { CheckClientCardService } from './services/check-client-card.service';
 import { PaymentsAnotherClientSumComponent } from './components/payments-another/payments-another-client-sum/payments-another-client-sum.component';
-import { SkeletoneLoadingModule } from '../loading/skeletone-loading.module';
 import { PaymentsAnotherAnnouncementComponent } from './components/payments-another/payments-another-announcement/payments-another-announcement.component';
 import { PaymentBetweenFillingDetailsComponent } from './components/payments-between-account/payment-between-filling-details/payment-between-filling-details.component';
 import { PaymentBetweenConfirmationComponent } from './components/payments-between-account/payment-between-confirmation/payment-between-confirmation.component';
@@ -40,7 +39,6 @@ import { GeneralComponentsModule } from '../../general-components/general-compon
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        SkeletoneLoadingModule,
         BreadcrumbModule,
         GeneralComponentsModule,
     ],

@@ -29,7 +29,6 @@ export class CheckClientCardService {
     constructor(
         private _fondCardsService: FondCardsService,
         private _http: HttpClient,
-        private _factoryCardHistory: FactoryCardHistory,
         private _peopleService: PeopleService,
     ) {
         this.user = _fondCardsService.userService;

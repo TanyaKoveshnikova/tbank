@@ -164,6 +164,46 @@
       "doneRUB": "0",
       "idCreator": 4,
       "id": 16
+    },
+    {
+      "name": "test",
+      "endDate": "2022-05-29",
+      "goalRUB": "5",
+      "doneRUB": "0",
+      "idCreator": 4,
+      "id": 17
+    },
+    {
+      "name": "Кекс",
+      "endDate": "2022-05-29",
+      "goalRUB": "1",
+      "doneRUB": "0",
+      "idCreator": 4,
+      "id": 18
+    },
+    {
+      "name": "Кекс",
+      "endDate": "2022-06-05",
+      "goalRUB": "2",
+      "doneRUB": "0",
+      "idCreator": 4,
+      "id": 19
+    },
+    {
+      "name": "Кекси",
+      "endDate": "2022-06-03",
+      "goalRUB": "55",
+      "doneRUB": "0",
+      "idCreator": 1,
+      "id": 20
+    },
+    {
+      "name": "Всеволод",
+      "endDate": "2022-05-29",
+      "goalRUB": "2",
+      "doneRUB": "0",
+      "idCreator": 1,
+      "id": 21
     }
   ],
   "cardsUsers": [
@@ -236,6 +276,13 @@
       "cardNumber": "1745 9160 8562 9746",
       "idCreator": 1,
       "id": 10
+    },
+    {
+      "cardName": "hogwarts travel",
+      "RUB": "0",
+      "cardNumber": "2982 7062 6139 2341",
+      "idCreator": 4,
+      "id": 11
     }
   ],
   "contentNewCard": [

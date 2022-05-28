@@ -1,0 +1,7 @@
+<div @explanatoryWindow
+     *ngIf="notificationOptions && showNotification">
+    <div  class="notification-container" *ngIf="notificationOptions.status === 'success'" [ngStyle]="{'background' : '#082f06'}">
+        {{ notificationOptions.text }}
+    </div>
+    <div   class="notification-container"  *ngIf="notificationOptions.status === 'error'"> {{ notificationOptions.text }}</div>
+</div>
