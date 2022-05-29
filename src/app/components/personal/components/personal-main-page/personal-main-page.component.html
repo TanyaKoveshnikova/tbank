@@ -39,13 +39,13 @@
                             </div>
                             <div class="value__image__container">
                                 <div class="value__container">
-                                    <div class="value_el bold">{{ (cardsUser$  | async)[0].cardName | titlecase}}</div>
-                                    <div class="value_el bold">{{(cardsUser$  | async)[0].RUB}}
+                                    <div class="value_el bold">{{ (cardsUser$  | async)[0]?.cardName | titlecase}}</div>
+                                    <div class="value_el bold">{{(cardsUser$  | async)[0]?.RUB}}
                                         <img class="img__ruble" src="../../../../../assets/images/ruble_icon.svg"
                                              alt="ruble icon">
                                     </div>
                                 </div>
-                                <div class="value_el">... {{(cardsUser$  | async)[0].cardNumber | slice:-5}}</div>
+                                <div class="value_el">... {{(cardsUser$  | async)[0]?.cardNumber | slice:-5}}</div>
                             </div>
                         </div>
                     </div>

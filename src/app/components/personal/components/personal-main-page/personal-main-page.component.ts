@@ -79,12 +79,12 @@ export class PersonalMainPageComponent implements OnInit {
         this._router.navigate(['../personal-main-page'], { relativeTo: this._route });
     }
 
-    public createSavingsAcc(event: any): void {
+    public createSavingsAcc(event: Event): void {
         event.stopPropagation();
         this._router.navigate(['./createSavingsAccount'], { relativeTo: this._route });
     }
 
-    public createCard(event: any): void {
+    public createCard(event: Event): void {
         event.stopPropagation();
         this._router.navigate(['./createNewCard'], { relativeTo: this._route });
     }

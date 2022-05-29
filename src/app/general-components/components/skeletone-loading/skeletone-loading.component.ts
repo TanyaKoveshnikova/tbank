@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'skeletone-loading',
@@ -20,15 +20,19 @@ export class SkeletoneLoadingComponent implements OnInit {
     public ngOnInit(): void {
     }
 
-    public getMyStyles(): any {
-        const myStyles: any = {
+    public getMyStyles(): IStyles {
+        return {
             'width': this.width !== '1rem' ? this.width : '',
             'height': this.height !== '1rem' ? this.height : '',
-            'border-radius': this.circle ? '50%' : ''
+            'borderRadius': this.circle ? '50%' : ''
         };
-
-        return myStyles;
     }
+}
+
+interface IStyles {
+    'width': string,
+    'height': string,
+    'borderRadius': string,
 }
 
 

@@ -1,13 +1,11 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { CanDeactivate, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { IUser } from '../../../spa/interfaces/IUser.interface';
 import { PeopleService } from '../../services/people.service';
 import { GeneralService } from '../../../spa/services/general.service';
 import { CookieService } from 'ngx-cookie-service';
-import { ExitAboutGuard } from '../../../spa/guards/exit.about.guard';
-import { AlertWindowComponent } from '../../../../general-components/components/alert-window/alert-window.component';
 import { AlertifyServiceService } from '../../../../services/alertify-service.service';
 
 @Component({
@@ -56,7 +54,7 @@ export class LoginReactFormComponent implements OnInit {
             complete: () => {
                 this.login.reset();
             },
-            error: (error: any) => {
+            error: (error: Error) => {
                 throw Error('You have entered non-existent data' + error);
             }
         });

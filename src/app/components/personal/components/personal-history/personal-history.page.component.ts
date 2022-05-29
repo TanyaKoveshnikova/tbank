@@ -45,7 +45,7 @@ export class PersonalHistoryPageComponent implements OnInit {
         this.closeModel();
     }
 
-    public handleClick(event: any): void {
+    public handleClick(event: Event): void {
         event.stopPropagation();
     }
 

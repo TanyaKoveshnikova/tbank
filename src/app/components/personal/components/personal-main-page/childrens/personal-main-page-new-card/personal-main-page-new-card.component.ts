@@ -37,8 +37,6 @@ export class PersonalMainPageNewCardComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.informationNewCard$ = this._getDataService.getInformationNewCard();
-
         this._getDataService.getInformationNewCard()
             .subscribe({
                 next: (cards: IInformationNewCard[]) => {
@@ -51,9 +49,11 @@ export class PersonalMainPageNewCardComponent implements OnInit {
                     }
                 }
             });
+
+        this.informationNewCard$ = this._getDataService.getInformationNewCard();
     }
 
-    public handleClick(event: any): void {
+    public handleClick(event: Event): void {
         event.stopPropagation();
     }
 

@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { amountValidator } from '../../../validators/amountValidator';
 import { FondCardsService } from '../../../../personal/services/fond-cards.service';
 import { IUser } from '../../../../spa/interfaces/IUser.interface';
 import { CheckClientCardService } from '../../../services/check-client-card.service';
@@ -44,9 +43,8 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         this.createForm();
     }
 
-    public onClickCard(card: any): void {
+    public onClickCard(): void {
         this.activeCardMoney = this._checkClientCardService.transformMoneyInNumber(this.selectedCardUser.RUB);
-        console.log(this.selectedCardUser.RUB + ' card.target.value');
     }
 
     public sendMoney(): void {
@@ -54,8 +52,8 @@ export class PaymentsAnotherClientSumComponent implements OnInit {
         this._checkClientCardService.transferAmount = sumTransfer;
         const cardClient: ICard | undefined = this._checkClientCardService.findCardClientForTransitions;
         if (cardClient && this.findClient && cardClient.id && this.selectedCardUser.id && this.iUser) {
-            const moneyOnCardUser: number = parseInt(this.selectedCardUser.RUB.replace(' ', ''));
-            const moneyOnCard: number = parseInt(cardClient.RUB.replace(' ', ''));
+            const moneyOnCardUser: number =  this._checkClientCardService.transformMoneyInNumber(this.selectedCardUser.RUB);
+            const moneyOnCard: number = this._checkClientCardService.transformMoneyInNumber(cardClient.RUB);
             const sumTransferDone: number = moneyOnCard + sumTransfer;
             const moneyMinusSum: number = moneyOnCardUser - sumTransfer;
             this._checkClientCardService.patchAmountMoneyOnCardUser(sumTransferDone, cardClient?.id);

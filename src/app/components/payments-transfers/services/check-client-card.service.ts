@@ -3,14 +3,11 @@ import { FondCardsService } from '../../personal/services/fond-cards.service';
 import { map, Observable } from 'rxjs';
 import { IUser } from '../../spa/interfaces/IUser.interface';
 import { HttpClient } from '@angular/common/http';
-import { FactoryCardHistory } from '../../../../libs/factory.history/factory';
 import { PeopleService } from '../../login/services/people.service';
 import { ICard } from '../../spa/interfaces/ICard.interface';
 
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable()
 export class CheckClientCardService {
     private static formattingMoney(needFormatNumber: number): string {
         return new Intl.NumberFormat('ru-RU').format(needFormatNumber);

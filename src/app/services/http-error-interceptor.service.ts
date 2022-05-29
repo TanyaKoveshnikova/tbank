@@ -12,7 +12,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     constructor(private _alertify: AlertWindowComponent) {
     }
 
-    public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    public intercept(req: HttpRequest<string>, next: HttpHandler): Observable<HttpEvent<string>> {
         return next.handle(req)
             .pipe(
                 catchError((error: HttpErrorResponse) => {

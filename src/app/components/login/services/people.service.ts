@@ -1,14 +1,14 @@
 import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { IUser } from '../../spa/interfaces/IUser.interface';
 import { FondCardsService } from '../../personal/services/fond-cards.service';
-import { Auth } from '@angular/fire/auth';
 import { GeneralService } from '../../spa/services/general.service';
-import { filter, find, Observable, pipe, switchMap, tap } from 'rxjs';
+import {  Observable, switchMap} from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { ICard } from '../../spa/interfaces/ICard.interface';
+import { AlertifyServiceService } from '../../../services/alertify-service.service';
 
 
 @Injectable({
@@ -22,17 +22,17 @@ export class PeopleService {
 
     @ViewChild('password')
     public passwordInput!: ElementRef;
-    private _urlSignupUser: string = 'http://localhost:3000/signupUsers';
-    private _urlCreateCard: string = 'http://localhost:3000/cardsUsers';
+    private _urlSignupUser: string = <string>'http://localhost:3000/signupUsers';
+    private _urlCreateCard: string = <string>'http://localhost:3000/cardsUsers';
 
 
     constructor(
         private _http: HttpClient,
         private _router: Router,
         private _fondCard: FondCardsService,
-        private _auth: Auth,
         private _cookieService: CookieService,
         private _singletonService: GeneralService,
+        private _alertifyServiceService: AlertifyServiceService,
     ) {
     }
 
@@ -69,8 +69,10 @@ export class PeopleService {
         this.postUser(newUser)
             .subscribe({
                 next: () => {
-                    alert('Signup Successful');
-                    //todo: перекинуть создание модального окна успешной регистрации
+                    this._alertifyServiceService.makeNewAlert().next({
+                        text: 'You have successfully registered.',
+                        status: 'success',
+                    });
                     this._router.navigate(['admin', 'login']);
                 },
                 error: () => {
@@ -90,7 +92,6 @@ export class PeopleService {
         return this._http.get<IUser[]>(this._urlSignupUser);
     }
 
-    //для получение обновленных данных юзера
     public getLoginUser(): Observable<IUser> {
         const mail: string = this._cookieService.get('mail');
         const password: string = this._cookieService.get('password');
@@ -114,7 +115,7 @@ export class PeopleService {
             );
     }
 
-
+    //для получение обновленных данных юзера
     public getLoginUserUpdate(): Observable<IUser> {
         const id: string = this._cookieService.get('id');
 

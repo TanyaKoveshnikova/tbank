@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, publishReplay, refCount } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IInformationNewCard } from '../interfaces/IInformationNewCard.interface';
 import { PeopleService } from '../../login/services/people.service';
@@ -10,15 +10,23 @@ import { ICard } from '../../spa/interfaces/ICard.interface';
     providedIn: 'root'
 })
 export class GetDataService {
+    private _informationNewCard?: Observable<IInformationNewCard[]>;
+    private _urlNewCard: string = <string>'http://localhost:3000/contentNewCard';
+    private _urlCreateCard: string = <string>'http://localhost:3000/cardsUsers';
 
-    private _urlNewCard: string = 'http://localhost:3000/contentNewCard';
-    private _urlCreateCard: string = 'http://localhost:3000/cardsUsers';
-
-    constructor(private _http: HttpClient,public fondCardsService: FondCardsService,) {
+    constructor(private _http: HttpClient, public fondCardsService: FondCardsService,) {
     }
 
-    public getInformationNewCard(): Observable<IInformationNewCard[]>{
-        return this._http.get<IInformationNewCard[]>(this._urlNewCard);
+    public getInformationNewCard(): Observable<IInformationNewCard[]> {
+        if (!this._informationNewCard) {
+            this._informationNewCard = this._http.get<IInformationNewCard[]>(this._urlNewCard)
+                .pipe(
+                    publishReplay(),
+                    refCount(),
+                );
+        }
+
+        return this._informationNewCard;
     }
 
     public sendOnServerNewCard(cardName: string, idCreator: number): void {

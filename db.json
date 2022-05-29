@@ -68,142 +68,6 @@
       "doneRUB": "100",
       "idCreator": 3,
       "id": 4
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-03",
-      "goalRUB": "10",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 5
-    },
-    {
-      "name": "test2",
-      "endDate": "2022-05-10",
-      "goalRUB": "2",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 6
-    },
-    {
-      "name": "test3",
-      "endDate": "2022-05-10",
-      "goalRUB": "3",
-      "doneRUB": "0",
-      "idCreator": 3,
-      "id": 7
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-12",
-      "goalRUB": "10",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 8
-    },
-    {
-      "name": "test2",
-      "endDate": "2022-05-22",
-      "goalRUB": "50",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 9
-    },
-    {
-      "name": "test3",
-      "endDate": "2022-05-21",
-      "goalRUB": "1",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 10
-    },
-    {
-      "name": "testv",
-      "endDate": "2022-05-28",
-      "goalRUB": "50",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 11
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-28",
-      "goalRUB": "100",
-      "doneRUB": "39",
-      "idCreator": 4,
-      "id": 12
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-27",
-      "goalRUB": "50 000 000",
-      "doneRUB": "201",
-      "idCreator": 4,
-      "id": 13
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-27",
-      "goalRUB": "543",
-      "doneRUB": "1",
-      "idCreator": 4,
-      "id": 14
-    },
-    {
-      "name": "ggg",
-      "endDate": "2022-06-04",
-      "goalRUB": "323",
-      "doneRUB": "5",
-      "idCreator": 4,
-      "id": 15
-    },
-    {
-      "name": "hhh",
-      "endDate": "2022-05-28",
-      "goalRUB": "555",
-      "doneRUB": "0",
-      "idCreator": 4,
-      "id": 16
-    },
-    {
-      "name": "test",
-      "endDate": "2022-05-29",
-      "goalRUB": "5",
-      "doneRUB": "0",
-      "idCreator": 4,
-      "id": 17
-    },
-    {
-      "name": "Кекс",
-      "endDate": "2022-05-29",
-      "goalRUB": "1",
-      "doneRUB": "0",
-      "idCreator": 4,
-      "id": 18
-    },
-    {
-      "name": "Кекс",
-      "endDate": "2022-06-05",
-      "goalRUB": "2",
-      "doneRUB": "0",
-      "idCreator": 4,
-      "id": 19
-    },
-    {
-      "name": "Кекси",
-      "endDate": "2022-06-03",
-      "goalRUB": "55",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 20
-    },
-    {
-      "name": "Всеволод",
-      "endDate": "2022-05-29",
-      "goalRUB": "2",
-      "doneRUB": "0",
-      "idCreator": 1,
-      "id": 21
     }
   ],
   "cardsUsers": [
@@ -243,46 +107,11 @@
       "id": 5
     },
     {
-      "cardName": "hogwarts travel",
-      "RUB": "0",
-      "cardNumber": "1781 4706 1129 1155",
-      "idCreator": 4,
-      "id": 6
-    },
-    {
-      "cardName": "Digital hogCard world",
-      "RUB": "-500",
-      "cardNumber": "4574 2682 6120 4326",
-      "idCreator": 4,
-      "id": 7
-    },
-    {
       "cardName": "standard muggle",
       "RUB": "84 028",
       "cardNumber": "4546 3752 8239 2354",
       "idCreator": 5,
       "id": 8
-    },
-    {
-      "cardName": "hogwarts travel",
-      "RUB": "0",
-      "cardNumber": "1391 6165 7124 7846",
-      "idCreator": 4,
-      "id": 9
-    },
-    {
-      "cardName": "hogwarts travel",
-      "RUB": "0",
-      "cardNumber": "1745 9160 8562 9746",
-      "idCreator": 1,
-      "id": 10
-    },
-    {
-      "cardName": "hogwarts travel",
-      "RUB": "0",
-      "cardNumber": "2982 7062 6139 2341",
-      "idCreator": 4,
-      "id": 11
     }
   ],
   "contentNewCard": [

@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PersonalHomeAfterAuthComponent } from './components/personal-home-after-auth/personal-home-after-auth.component';
 import { PersonalHistoryPageComponent } from './components/personal-history/personal-history.page.component';
-import { PaymentsTransfersComponent } from '../payments-transfers/components/payments-transfers/payments-transfers.component';
 import { PersonalMainPageComponent } from './components/personal-main-page/personal-main-page.component';
 import { PersonalMainPageSavingAccountComponent } from './components/personal-main-page/childrens/personal-main-page-saving-account/personal-main-page-saving-account.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
-import { PersonalAutoPaymentsComponent } from './components/personal-auto-payments/personal-auto-payments.component';
-import { PaymentsTransfersModule } from '../payments-transfers/payments-transfers.module';
 import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
 
 

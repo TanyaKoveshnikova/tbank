@@ -51,7 +51,7 @@ export class PersonalMainPageSavingAccountComponent implements OnInit, ExitAbout
         }
     }
 
-    public handleClick(event: any): void {
+    public handleClick(event: Event): void {
         event.stopPropagation();
     }
 

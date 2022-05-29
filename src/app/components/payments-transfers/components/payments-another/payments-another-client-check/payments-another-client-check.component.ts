@@ -31,7 +31,7 @@ export class PaymentsAnotherClientCheckComponent implements OnInit {
     private findNeedClient(): void {
         this._checkClientCardService.findClient()
             .subscribe({
-                next: (value: any) => {
+                next: (value: Observable<IUser> | undefined) => {
                     if (value === undefined) {
                         this.isString = true;
                         this.loaded = true;

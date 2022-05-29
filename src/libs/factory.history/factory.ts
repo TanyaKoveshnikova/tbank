@@ -5,6 +5,7 @@ import { FromSomeone } from './types-actions/fromSomeone';
 import { BetweenAccounts } from './types-actions/betweenAccounts';
 import { Withdrawal } from './types-actions/withdrawal';
 import { ICard } from '../../app/components/spa/interfaces/ICard.interface';
+import { ICommon } from './interfaces/ICommon.interface';
 
 
 @Injectable({
@@ -22,21 +23,21 @@ export class FactoryCardHistory {
         const moneyTransfer: string = FactoryCardHistory.formattingMoney(transferAmount);
         if (type === 'fromSomeone' && client) {
             const senderName: string = user.name + ' ' + user.surname;
-            const createdClass: any = new FromSomeone(senderName, moneyTransfer, card, client.id);
-            const bodyRequest: any = createdClass.createForm();
+            const createdClass: FromSomeone = new FromSomeone(senderName, moneyTransfer, card, client.id);
+            const bodyRequest: ICommon = createdClass.createForm();
             this._sendCardHistory.postFromSomeone(createdClass.urlMyHistory, bodyRequest);
         }
 
         if (type === 'betweenAccounts' && savAccName) {
-            const createdClass: any = new BetweenAccounts(savAccName, moneyTransfer, card, user.id);
-            const bodyRequest: any = createdClass.createForm();
+            const createdClass: BetweenAccounts = new BetweenAccounts(savAccName, moneyTransfer, card, user.id);
+            const bodyRequest: ICommon = createdClass.createForm();
             this._sendCardHistory.postBetweenAccounts(createdClass.urlMyHistory, bodyRequest);
         }
 
         if (type === 'withdrawal' && client) {
             const clientName: string = client?.name + ' ' + client?.surname;
-            const createdClass: any = new Withdrawal(clientName, moneyTransfer, card, user.id);
-            const bodyRequest: any = createdClass.createForm();
+            const createdClass: Withdrawal = new Withdrawal(clientName, moneyTransfer, card, user.id);
+            const bodyRequest: ICommon = createdClass.createForm();
             this._sendCardHistory.postWithdrawal(createdClass.urlMyHistory, bodyRequest);
         }
     }
