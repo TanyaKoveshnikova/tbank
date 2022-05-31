@@ -16,6 +16,8 @@ export class FondCardsService implements OnInit {
         return new Intl.NumberFormat('ru-RU').format(amount);
     }
 
+    public chosenSavingAccClose!: ISavingsAccount;
+
     public id?: number;
     //Юзер, чей банк
     public userService!: IUser;

@@ -63,7 +63,6 @@ export class PaymentBetweenFillingDetailsComponent implements OnInit, OnDestroy 
         const valueMoney: number = this.f['sum'].value;
         if (this.selectedValue?.doneRUB && this.selectedValue.id && this.selectedCard.id) {
             const endMoneyUser: number = this._checkClientCardService.transformMoneyInNumber(this.selectedCard.RUB) - valueMoney;
-            console.log(this.selectedCard.id);
             this._checkClientCardService.patchAmountMoneyOnCardUser(endMoneyUser, this.selectedCard.id);
 
             const savAccMoneyNumber: number = this._checkClientCardService.transformMoneyInNumber(this.selectedValue?.doneRUB);

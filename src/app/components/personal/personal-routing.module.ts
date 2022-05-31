@@ -7,6 +7,7 @@ import { PersonalMainPageSavingAccountComponent } from './components/personal-ma
 import { AuthGuard } from './guards/auth.guard';
 import { ExitAboutGuard } from '../spa/guards/exit.about.guard';
 import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
+import { PersonalMainPageCloseSavAccountComponent } from './components/personal-main-page/childrens/personal-main-page-close-sav-account/personal-main-page-close-sav-account.component';
 
 
 const childrenRoutes: Routes = [
@@ -42,6 +43,13 @@ const childrenRoutes: Routes = [
                 canDeactivate: [ExitAboutGuard],
                 canActivate: [AuthGuard],
                 data: { breadcrumb: { alias: 'Create new card' } },
+            },
+            {
+                path: 'closeCard', // child route path
+                component: PersonalMainPageCloseSavAccountComponent, // child route component that the router renders
+                canDeactivate: [ExitAboutGuard],
+                canActivate: [AuthGuard],
+                data: { breadcrumb: { alias: 'Close Card' } },
             }
         ]
     }

@@ -19,6 +19,8 @@ import { HintHostListenerDirective } from './directives/hint-host-listener.direc
 import { PersonalMainPageNewCardComponent } from './components/personal-main-page/childrens/personal-main-page-new-card/personal-main-page-new-card.component';
 import { GetDataService } from './services/get-data.service';
 import { GeneralComponentsModule } from '../../general-components/general-components.module';
+import { CheckClientCardService } from '../payments-transfers/services/check-client-card.service';
+import { PersonalMainPageCloseSavAccountComponent } from './components/personal-main-page/childrens/personal-main-page-close-sav-account/personal-main-page-close-sav-account.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { GeneralComponentsModule } from '../../general-components/general-compon
         PersonalAutoPaymentsComponent,
         PersonalAdvertisingComponent,
         HintHostListenerDirective,
-        PersonalMainPageNewCardComponent
+        PersonalMainPageNewCardComponent,
+        PersonalMainPageCloseSavAccountComponent
     ],
     entryComponents: [
         PersonalAdvertisingComponent,
@@ -50,6 +53,7 @@ import { GeneralComponentsModule } from '../../general-components/general-compon
         ExitAboutGuard,
         AuthGuard,
         PersonalHistoryService,
+        CheckClientCardService,
     ]
 })
 export class PersonalModule {

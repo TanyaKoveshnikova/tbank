@@ -80,5 +80,10 @@ export class CheckClientCardService {
                 'doneRUB': money,
             }).subscribe();
     }
+
+    public deleteSavingAccount(idSavCard: number): void {
+        const url: string = this._urlSavAccount + '/' + idSavCard;
+        this._http.delete(url).subscribe();
+    }
 }
 

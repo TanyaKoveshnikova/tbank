@@ -1,0 +1,14 @@
+<div class="wrapper" (click)="handleClick($event)">
+    <div class="title">Choose the card to transfer your money to</div>
+    <select [(ngModel)]="selectedCard">
+        <option *ngFor="let cards of cardUser$ | async" [ngValue]="cards">
+            ... {{cards?.cardNumber | slice:-5}} [{{cards?.cardName}}
+            ] {{cards?.RUB}}
+        </option>
+    </select>
+    <spa-middle-button text="Return to the homepage."
+                       (btnClick)="sendOnServer()"
+                       [isDisabled]="false"
+                       setWidthStyle="60%"
+    ></spa-middle-button>
+</div>

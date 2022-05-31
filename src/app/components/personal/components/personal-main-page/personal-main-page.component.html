@@ -88,7 +88,16 @@
                 </div>
                 <br>
             </summary>
-            <ul class="value__list" *ngFor="let acc of savCardsObs$ | async; let i = index">
+            <ul class="value__list" *ngFor="let acc of savCardsObs$ | async; let i = index"
+                [class.green]="doNumber(acc?.doneRUB) >= doNumber(acc?.goalRUB) / 4 "
+                [class.yelow]="doNumber(acc?.doneRUB) >= doNumber(acc?.goalRUB) / 2 "
+                [class.red]="doNumber(acc?.doneRUB) >= doNumber(acc?.goalRUB)">
+                <div *ngIf="doNumber(acc?.doneRUB) >= doNumber(acc?.goalRUB)" class="crossDiv">
+                    <button>
+                        <img src="../../../../../assets/images/payments-transfers_img/cross.svg" alt="cross."
+                        (click)="closeCard($event, acc)">
+                    </button>
+                </div>
                 <li class="value summary__value">
                     <div class="value__image__container">
                         <img class="image__card fox_image" src="https://randomfox.ca/images/{{i+1}}.jpg"

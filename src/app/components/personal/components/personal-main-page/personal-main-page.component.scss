@@ -7,6 +7,33 @@ $colorHeaFoot: rgba(107, 102, 102, 0.08);
     color: black;
     margin: 3em;
 
+    .green{
+        background-color: rgba(3, 192, 3, 0.51);
+    }
+
+    .yelow{
+        background-color: rgba(197, 197, 0, 0.5);
+    }
+
+    .red{
+        background-color: rgba(199, 0, 0, 0.49);
+    }
+
+    .crossDiv{
+        width: 100%;
+        button{
+            display: block;
+            margin-left: auto;
+            background-color: rgba(199, 0, 0, 0.49);
+        }
+
+        img{
+            width: 1rem;
+            display: block;
+            margin-left: auto;
+        }
+    }
+
     .value {
         background-color: $colorCards;
         min-width: 10em;

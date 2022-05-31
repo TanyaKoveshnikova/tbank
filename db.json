@@ -41,7 +41,7 @@
       "name": "на мозг",
       "endDate": "2022-04-29",
       "goalRUB": "100 000 000 000",
-      "doneRUB": "915",
+      "doneRUB": "935",
       "idCreator": 1,
       "id": 1
     },
@@ -73,7 +73,7 @@
   "cardsUsers": [
     {
       "cardName": "maestro payCard",
-      "RUB": "136 914",
+      "RUB": "136 894",
       "cardNumber": "3743 9124 2025 3967",
       "idCreator": 1,
       "id": 1
@@ -274,6 +274,82 @@
       },
       "typeTransaction": "fromSomeone",
       "id": 5
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test",
+      "operationName": "Translations",
+      "transferAmount": "35",
+      "date": 1653994386519,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "maestro payCard",
+          "RUB": "136 914",
+          "cardNumber": "3743 9124 2025 3967",
+          "idCreator": 1,
+          "id": 1
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 6
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "на мозг",
+      "operationName": "Translations",
+      "transferAmount": "20",
+      "date": 1653994397910,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "maestro payCard",
+          "RUB": "136 879",
+          "cardNumber": "3743 9124 2025 3967",
+          "idCreator": 1,
+          "id": 1
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 7
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test",
+      "operationName": "Translations",
+      "transferAmount": "20",
+      "date": 1653995533246,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "maestro payCard",
+          "RUB": "136 859",
+          "cardNumber": "3743 9124 2025 3967",
+          "idCreator": 1,
+          "id": 1
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 8
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test",
+      "operationName": "Translations",
+      "transferAmount": "25",
+      "date": 1653997910619,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "maestro payCard",
+          "RUB": "136 894",
+          "cardNumber": "3743 9124 2025 3967",
+          "idCreator": 1,
+          "id": 1
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 9
     }
   ],
   "history2": [

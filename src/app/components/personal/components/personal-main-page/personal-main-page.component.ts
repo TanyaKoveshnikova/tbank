@@ -15,6 +15,7 @@ import { GeneralService } from '../../../spa/services/general.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { PersonalAdvertisingComponent } from '../personal-advertising/personal-advertising.component';
 import { ICard } from '../../../spa/interfaces/ICard.interface';
+import { CheckClientCardService } from '../../../payments-transfers/services/check-client-card.service';
 
 
 @Component({
@@ -39,6 +40,7 @@ export class PersonalMainPageComponent implements OnInit {
         private _peopleService: PeopleService,
         private _singletoneService: GeneralService,
         private _breadcrumbService: BreadcrumbService,
+        private _checkClientCardService: CheckClientCardService,
     ) {
     }
 
@@ -89,6 +91,12 @@ export class PersonalMainPageComponent implements OnInit {
         this._router.navigate(['./createNewCard'], { relativeTo: this._route });
     }
 
+    public closeCard(event: Event, card: ISavingsAccount): void{
+        this.fondCardsService.chosenSavingAccClose = card;
+        event.stopPropagation();
+        this._router.navigate(['./closeCard'], { relativeTo: this._route });
+    }
+
     public onChanged(): void {
         this._viewRef?.clear();
         setTimeout(() => {
@@ -96,6 +104,10 @@ export class PersonalMainPageComponent implements OnInit {
                 this._componentRef = this._viewRef.createComponent(PersonalAdvertisingComponent);
             }
         }, 3000);
+    }
+
+    public doNumber(str: string): number{
+        return this._checkClientCardService.transformMoneyInNumber(str);
     }
 }
 
