@@ -45,11 +45,10 @@ export class PersonalMainPageCloseSavAccountComponent implements OnInit {
         if (this.selectedCard.id && this._savingAccount.id) {
             const endMoneyUser: number = this._checkClientCardService.transformMoneyInNumber(this.selectedCard.RUB) + this._checkClientCardService.transformMoneyInNumber(this._savingAccount.doneRUB);
             this._checkClientCardService.patchAmountMoneyOnCardUser(endMoneyUser, this.selectedCard.id);
-            console.log('delete');
             this._checkClientCardService.deleteSavingAccount(this._savingAccount.id);
             this._router.navigate(['/personal/' + this.idUser + '/personal-main-page']);
             this._alertifyServiceService.makeNewAlert().next({
-                text: 'You have created a new savings account.',
+                text: 'You have closed your savings account.',
                 status: 'success',
             });
         }

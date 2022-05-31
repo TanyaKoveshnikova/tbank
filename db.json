@@ -68,6 +68,14 @@
       "doneRUB": "100",
       "idCreator": 3,
       "id": 4
+    },
+    {
+      "name": "test1",
+      "endDate": "2022-06-03",
+      "goalRUB": "20",
+      "doneRUB": "15",
+      "idCreator": 4,
+      "id": 5
     }
   ],
   "cardsUsers": [
@@ -94,14 +102,14 @@
     },
     {
       "cardName": "classic payCard",
-      "RUB": "71 647",
+      "RUB": "71 592",
       "cardNumber": "7218 2937 2039 4406",
       "idCreator": 4,
       "id": 4
     },
     {
       "cardName": "standard standard",
-      "RUB": "98 985",
+      "RUB": "99 080",
       "cardNumber": "8131 3494 1141 4903",
       "idCreator": 4,
       "id": 5
@@ -633,6 +641,120 @@
       },
       "typeTransaction": "withdrawal",
       "id": 14
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test1",
+      "operationName": "Translations",
+      "transferAmount": "15",
+      "date": 1654003801839,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "98 985",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 15
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "test2",
+      "operationName": "Translations",
+      "transferAmount": "26",
+      "date": 1654003817524,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "98 970",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 16
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "tes3",
+      "operationName": "Translations",
+      "transferAmount": "35",
+      "date": 1654004096567,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "standard standard",
+          "RUB": "98 970",
+          "cardNumber": "8131 3494 1141 4903",
+          "idCreator": 4,
+          "id": 5
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 17
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "testik",
+      "operationName": "Translations",
+      "transferAmount": "25",
+      "date": 1654004355710,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 647",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 18
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "Кекс",
+      "operationName": "Translations",
+      "transferAmount": "55",
+      "date": 1654004992934,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 647",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 19
+    },
+    {
+      "fromWhom": "between accounts",
+      "whatAccountName": "Кекс",
+      "operationName": "Translations",
+      "transferAmount": "55",
+      "date": 1654004992934,
+      "interactionWhichAccount": {
+        "card": {
+          "cardName": "classic payCard",
+          "RUB": "71 647",
+          "cardNumber": "7218 2937 2039 4406",
+          "idCreator": 4,
+          "id": 4
+        },
+        "textOperation": "From card account"
+      },
+      "typeTransaction": "betweenAccounts",
+      "id": 20
     }
   ],
   "history5": [],

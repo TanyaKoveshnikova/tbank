@@ -5,6 +5,7 @@ import { IUser } from '../../spa/interfaces/IUser.interface';
 import { HttpClient } from '@angular/common/http';
 import { PeopleService } from '../../login/services/people.service';
 import { ICard } from '../../spa/interfaces/ICard.interface';
+import { ISavingsAccount } from '../../spa/interfaces/ISavingsAccount.interface';
 
 
 @Injectable()
@@ -83,7 +84,23 @@ export class CheckClientCardService {
 
     public deleteSavingAccount(idSavCard: number): void {
         const url: string = this._urlSavAccount + '/' + idSavCard;
-        this._http.delete(url).subscribe();
+        this._http.delete(url).subscribe({
+            complete: () => {
+                this._fondCardsService.getCardsUser()
+                    .subscribe({
+                        next: (cards: ICard[]) => {
+                            this._fondCardsService.cardUser$.next(cards);
+                        }
+                    });
+
+                this._fondCardsService.getSavingsAccount()
+                    .subscribe({
+                        next: (acc: ISavingsAccount[]) => {
+                            this._fondCardsService.savAcc$.next(acc);
+                        },
+                    });
+            }
+        });
     }
 }
 
