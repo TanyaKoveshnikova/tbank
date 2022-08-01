@@ -1,5 +1,5 @@
 # Tbank
-![](../../../../../Desktop/tbank-video.gif)
+![image](tbank-video.gif)
 
 Educational project for learning different functions of Angular.
 
